@@ -50,6 +50,12 @@ def main(argv):
                 print(c, 'is a capital letter')
             elif c in numbers:
                 print(c, 'is a number')
+            elif c == ' ':
+                print(c, 'is a blank space')
+            elif c == '\n':
+                print('this position is a end line')
+            else:
+                print(c, 'is not a valid symbol')
 
 
 main(sys.argv[1:])
