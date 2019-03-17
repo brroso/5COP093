@@ -36,26 +36,27 @@ def main(argv):
             output_file = arg
     print('Input file is "', input_file, '"')
     print('Output file is "', output_file, '"')
+    file = open(output_file, "w")
     with open(input_file) as f:
         while True:
             c = f.read(1)
             if not c:
-                print('End of file')
+                print('End of file', file=file)
                 break
             if c in special_symbols:
-                print(c, 'is a special symbol')
+                print(c, 'is a special symbol', file=file)
             elif c in letters:
                 print(c, 'is a letter')
             elif c in cap_letters:
-                print(c, 'is a capital letter')
+                print(c, 'is a capital letter', file=file)
             elif c in numbers:
-                print(c, 'is a number')
+                print(c, 'is a number', file=file)
             elif c == ' ':
                 print(c, 'is a blank space')
             elif c == '\n':
-                print('this position is a end line')
+                print('this position is a end line', file=file)
             else:
-                print(c, 'is not a valid symbol')
+                print(c, 'is not a valid symbol', file=file)
 
 
 main(sys.argv[1:])
