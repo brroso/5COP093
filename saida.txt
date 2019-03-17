@@ -43,6 +43,11 @@ o is a letter
 . . is a double special symbol
 . . is a double special symbol
 . is a special symbol
+  is a blank space
+( * is a double special symbol
+( is a special symbol
+) is a special symbol
+) is a special symbol
 this position is a end line
 b is a letter
 b is a letter
@@ -64,6 +69,14 @@ f is a letter
   is a blank space
 @ is not a valid symbol
 @ is not a valid symbol
+< = is a double special symbol
+  is a blank space
+< is a special symbol
+< is a special symbol
+< is a special symbol
+< is a special symbol
+  is a blank space
+< > is a double special symbol
 this position is a end line
 this position is a end line
 ) is a special symbol
