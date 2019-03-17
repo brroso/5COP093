@@ -3,7 +3,7 @@ import getopt   # biblioteca utilizada na separação dos argumentos
 
 
 def main(argv):
-
+    # declaração do alfabeto
     input_file = ''
     output_file = ''
     special_symbols = [
@@ -24,7 +24,7 @@ def main(argv):
                     ]
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-    try:
+    try:  # leitura dos argumentos
         opts, args = getopt.getopt(argv, "hi:o:", ["ifile=", "ofile="])
     except getopt.GetoptError:
         print('main.py -i <inputfile> -o <outputfile>')
@@ -40,10 +40,10 @@ def main(argv):
     print('Input file is "', input_file, '"')
     print('Output file is "', output_file, '"')
     output = open(output_file, "w")
-    with open(input_file, "a") as appending:
+    with open(input_file, "a") as appending:  # adiciona \n no fim do arquivo
         appending.write('\n')
         appending.close()
-    with open(input_file, "r") as f:
+    with open(input_file, "r") as f:  # roda todo o arquivo char por char
         while True:
             c = f.read(1)
             if not c:
@@ -53,13 +53,13 @@ def main(argv):
                 print(c, 'is a special symbol', file=output)
             elif c in special_symbols2:
                 if c == ':':
-                    aux = f.read(1)
+                    aux = f.read(1)  # coloca no auxiliar a proxima letra
                     if aux == '=':
                         print(c, aux, 'is a double special symbol',
                               file=output)
                     else:
                         print(c, 'is a special symbol', file=output)
-                        f.seek(f.tell()-1)
+                        f.seek(f.tell()-1)  # devolve o ponteiro
                 if c == '(':
                     aux = f.read(1)
                     if aux == '*':
@@ -109,9 +109,10 @@ def main(argv):
             elif c == ' ':
                 print(c, 'is a blank space', file=output)
             elif c == '\n':
-                print('this position is a end line', file=output)
+                print('this is a \\n', file=output)
             else:
                 print(c, 'is not a valid symbol', file=output)
+    output.close()
 
 
 main(sys.argv[1:])
