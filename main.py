@@ -40,13 +40,10 @@ def main(argv):
     print('Input file is "', input_file, '"')
     print('Output file is "', output_file, '"')
     output = open(output_file, "w")
-    with open(input_file, "a") as appending:  # adiciona \n no fim do arquivo
-        appending.write('\n')
-        appending.close()
     with open(input_file, "r") as f:  # roda todo o arquivo char por char
         while True:
             c = f.read(1)
-            if not c:
+            if not c or c == '\0':
                 print('End of file', file=output)
                 break
             elif c in special_symbols:
