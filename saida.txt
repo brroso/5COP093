@@ -1,17 +1,71 @@
 A is a capital letter
+b is a letter
+c is a letter
+  is a blank space
 2 is a number
+  is a blank space
 1 is a number
+  is a blank space
 * is a special symbol
+( * is a double special symbol
 ( is a special symbol
-* is a special symbol
-* is a special symbol
+  is a blank space
 ) is a special symbol
+) is a special symbol
+  is a blank space
+  is a blank space
+) is a special symbol
+  is a blank space
+* is a special symbol
+  is a blank space
+* is a special symbol
+  is a blank space
+* is a special symbol
+  is a blank space
+* is a special symbol
+  is a blank space
+  is a blank space
+  is a blank space
+: = is a double special symbol
 this position is a end line
+m is a letter
+a is a letter
+r is a letter
+u is a letter
+j is a letter
+o is a letter
+  is a blank space
+: is a special symbol
+: is a special symbol
+  is a blank space
+( * is a double special symbol
+  is a blank space
+. . is a double special symbol
+. . is a double special symbol
+. is a special symbol
+this position is a end line
+b is a letter
+b is a letter
+  is a blank space
+s is a letter
+  is a blank space
+a is a letter
+  is a blank space
 3 is a number
+e is a letter
+  is a blank space
 1 is a number
+  is a blank space
 2 is a number
+  is a blank space
 3 is a number
+  is a blank space
+f is a letter
+  is a blank space
 @ is not a valid symbol
 @ is not a valid symbol
+this position is a end line
+this position is a end line
+) is a special symbol
 this position is a end line
 End of file

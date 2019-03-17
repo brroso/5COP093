@@ -7,11 +7,14 @@ def main(argv):
     input_file = ''
     output_file = ''
     special_symbols = [
-                        '\'', ',', ';', ')', '=', '*', '[', ']', '{', '}', ':',
-                        '(', '*', '.', '>', '<', '+', '-'
+                        '\'', ',', ';', ')', '=', '[', ']', '{', '}'
+                        ]
+    special_symbols2 = [
+                       ':', '(', '*', '.', '>', '<', '-', '+'
                         ]
     letters = [
-                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
+                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+                'm',
                 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
                 ]
     cap_letters = [
@@ -36,27 +39,76 @@ def main(argv):
             output_file = arg
     print('Input file is "', input_file, '"')
     print('Output file is "', output_file, '"')
-    file = open(output_file, "w")
-    with open(input_file) as f:
+    output = open(output_file, "w")
+    with open(input_file, "r") as f:
         while True:
             c = f.read(1)
             if not c:
-                print('End of file', file=file)
+                print('End of file', file=output)
                 break
-            if c in special_symbols:
-                print(c, 'is a special symbol', file=file)
+            elif c in special_symbols:
+                print(c, 'is a special symbol', file=output)
+            elif c in special_symbols2:
+                if c == ':':
+                    aux = f.read(1)
+                    if aux == '=':
+                        print(c, aux, 'is a double special symbol',
+                              file=output)
+                    else:
+                        print(c, 'is a special symbol', file=output)
+                        f.seek(f.tell()-1)
+                if c == '(':
+                    aux = f.read(1)
+                    if aux == '*':
+                        print(c, aux, 'is a double special symbol',
+                              file=output)
+                    else:
+                        print(c, 'is a special symbol', file=output)
+                        f.seek(f.tell()-1)
+                if c == '*':
+                    aux = f.read(1)
+                    if aux == ')':
+                        print(c, aux, 'is a double special symbol',
+                              file=output)
+                    else:
+                        print(c, 'is a special symbol', file=output)
+                        f.seek(f.tell()-1)
+                if c == '.':
+                    aux = f.read(1)
+                    if aux == '.':
+                        print(c, aux, 'is a double special symbol',
+                              file=output)
+                    else:
+                        print(c, 'is a special symbol', file=output)
+                        f.seek(f.tell()-1)
+                if c == '>':
+                    aux = f.read(1)
+                    if aux == '=':
+                        print(c, aux, 'is a double special symbol',
+                              file=output)
+                    else:
+                        print(c, 'is a special symbol', file=output)
+                        f.seek(f.tell()-1)
+                if c == '<':
+                    aux = f.read(1)
+                    if aux == '=' or aux == '>':
+                        print(c, aux, 'is a double special symbol',
+                              file=output)
+                    else:
+                        print(c, 'is a special symbol', file=output)
+                        f.seek(f.tell()-1)
             elif c in letters:
-                print(c, 'is a letter')
+                print(c, 'is a letter', file=output)
             elif c in cap_letters:
-                print(c, 'is a capital letter', file=file)
+                print(c, 'is a capital letter', file=output)
             elif c in numbers:
-                print(c, 'is a number', file=file)
+                print(c, 'is a number', file=output)
             elif c == ' ':
-                print(c, 'is a blank space')
+                print(c, 'is a blank space', file=output)
             elif c == '\n':
-                print('this position is a end line', file=file)
+                print('this position is a end line', file=output)
             else:
-                print(c, 'is not a valid symbol', file=file)
+                print(c, 'is not a valid symbol', file=output)
 
 
 main(sys.argv[1:])
