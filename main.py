@@ -108,14 +108,43 @@ def main(argv):
                     if aux == 'n':
                         aux = f.read(1)
                         if aux == 'd':
-                            print('palavra reservada and', file=output)
+                            aux = f.read(1)
+                            if aux == ' ':
+                                print('palavra reservada and', file=output)
+                            else:
+                                f.seek(f.tell()-3)
+                                print(c, 'is a letter', file=output)
                         else:
                             f.seek(f.tell()-2)
-                            print(c,' is a letter', file=output)
+                            print(c, ' is a letter', file=output)
+                    elif aux == 'r':
+                        aux = f.read(1)
+                        if aux == 'r':
+                            aux = f.read(1)
+                            if aux == 'a':
+                                aux = f.read(1)
+                                if  aux == 'y':
+                                    aux = f.read(1)
+                                    if aux == ' ':
+                                        print('palavra reservada array',
+                                                file=output)
+                                    else:
+                                        f.seek(f.tell()-5)
+                                        print(c, 'is a letter',file=output)
+                                else:
+                                    f.seek(f.tell()-4)
+                                    print(c, 'is a letter', file=output)
+                            else:
+                                f.seek(f.tell()-3)
+                                print(c, 'is a letter', file=output)
+                        else:
+                            f.seek(f.tell()-2)
+                            print(c, 'is a letter', file=output)
                     else:
                         f.seek(f.tell()-1)
                         print(c,' is a letter', file=output)
-                print(c, 'is a letter', file=output)
+                else:
+                    print(c, 'is a letter', file=output)
             elif c in cap_letters:
                 print(c, 'is a capital letter', file=output)
             elif c in numbers:
