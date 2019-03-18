@@ -1,8 +1,0 @@
-t is a letter
-e is a letter
-s is a letter
-t is a letter
-e is a letter
-. is a special symbol
-this is a \n
-End of file
