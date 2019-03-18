@@ -69,6 +69,9 @@ special_symbols = [
 special_symbols2 = [
                     ':', '(', '*', '.', '>', '<', '-', '+'
                     ]
+not_final_states = [
+                    16,20,22
+                    ]
 letters = [
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
             'm',
@@ -96,7 +99,7 @@ def get_column(c):
         return 5
     if c == '<':
         return 6
-    if c == '\':
+    if c == '\\':
         return 7
     if c == ',':
         return 8
