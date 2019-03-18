@@ -2,6 +2,11 @@ import sys  # biblioteca responsável pela manipulação de elementos do sistema
 import getopt   # biblioteca utilizada na separação dos argumentos
 
 
+# palavras reservadas: and, array, asm, begin, case, const, constructor,
+# destructor, div, do, downto, else, end, file, for, foward, function, goto,
+# if, implementation, in, inline, interface, label, mod, nil, not, object,
+# of, or, packed, procedure, program, record, repeat, set, shl, shr, string
+# string, then, to, type, unit, until, uses, var, while, whit, xor
 def main(argv):
     # declaração do alfabeto
     input_file = ''
