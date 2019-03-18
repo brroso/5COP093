@@ -114,6 +114,7 @@ def main(argv):
                 print('this is a \\n', file=output)
             else:
                 print(c, 'is not a valid symbol', file=output)
+                break
     output.close()
 
 
