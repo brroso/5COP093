@@ -103,6 +103,18 @@ def main(argv):
                         print(c, 'is a special symbol', file=output)
                         f.seek(f.tell()-1)
             elif c in letters:
+                if c == 'a':
+                    aux = f.read(1)
+                    if aux == 'n':
+                        aux = f.read(1)
+                        if aux == 'd':
+                            print('palavra reservada and', file=output)
+                        else:
+                            f.seek(f.tell()-2)
+                            print(c,' is a letter', file=output)
+                    else:
+                        f.seek(f.tell()-1)
+                        print(c,' is a letter', file=output)
                 print(c, 'is a letter', file=output)
             elif c in cap_letters:
                 print(c, 'is a capital letter', file=output)
