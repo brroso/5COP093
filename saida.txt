@@ -1,7 +1,14 @@
-palavra reservada and
-a is a letter
+palavra reservada xor
+x  is a letter
+o is a letter
+o is a letter
+o is a letter
+o is a letter
+r is a letter
   is a blank space
-a  is a letter
-a is a letter
-n is a letter
-  is a blank space
+o is a letter
+r is a letter
+r is a letter
+r is a letter
+r is a letter
+End of file

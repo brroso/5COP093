@@ -6,7 +6,7 @@ import getopt   # biblioteca utilizada na separação dos argumentos
 # destructor, div, do, downto, else, end, file, for, foward, function, goto,
 # if, implementation, in, inline, interface, label, mod, nil, not, object,
 # of, or, packed, procedure, program, record, repeat, set, shl, shr, string
-# string, then, to, type, unit, until, uses, var, while, whit, xor
+# string, then, to, type, unit, until, uses, var, while, with, xor
 def main(argv):
     # declaração do alfabeto
     input_file = ''
@@ -111,11 +111,28 @@ def main(argv):
                             print('palavra reservada and', file=output)
                         else:
                             f.seek(f.tell()-2)
-                            print(c,' is a letter', file=output)
+                            print(c, ' is a letter', file=output)
                     else:
                         f.seek(f.tell()-1)
-                        print(c,' is a letter', file=output)
-                print(c, 'is a letter', file=output)
+                        print(c, ' is a letter', file=output)
+                elif c == 'x':
+                    aux = f.read(1)
+                    if aux == 'o':
+                        aux = f.read(1)
+                        if aux == 'r':
+                            aux = f.read(1)
+                            if aux == ' ':
+                                print('palavra reservada xor', file=output)
+                            else:
+                                f.seek(f.tell()-3)
+                        else:
+                            f.seek(f.tell()-2)
+                            print(c, ' is a letter', file=output)
+                    else:
+                        f.seek(f.tell()-1)
+                        print(c, ' is a letter', file=output)
+                else:
+                    print(c, 'is a letter', file=output)
             elif c in cap_letters:
                 print(c, 'is a capital letter', file=output)
             elif c in numbers:
