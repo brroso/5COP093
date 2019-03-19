@@ -84,6 +84,21 @@ numbers = [
             ]
 
 
+def validation(c):
+    if c in special_symbols:
+        return 1
+    elif c in special_symbols2:
+        return 1
+    elif c in letters or c in cap_letters:
+        return 1
+    elif c in numbers:
+        return 1
+    elif c == ' ' or c == '\n':
+        return 1
+    else:
+        return 0
+
+
 def get_column(c):
     if c == ':':
         return 0
@@ -157,6 +172,9 @@ def main(argv):
     with open(input_file, "r") as f:  # roda todo o arquivo char por char
         atom = f.read(1)
         while atom:
+            if not validation(atom):
+                print(atom, 'entrada invalida')
+                f.read(1)
             col = get_column(atom)
             state = states[int(cur_state)][int(col)]
             if state == -1 or atom == ' ':
