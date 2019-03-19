@@ -38,7 +38,7 @@ states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
              -1, -1, -1, -1, 17],  # q16
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, -1],  # q17
+             -1, -1, -1, -1, 17],  # q17
             [-1, -1, -1, 20, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
              -1, -1, -1, -1, 18],  # q18
             [-1, -1, -1, 22, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
@@ -46,11 +46,11 @@ states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
              -1, -1, -1, -1, 21],  # q20
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, -1],  # q21
+             -1, -1, -1, -1, 21],  # q21
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
              -1, -1, -1, -1, 23],  # q22
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, -1],  # q23
+             -1, -1, -1, -1, 23],  # q23
             ]
 palavras_reservadas = [
                         'and', 'array', 'asm', 'begin', 'case', 'const',
@@ -86,56 +86,58 @@ numbers = [
 
 def get_column(c):
     if c == ':':
+        return 0
+    elif c == '(':
         return 1
-    if c == '(':
+    elif c == '*':
         return 2
-    if c == '*':
+    elif c == '.':
         return 3
-    if c == '.':
+    elif c == '>':
         return 4
-    if c == '>':
+    elif c == '<':
         return 5
-    if c == '<':
+    elif c == '\\':
         return 6
-    if c == '\\':
+    elif c == ',':
         return 7
-    if c == ',':
+    elif c == ';':
         return 8
-    if c == ';':
+    elif c == ')':
         return 9
-    if c == ')':
+    elif c == '=':
         return 10
-    if c == '=':
+    elif c == '*':
         return 11
-    if c == '*':
+    elif c == '[':
         return 12
-    if c == '[':
+    elif c == ']':
         return 13
-    if c == ']':
+    elif c == '{':
         return 14
-    if c == '{':
+    elif c == '}':
         return 15
-    if c == '}':
+    elif c == '_':
         return 16
-    if c == '_':
+    elif c == '-':
         return 17
-    if c == '-':
+    elif c == '+':
         return 18
-    if c == '+':
+    elif c in letters or c in cap_letters:
         return 19
-    if c in letters or c in cap_letters:
+    elif c in numbers:
         return 20
-    if c in numbers:
-        return 21
+    else:
+        return -1
 
 
 def main(argv):
     # declaração do alfabeto
+    cur_state = 0
     for x in states:
         print(x)
     input_file = ''
     output_file = ''
-
     try:  # leitura dos argumentos
         opts, args = getopt.getopt(argv, "hi:o:", ["ifile=", "ofile="])
     except getopt.GetoptError:
@@ -153,76 +155,16 @@ def main(argv):
     print('Output file is "', output_file, '"')
     output = open(output_file, "w")
     with open(input_file, "r") as f:  # roda todo o arquivo char por char
-        c = f.read(1)
-        while c:
-            c = f.read(1)
-            if not c or c == '\0':
-                print('End of file', file=output)
-                break
-            elif c in special_symbols:
-                print(c, 'is a special symbol', file=output)
-            elif c in special_symbols2:
-                if c == ':':
-                    aux = f.read(1)  # coloca no auxiliar a proxima letra
-                    if aux == '=':
-                        print(c, aux, 'is a double special symbol',
-                              file=output)
-                    else:
-                        print(c, 'is a special symbol', file=output)
-                        f.seek(f.tell()-1)  # devolve o ponteiro
-                if c == '(':
-                    aux = f.read(1)
-                    if aux == '*':
-                        print(c, aux, 'is a double special symbol',
-                              file=output)
-                    else:
-                        print(c, 'is a special symbol', file=output)
-                        f.seek(f.tell()-1)
-                if c == '*':
-                    aux = f.read(1)
-                    if aux == ')':
-                        print(c, aux, 'is a double special symbol',
-                              file=output)
-                    else:
-                        print(c, 'is a special symbol', file=output)
-                        f.seek(f.tell()-1)
-                if c == '.':
-                    aux = f.read(1)
-                    if aux == '.':
-                        print(c, aux, 'is a double special symbol',
-                              file=output)
-                    else:
-                        print(c, 'is a special symbol', file=output)
-                        f.seek(f.tell()-1)
-                if c == '>':
-                    aux = f.read(1)
-                    if aux == '=':
-                        print(c, aux, 'is a double special symbol',
-                              file=output)
-                    else:
-                        print(c, 'is a special symbol', file=output)
-                        f.seek(f.tell()-1)
-                if c == '<':
-                    aux = f.read(1)
-                    if aux == '=' or aux == '>':
-                        print(c, aux, 'is a double special symbol',
-                              file=output)
-                    else:
-                        print(c, 'is a special symbol', file=output)
-                        f.seek(f.tell()-1)
-            elif c in letters:
-                print(c, 'is a letter', file=output)
-            elif c in cap_letters:
-                print(c, 'is a capital letter', file=output)
-            elif c in numbers:
-                print(c, 'is a number', file=output)
-            elif c == ' ':
-                print(c, 'is a blank space', file=output)
-            elif c == '\n':
-                print('this is a \\n', file=output)
+        atom = f.read(1)
+        while atom:
+            col = get_column(atom)
+            state = states[int(cur_state)][int(col)]
+            if state == -1 or atom == ' ':
+                print('state', cur_state)
+                cur_state = 0
             else:
-                print(c, 'is not a valid symbol', file=output)
-                break
+                cur_state = state
+            atom = f.read(1)
     output.close()
 
 
