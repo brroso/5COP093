@@ -172,15 +172,19 @@ def main(argv):
     with open(input_file, "r") as f:  # roda todo o arquivo char por char
         atom = f.read(1)
         while atom:
-            if not validation(atom):
+            while atom == ' ':
+                atom = f.read(1)
+                cur_state = 0
+            while not validation(atom):
                 print(atom, 'entrada invalida')
-                cur_state = 0;
-                f.read(1)
+                cur_state = 0
+                atom = f.read(1)
             col = get_column(atom)
             state = states[int(cur_state)][int(col)]
-            if state == -1 or atom == ' ':
+            if state == -1:
                 print('state', cur_state)
                 cur_state = 0
+                f.seek(f.tell()-1)
             else:
                 cur_state = state
             atom = f.read(1)
