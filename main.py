@@ -174,6 +174,7 @@ def main(argv):
         while atom:
             if not validation(atom):
                 print(atom, 'entrada invalida')
+                cur_state = 0;
                 f.read(1)
             col = get_column(atom)
             state = states[int(cur_state)][int(col)]
