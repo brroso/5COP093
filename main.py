@@ -64,10 +64,11 @@ palavras_reservadas = [
                         'while', 'with', 'xor'
                         ]
 special_symbols = [
-                    '\'', ',', ';', ')', '=', '[', ']', '{', '}'
-                ]
-special_symbols2 = [
+                    '\'', ',', ';', ')', '=', '[', ']', '{', '}',
                     ':', '(', '*', '.', '>', '<', '-', '+'
+                ]
+double_special_symbol = [
+                    ':=', '(*', '*)', '..', '>=', '<=', '<>'
                     ]
 letters = [
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -93,11 +94,30 @@ real_negative_number_state = 21
 integer_state = 2
 real_number_state = 17
 
+def print_state(c, cur_state):
+    if cur_state == special_symbol_state:
+        print(c + ' é símbolo especial', cur_state)
+    elif cur_state in double_special_symbol_states:
+        print(c + ' é um símbolo especial duplo', cur_state)
+    elif cur_state == positive_number_state:
+        print(c + ' é um número positivo', cur_state)
+    elif cur_state == negative_number_state:
+        print(c + ' é um número negativo', cur_state)
+    elif cur_state == real_number_state:
+        print(c + ' é um número quebrado', cur_state)
+    elif cur_state == real_negative_number_state:
+        print(c + ' é um número quebrado negativo', cur_state)
+    elif cur_state == real_positive_number_state:
+        print(c + ' é um número quebrado positivo', cur_state)
+    elif cur_state == integer_state:
+        print(c + ' é um numero inteiro', cur_state)
+    else:
+        print(c, 'pertence ao estado', cur_state)
+
+
 
 def validation(c):
     if c in special_symbols:
-        return 1
-    elif c in special_symbols2:
         return 1
     elif c in letters or c in cap_letters:
         return 1
@@ -181,9 +201,14 @@ def main(argv):
     output = open(output_file, "w")
     with open(input_file, "r") as f:  # roda todo o arquivo char por char
         atom = f.read(1)
+        token = ''
         while atom:
             while atom == ' ':
-                atom = f.read(1)
+                if cur_state != 0:
+                    print_state(token, cur_state)
+                    atom = f.read(1)
+                cur_state = 0
+                token = ''
             while not validation(atom):
                 print(atom, 'entrada invalida')
                 cur_state = 0
@@ -191,14 +216,27 @@ def main(argv):
             col = get_column(atom)
             state = states[int(cur_state)][int(col)]
             if state == -1:
-                print('state', cur_state)
-                cur_state = 0
-                f.seek(f.tell()-1)
+                if atom in special_symbols:
+                    prox = f.read(1)
+                    if atom + prox in double_special_symbol:
+                        print('double special symbol', atom+prox)
+                        token = ''
+                        cur_state=0
+                    else:
+                        f.seek(f.tell()-1)
+                        print_state(token, cur_state)
+                        cur_state = 0
+                else:
+                    print('erro léxico', atom)
+                    break
+                token = ''
             else:
+                token = token + atom
                 cur_state = state
             atom = f.read(1)
         if atom == '':
-            print('state', cur_state)
+            cur_state = 0;
+            print_state('','fim')
     output.close()
 
 
