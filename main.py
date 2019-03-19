@@ -174,7 +174,6 @@ def main(argv):
         while atom:
             while atom == ' ':
                 atom = f.read(1)
-                cur_state = 0
             while not validation(atom):
                 print(atom, 'entrada invalida')
                 cur_state = 0
@@ -188,6 +187,8 @@ def main(argv):
             else:
                 cur_state = state
             atom = f.read(1)
+        if atom == '':
+            print('state', cur_state)
     output.close()
 
 
