@@ -82,6 +82,16 @@ cap_letters = [
 numbers = [
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
             ]
+double_special_symbol_states = [
+                                4, 9, 11, 7, 12, 14
+                            ]
+special_symbol_state = 15
+positive_number_state = 19
+negative_number_state = 18
+real_positive_number_state = 23
+real_negative_number_state = 21
+integer_state = 2
+real_number_state = 17
 
 
 def validation(c):
