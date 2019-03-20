@@ -234,7 +234,10 @@ def main(argv):
     if erro == 0:
         col = get_column(atom)
         next_state = states[int(cur_state)][int(col)]
-        print(token, next_state)
+        if next_state != -1:
+            print(token, next_state)
+        else:
+            print(token, cur_state)
     print('FIM')
     output.close()
 
