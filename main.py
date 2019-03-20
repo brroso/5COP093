@@ -236,7 +236,7 @@ def main(argv):
             print('ERRO! token', token, 'invalido')
             erro = 1
         else:
-            print('ERRO!', erro)
+            print('ERRO EM', token+atom, erro)
     #  Se programa finalizar em um estado final diferente de 0
     if erro == '':
         col = get_column(atom)
