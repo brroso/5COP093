@@ -204,10 +204,10 @@ def main(argv):
                     break
                 continue
                 #  Se o caracter não pertencer ao alfabeto:
-                if not validation(atom):
-                    erro = 'é um caracter inválido'
-                    cur_state = 0
-                    break
+            if not validation(atom):
+                erro = 'é um caracter inválido'
+                cur_state = 0
+                break
             col = get_column(atom)
             # Coloca em next_state o próximo estado do autômato
             next_state = states[int(cur_state)][int(col)]
