@@ -233,7 +233,8 @@ def main(argv):
     #  Se o programa finalizar em um estado não final
     if cur_state in non_final_states or erro != '':
         if erro == '':
-            print('ERRO! token invalido')
+            print('ERRO! token', token, 'invalido')
+            erro = 1
         else:
             print('ERRO!', erro)
     #  Se programa finalizar em um estado final diferente de 0
