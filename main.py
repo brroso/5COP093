@@ -187,7 +187,13 @@ def main(argv):
             if ind in known:  # Se o caracter ja foi tratado (símbolo duplo)
                 continue
             if atom == ' ' or atom == '\n':  # Se o caracter for um espaço
-                #  Se o token acaba em um estado final:
+                # Se o token for palavra reservada
+                if token in palavras_reservadas:
+                    print('Palavra reservada', token)
+                    cur_state = 0
+                    token = ''
+                    continue
+                # Se o token acaba em um estado final:
                 if cur_state != 0 and cur_state not in non_final_states:
                     print(token, cur_state)
                     cur_state = 0
@@ -234,7 +240,9 @@ def main(argv):
     if erro == 0:
         col = get_column(atom)
         next_state = states[int(cur_state)][int(col)]
-        if next_state != -1:
+        if token in palavras_reservadas:
+            print('Palavra reservada', token)
+        elif next_state != -1:
             print(token, next_state)
         else:
             print(token, cur_state)
