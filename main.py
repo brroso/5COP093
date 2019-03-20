@@ -180,7 +180,7 @@ def main(argv):
     output = open(output_file, "w")
     with open(input_file, "r") as f:   # Roda todo o arquivo char por char
         text = f.read()
-        erro = 0
+        erro = ''
         token = ''
         known = []
         for ind, atom in enumerate(text[:-1]):
@@ -205,8 +205,7 @@ def main(argv):
                 continue
                 #  Se o caracter não pertencer ao alfabeto:
                 if not validation(atom):
-                    print('ERRO!', atom, 'é um caracter invalido')
-                    erro = 1
+                    erro = 'é um caracter inválido'
                     cur_state = 0
                     break
             col = get_column(atom)
@@ -215,13 +214,11 @@ def main(argv):
             # Se a transição não for possível(token acabou):
             if next_state == -1:
                 if cur_state == 2 and atom in letters or atom in cap_letters:
-                    print('ERRO!identificadores não podeminiciar com numeros.')
-                    erro = 1
+                    erro = 'Identificador iniciado em numero'
                     break
                 # Se o estado que trouxe ao fim do token não for final
                 if cur_state in non_final_states:
-                    print('ERRO!', token, 'não é um token válido.')
-                    erro = 1
+                    erro = 'não é um token válido'
                     break
                 # Se o estado que trouxe ao fim do token for final
                 else:
@@ -234,10 +231,13 @@ def main(argv):
                 token = token + atom
                 cur_state = next_state
     #  Se o programa finalizar em um estado não final
-    if cur_state in non_final_states:
-        print('ERRO!', token, 'não é um token válido.')
+    if cur_state in non_final_states or erro != '':
+        if erro == '':
+            print('ERRO! token invalido')
+        else:
+            print('ERRO!', erro)
     #  Se programa finalizar em um estado final diferente de 0
-    if erro == 0:
+    if erro == '':
         col = get_column(atom)
         next_state = states[int(cur_state)][int(col)]
         if token in palavras_reservadas:
