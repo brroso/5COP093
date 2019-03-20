@@ -223,8 +223,8 @@ def main(argv):
                         token = ''
                         cur_state=0
                     else:
-                        f.seek(f.tell()-1)
                         print_state(token, cur_state)
+                        f.seek(f.tell()-2)
                         cur_state = 0
                 else:
                     print('erro léxico', atom)
