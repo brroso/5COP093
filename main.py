@@ -6,7 +6,7 @@ states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9
             [5, 8, 10, 6, 3, 13, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
              18, 19, 1, 2],  # q0
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, 1, 1],  # q1
+             1, -1, -1, 1, 1],  # q1
             [-1, -1, -1, 16, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
              -1, -1, -1, -1, 2],  # q2
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 12, -1, -1, -1, -1, -1,
@@ -93,6 +93,7 @@ real_positive_number_state = 23
 real_negative_number_state = 21
 integer_state = 2
 real_number_state = 17
+non_final_states = [20, 22, 16]
 
 
 def print_state(c, cur_state):
@@ -202,48 +203,33 @@ def main(argv):
         token = ''
         known = []
         for ind, atom in enumerate(text[:-1]):
+            print('lido', atom, 'no estado atual', cur_state)
             if ind in known:
                 continue
             if atom == ' ':
-                if cur_state != 0:
+                if cur_state != 0 and cur_state not in non_final_states:
                     print_state(token, cur_state)
+                    cur_state = 0
+                    token = ''
                     continue
-                cur_state = 0
-                token = ''
+                if cur_state in non_final_states:
+                    break
+                continue
             if not validation(atom):
-                print(atom, 'entrada invalida')
+                print('ERRO!', atom, 'é um caracter invalido')
                 cur_state = 0
-                atom = ''
+                break
             col = get_column(atom)
             state = states[int(cur_state)][int(col)]
             if state == -1:
-                if atom in special_symbols:
-                    print_state(token, cur_state)
-                    cur_state = 0
-                    state = 0
-                    prox = text[ind+1]
-                    if atom + prox in double_special_symbol:
-                        print('double special symbol', atom+prox)
-                        token = ''
-<<<<<<< HEAD
-                        cur_state=0
-                    else:
-                        print_state(token, cur_state)
-                        f.seek(f.tell()-2)
-=======
->>>>>>> 4c41917dd119d60235a423eb64d1f5226b19ad1e
-                        cur_state = 0
-                        state = 0
-                        known.append(ind+1)
-                    else:
-                        print_state(atom, cur_state)
-                else:
-                    print('erro léxico', atom)
-                    break
-                token = ''
+                print('codar aqui')
             else:
                 token = token + atom
                 cur_state = state
+    if cur_state in non_final_states:
+        print('ERRO!', token, 'não é um token válido.')
+    elif cur_state != 0:
+        print_state(token, cur_state)
     print('FIM')
     output.close()
 
