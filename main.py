@@ -95,6 +95,7 @@ integer_state = 2
 real_number_state = 17
 non_final_states = [20, 22, 16]
 
+
 #  Checa se o símbolo válido pertence ao alfabeto
 def validation(c):
     if c in special_symbols:
@@ -107,6 +108,7 @@ def validation(c):
         return 1
     else:
         return 0
+
 
 #  Pega a coluna respectiva ao caracter lido na matriz de transições
 def get_column(c):
@@ -157,11 +159,10 @@ def get_column(c):
 
 
 def main(argv):
-    # declaração do alfabeto
     cur_state = 0
     input_file = ''
     output_file = ''
-    try:  # leitura dos argumentos
+    try:   # Leitura dos argumentos
         opts, args = getopt.getopt(argv, "hi:o:", ["ifile=", "ofile="])
     except getopt.GetoptError:
         print('main.py -i <inputfile> -o <outputfile>')
@@ -177,18 +178,18 @@ def main(argv):
     print('Input file is "', input_file, '"')
     print('Output file is "', output_file, '"')
     output = open(output_file, "w")
-    with open(input_file, "r") as f:  # roda todo o arquivo char por char
+    with open(input_file, "r") as f:   # Roda todo o arquivo char por char
         text = f.read()
+        erro = 0
         token = ''
         known = []
         for ind, atom in enumerate(text[:-1]):
-            print('lido', atom, 'no estado atual', cur_state)
-            if ind in known:
+            if ind in known:  # Se o caracter ja foi tratado (símbolo duplo)
                 continue
-            if atom == ' ': #  Se o caracter for um whitespace --------
+            if atom == ' ':  # Se o caracter for um whitespace --------
                 #  Se o token acaba em um estado final:
                 if cur_state != 0 and cur_state not in non_final_states:
-                    print_state(token, cur_state)
+                    print(token, cur_state)
                     cur_state = 0
                     token = ''
                     continue
@@ -196,25 +197,44 @@ def main(argv):
                 if cur_state in non_final_states:
                     break
                 continue
-                #  Se o caracter não pertencer ao alfabeto
+                #  Se o caracter não pertencer ao alfabeto:
                 if not validation(atom):
-                print('ERRO!', atom, 'é um caracter invalido')
-                cur_state = 0
-                break
+                    print('ERRO!', atom, 'é um caracter invalido')
+                    erro = 1
+                    cur_state = 0
+                    break
             col = get_column(atom)
-             #  Coloca em state o próximo estado do autômato
-            state = states[int(cur_state)][int(col)]
-            if state == -1:
-                print('codar aqui')
+            # Coloca em next_state o próximo estado do autômato
+            next_state = states[int(cur_state)][int(col)]
+            # Se a transição não for possível(token acabou):
+            if next_state == -1:
+                if cur_state == 2 and atom in letters or atom in cap_letters:
+                    print('ERRO!identificadores não podeminiciar com numeros.')
+                    erro = 1
+                    break
+                # Se o estado que trouxe ao fim do token não for final
+                if cur_state in non_final_states:
+                    print('ERRO!', token, 'não é um token válido.')
+                    erro = 1
+                    break
+                # Se o estado que trouxe ao fim do token for final
+                else:
+                    print(token, cur_state)
+                    token = atom
+                    col = get_column(atom)
+                    cur_state = states[0][int(col)]
+            #  Se a transição for possível (token continua)
             else:
                 token = token + atom
-                cur_state = state
+                cur_state = next_state
     #  Se o programa finalizar em um estado não final
     if cur_state in non_final_states:
         print('ERRO!', token, 'não é um token válido.')
     #  Se programa finalizar em um estado final diferente de 0
-    elif cur_state != 0:
-        print_state(token, cur_state)
+    if erro == 0:
+        col = get_column(atom)
+        next_state = states[int(cur_state)][int(col)]
+        print(token, next_state)
     print('FIM')
     output.close()
 
