@@ -95,28 +95,7 @@ integer_state = 2
 real_number_state = 17
 non_final_states = [20, 22, 16]
 
-
-def print_state(c, cur_state):
-    if cur_state == special_symbol_state:
-        print(c + ' é símbolo especial', cur_state)
-    elif cur_state in double_special_symbol_states:
-        print(c + ' é um símbolo especial duplo', cur_state)
-    elif cur_state == positive_number_state:
-        print(c + ' é um número positivo', cur_state)
-    elif cur_state == negative_number_state:
-        print(c + ' é um número negativo', cur_state)
-    elif cur_state == real_number_state:
-        print(c + ' é um número quebrado', cur_state)
-    elif cur_state == real_negative_number_state:
-        print(c + ' é um número quebrado negativo', cur_state)
-    elif cur_state == real_positive_number_state:
-        print(c + ' é um número quebrado positivo', cur_state)
-    elif cur_state == integer_state:
-        print(c + ' é um numero inteiro', cur_state)
-    else:
-        print(c, 'pertence ao estado', cur_state)
-
-
+#  Checa se o símbolo válido pertence ao alfabeto
 def validation(c):
     if c in special_symbols:
         return 1
@@ -129,7 +108,7 @@ def validation(c):
     else:
         return 0
 
-
+#  Pega a coluna respectiva ao caracter lido na matriz de transições
 def get_column(c):
     if c == ':':
         return 0
@@ -206,29 +185,34 @@ def main(argv):
             print('lido', atom, 'no estado atual', cur_state)
             if ind in known:
                 continue
-            if atom == ' ':
+            if atom == ' ': #  Se o caracter for um whitespace --------
+                #  Se o token acaba em um estado final:
                 if cur_state != 0 and cur_state not in non_final_states:
                     print_state(token, cur_state)
                     cur_state = 0
                     token = ''
                     continue
+                #  Se o token acaba em um estado não final:
                 if cur_state in non_final_states:
                     break
                 continue
-            if not validation(atom):
+            if not validation(atom):  #  Se o caracter não pertencer ao alfabeto
                 print('ERRO!', atom, 'é um caracter invalido')
                 cur_state = 0
                 break
             col = get_column(atom)
-            state = states[int(cur_state)][int(col)]
+            state = states[int(cur_state)][int(col)]  #  Coloca em state o pro
+                                                        #  ximo estado do aut
             if state == -1:
                 print('codar aqui')
             else:
                 token = token + atom
                 cur_state = state
-    if cur_state in non_final_states:
+    if cur_state in non_final_states:  # Se o programa finalizar em um estado
+                                        #  não final
         print('ERRO!', token, 'não é um token válido.')
-    elif cur_state != 0:
+    elif cur_state != 0:  #  Se o token finalizar em um estado final diferente
+                            #  de 0
         print_state(token, cur_state)
     print('FIM')
     output.close()
