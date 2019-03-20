@@ -124,7 +124,7 @@ def get_column(c):
         return 4
     elif c == '<':
         return 5
-    elif c == '\\':
+    elif c == '\'':
         return 6
     elif c == ',':
         return 7
@@ -186,7 +186,7 @@ def main(argv):
         for ind, atom in enumerate(text[:-1]):
             if ind in known:  # Se o caracter ja foi tratado (símbolo duplo)
                 continue
-            if atom == ' ':  # Se o caracter for um whitespace --------
+            if atom == ' ' or atom == '\n':  # Se o caracter for um espaço
                 #  Se o token acaba em um estado final:
                 if cur_state != 0 and cur_state not in non_final_states:
                     print(token, cur_state)
