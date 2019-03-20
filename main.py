@@ -94,6 +94,7 @@ real_negative_number_state = 21
 integer_state = 2
 real_number_state = 17
 
+
 def print_state(c, cur_state):
     if cur_state == special_symbol_state:
         print(c + ' é símbolo especial', cur_state)
@@ -113,7 +114,6 @@ def print_state(c, cur_state):
         print(c + ' é um numero inteiro', cur_state)
     else:
         print(c, 'pertence ao estado', cur_state)
-
 
 
 def validation(c):
@@ -179,8 +179,6 @@ def get_column(c):
 def main(argv):
     # declaração do alfabeto
     cur_state = 0
-    for x in states:
-        print(x)
     input_file = ''
     output_file = ''
     try:  # leitura dos argumentos
@@ -200,32 +198,38 @@ def main(argv):
     print('Output file is "', output_file, '"')
     output = open(output_file, "w")
     with open(input_file, "r") as f:  # roda todo o arquivo char por char
-        atom = f.read(1)
+        text = f.read()
         token = ''
-        while atom:
-            while atom == ' ':
+        known = []
+        for ind, atom in enumerate(text[:-1]):
+            if ind in known:
+                continue
+            if atom == ' ':
                 if cur_state != 0:
                     print_state(token, cur_state)
-                    atom = f.read(1)
+                    continue
                 cur_state = 0
                 token = ''
-            while not validation(atom):
+            if not validation(atom):
                 print(atom, 'entrada invalida')
                 cur_state = 0
-                atom = f.read(1)
+                atom = ''
             col = get_column(atom)
             state = states[int(cur_state)][int(col)]
             if state == -1:
                 if atom in special_symbols:
-                    prox = f.read(1)
+                    print_state(token, cur_state)
+                    cur_state = 0
+                    state = 0
+                    prox = text[ind+1]
                     if atom + prox in double_special_symbol:
                         print('double special symbol', atom+prox)
                         token = ''
-                        cur_state=0
-                    else:
-                        f.seek(f.tell()-1)
-                        print_state(token, cur_state)
                         cur_state = 0
+                        state = 0
+                        known.append(ind+1)
+                    else:
+                        print_state(atom, cur_state)
                 else:
                     print('erro léxico', atom)
                     break
@@ -233,10 +237,7 @@ def main(argv):
             else:
                 token = token + atom
                 cur_state = state
-            atom = f.read(1)
-        if atom == '':
-            cur_state = 0;
-            print_state('','fim')
+    print('FIM')
     output.close()
 
 
