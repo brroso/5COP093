@@ -196,23 +196,24 @@ def main(argv):
                 if cur_state in non_final_states:
                     break
                 continue
-            if not validation(atom):  #  Se o caracter não pertencer ao alfabeto
+                #  Se o caracter não pertencer ao alfabeto
+                if not validation(atom):
                 print('ERRO!', atom, 'é um caracter invalido')
                 cur_state = 0
                 break
             col = get_column(atom)
-            state = states[int(cur_state)][int(col)]  #  Coloca em state o pro
-                                                        #  ximo estado do aut
+             #  Coloca em state o próximo estado do autômato
+            state = states[int(cur_state)][int(col)]
             if state == -1:
                 print('codar aqui')
             else:
                 token = token + atom
                 cur_state = state
-    if cur_state in non_final_states:  # Se o programa finalizar em um estado
-                                        #  não final
+    #  Se o programa finalizar em um estado não final
+    if cur_state in non_final_states:
         print('ERRO!', token, 'não é um token válido.')
-    elif cur_state != 0:  #  Se o token finalizar em um estado final diferente
-                            #  de 0
+    #  Se programa finalizar em um estado final diferente de 0
+    elif cur_state != 0:
         print_state(token, cur_state)
     print('FIM')
     output.close()
