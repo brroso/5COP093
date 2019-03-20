@@ -230,14 +230,16 @@ def main(argv):
             else:
                 token = token + atom
                 cur_state = next_state
-    #  Se o programa finalizar em um estado não final
+    #  Se o programa finalizar em um estado não final ou deu erro
     if cur_state in non_final_states or erro != '':
+        # Acabou em estado não final
         if erro == '':
             print('ERRO! token', token, 'invalido')
             erro = 1
+        # Deu algum erro durante o código
         else:
             print('ERRO EM', token+atom, erro)
-    #  Se programa finalizar em um estado final diferente de 0
+    #  Se programa finalizar em um estado final válido.
     if erro == '':
         col = get_column(atom)
         next_state = states[int(cur_state)][int(col)]
