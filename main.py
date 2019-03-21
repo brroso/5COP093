@@ -39,18 +39,22 @@ states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9
              -1, -1, -1, -1, 17],  # q16
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
              -1, -1, -1, -1, 17],  # q17
-            [-1, -1, -1, 20, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, 18],  # q18
-            [-1, -1, -1, 22, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, 19],  # q19
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, 21],  # q20
+             -1, -1, -1, -1, 20],  # q18
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, 21],  # q21
+             -1, -1, -1, -1, 22],  # q19
+            [-1, -1, -1, 21, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+             -1, -1, -1, -1, -1],  # q20
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, 23],  # q22
+             -1, -1, -1, -1, 24],  # q21
+            [-1, -1, -1, 23, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+             -1, -1, -1, -1, -1],  # q22
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, 23],  # q23
+             -1, -1, -1, -1, 25],  # q23
+            [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+             -1, -1, -1, -1, 24],  # q24
+            [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+             -1, -1, -1, -1, 25],  # q25
             ]
 palavras_reservadas = [
                         'and', 'array', 'asm', 'begin', 'case', 'const',
@@ -83,17 +87,41 @@ cap_letters = [
 numbers = [
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
             ]
-double_special_symbol_states = [
-                                4, 9, 11, 7, 12, 14
-                            ]
-special_symbol_state = 15
-positive_number_state = 19
-negative_number_state = 18
-real_positive_number_state = 23
-real_negative_number_state = 21
+identif_state = 1
 integer_state = 2
+special_symbol_states = [
+                        3, 5, 6, 8, 10, 13, 15, 18, 19
+                        ]
+double_special_symbol_states = [
+                                4, 7, 9, 11, 12, 14
+                                ]
 real_number_state = 17
-non_final_states = [20, 22, 16]
+negative_number_state = 20
+positive_number_state = 22
+non_final_states = [21, 23, 16]
+real_positive_number_state = 25
+real_negative_number_state = 24
+
+
+def get_state_string(state):
+    if state == identif_state:
+        return 'identificador'
+    elif state == integer_state:
+        return 'número inteiro'
+    elif state == 'special_symbol_states':
+        return 'simbolo especial'
+    elif state in double_special_symbol_states:
+        return 'simbolo especial duplo'
+    elif state == real_number_state:
+        return 'número real'
+    elif state == negative_number_state:
+        return 'número negativo'
+    elif state == 'positive_number_state':
+        return 'número positivo'
+    elif state == real_positive_number_state:
+        return 'numero real positivo'
+    elif state == real_negative_number_state:
+        return 'numero real '
 
 
 #  Checa se o símbolo válido pertence ao alfabeto

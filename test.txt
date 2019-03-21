@@ -1,5 +1,6 @@
 def main:
   if something do:
-    this_thing = that thing + 32
+    this_thing<=that thing + 32
+    9+9 - 9 -9
   else
     nevermind
