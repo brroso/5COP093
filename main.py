@@ -212,11 +212,14 @@ def main(argv):
         erro = ''
         token = ''
         known = []
+        linha = 1
         for ind, atom in enumerate(text[:-1]):
             if ind in known:  # Se o caracter ja foi tratado (símbolo duplo)
                 continue
             if atom == ' ' or atom == '\n':  # Se o caracter for um espaço
                 # Se o token for palavra reservada
+                if atom == '\n':
+                    linha = linha + 1
                 if token in palavras_reservadas:
                     print('Palavra reservada', token)
                     cur_state = 0
@@ -234,7 +237,7 @@ def main(argv):
                 continue
                 #  Se o caracter não pertencer ao alfabeto:
             if not validation(atom):
-                erro = 'é um caracter inválido'
+                erro = 'é um caracter inválido.'
                 cur_state = 0
                 break
             col = get_column(atom)
@@ -268,11 +271,11 @@ def main(argv):
     if cur_state in non_final_states or erro != '':
         # Acabou em estado não final
         if erro == '':
-            print('ERRO! token', token, 'invalido')
+            print('ERRO! token', token, 'invalido. linha:', linha)
             erro = 1
         # Deu algum erro durante o código
         else:
-            print('ERRO EM', token+atom, erro)
+            print('ERRO EM', token+atom, erro, 'linha:', linha)
     #  Se programa finalizar em um estado final válido.
     if erro == '':
         col = get_column(atom)
