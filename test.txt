@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 if x = 2.
+=======
+def main:
+  if something do:
+    this_thing = that thing + 32
+  else
+    nevermind
+>>>>>>> 83ec287ba3f4e8b5b8ae0b4d296f28d89bf707a9
