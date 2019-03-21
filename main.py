@@ -267,8 +267,6 @@ def main(argv):
             else:
                 token = token + atom
                 cur_state = next_state
-    if atom == '\n':
-        linha = linha - 1
     #  Se o programa finalizar em um estado não final ou deu erro
     if cur_state in non_final_states or erro != '':
         # Acabou em estado não final
