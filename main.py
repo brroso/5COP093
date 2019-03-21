@@ -65,7 +65,7 @@ palavras_reservadas = [
                         ]
 special_symbols = [
                     '\'', ',', ';', ')', '=', '[', ']', '{', '}',
-                    ':', '(', '*', '.', '>', '<', '-', '+'
+                    ':', '(', '*', '.', '>', '<', '-', '+', '_'
                 ]
 double_special_symbol = [
                     ':=', '(*', '*)', '..', '>=', '<=', '<>'
@@ -221,6 +221,11 @@ def main(argv):
                     erro = 'não é um token válido'
                     break
                 # Se o estado que trouxe ao fim do token for final
+                elif token in palavras_reservadas:
+                    print('Palavra reservada', token)
+                    cur_state = 0
+                    token = ''
+                    continue
                 else:
                     print(token, cur_state)
                     token = atom
