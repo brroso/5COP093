@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 a_b
+=======
+def main:
+  if 3something do:
+    this_thing<=that thing + 32
+    9+9 - 9 -9
+    !
+  else
+    nevermind
+>>>>>>> a6e7d2a93ac76285cfe57b1b1639cabb9871609f

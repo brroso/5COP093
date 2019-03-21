@@ -39,18 +39,22 @@ states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9
              -1, -1, -1, -1, 17],  # q16
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
              -1, -1, -1, -1, 17],  # q17
-            [-1, -1, -1, 20, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, 18],  # q18
-            [-1, -1, -1, 22, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, 19],  # q19
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, 21],  # q20
+             -1, -1, -1, -1, 20],  # q18
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, 21],  # q21
+             -1, -1, -1, -1, 22],  # q19
+            [-1, -1, -1, 21, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+             -1, -1, -1, -1, -1],  # q20
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, 23],  # q22
+             -1, -1, -1, -1, 24],  # q21
+            [-1, -1, -1, 23, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+             -1, -1, -1, -1, -1],  # q22
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-             -1, -1, -1, -1, 23],  # q23
+             -1, -1, -1, -1, 25],  # q23
+            [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+             -1, -1, -1, -1, 24],  # q24
+            [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+             -1, -1, -1, -1, 25],  # q25
             ]
 palavras_reservadas = [
                         'and', 'array', 'asm', 'begin', 'case', 'const',
@@ -83,17 +87,42 @@ cap_letters = [
 numbers = [
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
             ]
-double_special_symbol_states = [
-                                4, 9, 11, 7, 12, 14
-                            ]
-special_symbol_state = 15
-positive_number_state = 19
-negative_number_state = 18
-real_positive_number_state = 23
-real_negative_number_state = 21
+identif_state = 1
 integer_state = 2
+special_symbol_states = [
+                        3, 5, 6, 8, 10, 13, 15, 18, 19
+                        ]
+double_special_symbol_states = [
+                                4, 7, 9, 11, 12, 14
+                                ]
 real_number_state = 17
-non_final_states = [20, 22, 16]
+negative_number_state = 20
+positive_number_state = 22
+non_final_states = [21, 23, 16]
+real_positive_number_state = 25
+real_negative_number_state = 24
+
+
+# Identifica o estado dado
+def get_state_string(state):
+    if state == identif_state:
+        return 'identificador'
+    elif state == integer_state:
+        return 'número inteiro'
+    elif state in special_symbol_states:
+        return 'simbolo especial'
+    elif state in double_special_symbol_states:
+        return 'simbolo especial duplo'
+    elif state == real_number_state:
+        return 'número real'
+    elif state == negative_number_state:
+        return 'número negativo'
+    elif state == positive_number_state:
+        return 'número positivo'
+    elif state == real_positive_number_state:
+        return 'numero real positivo'
+    elif state == real_negative_number_state:
+        return 'numero real '
 
 
 #  Checa se o símbolo válido pertence ao alfabeto
@@ -183,11 +212,14 @@ def main(argv):
         erro = ''
         token = ''
         known = []
+        linha = 1
         for ind, atom in enumerate(text[:-1]):
             if ind in known:  # Se o caracter ja foi tratado (símbolo duplo)
                 continue
             if atom == ' ' or atom == '\n':  # Se o caracter for um espaço
                 # Se o token for palavra reservada
+                if atom == '\n':
+                    linha = linha + 1
                 if token in palavras_reservadas:
                     print('Palavra reservada', token)
                     cur_state = 0
@@ -195,7 +227,7 @@ def main(argv):
                     continue
                 # Se o token acaba em um estado final:
                 if cur_state != 0 and cur_state not in non_final_states:
-                    print(token, cur_state)
+                    print(token, get_state_string(cur_state))
                     cur_state = 0
                     token = ''
                     continue
@@ -205,7 +237,7 @@ def main(argv):
                 continue
                 #  Se o caracter não pertencer ao alfabeto:
             if not validation(atom):
-                erro = 'é um caracter inválido'
+                erro = 'é um caracter inválido.'
                 cur_state = 0
                 break
             col = get_column(atom)
@@ -227,7 +259,7 @@ def main(argv):
                     token = ''
                     continue
                 else:
-                    print(token, cur_state)
+                    print(token, get_state_string(cur_state))
                     token = atom
                     col = get_column(atom)
                     cur_state = states[0][int(col)]
@@ -239,11 +271,11 @@ def main(argv):
     if cur_state in non_final_states or erro != '':
         # Acabou em estado não final
         if erro == '':
-            print('ERRO! token', token, 'invalido')
+            print('ERRO! token', token, 'invalido. linha:', linha)
             erro = 1
         # Deu algum erro durante o código
         else:
-            print('ERRO EM', token+atom, erro)
+            print('ERRO EM', token+atom, erro, 'linha:', linha)
     #  Se programa finalizar em um estado final válido.
     if erro == '':
         col = get_column(atom)
@@ -251,9 +283,9 @@ def main(argv):
         if token in palavras_reservadas:
             print('Palavra reservada', token)
         elif next_state != -1:
-            print(token, next_state)
+            print(token, get_state_string(next_state))
         else:
-            print(token, cur_state)
+            print(token, get_state_string(cur_state))
     print('FIM')
     output.close()
 
