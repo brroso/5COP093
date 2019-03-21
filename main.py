@@ -237,7 +237,7 @@ def main(argv):
                 continue
                 #  Se o caracter não pertencer ao alfabeto:
             if not validation(atom):
-                erro = 'é um caracter inválido.'
+                erro = 'é um caracter inválido. / linha'
                 cur_state = 0
                 break
             col = get_column(atom)
@@ -246,11 +246,11 @@ def main(argv):
             # Se a transição não for possível(token acabou):
             if next_state == -1:
                 if cur_state == 2 and atom in letters or atom in cap_letters:
-                    erro = 'Identificador iniciado em numero'
+                    erro = 'Identificador iniciado em numero. /'
                     break
                 # Se o estado que trouxe ao fim do token não for final
                 if cur_state in non_final_states:
-                    erro = 'não é um token válido'
+                    erro = 'não é um token válido. /'
                     break
                 # Se o estado que trouxe ao fim do token for final
                 elif token in palavras_reservadas:
@@ -271,7 +271,7 @@ def main(argv):
     if cur_state in non_final_states or erro != '':
         # Acabou em estado não final
         if erro == '':
-            print('ERRO! token', token, 'invalido. linha:', linha)
+            print('ERRO! token', token, 'invalido. / linha:', linha)
             erro = 1
         # Deu algum erro durante o código
         else:
