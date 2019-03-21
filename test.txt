@@ -1,5 +1,10 @@
-int main ():
-  while luiz:=pica
-    barroso ri w1
-    teste
-9.
+if try:
+  x<=4 and 3>3
+  3>>3
+  9.2 aaaa_b : 4.4+. 
+
+
+
+
+
+  

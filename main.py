@@ -267,6 +267,8 @@ def main(argv):
             else:
                 token = token + atom
                 cur_state = next_state
+    if atom == '\n':
+        linha = linha - 1
     #  Se o programa finalizar em um estado não final ou deu erro
     if cur_state in non_final_states or erro != '':
         # Acabou em estado não final
@@ -286,7 +288,7 @@ def main(argv):
         # Se não for palavra reservada
         elif next_state != -1:
             if atom != '\n' and atom != ' ':
-                print(token, get_state_string(next_state))
+                print(token, get_state_string(cur_state))
         else:
             if atom != '\n' and atom != ' ':
                 print(token, get_state_string(cur_state))
