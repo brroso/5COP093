@@ -103,12 +103,13 @@ real_positive_number_state = 25
 real_negative_number_state = 24
 
 
+# Identifica o estado dado
 def get_state_string(state):
     if state == identif_state:
         return 'identificador'
     elif state == integer_state:
         return 'número inteiro'
-    elif state == 'special_symbol_states':
+    elif state in special_symbol_states:
         return 'simbolo especial'
     elif state in double_special_symbol_states:
         return 'simbolo especial duplo'
@@ -116,7 +117,7 @@ def get_state_string(state):
         return 'número real'
     elif state == negative_number_state:
         return 'número negativo'
-    elif state == 'positive_number_state':
+    elif state == positive_number_state:
         return 'número positivo'
     elif state == real_positive_number_state:
         return 'numero real positivo'
@@ -223,7 +224,7 @@ def main(argv):
                     continue
                 # Se o token acaba em um estado final:
                 if cur_state != 0 and cur_state not in non_final_states:
-                    print(token, cur_state)
+                    print(token, get_state_string(cur_state))
                     cur_state = 0
                     token = ''
                     continue
@@ -255,7 +256,7 @@ def main(argv):
                     token = ''
                     continue
                 else:
-                    print(token, cur_state)
+                    print(token, get_state_string(cur_state))
                     token = atom
                     col = get_column(atom)
                     cur_state = states[0][int(col)]
@@ -279,9 +280,9 @@ def main(argv):
         if token in palavras_reservadas:
             print('Palavra reservada', token)
         elif next_state != -1:
-            print(token, next_state)
+            print(token, get_state_string(next_state))
         else:
-            print(token, cur_state)
+            print(token, get_state_string(cur_state))
     print('FIM')
     output.close()
 
