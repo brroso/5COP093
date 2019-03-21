@@ -1,7 +1,1 @@
-def main:
-  if 3something do:
-    this_thing<=that thing + 32
-    9+9 - 9 -9
-    !
-  else
-    nevermind
+adaksjdasdkj asjkd 9.
