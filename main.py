@@ -80,7 +80,7 @@ letters = [
             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
             ]
 cap_letters = [
-                'A', 'B', 'C', 'D', 'E',  'F', 'G', 'H', 'I', 'J', 'K', 'L'
+                'A', 'B', 'C', 'D', 'E',  'F', 'G', 'H', 'I', 'J', 'K', 'L',
                 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
                 'Y', 'Z'
                 ]
@@ -245,7 +245,7 @@ def main(argv):
             next_state = states[int(cur_state)][int(col)]
             # Se a transição não for possível(token acabou):
             if next_state == -1:
-                if cur_state == 2 and atom in letters or atom in cap_letters:
+                if cur_state == 2 and (atom in letters or atom in cap_letters):
                     erro = 'Identificador iniciado em numero. /'
                     break
                 # Se o estado que trouxe ao fim do token não for final

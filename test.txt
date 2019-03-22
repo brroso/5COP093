@@ -1,10 +1,1 @@
-if try:
-  x<=4 and 3>3
-  3>>3
-  9.2 aaaa_b : 4.4+. 
-
-
-
-
-
-  
+writeln ('Hello, world.');
