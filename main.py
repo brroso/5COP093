@@ -280,12 +280,16 @@ def main(argv):
     if erro == '':
         col = get_column(atom)
         next_state = states[int(cur_state)][int(col)]
+        # Se for palavra reservada
         if token in palavras_reservadas:
             print('Palavra reservada', token)
+        # Se não for palavra reservada
         elif next_state != -1:
-            print(token, get_state_string(next_state))
+            if atom != '\n' and atom != ' ':
+                print(token, get_state_string(cur_state))
         else:
-            print(token, get_state_string(cur_state))
+            if atom != '\n' and atom != ' ':
+                print(token, get_state_string(cur_state))
     print('FIM')
     output.close()
 
