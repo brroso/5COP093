@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 program Hello;
 begin
   writeln ('Hello, world.');
@@ -35,3 +36,6 @@ if color = red then
 
 else
    writeln('please choose a color for your car');
+=======
+writeln ('Hello, world.');
+>>>>>>> 96e90d02d037bf8d5224e4fab681ecc0f62bf313
