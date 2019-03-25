@@ -225,11 +225,8 @@ def main(argv):
         text = f.read()
         erro = ''
         token = ''
-        known = []
         linha = 1
         for ind, atom in enumerate(text[:-1]):
-            if ind in known:  # Se o caracter ja foi tratado (símbolo duplo)
-                continue
             if atom == ' ' or atom == '\n':  # Se o caracter for um espaço
                 # Se o token for palavra reservada
                 if atom == '\n':
