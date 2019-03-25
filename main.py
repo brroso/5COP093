@@ -1,5 +1,17 @@
 import sys  # biblioteca responsável pela manipulação de elementos do sistema
 import getopt   # biblioteca utilizada na separação dos argumentos
+# import hash_table as ht  # biblioteca da hash_table
+
+
+class identifier:
+    """Identifier object"""
+
+    def __init__(self, name):
+        self.name = name
+
+    def getName(self):
+        return self.name
+
 
 identificadores = []  # inicialização da lista de identificadores
 states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9
@@ -189,6 +201,7 @@ def get_column(c):
 
 
 def main(argv):
+    # table = ht.new_table()
     cur_state = 0
     input_file = ''
     output_file = ''
