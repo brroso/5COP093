@@ -1,4 +1,5 @@
 if then else askjdasd
-sd ikaj  a
- [j3h2j3d]
- 23
+sd ikaj  a ; :=
+ [d a
+ :sada
+ 1:1

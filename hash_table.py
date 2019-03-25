@@ -29,3 +29,4 @@ def hash_search(table, string):
     for object in table[index]:
         if object.getName() == string:
             return object
+    return -1
