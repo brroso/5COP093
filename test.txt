@@ -4,7 +4,7 @@ type
    private
       length, width: integer;
 
-   public
+   public [:=..2]
       procedure setlength(l: integer);
       function getlength(): integer;
 
@@ -62,4 +62,4 @@ begin
    writeln('Draw a rectangle:', pr1.getlength(), ' by ' ,pr1.getwidth());
    pr1.draw;
    dispose(pr1);
-end.
+end;

@@ -69,12 +69,12 @@ states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9 \
              -1, -1, -1, -1, 25, -1],  # q25
             ]
 palavras_reservadas = [
-                        'and', 'array', 'asm', 'begin', 'break', 'case',
+                        'and', 'array', 'asm', 'begin', 'case',
                         'const', 'constructor', 'continue', 'destructor',
-                        'div', 'do', 'downto', 'else', 'end', 'false', 'file',
+                        'div', 'do', 'downto', 'else', 'end', 'file',
                         'for', 'function', 'goto', 'if', 'implementation',
                         'in', 'inline', 'interface', 'label', 'mod', 'nil',
-                        'not', 'object', 'of', 'on', 'operator', 'or',
+                        'not', 'object', 'of', 'or', 'inhirited',
                         'packed', 'procedure', 'program', 'record', 'repeat',
                         'set', 'shl', 'shr', 'string', 'then', 'to', 'true',
                         'type', 'unit', 'until', 'uses', 'var', 'while',
@@ -272,8 +272,9 @@ def main(argv):
                 # Se o estado que trouxe ao fim do token for final
                 elif token in palavras_reservadas:
                     print('Palavra reservada', token)
-                    cur_state = 0
-                    token = ''
+                    token = atom
+                    col = get_column(atom)
+                    cur_state = states[0][int(col)]
                     continue
                 else:
                     print(token, get_state_string(cur_state))
