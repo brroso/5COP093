@@ -262,6 +262,12 @@ def main(argv):
             next_state = states[int(cur_state)][int(col)]
             # Se a transição não for possível(token acabou):
             if next_state == -1:
+                if cur_state == 16 and atom == '.':
+                    print('numero inteiro', token[0])
+                    print('simbolo especial duplo ..')
+                    cur_state = 0
+                    token = ''
+                    continue
                 if cur_state == 2 and (atom in letters or atom in cap_letters):
                     erro = 'Identificador iniciado em numero. /'
                     break

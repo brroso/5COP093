@@ -1,10 +1,10 @@
-program exObjects;
+[1..2]program exObjects;
 type
    Rectangle = object
    private
       length, width: integer;
 
-   public [:=..2]
+   public
       procedure setlength(l: integer);
       function getlength(): integer;
 
