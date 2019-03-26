@@ -1,4 +1,4 @@
-[1..2]program exObjects;
+[1..]program exObjects;
 type
    Rectangle = object
    private

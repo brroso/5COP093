@@ -1,6 +1,6 @@
 import sys  # biblioteca responsável pela manipulação de elementos do sistema
 import getopt   # biblioteca utilizada na separação dos argumentos
-# import hash_table as ht  # biblioteca da hash_table
+import hash_table as ht  # biblioteca da hash_table
 
 
 class identifier:
@@ -11,6 +11,9 @@ class identifier:
 
     def getName(self):
         return self.name
+
+    def setName(self, name):
+        self.name = name
 
 
 identificadores = []  # inicialização da lista de identificadores
@@ -203,7 +206,7 @@ def get_column(c):
 
 
 def main(argv):
-    # table = ht.new_table()
+    table = ht.new_table()
     cur_state = 0
     input_file = ''
     output_file = ''
@@ -244,7 +247,18 @@ def main(argv):
                     continue
                 # Se o token acaba em um estado final:
                 if cur_state != 0 and cur_state not in non_final_states:
-                    print(token, get_state_string(cur_state))
+                    if cur_state == identif_state:
+                        if ht.hash_search(table, token) != -1:
+                            print('identificador', token, 'encontrado')
+                        else:
+                            print('identificador', token, 'adicionado')
+                            ident = identifier(token)
+                            ht.hash_insert(table, ident)
+                    else:
+                        print(token, get_state_string(cur_state))
+                        token = atom
+                        col = get_column(atom)
+                        cur_state = states[0][int(col)]
                     cur_state = 0
                     token = ''
                     continue
@@ -283,10 +297,18 @@ def main(argv):
                     cur_state = states[0][int(col)]
                     continue
                 else:
-                    print(token, get_state_string(cur_state))
-                    token = atom
-                    col = get_column(atom)
-                    cur_state = states[0][int(col)]
+                    if cur_state == identif_state:
+                        if ht.hash_search(table, token) != -1:
+                            print('identificador', token, 'encontrado')
+                        else:
+                            print('identificador', token, 'adicionado')
+                            ident = identifier(token)
+                            ht.hash_insert(table, ident)
+                    else:
+                        print(token, get_state_string(cur_state))
+                        token = atom
+                        col = get_column(atom)
+                        cur_state = states[0][int(col)]
             #  Se a transição for possível (token continua)
             else:
                 token = token + atom
@@ -309,7 +331,22 @@ def main(argv):
             print('Palavra reservada', token)
         # Se não for palavra reservada
         elif atom != '\n' and atom != ' ':
-                print(token, get_state_string(cur_state))
+                if cur_state == identif_state:
+                    if ht.hash_search(table, token) != -1:
+                        print('identificador', token, 'encontrado')
+                    else:
+                        print('identificador', token, 'adicionado')
+                        ident = identifier(token)
+                        ht.hash_insert(table, ident)
+                else:
+                    print(token, get_state_string(cur_state))
+                    token = atom
+                    col = get_column(atom)
+                    cur_state = states[0][int(col)]
+    print('Identificadores:')
+    for list in table:
+        for object in list:
+            print(object.getName())
     print('FIM')
     output.close()
 

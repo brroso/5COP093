@@ -1,4 +1,4 @@
-size = 30
+size = 211
 
 
 def new_table():
@@ -8,7 +8,6 @@ def new_table():
         new_list = []
         table.append(new_list)
         i = i + 1
-    print(table)
     return table
 
 
