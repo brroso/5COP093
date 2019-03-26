@@ -250,10 +250,16 @@ def main(argv):
                     if cur_state == identif_state:
                         if ht.hash_search(table, token) != -1:
                             print('identificador', token, 'encontrado')
+                            token = atom
+                            col = get_column(atom)
+                            cur_state = states[0][int(col)]
                         else:
                             print('identificador', token, 'adicionado')
                             ident = identifier(token)
                             ht.hash_insert(table, ident)
+                            token = atom
+                            col = get_column(atom)
+                            cur_state = states[0][int(col)]
                     else:
                         print(token, get_state_string(cur_state))
                         token = atom
@@ -300,10 +306,16 @@ def main(argv):
                     if cur_state == identif_state:
                         if ht.hash_search(table, token) != -1:
                             print('identificador', token, 'encontrado')
+                            token = atom
+                            col = get_column(atom)
+                            cur_state = states[0][int(col)]
                         else:
                             print('identificador', token, 'adicionado')
                             ident = identifier(token)
                             ht.hash_insert(table, ident)
+                            token = atom
+                            col = get_column(atom)
+                            cur_state = states[0][int(col)]
                     else:
                         print(token, get_state_string(cur_state))
                         token = atom
@@ -334,10 +346,18 @@ def main(argv):
                 if cur_state == identif_state:
                     if ht.hash_search(table, token) != -1:
                         print('identificador', token, 'encontrado')
+                        token = atom
+                        col = get_column(atom)
+                        cur_state = states[0][int(col)]
+
                     else:
                         print('identificador', token, 'adicionado')
                         ident = identifier(token)
                         ht.hash_insert(table, ident)
+                        token = atom
+                        col = get_column(atom)
+                        cur_state = states[0][int(col)]
+
                 else:
                     print(token, get_state_string(cur_state))
                     token = atom
