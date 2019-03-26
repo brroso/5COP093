@@ -241,7 +241,7 @@ def main(argv):
                 if atom == '\n':
                     linha = linha + 1
                 if token in palavras_reservadas:
-                    print('Palavra reservada', token)
+                    print('Palavra reservada', token, file=output)
                     cur_state = 0
                     token = ''
                     continue
@@ -249,19 +249,19 @@ def main(argv):
                 if cur_state != 0 and cur_state not in non_final_states:
                     if cur_state == identif_state:
                         if ht.hash_search(table, token) != -1:
-                            print('identificador', token, 'encontrado')
+                            print('identificador', token, 'encontrado', file=output)
                             token = atom
                             col = get_column(atom)
                             cur_state = states[0][int(col)]
                         else:
-                            print('identificador', token, 'adicionado')
+                            print('identificador', token, 'adicionado', file=output)
                             ident = identifier(token)
                             ht.hash_insert(table, ident)
                             token = atom
                             col = get_column(atom)
                             cur_state = states[0][int(col)]
                     else:
-                        print(token, get_state_string(cur_state))
+                        print(token, get_state_string(cur_state), file=output)
                         token = atom
                         col = get_column(atom)
                         cur_state = states[0][int(col)]
@@ -283,8 +283,8 @@ def main(argv):
             # Se a transição não for possível(token acabou):
             if next_state == -1:
                 if cur_state == 16 and atom == '.':
-                    print('numero inteiro', token[0])
-                    print('simbolo especial duplo ..')
+                    print('numero inteiro', token[0], file=output)
+                    print('simbolo especial duplo ..', file=output)
                     cur_state = 0
                     token = ''
                     continue
@@ -297,7 +297,7 @@ def main(argv):
                     break
                 # Se o estado que trouxe ao fim do token for final
                 elif token in palavras_reservadas:
-                    print('Palavra reservada', token)
+                    print('Palavra reservada', token, file=output)
                     token = atom
                     col = get_column(atom)
                     cur_state = states[0][int(col)]
@@ -305,19 +305,19 @@ def main(argv):
                 else:
                     if cur_state == identif_state:
                         if ht.hash_search(table, token) != -1:
-                            print('identificador', token, 'encontrado')
+                            print('identificador', token, 'encontrado', file=output)
                             token = atom
                             col = get_column(atom)
                             cur_state = states[0][int(col)]
                         else:
-                            print('identificador', token, 'adicionado')
+                            print('identificador', token, 'adicionado', file=output)
                             ident = identifier(token)
                             ht.hash_insert(table, ident)
                             token = atom
                             col = get_column(atom)
                             cur_state = states[0][int(col)]
                     else:
-                        print(token, get_state_string(cur_state))
+                        print(token, get_state_string(cur_state), file=output)
                         token = atom
                         col = get_column(atom)
                         cur_state = states[0][int(col)]
@@ -329,29 +329,29 @@ def main(argv):
     if cur_state in non_final_states or erro != '':
         # Acabou em estado não final
         if erro == '':
-            print('ERRO! token', token, 'invalido. / linha:', linha)
+            print('ERRO! token', token, 'invalido. / linha:', linha, file=output)
             erro = 1
         # Deu algum erro durante o código
         else:
-            print('ERRO EM', token+atom, erro, 'linha:', linha)
+            print('ERRO EM', token+atom, erro, 'linha:', linha, file=output)
     #  Se programa finalizar em um estado final válido.
     if erro == '':
         col = get_column(atom)
         next_state = states[int(cur_state)][int(col)]
         # Se for palavra reservada
         if token in palavras_reservadas:
-            print('Palavra reservada', token)
+            print('Palavra reservada', token, file=output)
         # Se não for palavra reservada
         elif atom != '\n' and atom != ' ':
                 if cur_state == identif_state:
                     if ht.hash_search(table, token) != -1:
-                        print('identificador', token, 'encontrado')
+                        print('identificador', token, 'encontrado', file=output)
                         token = atom
                         col = get_column(atom)
                         cur_state = states[0][int(col)]
 
                     else:
-                        print('identificador', token, 'adicionado')
+                        print('identificador', token, 'adicionado', file=output)
                         ident = identifier(token)
                         ht.hash_insert(table, ident)
                         token = atom
@@ -359,14 +359,14 @@ def main(argv):
                         cur_state = states[0][int(col)]
 
                 else:
-                    print(token, get_state_string(cur_state))
+                    print(token, get_state_string(cur_state), file=output)
                     token = atom
                     col = get_column(atom)
                     cur_state = states[0][int(col)]
-    print('Identificadores:')
+    print('Identificadores:', file=output)
     for list in table:
         for object in list:
-            print(object.getName())
+            print(object.getName(), file=output)
     print('FIM')
     output.close()
 
