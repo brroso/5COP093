@@ -249,12 +249,14 @@ def main(argv):
                 if cur_state != 0 and cur_state not in non_final_states:
                     if cur_state == identif_state:
                         if ht.hash_search(table, token) != -1:
-                            print('identificador', token, 'encontrado', file=output)
+                            print('identificador', token, 'encontrado',
+                                  file=output)
                             token = atom
                             col = get_column(atom)
                             cur_state = states[0][int(col)]
                         else:
-                            print('identificador', token, 'adicionado', file=output)
+                            print('identificador', token, 'adicionado',
+                                  file=output)
                             ident = identifier(token)
                             ht.hash_insert(table, ident)
                             token = atom
@@ -305,12 +307,14 @@ def main(argv):
                 else:
                     if cur_state == identif_state:
                         if ht.hash_search(table, token) != -1:
-                            print('identificador', token, 'encontrado', file=output)
+                            print('identificador', token, 'encontrado',
+                                  file=output)
                             token = atom
                             col = get_column(atom)
                             cur_state = states[0][int(col)]
                         else:
-                            print('identificador', token, 'adicionado', file=output)
+                            print('identificador', token, 'adicionado',
+                                  file=output)
                             ident = identifier(token)
                             ht.hash_insert(table, ident)
                             token = atom
@@ -329,7 +333,8 @@ def main(argv):
     if cur_state in non_final_states or erro != '':
         # Acabou em estado não final
         if erro == '':
-            print('ERRO! token', token, 'invalido. / linha:', linha, file=output)
+            print('ERRO! token', token, 'invalido. / linha:', linha,
+                  file=output)
             erro = 1
         # Deu algum erro durante o código
         else:
@@ -345,13 +350,15 @@ def main(argv):
         elif atom != '\n' and atom != ' ':
                 if cur_state == identif_state:
                     if ht.hash_search(table, token) != -1:
-                        print('identificador', token, 'encontrado', file=output)
+                        print('identificador', token, 'encontrado',
+                              file=output)
                         token = atom
                         col = get_column(atom)
                         cur_state = states[0][int(col)]
 
                     else:
-                        print('identificador', token, 'adicionado', file=output)
+                        print('identificador', token, 'adicionado',
+                              file=output)
                         ident = identifier(token)
                         ht.hash_insert(table, ident)
                         token = atom
