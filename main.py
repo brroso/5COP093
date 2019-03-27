@@ -231,7 +231,7 @@ def main(argv):
         erro = ''
         token = ''
         linha = 1
-        for ind, atom in enumerate(text[:-1]):
+        for atom in text:
             if atom == '_' and cur_state != 1:
                 erro = 'é um caracter inválido. / linha'
                 cur_state = 0
@@ -348,28 +348,26 @@ def main(argv):
             print('Palavra reservada', token, file=output)
         # Se não for palavra reservada
         elif atom != '\n' and atom != ' ':
-                if cur_state == identif_state:
-                    if ht.hash_search(table, token) != -1:
-                        print('identificador', token, 'encontrado',
-                              file=output)
-                        token = atom
-                        col = get_column(atom)
-                        cur_state = states[0][int(col)]
-
-                    else:
-                        print('identificador', token, 'adicionado',
-                              file=output)
-                        ident = identifier(token)
-                        ht.hash_insert(table, ident)
-                        token = atom
-                        col = get_column(atom)
-                        cur_state = states[0][int(col)]
-
-                else:
-                    print(token, get_state_string(cur_state), file=output)
+            if cur_state == identif_state:
+                if ht.hash_search(table, token) != -1:
+                    print('identificador', token, 'encontrado',
+                          file=output)
                     token = atom
                     col = get_column(atom)
                     cur_state = states[0][int(col)]
+                else:
+                    print('identificador', token, 'adicionado',
+                          file=output)
+                    ident = identifier(token)
+                    ht.hash_insert(table, ident)
+                    token = atom
+                    col = get_column(atom)
+                    cur_state = states[0][int(col)]
+            else:
+                print(token, get_state_string(cur_state), file=output)
+                token = atom
+                col = get_column(atom)
+                cur_state = states[0][int(col)]
     print('Identificadores:', file=output)
     for list in table:
         for object in list:
