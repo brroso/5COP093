@@ -1,4 +1,6 @@
-identificador teste adicionado
-. simbolo especial
+identificador test adicionado
+identificador sicko adicionado
+identificador sicko encontrado
 Identificadores:
-teste
+sicko
+test

@@ -151,7 +151,7 @@ def validation(c):
         return 1
     elif c in numbers:
         return 1
-    elif c == ' ' or c == '\n':
+    elif c == ' ' or c == '\n' or c == '	':
         return 1
     else:
         return 0
@@ -236,7 +236,8 @@ def main(argv):
                 erro = 'é um caracter inválido. / linha'
                 cur_state = 0
                 break
-            if atom == ' ' or atom == '\n':  # Se o caracter for um espaço
+            # Se o caracter for um espaço
+            if atom == ' ' or atom == '\n' or atom == '	':
                 # Se o token for palavra reservada
                 if atom == '\n':
                     linha = linha + 1
