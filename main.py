@@ -77,7 +77,7 @@ palavras_reservadas = [
                         'div', 'do', 'downto', 'else', 'end', 'file',
                         'for', 'function', 'goto', 'if', 'implementation',
                         'in', 'inline', 'interface', 'label', 'mod', 'nil',
-                        'not', 'object', 'of', 'or', 'inhirited',
+                        'not', 'object', 'of', 'or', 'inherited',
                         'packed', 'procedure', 'program', 'record', 'repeat',
                         'set', 'shl', 'shr', 'string', 'then', 'to', 'true',
                         'type', 'unit', 'until', 'uses', 'var', 'while',
