@@ -1,6 +1,590 @@
-identificador test adicionado
-identificador sicko adicionado
-identificador sicko encontrado
 Identificadores:
-sicko
-test
+
+keys 0
+integer 2
+aaa 17
+AAAAASK 33
+pa 33
+pd 36
+crt 41
+readkey 41
+hello 66
+H 72
+K 75
+M 77
+KeyPressed 79
+P 80
+move 81
+a 97
+b 98
+c 99
+d 100
+e 101
+f 102
+g 103
+clrscr 113
+press 123
+arrow 125
+veryweird 151
+the 153
+writeln 177
+char 202
+
+Records:
+
+-1.1 da categoria numero real negativo
+AAAAASK da categoria identificador
+:= da categoria simbolo especial composto
+program da categoria palavra reservada
+veryweird da categoria identificador
+; da categoria simbolo especial
+uses da categoria palavra reservada
+crt da categoria identificador
+; da categoria simbolo especial
+type da categoria palavra reservada
+aaa da categoria identificador
+= da categoria simbolo especial
+array da categoria palavra reservada
+[ da categoria simbolo especial
+1 da categoria número inteiro
+.. da categoria simbolo especial composto
+40 da categoria número inteiro
+, da categoria simbolo especial
+1 da categoria número inteiro
+.. da categoria simbolo especial composto
+12 da categoria número inteiro
+] da categoria simbolo especial
+of da categoria palavra reservada
+char da categoria identificador
+; da categoria simbolo especial
+var da categoria palavra reservada
+a da categoria identificador
+, da categoria simbolo especial
+b da categoria identificador
+, da categoria simbolo especial
+c da categoria identificador
+, da categoria simbolo especial
+d da categoria identificador
+, da categoria simbolo especial
+e da categoria identificador
+, da categoria simbolo especial
+pa da categoria identificador
+, da categoria simbolo especial
+pd da categoria identificador
+: da categoria simbolo especial
+integer da categoria identificador
+; da categoria simbolo especial
+f da categoria identificador
+: da categoria simbolo especial
+aaa da categoria identificador
+; da categoria simbolo especial
+g da categoria identificador
+: da categoria simbolo especial
+char da categoria identificador
+; da categoria simbolo especial
+label da categoria palavra reservada
+1 da categoria número inteiro
+, da categoria simbolo especial
+2 da categoria número inteiro
+, da categoria simbolo especial
+3 da categoria número inteiro
+, da categoria simbolo especial
+4 da categoria número inteiro
+; da categoria simbolo especial
+begin da categoria palavra reservada
+pa da categoria identificador
+:= da categoria simbolo especial composto
+1 da categoria número inteiro
+; da categoria simbolo especial
+pd da categoria identificador
+:= da categoria simbolo especial composto
+1 da categoria número inteiro
+; da categoria simbolo especial
+writeln da categoria identificador
+( da categoria simbolo especial
+' da categoria simbolo especial
+hello da categoria identificador
+' da categoria simbolo especial
+) da categoria simbolo especial
+; da categoria simbolo especial
+writeln da categoria identificador
+( da categoria simbolo especial
+' da categoria simbolo especial
+press da categoria identificador
+the da categoria identificador
+arrow da categoria identificador
+keys da categoria identificador
+to da categoria palavra reservada
+move da categoria identificador
+' da categoria simbolo especial
+) da categoria simbolo especial
+; da categoria simbolo especial
+2 da categoria número inteiro
+: da categoria simbolo especial
+IF da categoria palavra reservada
+KeyPressed da categoria identificador
+THEN da categoria palavra reservada
+BEGIN da categoria palavra reservada
+g da categoria identificador
+:= da categoria simbolo especial composto
+readkey da categoria identificador
+; da categoria simbolo especial
+CASE da categoria palavra reservada
+g da categoria identificador
+OF da categoria palavra reservada
+' da categoria simbolo especial
+H da categoria identificador
+' da categoria simbolo especial
+: da categoria simbolo especial
+begin da categoria palavra reservada
+if da categoria palavra reservada
+pd da categoria identificador
+= da categoria simbolo especial
+1 da categoria número inteiro
+then da categoria palavra reservada
+goto da categoria palavra reservada
+2 da categoria número inteiro
+; da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+pa da categoria identificador
+, da categoria simbolo especial
+pd da categoria identificador
+] da categoria simbolo especial
+:= da categoria simbolo especial composto
+; da categoria simbolo especial
+pd da categoria identificador
+:= da categoria simbolo especial composto
+pd da categoria identificador
+-1 da categoria número negativo
+; da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+pa da categoria identificador
+, da categoria simbolo especial
+pd da categoria identificador
+] da categoria simbolo especial
+:= da categoria simbolo especial composto
+' da categoria simbolo especial
+' da categoria simbolo especial
+; da categoria simbolo especial
+end da categoria palavra reservada
+; da categoria simbolo especial
+' da categoria simbolo especial
+K da categoria identificador
+' da categoria simbolo especial
+: da categoria simbolo especial
+begin da categoria palavra reservada
+if da categoria palavra reservada
+pa da categoria identificador
+= da categoria simbolo especial
+1 da categoria número inteiro
+then da categoria palavra reservada
+goto da categoria palavra reservada
+2.1 da categoria número real
+; da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+pa da categoria identificador
+, da categoria simbolo especial
+pd da categoria identificador
+] da categoria simbolo especial
+:= da categoria simbolo especial composto
+; da categoria simbolo especial
+pa da categoria identificador
+:= da categoria simbolo especial composto
+pa da categoria identificador
+-1 da categoria número negativo
+; da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+pa da categoria identificador
+, da categoria simbolo especial
+pd da categoria identificador
+] da categoria simbolo especial
+:= da categoria simbolo especial composto
+' da categoria simbolo especial
+' da categoria simbolo especial
+; da categoria simbolo especial
+end da categoria palavra reservada
+; da categoria simbolo especial
+' da categoria simbolo especial
+M da categoria identificador
+' da categoria simbolo especial
+: da categoria simbolo especial
+begin da categoria palavra reservada
+if da categoria palavra reservada
+pa da categoria identificador
+= da categoria simbolo especial
+40 da categoria número inteiro
+then da categoria palavra reservada
+goto da categoria palavra reservada
+2 da categoria número inteiro
+; da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+pa da categoria identificador
+, da categoria simbolo especial
+pd da categoria identificador
+] da categoria simbolo especial
+:= da categoria simbolo especial composto
+; da categoria simbolo especial
+pa da categoria identificador
+:= da categoria simbolo especial composto
+pa da categoria identificador
++1 da categoria número positivo
+; da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+pa da categoria identificador
+, da categoria simbolo especial
+pd da categoria identificador
+] da categoria simbolo especial
+:= da categoria simbolo especial composto
+' da categoria simbolo especial
+' da categoria simbolo especial
+; da categoria simbolo especial
+end da categoria palavra reservada
+; da categoria simbolo especial
+' da categoria simbolo especial
+P da categoria identificador
+' da categoria simbolo especial
+: da categoria simbolo especial
+begin da categoria palavra reservada
+if da categoria palavra reservada
+pd da categoria identificador
+= da categoria simbolo especial
+12 da categoria número inteiro
+then da categoria palavra reservada
+goto da categoria palavra reservada
+2 da categoria número inteiro
+; da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+pa da categoria identificador
+, da categoria simbolo especial
+pd da categoria identificador
+] da categoria simbolo especial
+:= da categoria simbolo especial composto
+; da categoria simbolo especial
+pd da categoria identificador
+:= da categoria simbolo especial composto
+pd da categoria identificador
++1 da categoria número positivo
+; da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+pa da categoria identificador
+, da categoria simbolo especial
+pd da categoria identificador
+] da categoria simbolo especial
+:= da categoria simbolo especial composto
+' da categoria simbolo especial
+' da categoria simbolo especial
+; da categoria simbolo especial
+end da categoria palavra reservada
+; da categoria simbolo especial
+end da categoria palavra reservada
+; da categoria simbolo especial
+clrscr da categoria identificador
+; da categoria simbolo especial
+for da categoria palavra reservada
+a da categoria identificador
+:= da categoria simbolo especial composto
+1 da categoria número inteiro
+to da categoria palavra reservada
+12 da categoria número inteiro
+do da categoria palavra reservada
+writeln da categoria identificador
+( da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+1 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+2 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+3 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+4 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+5 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+6 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+7 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+8 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+9 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+10 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+11 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+12 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+13 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+14 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+15 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+16 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+17 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+18 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+19 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+20 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+21 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+22 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+23 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+24 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+25 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+26 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+27 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+28 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+29 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+30 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+31 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+32 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+33 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+34 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+35 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+36 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+37 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+38 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+39 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+, da categoria simbolo especial
+f da categoria identificador
+[ da categoria simbolo especial
+40 da categoria número inteiro
+, da categoria simbolo especial
+a da categoria identificador
+] da categoria simbolo especial
+) da categoria simbolo especial
+; da categoria simbolo especial
+goto da categoria palavra reservada
+2 da categoria número inteiro
+; da categoria simbolo especial
+end da categoria palavra reservada
+else da categoria palavra reservada
+goto da categoria palavra reservada
+2 da categoria número inteiro
+; da categoria simbolo especial
+end da categoria palavra reservada
+. da categoria simbolo especial

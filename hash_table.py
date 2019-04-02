@@ -11,11 +11,13 @@ def new_table():
     return table
 
 
-def hash(string):
-    # TODO -- refazer função hash
-    value = ord(string[0])
-    value = value % size
-    return value
+def hash(key):
+    hash_value = 0
+    alfa = 7
+    for i in range(len(key)):
+        hash_value = alfa * hash_value + ord(key[i])
+    hash_value = hash_value % (size+1)
+    return hash_value
 
 
 def hash_insert(table, object):

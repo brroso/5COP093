@@ -2,6 +2,17 @@ import sys  # biblioteca responsável pela manipulação de elementos do sistema
 import getopt   # biblioteca utilizada na separação dos argumentos
 import hash_table as ht  # biblioteca da hash_table
 
+class record:
+    def __init__(self, token, category):
+        self.token = token
+        self.category = category
+    
+    def getToken(self):
+        return self.token
+
+    def getCategory(self):
+        return self.category
+
 
 class identifier:
     """Identifier object"""
@@ -72,7 +83,16 @@ states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9 \
              -1, -1, -1, -1, 25, -1],  # q25
             ]
 palavras_reservadas = [
-                        'and', 'array', 'asm', 'begin', 'case',
+                        'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE',
+                        'CONST', 'CONSTRUCTOR', 'CONTINUE', 'DESTRUCTOR',
+                        'DIV', 'DO', 'DOWNTO', 'ELSE', 'END', 'FILE',
+                        'FOR', 'FUNCTION', 'GOTO', 'IF', 'IMPLEMENTATION',
+                        'IN', 'INLINE', 'INTERFACE', 'LABEL', 'MOD', 'NIL',
+                        'NOT', 'OBJECT', 'OF', 'OR', 'INHERITED',
+                        'PACKED', 'PROCEDURE', 'PROGRAM', 'RECORD', 'REPEAT',
+                        'SET', 'SHL', 'SHR', 'STRING', 'THEN', 'TO', 'TRUE',
+                        'TYPE', 'UNIT', 'UNTIL', 'USES', 'VAR', 'WHILE',
+                        'WITH', 'XOR', 'and', 'array', 'asm', 'begin', 'case',
                         'const', 'constructor', 'continue', 'destructor',
                         'div', 'do', 'downto', 'else', 'end', 'file',
                         'for', 'function', 'goto', 'if', 'implementation',
@@ -130,7 +150,7 @@ def get_state_string(state):
     elif state in special_symbol_states:
         return 'simbolo especial'
     elif state in double_special_symbol_states:
-        return 'simbolo especial duplo'
+        return 'simbolo especial composto'
     elif state == real_number_state:
         return 'número real'
     elif state == negative_number_state:
@@ -140,7 +160,7 @@ def get_state_string(state):
     elif state == real_positive_number_state:
         return 'numero real positivo'
     elif state == real_negative_number_state:
-        return 'numero real '
+        return 'numero real negativo'
 
 
 #  Checa se o símbolo válido pertence ao alfabeto
@@ -206,6 +226,7 @@ def get_column(c):
 
 
 def main(argv):
+    records_list = []
     table = ht.new_table()
     cur_state = 0
     input_file = ''
@@ -242,29 +263,29 @@ def main(argv):
                 if atom == '\n':
                     linha = linha + 1
                 if token in palavras_reservadas:
-                    print('Palavra reservada', token, file=output)
+                    rec = record(token,'palavra reservada')
+                    records_list.append(rec)
                     cur_state = 0
                     token = ''
                     continue
                 # Se o token acaba em um estado final:
                 if cur_state != 0 and cur_state not in non_final_states:
                     if cur_state == identif_state:
+                        rec = record(token, get_state_string(cur_state))
+                        records_list.append(rec)
                         if ht.hash_search(table, token) != -1:
-                            print('identificador', token, 'encontrado',
-                                  file=output)
                             token = atom
                             col = get_column(atom)
                             cur_state = states[0][int(col)]
                         else:
-                            print('identificador', token, 'adicionado',
-                                  file=output)
                             ident = identifier(token)
                             ht.hash_insert(table, ident)
                             token = atom
                             col = get_column(atom)
                             cur_state = states[0][int(col)]
                     else:
-                        print(token, get_state_string(cur_state), file=output)
+                        rec = record(token, get_state_string(cur_state))
+                        records_list.append(rec)
                         token = atom
                         col = get_column(atom)
                         cur_state = states[0][int(col)]
@@ -286,8 +307,10 @@ def main(argv):
             # Se a transição não for possível(token acabou):
             if next_state == -1:
                 if cur_state == 16 and atom == '.':
-                    print('numero inteiro', token[0], file=output)
-                    print('simbolo especial duplo ..', file=output)
+                    rec = record(token[:-1], 'número inteiro')
+                    records_list.append(rec)
+                    rec = record('..', 'simbolo especial composto')
+                    records_list.append(rec)
                     cur_state = 0
                     token = ''
                     continue
@@ -300,29 +323,29 @@ def main(argv):
                     break
                 # Se o estado que trouxe ao fim do token for final
                 elif token in palavras_reservadas:
-                    print('Palavra reservada', token, file=output)
+                    rec = record(token, 'palavra reservada')
+                    records_list.append(rec) 
                     token = atom
                     col = get_column(atom)
                     cur_state = states[0][int(col)]
                     continue
                 else:
                     if cur_state == identif_state:
+                        rec = record(token, get_state_string(cur_state))
+                        records_list.append(rec)
                         if ht.hash_search(table, token) != -1:
-                            print('identificador', token, 'encontrado',
-                                  file=output)
                             token = atom
                             col = get_column(atom)
                             cur_state = states[0][int(col)]
                         else:
-                            print('identificador', token, 'adicionado',
-                                  file=output)
                             ident = identifier(token)
                             ht.hash_insert(table, ident)
                             token = atom
                             col = get_column(atom)
                             cur_state = states[0][int(col)]
                     else:
-                        print(token, get_state_string(cur_state), file=output)
+                        rec = record(token, get_state_string(cur_state))
+                        records_list.append(rec)
                         token = atom
                         col = get_column(atom)
                         cur_state = states[0][int(col)]
@@ -346,33 +369,38 @@ def main(argv):
         next_state = states[int(cur_state)][int(col)]
         # Se for palavra reservada
         if token in palavras_reservadas:
-            print('Palavra reservada', token, file=output)
+            rec = record(token, 'palavra reservada')
+            records_list.append(rec)
         # Se não for palavra reservada
         elif atom != '\n' and atom != ' ':
+            #  caso seja identificador
             if cur_state == identif_state:
+                rec = record(token, get_state_string(cur_state))
+                records_list.append(rec)
                 if ht.hash_search(table, token) != -1:
-                    print('identificador', token, 'encontrado',
-                          file=output)
                     token = atom
                     col = get_column(atom)
                     cur_state = states[0][int(col)]
                 else:
-                    print('identificador', token, 'adicionado',
-                          file=output)
                     ident = identifier(token)
                     ht.hash_insert(table, ident)
                     token = atom
                     col = get_column(atom)
                     cur_state = states[0][int(col)]
             else:
-                print(token, get_state_string(cur_state), file=output)
+                rec = record(token, get_state_string(cur_state))
+                records_list.append(rec)
                 token = atom
                 col = get_column(atom)
                 cur_state = states[0][int(col)]
-    print('Identificadores:', file=output)
+    #  printa os resultados
+    print('Identificadores:\n', file=output)
     for list in table:
         for object in list:
-            print(object.getName(), file=output)
+            print(object.getName(), ht.hash(object.getName()), file=output)
+    print('\nRecords:\n', file=output)
+    for object in records_list:
+        print(object.getToken(), 'da categoria', object.getCategory(), file=output)
     print('FIM')
     output.close()
 
