@@ -12,6 +12,7 @@ def new_table():
 
 
 def hash(string):
+    # TODO -- refazer função hash
     value = ord(string[0])
     value = value % size
     return value
