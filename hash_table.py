@@ -3,7 +3,7 @@ size = 211
 
 def new_table():
     table = []
-    i = 1
+    i = 0
     while i < size:
         new_list = []
         table.append(new_list)
