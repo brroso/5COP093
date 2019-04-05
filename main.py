@@ -28,7 +28,7 @@ class identifier:
 
 
 identificadores = []  # inicialização da lista de identificadores
-states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9 \
+states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9 /
             [5, 8, 10, 6, 3, 13, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 0,
              18, 19, 1, 2, 15],  # q0
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
@@ -82,7 +82,7 @@ states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9 \
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
              -1, -1, -1, -1, 25, -1],  # q25
             ]
-palavras_reservadas = [
+palavras_reservadas = [ # adicionar variações.
                         'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE',
                         'CONST', 'CONSTRUCTOR', 'CONTINUE', 'DESTRUCTOR',
                         'DIV', 'DO', 'DOWNTO', 'ELSE', 'END', 'FILE',
@@ -105,7 +105,7 @@ palavras_reservadas = [
                         ]
 
 special_symbols = [
-                    '\'', '\\', ',', ';', ')', '=', '[', ']', '{', '}',
+                    '\'', '/', ',', ';', ')', '=', '[', ']', '{', '}',
                     ':', '(', '*', '.', '>', '<', '-', '+', '_'
                 ]
 double_special_symbol = [
@@ -262,7 +262,7 @@ def main(argv):
                 # Se o token for palavra reservada
                 if atom == '\n':
                     linha = linha + 1
-                if token in palavras_reservadas:
+                if token.lower() in palavras_reservadas:
                     rec = record(token,'palavra reservada')
                     records_list.append(rec)
                     cur_state = 0
@@ -322,7 +322,7 @@ def main(argv):
                     erro = 'não é um token válido. /'
                     break
                 # Se o estado que trouxe ao fim do token for final
-                elif token in palavras_reservadas:
+                elif token.lower() in palavras_reservadas:
                     rec = record(token, 'palavra reservada')
                     records_list.append(rec) 
                     token = atom
@@ -368,7 +368,7 @@ def main(argv):
         col = get_column(atom)
         next_state = states[int(cur_state)][int(col)]
         # Se for palavra reservada
-        if token in palavras_reservadas:
+        if token.lower() in palavras_reservadas:
             rec = record(token, 'palavra reservada')
             records_list.append(rec)
         # Se não for palavra reservada
