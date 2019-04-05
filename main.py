@@ -82,7 +82,7 @@ states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9 /
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
              -1, -1, -1, -1, 25, -1],  # q25
             ]
-palavras_reservadas = [ # adicionar variações.
+palavras_reservadas = [ 
                         'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE',
                         'CONST', 'CONSTRUCTOR', 'CONTINUE', 'DESTRUCTOR',
                         'DIV', 'DO', 'DOWNTO', 'ELSE', 'END', 'FILE',
@@ -221,6 +221,8 @@ def get_column(c):
         return 19
     elif c in numbers:
         return 20
+    elif c == '/':
+       return 21
     else:
         return -1
 
