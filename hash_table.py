@@ -16,7 +16,7 @@ def hash(key):
     alfa = 7
     for i in range(len(key)):
         hash_value = alfa * hash_value + ord(key[i])
-    hash_value = hash_value % (size+1)
+    hash_value = hash_value % (size)
     return hash_value
 
 
