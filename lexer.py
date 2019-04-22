@@ -256,7 +256,7 @@ def main(argv):
         linha = 1
         for atom in text:
             if atom == '_' and cur_state != 1:
-                erro = 'é um caracter inválido. / linha'
+                erro = 'é um caracter inválido no contexto. '
                 cur_state = 0
                 break
             # Se o caracter for um espaço
@@ -300,7 +300,7 @@ def main(argv):
                 continue
                 #  Se o caracter não pertencer ao alfabeto:
             if not validation(atom):
-                erro = 'é um caracter inválido. / linha'
+                erro = 'é um caracter inválido.'
                 cur_state = 0
                 break
             col = get_column(atom)
@@ -359,7 +359,7 @@ def main(argv):
     if cur_state in non_final_states or erro != '':
         # Acabou em estado não final
         if erro == '':
-            print('ERRO! token', token, 'invalido. / linha:', linha,
+            print('ERRO! token', token, 'invalido. :', linha,
                   file=output)
             erro = 1
         # Deu algum erro durante o código
