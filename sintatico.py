@@ -4,11 +4,22 @@ import getopt
 #reserved_word = 0
 #special_symbol = 1
 #double_special_symbol = 2
-#integer_numer = 3
+#integer_number = 3
 #float_number = 4
 #positive_float_number = 5
 #negative_float_number = 6
 #identifier = 7
+
+class token(object):
+    def __init__(self, name, category):
+        self.name = name
+        self.category = category
+
+    def getName(self):
+        return self.name
+
+    def getCat(self):
+        return self.category
 
 def get_token_value(token):
     if token == 'palavra reservada':
@@ -32,7 +43,7 @@ def get_token_value(token):
 
 def main(argv):
     # Leitura dos argumentos
-    token_values = []
+    token_list = []
     try:   
         opts, args = getopt.getopt(argv, "hi:o:", ["ifile=", "ofile="])
     except getopt.GetoptError:
@@ -55,8 +66,11 @@ def main(argv):
             line = line.rstrip()
             if 'categoria' in line:
                 category = line.split("da categoria ", 1)[1]
-                token_values.append(get_token_value(category))
-    token_values = [x for x in token_values if x != -1]
-    print(token_values, file=output)
+                name = line.split("da categoria ", 1)[0]
+                name = name.rstrip()
+                newtoken = token(name, category)
+                token_list.append(newtoken)
+    for item in token_list:
+        print(item.getName(), '->', item.getCat(), file=output)
 
 main(sys.argv[1:])
