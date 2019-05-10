@@ -1,14 +1,15 @@
 import sys
 import getopt
 
-#reserved_word = 0
-#special_symbol = 1
-#double_special_symbol = 2
-#integer_number = 3
-#float_number = 4
-#positive_float_number = 5
-#negative_float_number = 6
-#identifier = 7
+# reserved_word = 0
+# special_symbol = 1
+# double_special_symbol = 2
+# integer_number = 3
+# float_number = 4
+# positive_float_number = 5
+# negative_float_number = 6
+# identifier = 7
+
 
 class token(object):
     def __init__(self, name, category):
@@ -25,7 +26,7 @@ class token(object):
 def main(argv):
     # Leitura dos argumentos
     token_list = []
-    try:   
+    try:
         opts, args = getopt.getopt(argv, "hi:o:", ["ifile=", "ofile="])
     except getopt.GetoptError:
         print('main.py -i <inputfile> -o <outputfile>')
@@ -53,5 +54,6 @@ def main(argv):
                 token_list.append(newtoken)
     for item in token_list:
         print(item.getName(), '->', item.getCat(), file=output)
+
 
 main(sys.argv[1:])

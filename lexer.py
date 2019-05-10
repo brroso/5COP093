@@ -2,11 +2,12 @@ import sys  # biblioteca responsável pela manipulação de elementos do sistema
 import getopt   # biblioteca utilizada na separação dos argumentos
 import hash_table as ht  # biblioteca da hash_table
 
+
 class record:
     def __init__(self, token, category):
         self.token = token
         self.category = category
-    
+
     def getToken(self):
         return self.token
 
@@ -82,7 +83,7 @@ states = [  # : ( * . > < ' , ; ) = * [ ] { } _ - + a...z 0...9 /
             [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
              -1, -1, -1, -1, 25, -1],  # q25
             ]
-palavras_reservadas = [ 
+palavras_reservadas = [
                         'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE',
                         'CONST', 'CONSTRUCTOR', 'CONTINUE', 'DESTRUCTOR',
                         'DIV', 'DO', 'DOWNTO', 'ELSE', 'END', 'FILE',
@@ -222,11 +223,11 @@ def get_column(c):
     elif c in numbers:
         return 20
     elif c == '/':
-       return 21
+        return 21
     else:
         return -1
 
-        
+
 def main(argv):
     records_list = []
     table = ht.new_table()
@@ -265,7 +266,7 @@ def main(argv):
                 if atom == '\n':
                     linha = linha + 1
                 if token.lower() in palavras_reservadas:
-                    rec = record(token,'palavra reservada')
+                    rec = record(token, 'palavra reservada')
                     records_list.append(rec)
                     cur_state = 0
                     token = ''
@@ -326,7 +327,7 @@ def main(argv):
                 # Se o estado que trouxe ao fim do token for final
                 elif token.lower() in palavras_reservadas:
                     rec = record(token, 'palavra reservada')
-                    records_list.append(rec) 
+                    records_list.append(rec)
                     token = atom
                     col = get_column(atom)
                     cur_state = states[0][int(col)]
@@ -402,7 +403,8 @@ def main(argv):
             print(object.getName(), ht.hash(object.getName()), file=output)
     print('\nRecords:\n', file=output)
     for object in records_list:
-        print(object.getToken(), 'da categoria', object.getCategory(), file=output)
+        print(object.getToken(), 'da categoria', object.getCategory(),
+              file=output)
     print('FIM')
     output.close()
 
