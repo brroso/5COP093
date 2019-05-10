@@ -226,7 +226,7 @@ def get_column(c):
     else:
         return -1
 
-
+        
 def main(argv):
     records_list = []
     table = ht.new_table()

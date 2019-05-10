@@ -21,25 +21,6 @@ class token(object):
     def getCat(self):
         return self.category
 
-def get_token_value(token):
-    if token == 'palavra reservada':
-        return 0
-    elif token == 'simbolo especial':
-        return 1
-    elif token == 'simbolo especial composto':
-        return 2
-    elif token == 'número inteiro':
-        return 3
-    elif token == 'número real':
-        return 4
-    elif token == 'numero real positivo':
-        return 5
-    elif token == 'numero real negativo':
-        return 6
-    elif token == 'identificador':
-        return 7
-    else:
-        return -1
 
 def main(argv):
     # Leitura dos argumentos
