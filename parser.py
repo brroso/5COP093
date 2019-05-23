@@ -1,5 +1,6 @@
 import sys
 import getopt
+import re
 
 # reserved_word = 0
 # special_symbol = 1
