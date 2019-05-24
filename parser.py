@@ -11,6 +11,19 @@ import re
 # negative_float_number = 6
 # identifier = 7
 
+keywords = [
+    'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE',
+    'CONST', 'CONSTRUCTOR', 'CONTINUE', 'DESTRUCTOR',
+    'DIV', 'DO', 'DOWNTO', 'ELSE', 'END', 'FILE',
+    'FOR', 'FUNCTION', 'GOTO', 'IF', 'IMPLEMENTATION',
+    'IN', 'INLINE', 'INTERFACE', 'LABEL', 'MOD', 'NIL',
+    'NOT', 'OBJECT', 'OF', 'OR', 'INHERITED',
+    'PACKED', 'PROCEDURE', 'PROGRAM', 'RECORD', 'REPEAT',
+    'SET', 'SHL', 'SHR', 'STRING', 'THEN', 'TO', 'TRUE',
+    'TYPE', 'UNIT', 'UNTIL', 'USES', 'VAR', 'WHILE',
+    'WITH', 'XOR',
+]
+
 
 class Token(object):
     def __init__(self, name, category):
@@ -59,7 +72,7 @@ def main(argv):
             output_file = arg
     print('Input file is "', input_file, '"')
     print('Output file is "', output_file, '"')
-    #output = open(output_file, "w")
+    # output = open(output_file, "w")
     with open(input_file, "r") as f:   # Roda todo o arquivo char por char
         lines = f.readlines()
         for line in lines:  # Coloca os tokens e suas categorias em token_list
@@ -71,6 +84,7 @@ def main(argv):
                 newtoken = Token(name, category)
                 token_list.append(newtoken)
     parser = Parser(token_list)
+    parser.start_parse()
     if parser == 'erro':
         print('Erro sintático')
         return None

@@ -1,6 +1,7 @@
 import sys  # biblioteca responsável pela manipulação de elementos do sistema
 import getopt   # biblioteca utilizada na separação dos argumentos
 import hash_table as ht  # biblioteca da hash_table
+import re
 
 
 class record:
@@ -142,6 +143,12 @@ real_positive_number_state = 25
 real_negative_number_state = 24
 
 
+def removeComments(code):
+    regex = re.compile(r"\(\*.*?\*\)", re.DOTALL)
+    code = re.sub(regex, "", code)
+    return code
+
+
 # Identifica o estado dado
 def get_state_string(state):
     if state == identif_state:
@@ -252,6 +259,7 @@ def main(argv):
     output = open(output_file, "w")
     with open(input_file, "r") as f:   # Roda todo o arquivo char por char
         text = f.read()
+        text = removeComments(text)
         erro = ''
         token = ''
         linha = 1
