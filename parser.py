@@ -14,7 +14,7 @@ maismenosor = [
 ]
 
 divand = [
-    "*", "div", "and" 
+    "*", "div", "and"
 ]
 
 
@@ -46,30 +46,35 @@ class Parser:   # The parser class
 
     # Checks if the passed token equals the current one
     def eat(self, token):
+        print("ATUAL E TOKEN", self.current.getName(), token)
         if token == 'identificador':
             if self.current:
                 if self.current.getCat() == 'identificador':
                     self.next_token()
                 else:
-                    print('Erro sintático')
+                    print('Erro sintático em', self.current.getName())
+                    quit()
         elif token == 'numero':
             if self.current:
                 if 'numero' in self.current.getCat():
                     self.next_token()
                 else:
-                    print('Erro sintático')
+                    print('Erro sintático em', self.current.getName())
+                    quit()
         elif token == 'relacao':
             if self.current:
                 if self.current.getName() in relacao_list:
                     self.next_token()
                 else:
-                    print('Erro sintático')
+                    print('Erro sintático em', self.current.getName())
+                    quit()
         else:
             if self.current:
                 if self.current.getName().upper() == token.upper():
                     self.next_token()
                 else:
-                    print('Erro sintático')
+                    print('Erro sintático em', self.current.getName())
+                    quit()
 
     # PROGRAMAS E BLOCOS
     # PROGRAM production (Kowaltowksi pg. 72 - item 1)
@@ -88,9 +93,12 @@ class Parser:   # The parser class
 
     # BLOCO production (Kowaltowski pg. 72 - item 2)
     def bloco(self):
-        self.label()
-        self.type_keyword()
-        self.pt_dec_var()
+        if self.current.getName().upper() == "LABEL":
+            self.label()
+        elif self.current.getName().upper() == "TYPE":
+            self.type_keyword()
+        elif self.current.getName().upper() == "VAR":
+            self.pt_dec_var()
         self.sub_routines()
         self.comando_composto()
 
@@ -205,9 +213,7 @@ class Parser:   # The parser class
         if self.current.getName().upper() == 'PROCEDURE':
             self.eat("PROCEDURE")
             self.eat("identificador")
-            self.eat("[")
             self.formal_parameters()
-            self.eat("]")
             self.eat(";")
             self.bloco()
 
@@ -217,9 +223,7 @@ class Parser:   # The parser class
         if self.current.getName().upper() == 'FUNCTION':
             self.eat("FUNCTION")
             self.eat("identificador")
-            self.eat("[")
             self.formal_parameters()
-            self.eat("]")
             self.eat(";")
             self.bloco()
 
@@ -258,18 +262,17 @@ class Parser:   # The parser class
         if self.current.getName().upper() == "BEGIN":
             self.eat("BEGIN")
             self.comando()
+            while self.current.getName() == ";":
+                self.eat(";")
+                self.comando()
             self.eat("END")
 
     # COMANDO production (Kowaltowski pg73 - item 17)
     def comando(self):
-
         if "numero" in self.current.getCat():
             self.eat("numero")
             self.eat(":")
-            self.comando_sem_rotulo()
-        else:
-            self.comando_sem_rotulo()
-        self.eat("END")
+        self.comando_sem_rotulo()
 
     # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18)
     def comando_sem_rotulo(self):
@@ -282,19 +285,19 @@ class Parser:   # The parser class
 
     # ATRIBUICAO production (Kowaltowski pg 73 - item 19)
     def atribuicao(self):
-        self.variavel()
-        self.eat(":")
-        self.eat("=")
-        self.expression()
+        if self.current.getCat() == "identificador":
+            self.variavel()
+            self.eat(":=")
+            self.expression()
 
     # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20)
     def procedure_call(self):
-        self.eat("identificador")
-        self.eat("[")
-        self.eat("(")
-        self.expressions_list()
-        self.eat(")")
-        self.eat("]")
+        if self.current.getCat() == "identificador":
+            self.eat("identificador")
+            if self.current.getName() == "(":
+                self.eat("(")
+                self.expressions_list()
+                self.eat(")")
 
     # DESVIO production (Kowaltowski pg73 - item 21)
     def desvio(self):
@@ -315,7 +318,7 @@ class Parser:   # The parser class
 
     # COMANDO REPETITIVO production (Kowaltowksi pg 73 - item 23)
     def repetitive_command(self):
-        if self.current.getName().uppper == "WHILE":
+        if self.current.getName().upper() == "WHILE":
             self.eat("WHILE")
             self.expression()
             self.eat("DO")
@@ -338,8 +341,7 @@ class Parser:   # The parser class
 
     # EXPRESSÃO SIMPLES production (Kowaltowski pg 73 - item 27)
     def simple_expression(self):
-
-        if self.current.getName() in maismenos:
+        if self.current.getCat() in maismenos:
             self.eat(self.current.getName())
         self.termo()
         if self.current.getName() in maismenosor:
@@ -356,32 +358,33 @@ class Parser:   # The parser class
 
     # FATOR production (Kowaltowski pg 74 - item 29)
     def fator(self):
-        self.variavel()
-        if "numero" in self.current.getCat():
+        if self.current.getCat() == "identificador":
+            self.variavel()
+        elif "numero" in self.current.getCat():
             self.eat("numero")
-        self.function_call()
-        if self.current.getName() == "(":
+        elif self.current.getName() == "(":
             self.eat("(")
             self.expression()
             self.eat(")")
-        if self.current.getName().upper() == "NOT":
+        elif self.current.getName().upper() == "NOT":
             self.eat("NOT")
-            self.fator()     
+            self.fator()
+        else:
+            self.function_call()
 
     # VARIAVEL production (Kowaltowski pg 74 - item 30)
     def variavel(self):
-        self.eat("identificador")
-        if self.current.getName() == "[":
-            self.eat("[")
-            self.expressions_list()
-            self.eat("]")
+        if self.current.getCat() == "identificador":
+            self.eat("identificador")
+            if self.current.getName() == "[":
+                self.eat("[")
+                self.expressions_list()
+                self.eat("]")
 
     # CHAMADA DE FUNÇÃO production (Kowaltowski pg 74 - item 31)
     def function_call(self):
         self.eat("identificador")
-        self.eat("[")
         self.expressions_list()
-        self.eat("]")
 
 
 def main(argv):
@@ -415,9 +418,6 @@ def main(argv):
                 token_list.append(newtoken)
     parser = Parser(token_list)
     parser = parser.start_parse()
-    if parser == 'erro':
-        print('Erro sintático')
-        return None
 
 
 main(sys.argv[1:])

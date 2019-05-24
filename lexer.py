@@ -154,7 +154,7 @@ def get_state_string(state):
     if state == identif_state:
         return 'identificador'
     elif state == integer_state:
-        return 'número inteiro'
+        return 'numero inteiro'
     elif state in special_symbol_states:
         return 'simbolo especial'
     elif state in double_special_symbol_states:
@@ -318,7 +318,7 @@ def main(argv):
             # Se a transição não for possível(token acabou):
             if next_state == -1:
                 if cur_state == 16 and atom == '.':
-                    rec = record(token[:-1], 'número inteiro')
+                    rec = record(token[:-1], 'numero inteiro')
                     records_list.append(rec)
                     rec = record('..', 'simbolo especial composto')
                     records_list.append(rec)
