@@ -160,11 +160,11 @@ def get_state_string(state):
     elif state in double_special_symbol_states:
         return 'simbolo especial composto'
     elif state == real_number_state:
-        return 'número real'
+        return 'numero real'
     elif state == negative_number_state:
-        return 'número negativo'
+        return 'numero negativo'
     elif state == positive_number_state:
-        return 'número positivo'
+        return 'numero positivo'
     elif state == real_positive_number_state:
         return 'numero real positivo'
     elif state == real_negative_number_state:
