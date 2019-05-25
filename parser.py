@@ -300,6 +300,8 @@ class Parser:   # The parser class
         self.comando_composto()
         self.conditional_command()
         self.repetitive_command()
+        # self.read()
+        # self.write()
 
     # ATRIBUICAO production (Kowaltowski pg 73 - item 19)
     def atribuicao(self):
@@ -390,6 +392,10 @@ class Parser:   # The parser class
         elif self.current.getName().upper() == "NOT":
             self.eat("NOT")
             self.fator()
+        elif self.current.getName().upper() == "TRUE":
+            self.eat("TRUE")
+        elif self.current.getName().upper() == "FALSE":
+            self.eat("FALSE")
         else:
             self.function_call()
 
@@ -407,6 +413,27 @@ class Parser:   # The parser class
         if self.current.getCat() == "identificador" and self.current.getCat() in functions:
             self.eat("identificador")
             self.expressions_list()
+
+    # READ E WRITE
+    def read(self):
+        if self.current.getName().upper() == "READ":
+            self.eat("READ")
+            self.eat("(")
+            self.variavel()
+            while self.current.getName() == ",":
+                self.eat(",")
+                self.variavel()
+            self.eat(")")
+
+    def write(self):
+        if self.current.getName().upper() == "WRITE":
+            self.eat("WRITE")
+            self.eat("(")
+            self.expression()
+            while self.current.getName() == ",":
+                self.eat(",")
+                self.expression()
+            self.eat(")")
 
 
 def main(argv):

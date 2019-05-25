@@ -13,7 +13,7 @@ def new_table():
 
 def hash(key):
     hash_value = 0
-    alfa = 7
+    alfa = 10
     for i in range(len(key)):
         hash_value = alfa * hash_value + ord(key[i])
     hash_value = hash_value % (size)
