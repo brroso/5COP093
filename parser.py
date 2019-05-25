@@ -4,7 +4,7 @@ import getopt
 keywords = [
             'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE',
             'CONST', 'CONSTRUCTOR', 'CONTINUE', 'DESTRUCTOR',
-            'DIV', 'DO', 'DOWNTO', 'ELSE', 'END','FALSE', 'FILE',
+            'DIV', 'DO', 'DOWNTO', 'ELSE', 'END', 'FALSE', 'FILE',
             'FOR', 'FUNCTION', 'GOTO', 'IF', 'IMPLEMENTATION',
             'IN', 'INLINE', 'INTERFACE', 'LABEL', 'MOD', 'NIL',
             'NOT', 'OBJECT', 'OF', 'OR', 'INHERITED',
@@ -123,7 +123,8 @@ class Parser:   # The parser class
             self.type_keyword()
         if self.current.getName().upper() == "VAR":
             self.pt_dec_var()
-        if self.current.getName().upper() == "PROCEDURE" or self.current.getName().upper() == "FUNCTION":
+        if self.current.getName().upper() == "PROCEDURE" \
+                or self.current.getName().upper() == "FUNCTION":
             self.sub_routines()
         self.comando_composto()
 
@@ -318,14 +319,18 @@ class Parser:   # The parser class
 
     # ATRIBUICAO production (Kowaltowski pg 73 - item 19)
     def atribuicao(self):
-        if self.current.getCat() == "identificador" and self.current.getName().upper() not in keywords and self.current.getName() not in functions and self.current.getName() not in procedures:
+        if self.current.getCat() == "identificador" \
+            and self.current.getName().upper() not in keywords \
+                and self.current.getName() not in functions \
+                and self.current.getName() not in procedures:
             self.variavel()
             self.eat(":=")
             self.expression()
 
     # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20)
     def procedure_call(self):
-        if self.current.getCat() == "identificador" and self.current.getName() in procedures:
+        if self.current.getCat() == "identificador" and \
+                self.current.getName() in procedures:
             self.eat("identificador")
             if self.current.getName() == "(":
                 self.eat("(")
@@ -423,7 +428,8 @@ class Parser:   # The parser class
 
     # CHAMADA DE FUNÇÃO production (Kowaltowski pg 74 - item 31)
     def function_call(self):
-        if self.current.getCat() == "identificador" and self.current.getCat() in functions:
+        if self.current.getCat() == "identificador" \
+                and self.current.getCat() in functions:
             self.eat("identificador")
             self.expressions_list()
 
