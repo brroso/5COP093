@@ -13,6 +13,6 @@ program exemplo2(input,output);
         while i<=n
             do
                 begin
-                    soma;
+                    soma; write(s, 2); i:=i+1
                 end
 end.

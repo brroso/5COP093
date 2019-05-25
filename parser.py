@@ -1,6 +1,19 @@
 import sys
 import getopt
 
+keywords = [
+            'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE',
+            'CONST', 'CONSTRUCTOR', 'CONTINUE', 'DESTRUCTOR',
+            'DIV', 'DO', 'DOWNTO', 'ELSE', 'END','FALSE', 'FILE',
+            'FOR', 'FUNCTION', 'GOTO', 'IF', 'IMPLEMENTATION',
+            'IN', 'INLINE', 'INTERFACE', 'LABEL', 'MOD', 'NIL',
+            'NOT', 'OBJECT', 'OF', 'OR', 'INHERITED',
+            'PACKED', 'PROCEDURE', 'PROGRAM', 'READ', 'RECORD',
+            'REPEAT', 'SET', 'SHL', 'SHR', 'STRING', 'THEN', 'TO', 'TRUE',
+            'TYPE', 'UNIT', 'UNTIL', 'USES', 'VAR', 'WHILE',
+            'WITH', 'WRITE', 'XOR'
+            ]
+
 relacao_list = [    # RELACAO production (Kowaltowski pg73 - item 26)
     "=", "<>", "<", "<=", ">=", ">"
 ]
@@ -305,7 +318,7 @@ class Parser:   # The parser class
 
     # ATRIBUICAO production (Kowaltowski pg 73 - item 19)
     def atribuicao(self):
-        if self.current.getCat() == "identificador" and self.current.getName() not in procedures and self.current.getName() not in functions:
+        if self.current.getCat() == "identificador" and self.current.getName().upper() not in keywords and self.current.getName() not in functions and self.current.getName() not in procedures:
             self.variavel()
             self.eat(":=")
             self.expression()
