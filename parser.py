@@ -17,6 +17,14 @@ divand = [
     "*", "div", "and"
 ]
 
+procedures = [
+
+]
+
+functions = [
+
+]
+
 
 class Token(object):    # The token class
     def __init__(self, name, category):
@@ -46,8 +54,11 @@ class Parser:   # The parser class
 
     # Checks if the passed token equals the current one
     def eat(self, token):
-        print("ATUAL E TOKEN", self.current.getName(), token)
-        if token == 'identificador':
+        print("ATUAL:", self.current.getName(), "DEVE SER:", token)
+        if token == "." and len(self.token_list) - 1 == self.index:
+            print("Fim da analise, nao ouve erros")
+            quit()
+        elif token == 'identificador':
             if self.current:
                 if self.current.getCat() == 'identificador':
                     self.next_token()
@@ -95,11 +106,12 @@ class Parser:   # The parser class
     def bloco(self):
         if self.current.getName().upper() == "LABEL":
             self.label()
-        elif self.current.getName().upper() == "TYPE":
+        if self.current.getName().upper() == "TYPE":
             self.type_keyword()
-        elif self.current.getName().upper() == "VAR":
+        if self.current.getName().upper() == "VAR":
             self.pt_dec_var()
-        self.sub_routines()
+        if self.current.getName().upper() == "PROCEDURE" or self.current.getName().upper() == "FUNCTION":
+            self.sub_routines()
         self.comando_composto()
 
     # DECLARAÇÕES
@@ -201,17 +213,17 @@ class Parser:   # The parser class
 
     # PARTE DE DECLARAÇÃO DE SUB-ROTINAS production(Kowaltowski pg72 - item 11)
     def sub_routines(self):
-        if self.current.getName() == '{':
-            self.eat("{")
+        if self.current.getName().upper() == "PROCEDURE":
             self.procedure()
+        elif self.current.getName().upper() == "FUNCTION":
             self.function()
-            self.eat("}")
 
     # DECLARAÇÃO DE PROCEDIMENTO production(Kowaltoswki pg72 - item 12)
     def procedure(self):
 
         if self.current.getName().upper() == 'PROCEDURE':
             self.eat("PROCEDURE")
+            procedures.append(self.current.getName())
             self.eat("identificador")
             self.formal_parameters()
             self.eat(";")
@@ -222,6 +234,7 @@ class Parser:   # The parser class
 
         if self.current.getName().upper() == 'FUNCTION':
             self.eat("FUNCTION")
+            functions.append(self.current.getName())
             self.eat("identificador")
             self.formal_parameters()
             self.eat(";")
@@ -254,6 +267,11 @@ class Parser:   # The parser class
             self.eat("PROCEDURE")
             self.eat("identificador")
             self.bloco_id()
+        elif self.current.getCat() == "identificador":
+            self.eat("identificador")
+            self.bloco_id()
+            self.eat(":")
+            self.eat("identificador")
 
     # COMANDOS
     # COMANDO COMPOSTO production (Kowaltoski pg73 - item 16)
@@ -285,14 +303,14 @@ class Parser:   # The parser class
 
     # ATRIBUICAO production (Kowaltowski pg 73 - item 19)
     def atribuicao(self):
-        if self.current.getCat() == "identificador":
+        if self.current.getCat() == "identificador" and self.current.getName() not in procedures and self.current.getName() not in functions:
             self.variavel()
             self.eat(":=")
             self.expression()
 
     # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20)
     def procedure_call(self):
-        if self.current.getCat() == "identificador":
+        if self.current.getCat() == "identificador" and self.current.getName() in procedures:
             self.eat("identificador")
             if self.current.getName() == "(":
                 self.eat("(")
@@ -341,11 +359,14 @@ class Parser:   # The parser class
 
     # EXPRESSÃO SIMPLES production (Kowaltowski pg 73 - item 27)
     def simple_expression(self):
-        if self.current.getCat() in maismenos:
-            self.eat(self.current.getName())
+        if "+" in self.current.getName() or "-" in self.current.getName():
+            self.eat("numero")
         self.termo()
-        if self.current.getName() in maismenosor:
+        if "+" in self.current.getName() or "-" in self.current.getName():
             self.eat(self.current.getName())
+            self.termo()
+        if self.current.getName().upper() == "OR":
+            self.eat("OR")
             self.termo()
 
     # TERMO production (Kowaltowski pg 74 - item 28)
@@ -383,8 +404,9 @@ class Parser:   # The parser class
 
     # CHAMADA DE FUNÇÃO production (Kowaltowski pg 74 - item 31)
     def function_call(self):
-        self.eat("identificador")
-        self.expressions_list()
+        if self.current.getCat() == "identificador" and self.current.getCat() in functions:
+            self.eat("identificador")
+            self.expressions_list()
 
 
 def main(argv):

@@ -1,0 +1,12 @@
+program exemplo1(input,output);
+    var m,n,s: integer;
+begin
+    s:=0;
+    while m<=n
+        do 
+            begin
+                s:=s+m*m;
+                m:=m+1;
+            end
+end.
+    

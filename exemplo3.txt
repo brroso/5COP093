@@ -1,0 +1,15 @@
+program exemplo3(input, output);
+        var z,t:integer;
+        procedure g(t, m: integer);
+            var x:integer;
+        begin
+            t:=2*t; x:=2*t; z:=x+1
+        end (* g *)
+    begin
+        z:=3; t:=4;
+        g(t);
+        g(z);
+        g(t+z);
+        g(7);
+end.
+
