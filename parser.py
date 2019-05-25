@@ -300,8 +300,8 @@ class Parser:   # The parser class
         self.comando_composto()
         self.conditional_command()
         self.repetitive_command()
-        # self.read()
-        # self.write()
+        self.read()
+        self.write()
 
     # ATRIBUICAO production (Kowaltowski pg 73 - item 19)
     def atribuicao(self):
