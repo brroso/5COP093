@@ -9,6 +9,7 @@ program exemplo2(input,output);
         else s:=s-q
     end(*soma*)
     begin
+        read(n);
         s:=0; i:=0;
         while i<=n
             do

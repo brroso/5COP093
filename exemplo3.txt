@@ -7,9 +7,9 @@ program exemplo3(input, output);
         end (* g *)
     begin
         z:=3; t:=4;
-        g(t);
-        g(z);
-        g(t+z);
-        g(7);
+        g(t); write(z,t);
+        g(z); write(z,t);
+        g(t+z); write(z,t);
+        g(7); write(z,t)
 end.
 

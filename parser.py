@@ -113,10 +113,13 @@ class Parser:   # The parser class
             self.eat(")")
             self.eat(";")
             self.bloco()
+            while self.current.getName() != ".":
+                self.bloco()
             self.eat(".")
 
     # BLOCO production (Kowaltowski pg. 72 - item 2)
     def bloco(self):
+
         if self.current.getName().upper() == "LABEL":
             self.label()
         if self.current.getName().upper() == "TYPE":
@@ -131,13 +134,12 @@ class Parser:   # The parser class
     # DECLARAÇÕES
     # LABEL production (Kowaltowski pg. 72 - item 3)
     def label(self):
-        if self.current.getName().upper() == 'LABEL':
 
+        if self.current.getName().upper() == 'LABEL':
             self.eat("LABEL")
             self.eat("number")
             self.bloco_label()
             self.eat(";")
-            # FINISHED
 
     def bloco_label(self):
         if self.current == ",":
@@ -217,6 +219,7 @@ class Parser:   # The parser class
 
     # LISTA DE IDENTIFICADORES production (Kowaltowksi pg. 72 - item 10)
     def bloco_id(self):
+
         if self.current.getName() == ',':
             self.eat(",")
             self.eat("identificador")
@@ -227,6 +230,7 @@ class Parser:   # The parser class
 
     # PARTE DE DECLARAÇÃO DE SUB-ROTINAS production(Kowaltowski pg72 - item 11)
     def sub_routines(self):
+
         if self.current.getName().upper() == "PROCEDURE":
             self.procedure()
         elif self.current.getName().upper() == "FUNCTION":
@@ -256,6 +260,7 @@ class Parser:   # The parser class
 
     # PARÂMETROS FORMAIS production (Kowaltowski pg72 - item 14)
     def formal_parameters(self):
+
         if self.current.getName() == '(':
             self.eat("(")
             self.formal_parameters_section()
@@ -265,6 +270,7 @@ class Parser:   # The parser class
 
     # SEÇÃO DE PARÂMETROS FORMAIS production (Kowaltowski pg72 - item 15)
     def formal_parameters_section(self):
+
         if self.current.getName().upper() == 'VAR':
             self.eat("VAR")
             self.eat("identificador")
@@ -301,6 +307,7 @@ class Parser:   # The parser class
 
     # COMANDO production (Kowaltowski pg73 - item 17)
     def comando(self):
+
         if "numero" in self.current.getCat():
             self.eat("numero")
             self.eat(":")
@@ -308,6 +315,7 @@ class Parser:   # The parser class
 
     # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18)
     def comando_sem_rotulo(self):
+
         self.atribuicao()
         self.procedure_call()
         self.desvio()
@@ -319,6 +327,7 @@ class Parser:   # The parser class
 
     # ATRIBUICAO production (Kowaltowski pg 73 - item 19)
     def atribuicao(self):
+
         if self.current.getCat() == "identificador" \
             and self.current.getName().upper() not in keywords \
                 and self.current.getName() not in functions \
@@ -329,6 +338,7 @@ class Parser:   # The parser class
 
     # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20)
     def procedure_call(self):
+
         if self.current.getCat() == "identificador" and \
                 self.current.getName() in procedures:
             self.eat("identificador")
@@ -339,12 +349,14 @@ class Parser:   # The parser class
 
     # DESVIO production (Kowaltowski pg73 - item 21)
     def desvio(self):
+
         if self.current.getName().upper() == "GOTO":
             self.eat("GOTO")
             self.eat("numero")
 
     # COMANDO CONDICIONAL production (Kowaltowski pg73 - item 22)
     def conditional_command(self):
+
         if self.current.getName().upper() == "IF":
             self.eat("IF")
             self.expression()
@@ -356,6 +368,7 @@ class Parser:   # The parser class
 
     # COMANDO REPETITIVO production (Kowaltowksi pg 73 - item 23)
     def repetitive_command(self):
+
         if self.current.getName().upper() == "WHILE":
             self.eat("WHILE")
             self.expression()
@@ -365,6 +378,7 @@ class Parser:   # The parser class
     # EXPRESSOES
     # LISTA DE EXPRESSÕES production (Kowaltowski pg 73 - item 24)
     def expressions_list(self):
+
         self.expression()
         while self.current.getName() == ",":
             self.eat(",")
@@ -372,6 +386,7 @@ class Parser:   # The parser class
 
     # EXPRESSÂO production (Kowaltowski pg 73 - item 25)
     def expression(self):
+
         self.simple_expression()
         if self.current.getName() in relacao_list:
             self.eat("relacao")
@@ -379,13 +394,14 @@ class Parser:   # The parser class
 
     # EXPRESSÃO SIMPLES production (Kowaltowski pg 73 - item 27)
     def simple_expression(self):
+
         if "+" in self.current.getName() or "-" in self.current.getName():
             self.eat("numero")
         self.termo()
-        if "+" in self.current.getName() or "-" in self.current.getName():
+        while "+" in self.current.getName() or "-" in self.current.getName():
             self.eat(self.current.getName())
             self.termo()
-        if self.current.getName().upper() == "OR":
+        while self.current.getName().upper() == "OR":
             self.eat("OR")
             self.termo()
 
@@ -399,6 +415,7 @@ class Parser:   # The parser class
 
     # FATOR production (Kowaltowski pg 74 - item 29)
     def fator(self):
+
         if self.current.getCat() == "identificador":
             self.variavel()
         elif "numero" in self.current.getCat():
@@ -419,6 +436,7 @@ class Parser:   # The parser class
 
     # VARIAVEL production (Kowaltowski pg 74 - item 30)
     def variavel(self):
+
         if self.current.getCat() == "identificador":
             self.eat("identificador")
             if self.current.getName() == "[":
@@ -428,6 +446,7 @@ class Parser:   # The parser class
 
     # CHAMADA DE FUNÇÃO production (Kowaltowski pg 74 - item 31)
     def function_call(self):
+
         if self.current.getCat() == "identificador" \
                 and self.current.getCat() in functions:
             self.eat("identificador")
@@ -435,6 +454,7 @@ class Parser:   # The parser class
 
     # READ E WRITE
     def read(self):
+
         if self.current.getName().upper() == "READ":
             self.eat("READ")
             self.eat("(")
@@ -445,6 +465,7 @@ class Parser:   # The parser class
             self.eat(")")
 
     def write(self):
+
         if self.current.getName().upper() == "WRITE":
             self.eat("WRITE")
             self.eat("(")
