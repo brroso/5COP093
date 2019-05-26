@@ -113,11 +113,11 @@ class Parser:   # The parser class
             self.eat(")")
             self.eat(";")
             self.bloco()
-            while self.current.getName() != ".":
+            while self.current.getName() != ".":    # TODO
                 self.bloco()
             self.eat(".")
 
-    # BLOCO production (Kowaltowski pg. 72 - item 2) TODO
+    # BLOCO production (Kowaltowski pg. 72 - item 2) 
     def bloco(self):
 
         if self.current.getName().upper() == "LABEL":
@@ -138,51 +138,42 @@ class Parser:   # The parser class
         if self.current.getName().upper() == 'LABEL':
             self.eat("LABEL")
             self.eat("number")
-            self.bloco_label()
+            while self.current.getName() == ",":
+                self.eat(",")
+                self.eat("number")
             self.eat(";")
-
-    def bloco_label(self):
-        if self.current == ",":
-            self.eat(",")
-            self.eat("number")
-            self.bloco_label()
-        else:
-            pass
 
     # TYPE production (Kowaltowski pg. 72 - item 4)
     def type_keyword(self):
-        if self.current.getName().upper() == 'type':
 
+        if self.current.getName().upper() == 'TYPE':
             self.eat("TYPE")
             self.typedef()
+            self.eat(";")
+            while self.current.getCat() == "identificador":
+                self.typedef()
+                self.eat(";")
 
     # DEFINIÇÃO DE TIPO production (Kowaltowski pg. 72 - item 5)
     def typedef(self):
-        if self.current.getCat() == 'identificador':
 
+        if self.current.getCat() == 'identificador':
             self.eat("identificador")
             self.eat("=")
             self.tipo()
-            self.eat(";")
-            self.typedef()
-
-        else:
-            pass
 
     # TIPO production (Kowaltowski pg. 72 - item 6)
     def tipo(self):
+ 
         if self.current.getCat() == 'identificador':
-
             self.eat("identificador")
-
         elif self.current.getName().upper == 'ARRAY':
-
             self.eat("ARRAY")
             self.eat("[")
-            self.eat("number")
-            self.eat("..")
-            self.eat("number")
             self.bloco_index()
+            while self.current.getName() == ",":
+                self.eat(",")
+                self.bloco_index()
             self.eat("]")
             self.eat("OF")
             self.tipo()
@@ -190,12 +181,10 @@ class Parser:   # The parser class
     # INDICE production (Kowaltowski pg 72 - item 7)
     def bloco_index(self):
 
-        if self.current.getName() == ',':
-            self.eat(",")
+        if "numero" in self.current.getCat():
             self.eat("number")
             self.eat("..")
             self.eat("number")
-            self.bloco_index()
         else:
             pass
 
@@ -205,6 +194,10 @@ class Parser:   # The parser class
         if self.current.getName().upper() == 'VAR':
             self.eat("VAR")
             self.var_declaration()
+            self.eat(";")
+            while self.current.getCat() == 'identificador':
+                self.var_declaration()
+                self.eat(";")
 
     # DECLARAÇÂO DE VARIAVEIS production (Kowaltowksi pg.72 - item 9)
     def var_declaration(self):
@@ -214,8 +207,6 @@ class Parser:   # The parser class
             self.bloco_id()
             self.eat(":")
             self.tipo()
-            self.eat(";")
-            self.var_declaration()
 
     # LISTA DE IDENTIFICADORES production (Kowaltowksi pg. 72 - item 10)
     def bloco_id(self):
@@ -224,17 +215,16 @@ class Parser:   # The parser class
             self.eat(",")
             self.eat("identificador")
             self.bloco_id()
-        else:
-            pass
-        # FINISHED
 
     # PARTE DE DECLARAÇÃO DE SUB-ROTINAS production(Kowaltowski pg72 - item 11)
     def sub_routines(self):
 
-        if self.current.getName().upper() == "PROCEDURE":
-            self.procedure()
-        elif self.current.getName().upper() == "FUNCTION":
-            self.function()
+        while self.current.getName().upper() == "PROCEDURE"  \
+                or self.current.getName().upper() == "FUNCTION":
+            if self.current.getName().upper() == "PROCEDURE":
+                self.procedure()
+            elif self.current.getName().upper() == "FUNCTION":
+                self.function()
 
     # DECLARAÇÃO DE PROCEDIMENTO production(Kowaltoswki pg72 - item 12)
     def procedure(self):
@@ -316,7 +306,7 @@ class Parser:   # The parser class
             self.eat(":")
         self.comando_sem_rotulo()
 
-    # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18)
+    # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18) TODO OR
     def comando_sem_rotulo(self):
 
         self.atribuicao()
@@ -391,7 +381,6 @@ class Parser:   # The parser class
     def expression(self):
 
         self.simple_expression()
-        print(self.current.getName())
         if self.current.getName() in relacao_list:
             self.eat("relacao")
             self.simple_expression()
@@ -421,7 +410,7 @@ class Parser:   # The parser class
     def termo(self):
 
         self.fator()
-        if self.current.getName() in divand:
+        while self.current.getName() in divand:
             self.eat(self.current.getName())
             self.fator()
 

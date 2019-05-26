@@ -3,7 +3,7 @@ program exemplo4(input, output);
     procedure g(t:integer);
         var y: integer;
     begin
-        y:=t*t;z:=z+x+y;
+        y:=t*t*t*t;z:=z+x+y;
         write(z)
     end (*g*)
     procedure h(y: integer);
