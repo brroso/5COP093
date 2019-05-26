@@ -114,11 +114,10 @@ class Parser:   # The parser class
             self.eat(";")
             self.bloco()
             while self.current.getName() != ".":
-                print('s')
                 self.bloco()
             self.eat(".")
 
-    # BLOCO production (Kowaltowski pg. 72 - item 2)
+    # BLOCO production (Kowaltowski pg. 72 - item 2) TODO
     def bloco(self):
 
         if self.current.getName().upper() == "LABEL":
@@ -392,6 +391,7 @@ class Parser:   # The parser class
     def expression(self):
 
         self.simple_expression()
+        print(self.current.getName())
         if self.current.getName() in relacao_list:
             self.eat("relacao")
             self.simple_expression()
@@ -400,11 +400,19 @@ class Parser:   # The parser class
     def simple_expression(self):
 
         if "+" in self.current.getName() or "-" in self.current.getName():
-            self.eat("numero")
-        self.termo()
-        while "+" in self.current.getName() or "-" in self.current.getName():
-            self.eat(self.current.getName())
+            if "numero" in self.current.getCat():
+                self.eat("numero")
+            else:
+                self.eat(self.current.getName())
+                self.termo()
+        else:
             self.termo()
+        while "+" in self.current.getName() or "-" in self.current.getName():
+            if "numero" in self.current.getCat():
+                self.eat("numero")
+            else:
+                self.eat(self.current.getName())
+                self.termo()
         while self.current.getName().upper() == "OR":
             self.eat("OR")
             self.termo()
