@@ -114,6 +114,7 @@ class Parser:   # The parser class
             self.eat(";")
             self.bloco()
             while self.current.getName() != ".":
+                print('s')
                 self.bloco()
             self.eat(".")
 
@@ -255,6 +256,8 @@ class Parser:   # The parser class
             functions.append(self.current.getName())
             self.eat("identificador")
             self.formal_parameters()
+            self.eat(":")
+            self.eat("identificador")
             self.eat(";")
             self.bloco()
 
@@ -265,6 +268,7 @@ class Parser:   # The parser class
             self.eat("(")
             self.formal_parameters_section()
             while self.current.getName() == ";":
+                self.eat(";")
                 self.formal_parameters_section()
             self.eat(")")
 
@@ -448,7 +452,7 @@ class Parser:   # The parser class
     def function_call(self):
 
         if self.current.getCat() == "identificador" \
-                and self.current.getCat() in functions:
+                and self.current.getName() in functions:
             self.eat("identificador")
             self.expressions_list()
 
