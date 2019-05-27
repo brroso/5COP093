@@ -185,8 +185,6 @@ class Parser:   # The parser class
             self.eat("number")
             self.eat("..")
             self.eat("number")
-        else:
-            pass
 
     # PARTE DE DECLARAÇÕES DE VARIAVEIS production (Kowaltowski pg.72 - item 8)
     def pt_dec_var(self):
