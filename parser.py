@@ -1,5 +1,6 @@
 import sys
 import getopt
+import hash_table as ht
 
 keywords = [
             'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE',
@@ -43,6 +44,10 @@ class Token(object):    # The token class
     def __init__(self, name, category):
         self.name = name
         self.category = category
+        self.nivel = None
+        self.tipo = None
+        self.desloca = None
+        self.passagem = None
 
     def getName(self):
         return self.name
@@ -50,12 +55,37 @@ class Token(object):    # The token class
     def getCat(self):
         return self.category
 
+    def getNivel(self):
+        return self.nivel
+
+    def getTipo(self):
+        return self.tipo
+
+    def getDesloca(self):
+        return self.desloca
+
+    def getPassagem(self):
+        return self.passagem
+
+    def setNivel(self, nivel):
+        self.nivel = nivel
+
+    def setTipo(self, tipo):
+        self.tipo = tipo
+
+    def setDesloca(self, desloca):
+        self.desloca = desloca
+
+    def setPassagem(self, passagem):
+        self.passagem = passagem
+
 
 class Parser:   # The parser class
     def __init__(self, token_list):
         self.token_list = token_list
         self.index = 0
         self.current = token_list[self.index]
+        self.level = 0
 
     def next_token(self):   # Puts the next token in current
         self.index += 1
@@ -70,10 +100,13 @@ class Parser:   # The parser class
         print("ATUAL:", self.current.getName(), "DEVE SER:", token)
         if token == "." and len(self.token_list) - 1 == self.index:
             print("Fim da analise, nao ouve erros")
+            for item in self.token_list:
+                print(item.getName(), item.getCat(), item.getNivel())
             quit()
         elif token == 'identificador':
             if self.current:
                 if self.current.getCat() == 'identificador':
+                    self.token_list[self.index].setNivel(self.level)
                     self.next_token()
                 else:
                     print('Erro sintático em', self.current.getName())
@@ -113,7 +146,7 @@ class Parser:   # The parser class
             self.eat(")")
             self.eat(";")
             self.bloco()
-            while self.current.getName() != ".":    # TODO
+            while self.current.getName() != ".":
                 self.bloco()
             self.eat(".")
 
@@ -228,17 +261,20 @@ class Parser:   # The parser class
     def procedure(self):
 
         if self.current.getName().upper() == 'PROCEDURE':
+            self.level += 1
             self.eat("PROCEDURE")
             procedures.append(self.current.getName())
             self.eat("identificador")
             self.formal_parameters()
             self.eat(";")
             self.bloco()
+            self.level -= 1
 
     # DECLARAÇÃO DE FUNÇÃO production(Kowaltoswki pg72 - item 13)
     def function(self):
 
         if self.current.getName().upper() == 'FUNCTION':
+            self.level += 1
             self.eat("FUNCTION")
             functions.append(self.current.getName())
             self.eat("identificador")
@@ -247,6 +283,7 @@ class Parser:   # The parser class
             self.eat("identificador")
             self.eat(";")
             self.bloco()
+            self.level -= 1
 
     # PARÂMETROS FORMAIS production (Kowaltowski pg72 - item 14)
     def formal_parameters(self):
@@ -506,6 +543,4 @@ def main(argv):
                 token_list.append(newtoken)
     parser = Parser(token_list)
     parser = parser.start_parse()
-
-
 main(sys.argv[1:])
