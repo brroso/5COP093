@@ -86,6 +86,7 @@ class Parser:   # The parser class
         self.index = 0
         self.current = token_list[self.index]
         self.level = 0
+        self.table = ht.new_table()
 
     def next_token(self):   # Puts the next token in current
         self.index += 1
@@ -117,6 +118,10 @@ class Parser:   # The parser class
                         item.getName().upper() not in keywords:
                     print(item.getName(), item.getCat(), item.getNivel(),
                           item.getTipo())
+            for item in self.token_list:
+                if item.getCat() == 'identificador' and \
+                        item.getName().upper() not in keywords:
+                    ht.hash_insert(self.table, item)
             quit()
         elif token == 'identificador':
             if self.current:
