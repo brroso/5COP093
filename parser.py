@@ -7,7 +7,7 @@ keywords = [
             'CONST', 'CONSTRUCTOR', 'CONTINUE', 'DESTRUCTOR',
             'DIV', 'DO', 'DOWNTO', 'ELSE', 'END', 'FALSE', 'FILE',
             'FOR', 'FUNCTION', 'GOTO', 'IF', 'IMPLEMENTATION',
-            'IN', 'INLINE', 'INTERFACE', 'LABEL', 'MOD', 'NIL',
+            'IN', 'INLINE', 'INTEGER', 'INTERFACE', 'LABEL', 'MOD', 'NIL',
             'NOT', 'OBJECT', 'OF', 'OR', 'INHERITED',
             'PACKED', 'PROCEDURE', 'PROGRAM', 'READ', 'RECORD',
             'REPEAT', 'SET', 'SHL', 'SHR', 'STRING', 'THEN', 'TO', 'TRUE',
@@ -95,13 +95,28 @@ class Parser:   # The parser class
         self.program()
         return 0
 
+    def getIndex(self):
+        return self.index
+
     # Checks if the passed token equals the current one
     def eat(self, token):
         print("ATUAL:", self.current.getName(), "DEVE SER:", token)
         if token == "." and len(self.token_list) - 1 == self.index:
             print("Fim da analise, nao ouve erros")
             for item in self.token_list:
-                print(item.getName(), item.getCat(), item.getNivel())
+                for inner_item in self.token_list:
+                    if inner_item.getName() == item.getName() and \
+                            inner_item.getNivel() == item.getNivel() and\
+                            item.getTipo() is not None and \
+                            item.getTipo() != "PROCEDURE":
+                        inner_item.setTipo(item.getTipo())
+                    elif inner_item.getName() == item.getName() and \
+                            item.getTipo() == "PROCEDURE":
+                        inner_item.setTipo("PROCEDURE")
+                if item.getCat() == 'identificador' and \
+                        item.getName().upper() not in keywords:
+                    print(item.getName(), item.getCat(), item.getNivel(),
+                          item.getTipo())
             quit()
         elif token == 'identificador':
             if self.current:
@@ -139,6 +154,7 @@ class Parser:   # The parser class
         if self.current.getName().upper() == 'PROGRAM':
 
             self.eat("PROGRAM")
+            self.current.setTipo("PROGRAM")
             self.eat("identificador")
             self.eat("(")
             self.eat("identificador")
@@ -197,10 +213,13 @@ class Parser:   # The parser class
 
     # TIPO production (Kowaltowski pg. 72 - item 6)
     def tipo(self):
- 
+
         if self.current.getCat() == 'identificador':
+            token_name = self.current.getName()
             self.eat("identificador")
-        elif self.current.getName().upper == 'ARRAY':
+            return token_name.upper()
+        elif self.current.getName().upper() == 'ARRAY':
+            token_name = 'ARRAY OF '
             self.eat("ARRAY")
             self.eat("[")
             self.bloco_index()
@@ -209,15 +228,17 @@ class Parser:   # The parser class
                 self.bloco_index()
             self.eat("]")
             self.eat("OF")
-            self.tipo()
+            tipo_name = self.tipo().upper()
+            token_name = token_name + tipo_name
+            return token_name
 
     # INDICE production (Kowaltowski pg 72 - item 7)
     def bloco_index(self):
 
         if "numero" in self.current.getCat():
-            self.eat("number")
+            self.eat("numero")
             self.eat("..")
-            self.eat("number")
+            self.eat("numero")
 
     # PARTE DE DECLARAÇÕES DE VARIAVEIS production (Kowaltowski pg.72 - item 8)
     def pt_dec_var(self):
@@ -232,12 +253,20 @@ class Parser:   # The parser class
 
     # DECLARAÇÂO DE VARIAVEIS production (Kowaltowksi pg.72 - item 9)
     def var_declaration(self):
+        print('aqui')
+        ids = []
 
         if self.current.getCat() == 'identificador':
+            ids.append(self.getIndex())
             self.eat("identificador")
-            self.bloco_id()
+            while self.current.getName() == ",":
+                self.eat(",")
+                ids.append(self.getIndex())
+                self.eat("identificador")
             self.eat(":")
-            self.tipo()
+            token_tipo = self.tipo()
+            for indice in ids:
+                self.token_list[indice].setTipo(token_tipo.upper())
 
     # LISTA DE IDENTIFICADORES production (Kowaltowksi pg. 72 - item 10)
     def bloco_id(self):
@@ -264,10 +293,12 @@ class Parser:   # The parser class
             self.level += 1
             self.eat("PROCEDURE")
             procedures.append(self.current.getName())
+            self.token_list[self.getIndex()].setTipo("PROCEDURE")
             self.eat("identificador")
             self.formal_parameters()
             self.eat(";")
             self.bloco()
+            print("acabou oprocedure")
             self.level -= 1
 
     # DECLARAÇÃO DE FUNÇÃO production(Kowaltoswki pg72 - item 13)
@@ -277,9 +308,11 @@ class Parser:   # The parser class
             self.level += 1
             self.eat("FUNCTION")
             functions.append(self.current.getName())
+            indice = self.getIndex()
             self.eat("identificador")
             self.formal_parameters()
             self.eat(":")
+            self.token_list[indice].setTipo(self.current.getName().upper())
             self.eat("identificador")
             self.eat(";")
             self.bloco()
@@ -299,26 +332,51 @@ class Parser:   # The parser class
     # SEÇÃO DE PARÂMETROS FORMAIS production (Kowaltowski pg72 - item 15)
     def formal_parameters_section(self):
 
+        indice = []
         if self.current.getName().upper() == 'VAR':
             self.eat("VAR")
+            indice.append(self.getIndex())
             self.eat("identificador")
-            self.bloco_id()
+            while self.current.getName() == ",":
+                self.eat(",")
+                indice.append(self.getIndex())
+                self.eat("identificador")
             self.eat(":")
+            for ind in indice:
+                self.token_list[ind].setTipo(self.current.getName().upper())
             self.eat("identificador")
         elif self.current.getName().upper() == 'FUNCTION':
             self.eat("FUNCTION")
+            indice.append(self.getIndex())
             self.eat("identificador")
-            self.bloco_id()
+            while self.current.getName() == ",":
+                self.eat(",")
+                indice.append(self.getIndex())
+                self.eat("identificador")
             self.eat(":")
+            for ind in indice:
+                self.token_list[ind].setTipo(self.current.getName().upper())
             self.eat("identificador")
         elif self.current.getName().upper() == 'PROCEDURE':
             self.eat("PROCEDURE")
+            self.token_list[self.getIndex()].setTipo("PROCEDURE")
             self.eat("identificador")
-            self.bloco_id()
+            while self.current.getName() == ",":
+                self.eat(",")
+                indice.append(self.getIndex())
+                self.eat("identificador")
+            for ind in indice:
+                self.token_list[ind].setTipo("PROCEDURE")
         elif self.current.getCat() == "identificador":
+            indice.append(self.getIndex())
             self.eat("identificador")
-            self.bloco_id()
+            while self.current.getName() == ",":
+                self.eat(",")
+                indice.append(self.getIndex())
+                self.eat("identificador")
             self.eat(":")
+            for ind in indice:
+                self.token_list[ind].setTipo(self.current.getName().upper())
             self.eat("identificador")
 
     # COMANDOS
