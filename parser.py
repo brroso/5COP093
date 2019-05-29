@@ -3,7 +3,7 @@ import getopt
 import hash_table as ht
 
 keywords = [
-            'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE',
+            'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE', 'FLOAT',
             'CONST', 'CONSTRUCTOR', 'CONTINUE', 'DESTRUCTOR',
             'DIV', 'DO', 'DOWNTO', 'ELSE', 'END', 'FALSE', 'FILE',
             'FOR', 'FUNCTION', 'GOTO', 'IF', 'IMPLEMENTATION',
@@ -253,7 +253,6 @@ class Parser:   # The parser class
 
     # DECLARAÇÂO DE VARIAVEIS production (Kowaltowksi pg.72 - item 9)
     def var_declaration(self):
-        print('aqui')
         ids = []
 
         if self.current.getCat() == 'identificador':
