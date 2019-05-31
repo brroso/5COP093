@@ -40,6 +40,14 @@ functions = [
 ]
 
 
+def align(indice, ident, cat, nivel, tipo, desloc, passagem):
+    return "{:3} | {:10} | {:10} | {:1} | {:10} | {:2} | {:10}".format(
+                str(indice),
+                str(ident), str(cat), str(nivel), str(tipo), str(desloc),
+                str(passagem)
+                )
+
+
 class Token(object):    # The token class
     def __init__(self, name, category):
         self.name = name
@@ -101,9 +109,9 @@ class Parser:   # The parser class
 
     # Checks if the passed token equals the current one
     def eat(self, token):
-        print("ATUAL:", self.current.getName(), "DEVE SER:", token)
+        # print("ATUAL:", self.current.getName(), "DEVE SER:", token)
         if token == "." and len(self.token_list) - 1 == self.index:
-            print("Fim da analise, nao ouve erros")
+            print("Fim da analise, nao houveram erros")
             for item in self.token_list:
                 for inner_item in self.token_list:
                     if inner_item.getName() == item.getName() and \
@@ -117,6 +125,14 @@ class Parser:   # The parser class
                 if item.getCat() == 'identificador' and \
                         item.getName().upper() not in keywords:
                     ht.hash_insert(self.table, item)
+            indice = 0
+            print("HASH:")
+            for lista in self.table:
+                for item in lista:
+                    print(align(indice, item.getName(), item.getCat(), 
+                          item.getNivel(), item.getTipo(), item.getDesloca(),
+                          item.getPassagem()))
+                indice += 1
             quit()
         elif token == 'identificador':
             if self.current:
