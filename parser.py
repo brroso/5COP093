@@ -116,11 +116,6 @@ class Parser:   # The parser class
                         inner_item.setTipo("PROCEDURE")
                 if item.getCat() == 'identificador' and \
                         item.getName().upper() not in keywords:
-                    print(item.getName(), item.getCat(), item.getNivel(),
-                          item.getTipo())
-            for item in self.token_list:
-                if item.getCat() == 'identificador' and \
-                        item.getName().upper() not in keywords:
                     ht.hash_insert(self.table, item)
             quit()
         elif token == 'identificador':
