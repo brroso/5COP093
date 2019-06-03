@@ -41,7 +41,7 @@ functions = [
 
 
 def align(indice, ident, cat, nivel, tipo, desloc, passagem):
-    return "{:3} | {:10} | {:10} | {:1} | {:10} | {:2} | {:10}".format(
+    return "{:7} | {:10} | {:15} | {:5} | {:10} | {:13} | {:10}".format(
                 str(indice),
                 str(ident), str(cat), str(nivel), str(tipo), str(desloc),
                 str(passagem)
@@ -127,6 +127,8 @@ class Parser:   # The parser class
                     ht.hash_insert(self.table, item)
             indice = 0
             print("HASH:")
+            print(align("Indice", "Nome", "Categoria", "Nivel", "Tipo",
+                        "Deslocamento", "Passagem"))
             for lista in self.table:
                 for item in lista:
                     print(align(indice, item.getName(), item.getCat(), 
