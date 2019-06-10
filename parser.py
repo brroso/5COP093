@@ -48,13 +48,161 @@ def align(indice, ident, cat, nivel, tipo, desloc, passagem):
                 )
 
 
+class ForPar(object):
+
+    def __init__(self, name, category):
+        self.name = name
+        self.category = category
+        self.nivel = None
+        self.tipo = None
+        self.desloc = None
+        self.passagem = None
+
+    def getName(self):
+        return self.name
+
+    def getCat(self):
+        return self.category
+
+    def getNivel(self):
+        return self.nivel
+
+    def getTipo(self):
+        return self.tipo
+
+    def getDesloc(self):
+        return self.desloc
+
+    def getPassagem(self):
+        return self.passagem
+
+    def setNivel(self, nivel):
+        self.nivel = nivel
+
+    def setTipo(self, tipo):
+        self.tipo = tipo
+
+    def setDesloc(self, desloc):
+        self.desloc = desloc
+
+    def setPassagem(self, passagem):
+        self.passagem = passagem
+
+
+class SimVar(object):
+
+    def __init__(self, name, category):
+        self.name = name
+        self.category = category
+        self.nivel = None
+        self.tipo = None
+        self.desloc = None
+
+    def getName(self):
+        return self.name
+
+    def getCat(self):
+        return self.category
+
+    def getNivel(self):
+        return self.nivel
+
+    def getTipo(self):
+        return self.tipo
+
+    def getDesloc(self):
+        return self.desloc
+
+    def setNivel(self, nivel):
+        self.nivel = nivel
+
+    def setTipo(self, tipo):
+        self.tipo = tipo
+
+    def setDesloc(self, desloc):
+        self.desloc = desloc
+
+
+class ProcDef(object):
+
+    def __init__(self, name, category):
+        self.name = name
+        self.category = category
+        self.nivel = None
+        self.rotulo = []
+
+    def setName(self, name):
+        self.name = name
+
+    def setCategory(self, category):
+        self.category = category
+
+    def setNivel(self, nivel):
+        self.nivel = nivel
+
+    def setRotulo(self, rotulo):
+        self.rotulo.append(rotulo)
+
+    def getName(self):
+        return self.name
+
+    def getCategory(self):
+        return self.category
+
+    def getNivel(self):
+        return self.nivel
+
+    def getRotulo(self):
+        return self.rotulo
+
+
+class FuncDef(object):
+
+    def __init__(self, name, category):
+        self.name = name
+        self.category = category
+        self.nivel = None
+        self.rotulo = []
+        self.ret_type = None
+
+    def setName(self, name):
+        self.name = name
+
+    def setCategory(self, category):
+        self.category = category
+
+    def setNivel(self, nivel):
+        self.nivel = nivel
+
+    def setRotulo(self, rotulo):
+        self.rotulo.append(rotulo)
+
+    def setRetType(self, rettype):
+        self.ret_type = rettype
+
+    def getName(self):
+        return self.name
+
+    def getCategory(self):
+        return self.category
+
+    def getNivel(self):
+        return self.nivel
+
+    def getRotulo(self):
+        return self.rotulo
+
+    def getRetType(self):
+        return self.ret_type
+
+
 class Token(object):    # The token class
     def __init__(self, name, category):
         self.name = name
         self.category = category
         self.nivel = None
         self.tipo = None
-        self.desloca = None
+        self.desloc = None
         self.passagem = None
 
     def getName(self):
@@ -131,7 +279,7 @@ class Parser:   # The parser class
                         "Deslocamento", "Passagem"))
             for lista in self.table:
                 for item in lista:
-                    print(align(indice, item.getName(), item.getCat(), 
+                    print(align(indice, item.getName(), item.getCat(),
                           item.getNivel(), item.getTipo(), item.getDesloca(),
                           item.getPassagem()))
                 indice += 1
@@ -184,7 +332,7 @@ class Parser:   # The parser class
                 self.bloco()
             self.eat(".")
 
-    # BLOCO production (Kowaltowski pg. 72 - item 2) 
+    # BLOCO production (Kowaltowski pg. 72 - item 2)
     def bloco(self):
 
         if self.current.getName().upper() == "LABEL":
@@ -618,4 +766,6 @@ def main(argv):
                 token_list.append(newtoken)
     parser = Parser(token_list)
     parser = parser.start_parse()
+
+
 main(sys.argv[1:])
