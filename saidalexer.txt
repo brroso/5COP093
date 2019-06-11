@@ -1,22 +1,21 @@
 Identificadores:
 
 integer 101
-f 102
 g 103
-h 104
+m 109
 t 116
 x 120
-y 121
 z 122
 output 126
+float 153
 input 170
 write 176
-exemplo4 192
+exemplo3 191
 
 Records:
 
 program da categoria palavra reservada
-exemplo4 da categoria identificador
+exemplo3 da categoria identificador
 ( da categoria simbolo especial
 input da categoria identificador
 , da categoria simbolo especial
@@ -24,7 +23,9 @@ output da categoria identificador
 ) da categoria simbolo especial
 ; da categoria simbolo especial
 var da categoria palavra reservada
-y da categoria identificador
+z da categoria identificador
+, da categoria simbolo especial
+t da categoria identificador
 : da categoria simbolo especial
 integer da categoria identificador
 ; da categoria simbolo especial
@@ -32,45 +33,10 @@ procedure da categoria palavra reservada
 g da categoria identificador
 ( da categoria simbolo especial
 t da categoria identificador
+, da categoria simbolo especial
+m da categoria identificador
 : da categoria simbolo especial
-integer da categoria identificador
-) da categoria simbolo especial
-; da categoria simbolo especial
-var da categoria palavra reservada
-y da categoria identificador
-: da categoria simbolo especial
-integer da categoria identificador
-; da categoria simbolo especial
-begin da categoria palavra reservada
-y da categoria identificador
-:= da categoria simbolo especial composto
-t da categoria identificador
-* da categoria simbolo especial
-t da categoria identificador
-* da categoria simbolo especial
-t da categoria identificador
-* da categoria simbolo especial
-t da categoria identificador
-; da categoria simbolo especial
-z da categoria identificador
-:= da categoria simbolo especial composto
-z da categoria identificador
-+ da categoria simbolo especial
-x da categoria identificador
-+ da categoria simbolo especial
-y da categoria identificador
-; da categoria simbolo especial
-write da categoria identificador
-( da categoria simbolo especial
-z da categoria identificador
-) da categoria simbolo especial
-end da categoria palavra reservada
-procedure da categoria palavra reservada
-h da categoria identificador
-( da categoria simbolo especial
-y da categoria identificador
-: da categoria simbolo especial
-integer da categoria identificador
+float da categoria identificador
 ) da categoria simbolo especial
 ; da categoria simbolo especial
 var da categoria palavra reservada
@@ -78,79 +44,82 @@ x da categoria identificador
 : da categoria simbolo especial
 integer da categoria identificador
 ; da categoria simbolo especial
-procedure da categoria palavra reservada
-f da categoria identificador
-( da categoria simbolo especial
-y da categoria identificador
-: da categoria simbolo especial
-integer da categoria identificador
-) da categoria simbolo especial
-; da categoria simbolo especial
-var da categoria palavra reservada
-t da categoria identificador
-: da categoria simbolo especial
-integer da categoria identificador
-; da categoria simbolo especial
 begin da categoria palavra reservada
 t da categoria identificador
 := da categoria simbolo especial composto
-z da categoria identificador
-+ da categoria simbolo especial
-x da categoria identificador
-+ da categoria simbolo especial
-y da categoria identificador
-; da categoria simbolo especial
-g da categoria identificador
-( da categoria simbolo especial
+2 da categoria numero inteiro
+* da categoria simbolo especial
 t da categoria identificador
-) da categoria simbolo especial
+; da categoria simbolo especial
+x da categoria identificador
+:= da categoria simbolo especial composto
+2 da categoria numero inteiro
+* da categoria simbolo especial
+t da categoria identificador
 ; da categoria simbolo especial
 z da categoria identificador
 := da categoria simbolo especial composto
-t da categoria identificador
-end da categoria palavra reservada
-begin da categoria palavra reservada
 x da categoria identificador
-:= da categoria simbolo especial composto
-y da categoria identificador
 +1 da categoria numero positivo
-; da categoria simbolo especial
-f da categoria identificador
-( da categoria simbolo especial
-x da categoria identificador
-) da categoria simbolo especial
-; da categoria simbolo especial
-g da categoria identificador
-( da categoria simbolo especial
-z da categoria identificador
-+ da categoria simbolo especial
-x da categoria identificador
-) da categoria simbolo especial
 end da categoria palavra reservada
+; da categoria simbolo especial
 begin da categoria palavra reservada
 z da categoria identificador
-:= da categoria simbolo especial composto
-1 da categoria numero inteiro
-; da categoria simbolo especial
-x da categoria identificador
 := da categoria simbolo especial composto
 3 da categoria numero inteiro
 ; da categoria simbolo especial
-h da categoria identificador
-( da categoria simbolo especial
-x da categoria identificador
-) da categoria simbolo especial
+t da categoria identificador
+:= da categoria simbolo especial composto
+4 da categoria numero inteiro
 ; da categoria simbolo especial
 g da categoria identificador
 ( da categoria simbolo especial
-x da categoria identificador
+t da categoria identificador
 ) da categoria simbolo especial
 ; da categoria simbolo especial
 write da categoria identificador
 ( da categoria simbolo especial
-x da categoria identificador
-, da categoria simbolo especial
 z da categoria identificador
+, da categoria simbolo especial
+t da categoria identificador
+) da categoria simbolo especial
+; da categoria simbolo especial
+g da categoria identificador
+( da categoria simbolo especial
+z da categoria identificador
+) da categoria simbolo especial
+; da categoria simbolo especial
+write da categoria identificador
+( da categoria simbolo especial
+z da categoria identificador
+, da categoria simbolo especial
+t da categoria identificador
+) da categoria simbolo especial
+; da categoria simbolo especial
+g da categoria identificador
+( da categoria simbolo especial
+t da categoria identificador
++ da categoria simbolo especial
+z da categoria identificador
+) da categoria simbolo especial
+; da categoria simbolo especial
+write da categoria identificador
+( da categoria simbolo especial
+z da categoria identificador
+, da categoria simbolo especial
+t da categoria identificador
+) da categoria simbolo especial
+; da categoria simbolo especial
+g da categoria identificador
+( da categoria simbolo especial
+7 da categoria numero inteiro
+) da categoria simbolo especial
+; da categoria simbolo especial
+write da categoria identificador
+( da categoria simbolo especial
+z da categoria identificador
+, da categoria simbolo especial
+t da categoria identificador
 ) da categoria simbolo especial
 end da categoria palavra reservada
 . da categoria simbolo especial

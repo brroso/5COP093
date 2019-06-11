@@ -8,7 +8,7 @@ program exemplo2(input,output);
         if(i div 2)*2 = i
         then s:=s+q
         else s:=s-q
-    end(*soma*)
+    end(*soma*);
     begin
         read(n);
         s:=0; i:=0;

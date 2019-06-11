@@ -102,11 +102,11 @@ class ForPar(object):
 
 class SimVar(object):
 
-    def __init__(self, name, category):
+    def __init__(self, name, tipo, nivel):
         self.name = name
         self.category = "variável simples"
-        self.nivel = None
-        self.tipo = None
+        self.nivel = nivel
+        self.tipo = tipo
         self.desloc = None
 
     def getName(self):
@@ -402,7 +402,9 @@ class Parser:   # The parser class
                 self.eat(",")
                 self.eat("identificador")
             self.eat(":")
-            self.tipo()
+            vartipo = self.tipo()
+            varobject = SimVar(self.current.getName(), vartipo, self.level)
+            ht.hash_insert(self.table, varobject)
             # colocar na hash
 
     # LISTA DE IDENTIFICADORES production (Kowaltowksi pg. 72 - item 10)

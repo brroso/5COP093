@@ -5,7 +5,7 @@ program exemplo4(input, output);
     begin
         y:=t*t;z:=z+x+y;
         write(z)
-    end (*g*)
+    end (*g*);
     procedure h(y: integer);
         var x: integer;
         procedure f(y: integer);
@@ -13,12 +13,12 @@ program exemplo4(input, output);
         begin
             t:=z+x+y; g(t);
             z:=t
-        end (*f*)
+        end (*f*);
         begin
             x:=y+1;
             f(x);
             g(z+x)
-        end (*h*)
+        end (*h*);
     begin
         z:=1; x:=3; h(x);
         g(x);
