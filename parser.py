@@ -31,14 +31,6 @@ divand = [
     "*", "div", "and"
 ]
 
-procedures = [
-
-]
-
-functions = [
-
-]
-
 
 def align(indice, ident, cat, nivel, tipo, desloc, passagem):
     return "{:7} | {:10} | {:15} | {:5} | {:10} | {:13} | {:10}".format(
@@ -48,11 +40,30 @@ def align(indice, ident, cat, nivel, tipo, desloc, passagem):
                 )
 
 
+class ParamTipo(object):
+
+    def __init__(self, tipo, passagem):
+        self.tipo = tipo
+        self.passagem = passagem
+
+    def getTipo(self):
+        return self.tipo
+
+    def getPassagem(self):
+        return self.passagem
+
+    def setTipo(self, tipo):
+        self.tipo = tipo
+
+    def setPassagem(self, passagem):
+        self.passagem = passagem
+
+
 class ForPar(object):
 
     def __init__(self, name, category):
         self.name = name
-        self.category = category
+        self.category = "parâmetro formal"
         self.nivel = None
         self.tipo = None
         self.desloc = None
@@ -93,7 +104,7 @@ class SimVar(object):
 
     def __init__(self, name, category):
         self.name = name
-        self.category = category
+        self.category = "variável simples"
         self.nivel = None
         self.tipo = None
         self.desloc = None
@@ -125,11 +136,13 @@ class SimVar(object):
 
 class ProcDef(object):
 
-    def __init__(self, name, category):
+    def __init__(self, name, category, nparam):
         self.name = name
-        self.category = category
+        self.category = "procedimento"
         self.nivel = None
-        self.rotulo = []
+        self.rotulo = None
+        self.nparam = nparam
+        self.param_list = [None] * nparam
 
     def setName(self, name):
         self.name = name
@@ -141,7 +154,14 @@ class ProcDef(object):
         self.nivel = nivel
 
     def setRotulo(self, rotulo):
-        self.rotulo.append(rotulo)
+        self.rotulo = rotulo
+
+    def addParam(self, tipo, passagem):
+        ptipo = ParamTipo(tipo, passagem)
+        for index, item in enumerate(self.param_list):
+            if item is None:
+                self.param_list[index] = ptipo
+                break
 
     def getName(self):
         return self.name
@@ -158,12 +178,14 @@ class ProcDef(object):
 
 class FuncDef(object):
 
-    def __init__(self, name, category):
+    def __init__(self, name, category, nparam):
         self.name = name
-        self.category = category
+        self.category = "função"
         self.nivel = None
-        self.rotulo = []
-        self.ret_type = None
+        self.rotulo = None
+        self.nparam = nparam
+        self.param_list = [None] * nparam
+        self.return_type = None
 
     def setName(self, name):
         self.name = name
@@ -175,10 +197,17 @@ class FuncDef(object):
         self.nivel = nivel
 
     def setRotulo(self, rotulo):
-        self.rotulo.append(rotulo)
+        self.rotulo = rotulo
 
-    def setRetType(self, rettype):
-        self.ret_type = rettype
+    def addParam(self, tipo, passagem):
+        ptipo = ParamTipo(tipo, passagem)
+        for index, item in enumerate(self.param_list):
+            if item is None:
+                self.param_list[index] = ptipo
+                break
+
+    def setReturnType(self, tipo):
+        self.return_type = tipo
 
     def getName(self):
         return self.name
@@ -192,48 +221,20 @@ class FuncDef(object):
     def getRotulo(self):
         return self.rotulo
 
-    def getRetType(self):
-        return self.ret_type
+    def getReturnType(self):
+        return self.return_type
 
 
 class Token(object):    # The token class
     def __init__(self, name, category):
         self.name = name
         self.category = category
-        self.nivel = None
-        self.tipo = None
-        self.desloc = None
-        self.passagem = None
 
     def getName(self):
         return self.name
 
     def getCat(self):
         return self.category
-
-    def getNivel(self):
-        return self.nivel
-
-    def getTipo(self):
-        return self.tipo
-
-    def getDesloca(self):
-        return self.desloca
-
-    def getPassagem(self):
-        return self.passagem
-
-    def setNivel(self, nivel):
-        self.nivel = nivel
-
-    def setTipo(self, tipo):
-        self.tipo = tipo
-
-    def setDesloca(self, desloca):
-        self.desloca = desloca
-
-    def setPassagem(self, passagem):
-        self.passagem = passagem
 
 
 class Parser:   # The parser class
@@ -257,37 +258,13 @@ class Parser:   # The parser class
 
     # Checks if the passed token equals the current one
     def eat(self, token):
-        # print("ATUAL:", self.current.getName(), "DEVE SER:", token)
+        print("ATUAL:", self.current.getName(), "DEVE SER:", token)
         if token == "." and len(self.token_list) - 1 == self.index:
             print("Fim da analise, nao houveram erros")
-            for item in self.token_list:
-                for inner_item in self.token_list:
-                    if inner_item.getName() == item.getName() and \
-                            inner_item.getNivel() == item.getNivel() and\
-                            item.getTipo() is not None and \
-                            item.getTipo() != "PROCEDURE":
-                        inner_item.setTipo(item.getTipo())
-                    elif inner_item.getName() == item.getName() and \
-                            item.getTipo() == "PROCEDURE":
-                        inner_item.setTipo("PROCEDURE")
-                if item.getCat() == 'identificador' and \
-                        item.getName().upper() not in keywords:
-                    ht.hash_insert(self.table, item)
-            indice = 0
-            print("HASH:")
-            print(align("Indice", "Nome", "Categoria", "Nivel", "Tipo",
-                        "Deslocamento", "Passagem"))
-            for lista in self.table:
-                for item in lista:
-                    print(align(indice, item.getName(), item.getCat(),
-                          item.getNivel(), item.getTipo(), item.getDesloca(),
-                          item.getPassagem()))
-                indice += 1
             quit()
         elif token == 'identificador':
             if self.current:
                 if self.current.getCat() == 'identificador':
-                    self.token_list[self.index].setNivel(self.level)
                     self.next_token()
                 else:
                     print('Erro sintático em', self.current.getName())
@@ -320,7 +297,6 @@ class Parser:   # The parser class
         if self.current.getName().upper() == 'PROGRAM':
 
             self.eat("PROGRAM")
-            self.current.setTipo("PROGRAM")
             self.eat("identificador")
             self.eat("(")
             self.eat("identificador")
@@ -377,7 +353,7 @@ class Parser:   # The parser class
             self.eat("=")
             self.tipo()
 
-    # TIPO production (Kowaltowski pg. 72 - item 6)
+    # TIPO production (Kowaltowski pg. 72 - item 6) TODO
     def tipo(self):
 
         if self.current.getCat() == 'identificador':
@@ -417,21 +393,16 @@ class Parser:   # The parser class
                 self.var_declaration()
                 self.eat(";")
 
-    # DECLARAÇÂO DE VARIAVEIS production (Kowaltowksi pg.72 - item 9)
+    # DECLARAÇÂO DE VARIAVEIS production (Kowaltowksi pg.72 - item 9) TODO colocar já como varsimples
     def var_declaration(self):
-        ids = []
 
         if self.current.getCat() == 'identificador':
-            ids.append(self.getIndex())
             self.eat("identificador")
             while self.current.getName() == ",":
                 self.eat(",")
-                ids.append(self.getIndex())
                 self.eat("identificador")
             self.eat(":")
-            token_tipo = self.tipo()
-            for indice in ids:
-                self.token_list[indice].setTipo(token_tipo.upper())
+            self.tipo()
 
     # LISTA DE IDENTIFICADORES production (Kowaltowksi pg. 72 - item 10)
     def bloco_id(self):
@@ -448,8 +419,10 @@ class Parser:   # The parser class
                 or self.current.getName().upper() == "FUNCTION":
             if self.current.getName().upper() == "PROCEDURE":
                 self.procedure()
+                self.eat(";")
             elif self.current.getName().upper() == "FUNCTION":
                 self.function()
+                self.eat(";")
 
     # DECLARAÇÃO DE PROCEDIMENTO production(Kowaltoswki pg72 - item 12)
     def procedure(self):
@@ -457,13 +430,10 @@ class Parser:   # The parser class
         if self.current.getName().upper() == 'PROCEDURE':
             self.level += 1
             self.eat("PROCEDURE")
-            procedures.append(self.current.getName())
-            self.token_list[self.getIndex()].setTipo("PROCEDURE")
             self.eat("identificador")
             self.formal_parameters()
             self.eat(";")
             self.bloco()
-            print("acabou oprocedure")
             self.level -= 1
 
     # DECLARAÇÃO DE FUNÇÃO production(Kowaltoswki pg72 - item 13)
@@ -472,12 +442,9 @@ class Parser:   # The parser class
         if self.current.getName().upper() == 'FUNCTION':
             self.level += 1
             self.eat("FUNCTION")
-            functions.append(self.current.getName())
-            indice = self.getIndex()
             self.eat("identificador")
             self.formal_parameters()
             self.eat(":")
-            self.token_list[indice].setTipo(self.current.getName().upper())
             self.eat("identificador")
             self.eat(";")
             self.bloco()
@@ -497,51 +464,34 @@ class Parser:   # The parser class
     # SEÇÃO DE PARÂMETROS FORMAIS production (Kowaltowski pg72 - item 15)
     def formal_parameters_section(self):
 
-        indice = []
         if self.current.getName().upper() == 'VAR':
             self.eat("VAR")
-            indice.append(self.getIndex())
             self.eat("identificador")
             while self.current.getName() == ",":
                 self.eat(",")
-                indice.append(self.getIndex())
                 self.eat("identificador")
             self.eat(":")
-            for ind in indice:
-                self.token_list[ind].setTipo(self.current.getName().upper())
             self.eat("identificador")
         elif self.current.getName().upper() == 'FUNCTION':
             self.eat("FUNCTION")
-            indice.append(self.getIndex())
             self.eat("identificador")
             while self.current.getName() == ",":
                 self.eat(",")
-                indice.append(self.getIndex())
                 self.eat("identificador")
             self.eat(":")
-            for ind in indice:
-                self.token_list[ind].setTipo(self.current.getName().upper())
             self.eat("identificador")
         elif self.current.getName().upper() == 'PROCEDURE':
             self.eat("PROCEDURE")
-            self.token_list[self.getIndex()].setTipo("PROCEDURE")
             self.eat("identificador")
             while self.current.getName() == ",":
                 self.eat(",")
-                indice.append(self.getIndex())
                 self.eat("identificador")
-            for ind in indice:
-                self.token_list[ind].setTipo("PROCEDURE")
         elif self.current.getCat() == "identificador":
-            indice.append(self.getIndex())
             self.eat("identificador")
             while self.current.getName() == ",":
                 self.eat(",")
-                indice.append(self.getIndex())
                 self.eat("identificador")
             self.eat(":")
-            for ind in indice:
-                self.token_list[ind].setTipo(self.current.getName().upper())
             self.eat("identificador")
 
     # COMANDOS
@@ -576,22 +526,19 @@ class Parser:   # The parser class
         self.read()
         self.write()
 
-    # ATRIBUICAO production (Kowaltowski pg 73 - item 19)
+    # ATRIBUICAO production (Kowaltowski pg 73 - item 19) TODO selecionar se é varsimples
     def atribuicao(self):
 
         if self.current.getCat() == "identificador" \
-            and self.current.getName().upper() not in keywords \
-                and self.current.getName() not in functions \
-                and self.current.getName() not in procedures:
+                and self.current.getName().upper() not in keywords:
             self.variavel()
             self.eat(":=")
             self.expression()
 
-    # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20)
+    # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20) TODO verificar se é procedure
     def procedure_call(self):
 
-        if self.current.getCat() == "identificador" and \
-                self.current.getName() in procedures:
+        if self.current.getCat() == "identificador":
             self.eat("identificador")
             if self.current.getName() == "(":
                 self.eat("(")
@@ -672,7 +619,7 @@ class Parser:   # The parser class
             self.eat(self.current.getName())
             self.fator()
 
-    # FATOR production (Kowaltowski pg 74 - item 29)
+    # FATOR production (Kowaltowski pg 74 - item 29) TODO checar se é função ou variavel
     def fator(self):
 
         if self.current.getCat() == "identificador":
@@ -706,8 +653,7 @@ class Parser:   # The parser class
     # CHAMADA DE FUNÇÃO production (Kowaltowski pg 74 - item 31)
     def function_call(self):
 
-        if self.current.getCat() == "identificador" \
-                and self.current.getName() in functions:
+        if self.current.getCat() == "identificador":
             self.eat("identificador")
             self.expressions_list()
 
