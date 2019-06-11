@@ -2,6 +2,8 @@ import sys
 import getopt
 import hash_table as ht
 
+# TODO parametros formais disponiveis para operações.
+
 keywords = [
             'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE', 'FLOAT',
             'CONST', 'CONSTRUCTOR', 'CONTINUE', 'DESTRUCTOR',
@@ -61,11 +63,11 @@ class ParamTipo(object):
 
 class ForPar(object):
 
-    def __init__(self, name, category):
+    def __init__(self, name, tipo):
         self.name = name
         self.category = "parâmetro formal"
         self.nivel = None
-        self.tipo = None
+        self.tipo = tipo
         self.desloc = None
         self.passagem = None
 
@@ -112,7 +114,7 @@ class SimVar(object):
     def getName(self):
         return self.name
 
-    def getCat(self):
+    def getCategory(self):
         return self.category
 
     def getNivel(self):
@@ -136,9 +138,9 @@ class SimVar(object):
 
 class ProcDef(object):
 
-    def __init__(self, name, category, nparam):
+    def __init__(self, name, nivel, nparam):
         self.name = name
-        self.category = "procedimento"
+        self.category = "procedure"
         self.nivel = None
         self.rotulo = None
         self.nparam = nparam
@@ -178,14 +180,14 @@ class ProcDef(object):
 
 class FuncDef(object):
 
-    def __init__(self, name, category, nparam):
+    def __init__(self, name, tipo, nivel, nparam):
         self.name = name
         self.category = "função"
-        self.nivel = None
+        self.nivel = nivel
         self.rotulo = None
         self.nparam = nparam
         self.param_list = [None] * nparam
-        self.return_type = None
+        self.return_type = tipo
 
     def setName(self, name):
         self.name = name
@@ -396,15 +398,19 @@ class Parser:   # The parser class
     # DECLARAÇÂO DE VARIAVEIS production (Kowaltowksi pg.72 - item 9)
     def var_declaration(self):
 
+        ids_list = []
         if self.current.getCat() == 'identificador':
+            ids_list.append(self.current.getName())
             self.eat("identificador")
             while self.current.getName() == ",":
                 self.eat(",")
+                ids_list.append(self.current.getName())
                 self.eat("identificador")
             self.eat(":")
             vartipo = self.tipo()
-            varobject = SimVar(self.current.getName(), vartipo, self.level)
-            ht.hash_insert(self.table, varobject)
+            for item in ids_list:
+                varobject = SimVar(item, vartipo, self.level)
+                ht.hash_insert(self.table, varobject)
             # colocar na hash
 
     # LISTA DE IDENTIFICADORES production (Kowaltowksi pg. 72 - item 10)
@@ -431,12 +437,15 @@ class Parser:   # The parser class
     def procedure(self):
 
         if self.current.getName().upper() == 'PROCEDURE':
-            self.level += 1
+
             self.eat("PROCEDURE")
+            proc_name = self.current.getName()
             self.eat("identificador")
             self.formal_parameters()
             self.eat(";")
-            # colocar na hash
+            proc = ProcDef(proc_name, self.level, 2)
+            ht.hash_insert(self.table, proc)
+            self.level += 1
             self.bloco()
             self.level -= 1
 
@@ -444,14 +453,18 @@ class Parser:   # The parser class
     def function(self):
 
         if self.current.getName().upper() == 'FUNCTION':
-            self.level += 1
+
             self.eat("FUNCTION")
+            func_name = self.current.getName()
             self.eat("identificador")
             self.formal_parameters()
             self.eat(":")
+            ret_type = self.current.getName()
             self.eat("identificador")
             self.eat(";")
-            # colocar na hash
+            func = FuncDef(func_name, ret_type, self.level, 2)
+            ht.hash_insert(self.table, func)
+            self.level += 1
             self.bloco()
             self.level -= 1
 
@@ -537,21 +550,27 @@ class Parser:   # The parser class
 
         if self.current.getCat() == "identificador" \
                 and self.current.getName().upper() not in keywords:
-            # and is a varsimples
-            self.variavel()
-            self.eat(":=")
-            self.expression()
+            for lista in self.table:
+                for item in lista:
+                    if self.current.getName() == item.getName():
+                        if item.getCategory() == 'variável simples':
+                            self.variavel()
+                            self.eat(":=")
+                            self.expression()
 
     # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20)
     def procedure_call(self):
 
         if self.current.getCat() == "identificador":
-            # and is a procedure
-            self.eat("identificador")
-            if self.current.getName() == "(":
-                self.eat("(")
-                self.expressions_list()
-                self.eat(")")
+            for lista in self.table:
+                for item in lista:
+                    if self.current.getName() == item.getName():
+                        if item.getCategory() == 'procedure':
+                            self.eat("identificador")
+                            if self.current.getName() == "(":
+                                self.eat("(")
+                                self.expressions_list()
+                                self.eat(")")
 
     # DESVIO production (Kowaltowski pg73 - item 21)
     def desvio(self):
@@ -627,11 +646,18 @@ class Parser:   # The parser class
             self.eat(self.current.getName())
             self.fator()
 
-    # FATOR production (Kowaltowski pg 74 - item 29) TODO diferenciar func e variavel
+    # FATOR production (Kowaltowski pg 74 - item 29)
     def fator(self):
 
         if self.current.getCat() == "identificador":
-            self.variavel()
+            for lista in self.table:
+                for item in lista:
+                    print(item.getName(), self.current.getName())
+                    if self.current.getName() == item.getName():
+                        if item.getCategory() == 'variável simples':
+                            self.variavel()
+                        elif item.getCategory() == 'função':
+                            self.function_call()
         elif "numero" in self.current.getCat():
             self.eat("numero")
         elif self.current.getName() == "(":
@@ -645,8 +671,6 @@ class Parser:   # The parser class
             self.eat("TRUE")
         elif self.current.getName().upper() == "FALSE":
             self.eat("FALSE")
-        else:
-            self.function_call()
 
     # VARIAVEL production (Kowaltowski pg 74 - item 30)
     def variavel(self):
@@ -662,8 +686,12 @@ class Parser:   # The parser class
     def function_call(self):
 
         if self.current.getCat() == "identificador":
-            self.eat("identificador")
-            self.expressions_list()
+            for lista in self.table:
+                for item in lista:
+                    if self.current.getName() == item.getName():
+                        if item.getCategory() == 'função':
+                            self.eat("identificador")
+                            self.expressions_list()
 
     # READ E WRITE
     def read(self):

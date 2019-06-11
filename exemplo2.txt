@@ -3,7 +3,6 @@ program exemplo2(input,output);
     procedure soma;
         var q: integer;
     begin
-        x:=(3*4)*4;
         q:=i*i;
         if(i div 2)*2 = i
         then s:=s+q
