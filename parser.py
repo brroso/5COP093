@@ -393,7 +393,7 @@ class Parser:   # The parser class
                 self.var_declaration()
                 self.eat(";")
 
-    # DECLARAÇÂO DE VARIAVEIS production (Kowaltowksi pg.72 - item 9) TODO colocar já como varsimples
+    # DECLARAÇÂO DE VARIAVEIS production (Kowaltowksi pg.72 - item 9)
     def var_declaration(self):
 
         if self.current.getCat() == 'identificador':
@@ -403,6 +403,7 @@ class Parser:   # The parser class
                 self.eat("identificador")
             self.eat(":")
             self.tipo()
+            #colocar na hash
 
     # LISTA DE IDENTIFICADORES production (Kowaltowksi pg. 72 - item 10)
     def bloco_id(self):
@@ -433,6 +434,7 @@ class Parser:   # The parser class
             self.eat("identificador")
             self.formal_parameters()
             self.eat(";")
+            # colocar na hash
             self.bloco()
             self.level -= 1
 
@@ -447,6 +449,7 @@ class Parser:   # The parser class
             self.eat(":")
             self.eat("identificador")
             self.eat(";")
+            # colocar na hash
             self.bloco()
             self.level -= 1
 
@@ -493,6 +496,7 @@ class Parser:   # The parser class
                 self.eat("identificador")
             self.eat(":")
             self.eat("identificador")
+        # colocar na hash
 
     # COMANDOS
     # COMANDO COMPOSTO production (Kowaltoski pg73 - item 16)
@@ -526,19 +530,21 @@ class Parser:   # The parser class
         self.read()
         self.write()
 
-    # ATRIBUICAO production (Kowaltowski pg 73 - item 19) TODO selecionar se é varsimples
+    # ATRIBUICAO production (Kowaltowski pg 73 - item 19)
     def atribuicao(self):
 
         if self.current.getCat() == "identificador" \
                 and self.current.getName().upper() not in keywords:
+            # and is a varsimples
             self.variavel()
             self.eat(":=")
             self.expression()
 
-    # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20) TODO verificar se é procedure
+    # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20)
     def procedure_call(self):
 
         if self.current.getCat() == "identificador":
+            # and is a procedure
             self.eat("identificador")
             if self.current.getName() == "(":
                 self.eat("(")
@@ -619,7 +625,7 @@ class Parser:   # The parser class
             self.eat(self.current.getName())
             self.fator()
 
-    # FATOR production (Kowaltowski pg 74 - item 29) TODO checar se é função ou variavel
+    # FATOR production (Kowaltowski pg 74 - item 29) TODO diferenciar func e variavel
     def fator(self):
 
         if self.current.getCat() == "identificador":
