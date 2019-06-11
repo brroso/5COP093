@@ -403,7 +403,7 @@ class Parser:   # The parser class
                 self.eat("identificador")
             self.eat(":")
             self.tipo()
-            #colocar na hash
+            # colocar na hash
 
     # LISTA DE IDENTIFICADORES production (Kowaltowksi pg. 72 - item 10)
     def bloco_id(self):
@@ -518,7 +518,7 @@ class Parser:   # The parser class
             self.eat(":")
         self.comando_sem_rotulo()
 
-    # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18) TODO OR
+    # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18)
     def comando_sem_rotulo(self):
 
         self.atribuicao()
