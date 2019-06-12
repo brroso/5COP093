@@ -63,10 +63,10 @@ class ParamTipo(object):
 
 class ForPar(object):
 
-    def __init__(self, name, tipo):
+    def __init__(self, name, tipo, level):
         self.name = name
-        self.category = "parâmetro formal"
-        self.nivel = None
+        self.category = "parametro formal"
+        self.nivel = level
         self.tipo = tipo
         self.desloc = None
         self.passagem = None
@@ -74,7 +74,7 @@ class ForPar(object):
     def getName(self):
         return self.name
 
-    def getCat(self):
+    def getCategory(self):
         return self.category
 
     def getNivel(self):
@@ -263,6 +263,10 @@ class Parser:   # The parser class
         print("ATUAL:", self.current.getName(), "DEVE SER:", token)
         if token == "." and len(self.token_list) - 1 == self.index:
             print("Fim da analise, nao houveram erros")
+            print("HASH")
+            for lista in self.table:
+                for item in lista:
+                    print(item.getName(), item.getCategory())
             quit()
         elif token == 'identificador':
             if self.current:
@@ -482,36 +486,62 @@ class Parser:   # The parser class
     # SEÇÃO DE PARÂMETROS FORMAIS production (Kowaltowski pg72 - item 15)
     def formal_parameters_section(self):
 
+        ids = []
         if self.current.getName().upper() == 'VAR':
             self.eat("VAR")
+            ids.append(self.current.getName())
             self.eat("identificador")
             while self.current.getName() == ",":
                 self.eat(",")
+                ids.append(self.current.getName())
                 self.eat("identificador")
             self.eat(":")
+            tipo = self.current.getName()
             self.eat("identificador")
+            for item in ids:
+                objpar = ForPar(item, tipo, self.level)
+                ht.hash_insert(self.table, objpar)
+
         elif self.current.getName().upper() == 'FUNCTION':
             self.eat("FUNCTION")
+            ids.append(self.current.getName())
             self.eat("identificador")
             while self.current.getName() == ",":
                 self.eat(",")
+                ids.append(self.current.getName())
                 self.eat("identificador")
             self.eat(":")
+            tipo = self.current.getName()
             self.eat("identificador")
+            for item in ids:
+                objpar = ForPar(item, tipo, self.level)
+                ht.hash_insert(self.table, objpar)
+
         elif self.current.getName().upper() == 'PROCEDURE':
             self.eat("PROCEDURE")
+            ids.append(self.current.getName())
             self.eat("identificador")
             while self.current.getName() == ",":
                 self.eat(",")
+                ids.append(self.current.getName())
                 self.eat("identificador")
+            for item in ids:
+                objpar = ForPar(item, 'procedure', self.level)
+                ht.hash_insert(self.table, objpar)
+
         elif self.current.getCat() == "identificador":
+            ids.append(self.current.getName())
             self.eat("identificador")
             while self.current.getName() == ",":
                 self.eat(",")
+                ids.append(self.current.getName())
                 self.eat("identificador")
             self.eat(":")
+            tipo = self.current.getName()
             self.eat("identificador")
-        # colocar na hash
+            for item in ids:
+                objpar = ForPar(item, tipo, self.level)
+                ht.hash_insert(self.table, objpar)
 
     # COMANDOS
     # COMANDO COMPOSTO production (Kowaltoski pg73 - item 16)
@@ -553,7 +583,8 @@ class Parser:   # The parser class
             for lista in self.table:
                 for item in lista:
                     if self.current.getName() == item.getName():
-                        if item.getCategory() == 'variável simples':
+                        if item.getCategory() == 'variável simples' or \
+                                item.getCategory() == 'parametro formal':
                             self.variavel()
                             self.eat(":=")
                             self.expression()
@@ -652,9 +683,9 @@ class Parser:   # The parser class
         if self.current.getCat() == "identificador":
             for lista in self.table:
                 for item in lista:
-                    print(item.getName(), self.current.getName())
                     if self.current.getName() == item.getName():
-                        if item.getCategory() == 'variável simples':
+                        if item.getCategory() == 'variável simples' or \
+                                item.getCategory() == 'parametro formal':
                             self.variavel()
                         elif item.getCategory() == 'função':
                             self.function_call()

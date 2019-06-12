@@ -3,24 +3,23 @@ program exemplo4(input, output);
     procedure g(t:integer);
         var y: integer;
     begin
-        z:=z+x+y;
-        write(z)
+        y:=y;
+        write(y)
     end (*g*);
     procedure h(y: integer);
         var x: integer;
         procedure f(y: integer);
             var t: integer;
         begin
-            t:=z+x+y; g(t);
-            z:=t
+            t:=x+y; g(t);
         end (*f*);
         begin
             x:=y+1;
             f(x);
-            g(z+x)
+            g(t+x)
         end (*h*);
     begin
-        z:=1; x:=3; h(x);
+        x:=3; h(x);
         g(x);
-        write(x,z)
+        write(x)
     end.
