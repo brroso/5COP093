@@ -584,7 +584,8 @@ class Parser:   # The parser class
                 for item in lista:
                     if self.current.getName() == item.getName():
                         if item.getCategory() == 'variável simples' or \
-                                item.getCategory() == 'parametro formal':
+                                item.getCategory() == 'parametro formal' or \
+                                item.getCategory() == 'função':
                             self.variavel()
                             self.eat(":=")
                             self.expression()
@@ -636,6 +637,7 @@ class Parser:   # The parser class
     def expressions_list(self):
 
         self.expression()
+        print('saiu do expression')
         while self.current.getName() == ",":
             self.eat(",")
             self.expression()
@@ -713,7 +715,7 @@ class Parser:   # The parser class
                 self.expressions_list()
                 self.eat("]")
 
-    # CHAMADA DE FUNÇÃO production (Kowaltowski pg 74 - item 31)
+    # CHAMADA DE FUNÇÃO production (Kowaltowski pg 74 - item 31) TODO
     def function_call(self):
 
         if self.current.getCat() == "identificador":
@@ -722,7 +724,10 @@ class Parser:   # The parser class
                     if self.current.getName() == item.getName():
                         if item.getCategory() == 'função':
                             self.eat("identificador")
-                            self.expressions_list()
+                            if self.current.getName() == "(":
+                                self.eat("(")
+                                self.expressions_list()
+                                self.eat(")")
 
     # READ E WRITE
     def read(self):
