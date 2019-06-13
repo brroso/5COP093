@@ -106,7 +106,7 @@ class SimVar(object):
 
     def __init__(self, name, tipo, nivel):
         self.name = name
-        self.category = "variável simples"
+        self.category = "variavel simples"
         self.nivel = nivel
         self.tipo = tipo
         self.desloc = None
@@ -141,7 +141,7 @@ class ProcDef(object):
     def __init__(self, name, nivel, nparam):
         self.name = name
         self.category = "procedure"
-        self.nivel = None
+        self.nivel = nivel
         self.rotulo = None
         self.nparam = nparam
         self.param_list = [None] * nparam
@@ -182,7 +182,7 @@ class FuncDef(object):
 
     def __init__(self, name, tipo, nivel, nparam):
         self.name = name
-        self.category = "função"
+        self.category = "function"
         self.nivel = nivel
         self.rotulo = None
         self.nparam = nparam
@@ -266,7 +266,8 @@ class Parser:   # The parser class
             print("HASH")
             for lista in self.table:
                 for item in lista:
-                    print(item.getName(), item.getCategory())
+                    print("Nome:", item.getName(), "Categoria:",
+                          item.getCategory(), "Nivel:", item.getNivel())
             quit()
         elif token == 'identificador':
             if self.current:
@@ -447,9 +448,9 @@ class Parser:   # The parser class
             self.eat("identificador")
             self.formal_parameters()
             self.eat(";")
-            proc = ProcDef(proc_name, self.level, 2)
-            ht.hash_insert(self.table, proc)
             self.level += 1
+            proc = ProcDef(proc_name, self.level - 1, 2)
+            ht.hash_insert(self.table, proc)
             self.bloco()
             self.level -= 1
 
@@ -466,9 +467,9 @@ class Parser:   # The parser class
             ret_type = self.current.getName()
             self.eat("identificador")
             self.eat(";")
-            func = FuncDef(func_name, ret_type, self.level, 2)
-            ht.hash_insert(self.table, func)
             self.level += 1
+            func = FuncDef(func_name, ret_type, self.level - 1, 2)
+            ht.hash_insert(self.table, func)
             self.bloco()
             self.level -= 1
 
@@ -583,9 +584,9 @@ class Parser:   # The parser class
             for lista in self.table:
                 for item in lista:
                     if self.current.getName() == item.getName():
-                        if item.getCategory() == 'variável simples' or \
+                        if item.getCategory() == 'variavel simples' or \
                                 item.getCategory() == 'parametro formal' or \
-                                item.getCategory() == 'função':
+                                item.getCategory() == 'function':
                             self.variavel()
                             self.eat(":=")
                             self.expression()
@@ -686,10 +687,10 @@ class Parser:   # The parser class
             for lista in self.table:
                 for item in lista:
                     if self.current.getName() == item.getName():
-                        if item.getCategory() == 'variável simples' or \
+                        if item.getCategory() == 'variavel simples' or \
                                 item.getCategory() == 'parametro formal':
                             self.variavel()
-                        elif item.getCategory() == 'função':
+                        elif item.getCategory() == 'function':
                             self.function_call()
         elif "numero" in self.current.getCat():
             self.eat("numero")
@@ -722,7 +723,7 @@ class Parser:   # The parser class
             for lista in self.table:
                 for item in lista:
                     if self.current.getName() == item.getName():
-                        if item.getCategory() == 'função':
+                        if item.getCategory() == 'function':
                             self.eat("identificador")
                             if self.current.getName() == "(":
                                 self.eat("(")
