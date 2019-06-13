@@ -2,6 +2,18 @@ program exemplo4(input, output);
     var y:integer;
     procedure g(t:integer);
         var y: integer;
+        procedure o(t:integer);
+            var y: integer;
+        procedure l(t:integer);
+            var u: integer;
+            begin
+                u:=u;
+                write(u)
+            end (*h*);
+        begin
+            y:=y;
+            write(y)
+        end (*h*);
     begin
         y:=y;
         write(y)

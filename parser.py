@@ -266,8 +266,13 @@ class Parser:   # The parser class
             print("HASH")
             for lista in self.table:
                 for item in lista:
-                    print("Nome:", item.getName(), "Categoria:",
-                          item.getCategory(), "Nivel:", item.getNivel())
+                    if item.getCategory() == 'parametro formal':
+                        print("Nome:", item.getName(), "Categoria:",
+                              item.getCategory(), "Nivel:", item.getNivel(),
+                              "Tipo:", item.getTipo())
+                    else:
+                        print("Nome:", item.getName(), "Categoria:",
+                              item.getCategory(), "Nivel:", item.getNivel())
             quit()
         elif token == 'identificador':
             if self.current:
@@ -448,9 +453,9 @@ class Parser:   # The parser class
             self.eat("identificador")
             self.formal_parameters()
             self.eat(";")
-            self.level += 1
-            proc = ProcDef(proc_name, self.level - 1, 2)
+            proc = ProcDef(proc_name, self.level, 2)
             ht.hash_insert(self.table, proc)
+            self.level += 1
             self.bloco()
             self.level -= 1
 
@@ -467,9 +472,9 @@ class Parser:   # The parser class
             ret_type = self.current.getName()
             self.eat("identificador")
             self.eat(";")
-            self.level += 1
-            func = FuncDef(func_name, ret_type, self.level - 1, 2)
+            func = FuncDef(func_name, ret_type, self.level, 2)
             ht.hash_insert(self.table, func)
+            self.level += 1
             self.bloco()
             self.level -= 1
 
