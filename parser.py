@@ -1,8 +1,12 @@
 import sys
 import getopt
 import hash_table as ht
+from anytree import Node, RenderTree
+import graphviz
 
-# TODO parametros formais disponiveis para operações.
+# TODO parametros formais em funcoes e procedures
+# TODO ast
+# TODO deslocamento
 
 keywords = [
             'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE', 'FLOAT',
@@ -235,17 +239,18 @@ class Token(object):    # The token class
     def getName(self):
         return self.name
 
-    def getCat(self):
+    def getCategory(self):
         return self.category
 
 
 class Parser:   # The parser class
-    def __init__(self, token_list):
+    def __init__(self, token_list, main):
         self.token_list = token_list
         self.index = 0
         self.current = token_list[self.index]
         self.level = 0
         self.table = ht.new_table()
+        self.root = main
 
     def next_token(self):   # Puts the next token in current
         self.index += 1
@@ -258,6 +263,12 @@ class Parser:   # The parser class
     def getIndex(self):
         return self.index
 
+    def setRoot(self, node):
+        self.root = node
+
+    def getRoot(self):
+        return self.root
+
     # Checks if the passed token equals the current one
     def eat(self, token):
         print("ATUAL:", self.current.getName(), "DEVE SER:", token)
@@ -266,7 +277,10 @@ class Parser:   # The parser class
             print("HASH")
             for lista in self.table:
                 for item in lista:
-                    if item.getCategory() == 'parametro formal':
+                    if item.getCategory() == 'program':
+                        print("Nome:", item.getName(), "Categoria:",
+                              item.getCategory())
+                    elif item.getCategory() == 'parametro formal':
                         print("Nome:", item.getName(), "Categoria:",
                               item.getCategory(), "Nivel:", item.getNivel(),
                               "Tipo:", item.getTipo())
@@ -276,14 +290,14 @@ class Parser:   # The parser class
             quit()
         elif token == 'identificador':
             if self.current:
-                if self.current.getCat() == 'identificador':
+                if self.current.getCategory() == 'identificador':
                     self.next_token()
                 else:
                     print('Erro sintático em', self.current.getName())
                     quit()
         elif token == 'numero':
             if self.current:
-                if 'numero' in self.current.getCat():
+                if 'numero' in self.current.getCategory():
                     self.next_token()
                 else:
                     print('Erro sintático em', self.current.getName())
@@ -309,6 +323,9 @@ class Parser:   # The parser class
         if self.current.getName().upper() == 'PROGRAM':
 
             self.eat("PROGRAM")
+            program = Token(self.current.getName(), 'program')
+            ht.hash_insert(self.table, program)
+            test = Node('test', parent=self.getRoot())
             self.eat("identificador")
             self.eat("(")
             self.eat("identificador")
@@ -318,6 +335,8 @@ class Parser:   # The parser class
             self.bloco()
             while self.current.getName() != ".":
                 self.bloco()
+            for pre, fill, node in RenderTree(self.getRoot()):
+                print(str(pre), node.name)
             self.eat(".")
 
     # BLOCO production (Kowaltowski pg. 72 - item 2)
@@ -353,14 +372,14 @@ class Parser:   # The parser class
             self.eat("TYPE")
             self.typedef()
             self.eat(";")
-            while self.current.getCat() == "identificador":
+            while self.current.getCategory() == "identificador":
                 self.typedef()
                 self.eat(";")
 
     # DEFINIÇÃO DE TIPO production (Kowaltowski pg. 72 - item 5)
     def typedef(self):
 
-        if self.current.getCat() == 'identificador':
+        if self.current.getCategory() == 'identificador':
             self.eat("identificador")
             self.eat("=")
             self.tipo()
@@ -368,7 +387,7 @@ class Parser:   # The parser class
     # TIPO production (Kowaltowski pg. 72 - item 6) TODO
     def tipo(self):
 
-        if self.current.getCat() == 'identificador':
+        if self.current.getCategory() == 'identificador':
             token_name = self.current.getName()
             self.eat("identificador")
             return token_name.upper()
@@ -389,7 +408,7 @@ class Parser:   # The parser class
     # INDICE production (Kowaltowski pg 72 - item 7)
     def bloco_index(self):
 
-        if "numero" in self.current.getCat():
+        if "numero" in self.current.getCategory():
             self.eat("numero")
             self.eat("..")
             self.eat("numero")
@@ -401,7 +420,7 @@ class Parser:   # The parser class
             self.eat("VAR")
             self.var_declaration()
             self.eat(";")
-            while self.current.getCat() == 'identificador':
+            while self.current.getCategory() == 'identificador':
                 self.var_declaration()
                 self.eat(";")
 
@@ -409,7 +428,7 @@ class Parser:   # The parser class
     def var_declaration(self):
 
         ids_list = []
-        if self.current.getCat() == 'identificador':
+        if self.current.getCategory() == 'identificador':
             ids_list.append(self.current.getName())
             self.eat("identificador")
             while self.current.getName() == ",":
@@ -535,7 +554,7 @@ class Parser:   # The parser class
                 objpar = ForPar(item, 'procedure', self.level)
                 ht.hash_insert(self.table, objpar)
 
-        elif self.current.getCat() == "identificador":
+        elif self.current.getCategory() == "identificador":
             ids.append(self.current.getName())
             self.eat("identificador")
             while self.current.getName() == ",":
@@ -564,7 +583,7 @@ class Parser:   # The parser class
     # COMANDO production (Kowaltowski pg73 - item 17)
     def comando(self):
 
-        if "numero" in self.current.getCat():
+        if "numero" in self.current.getCategory():
             self.eat("numero")
             self.eat(":")
         self.comando_sem_rotulo()
@@ -584,7 +603,7 @@ class Parser:   # The parser class
     # ATRIBUICAO production (Kowaltowski pg 73 - item 19)
     def atribuicao(self):
 
-        if self.current.getCat() == "identificador" \
+        if self.current.getCategory() == "identificador" \
                 and self.current.getName().upper() not in keywords:
             for lista in self.table:
                 for item in lista:
@@ -599,7 +618,7 @@ class Parser:   # The parser class
     # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20)
     def procedure_call(self):
 
-        if self.current.getCat() == "identificador":
+        if self.current.getCategory() == "identificador":
             for lista in self.table:
                 for item in lista:
                     if self.current.getName() == item.getName():
@@ -643,7 +662,6 @@ class Parser:   # The parser class
     def expressions_list(self):
 
         self.expression()
-        print('saiu do expression')
         while self.current.getName() == ",":
             self.eat(",")
             self.expression()
@@ -660,7 +678,7 @@ class Parser:   # The parser class
     def simple_expression(self):
 
         if "+" in self.current.getName() or "-" in self.current.getName():
-            if "numero" in self.current.getCat():
+            if "numero" in self.current.getCategory():
                 self.eat("numero")
             else:
                 self.eat(self.current.getName())
@@ -668,7 +686,7 @@ class Parser:   # The parser class
         else:
             self.termo()
         while "+" in self.current.getName() or "-" in self.current.getName():
-            if "numero" in self.current.getCat():
+            if "numero" in self.current.getCategory():
                 self.eat("numero")
             else:
                 self.eat(self.current.getName())
@@ -688,7 +706,7 @@ class Parser:   # The parser class
     # FATOR production (Kowaltowski pg 74 - item 29)
     def fator(self):
 
-        if self.current.getCat() == "identificador":
+        if self.current.getCategory() == "identificador":
             for lista in self.table:
                 for item in lista:
                     if self.current.getName() == item.getName():
@@ -697,7 +715,7 @@ class Parser:   # The parser class
                             self.variavel()
                         elif item.getCategory() == 'function':
                             self.function_call()
-        elif "numero" in self.current.getCat():
+        elif "numero" in self.current.getCategory():
             self.eat("numero")
         elif self.current.getName() == "(":
             self.eat("(")
@@ -714,7 +732,7 @@ class Parser:   # The parser class
     # VARIAVEL production (Kowaltowski pg 74 - item 30)
     def variavel(self):
 
-        if self.current.getCat() == "identificador":
+        if self.current.getCategory() == "identificador":
             self.eat("identificador")
             if self.current.getName() == "[":
                 self.eat("[")
@@ -724,7 +742,7 @@ class Parser:   # The parser class
     # CHAMADA DE FUNÇÃO production (Kowaltowski pg 74 - item 31) TODO
     def function_call(self):
 
-        if self.current.getCat() == "identificador":
+        if self.current.getCategory() == "identificador":
             for lista in self.table:
                 for item in lista:
                     if self.current.getName() == item.getName():
@@ -788,7 +806,8 @@ def main(argv):
                 name = name.rstrip()
                 newtoken = Token(name, category)
                 token_list.append(newtoken)
-    parser = Parser(token_list)
+    root = Node("main")
+    parser = Parser(token_list, root)
     parser = parser.start_parse()
 
 
