@@ -7,6 +7,10 @@ program exemplo4(input, output);
         procedure l(t:integer);
             var u: integer;
             begin
+                if 4>5 then
+                    u:=t
+                else
+                    o(y);
                 u:=u;
                 write(u)
             end (*h*);
@@ -29,6 +33,8 @@ program exemplo4(input, output);
             x:=y+1;
             f(x);
             g(t+x)
+            read(t, x, y)
+            write(x+y, t)
         end (*h*);
     begin
         x:=3; h(x);
