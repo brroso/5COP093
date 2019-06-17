@@ -2,7 +2,6 @@ import sys
 import getopt
 import hash_table as ht
 from anytree import Node, RenderTree
-from itertools import chain
 
 # TODO parametros formais em funcoes e procedures
 # TODO ast ---- separar expressão pelo sinal e função
