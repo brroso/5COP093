@@ -640,7 +640,7 @@ class Parser:   # The parser class
             self.eat(":")
         self.comando_sem_rotulo()
 
-    # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18) TODO tree to composto
+    # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18)
     def comando_sem_rotulo(self):
 
         self.atribuicao()
