@@ -47,12 +47,47 @@ def flatten(lista):
                 for x in lista), [])
 
 
-def align(indice, ident, cat, nivel, tipo, desloc, passagem):
-    return "{:7} | {:10} | {:15} | {:5} | {:10} | {:13} | {:10}".format(
-                str(indice),
-                str(ident), str(cat), str(nivel), str(tipo), str(desloc),
-                str(passagem)
-                )
+def print_hash(hash_table):
+
+    for index, lista in enumerate(hash_table):
+        for item in lista:
+            if isinstance(item, ForPar):
+                print("{:7} | {:10} | {:15} | {:5} | {:13} | {:5} | {:10}".format(
+                    str(index), str(item.getName()), str(item.getCategory()),
+                    str(item.getNivel()), str(item.getTipo()),
+                    str(item.getDesloc()), str(item.getPassagem())
+                ))
+            elif isinstance(item, SimVar):
+                print("{:7} | {:10} | {:15} | {:5} | {:13} | {:10}".format(
+                    str(index), str(item.getName()), str(item.getCategory()),
+                    str(item.getNivel()), str(item.getTipo()),
+                    str(item.getDesloc())
+                ))
+            elif isinstance(item, FuncDef):
+                print("{:7} | {:10} | {:15} | {:5} | {:10} | {:13} | {:13}".format(
+                    str(index), str(item.getName()), str(item.getCategory()),
+                    str(item.getNivel()),
+                    str(item.getRotulo()), str(item.getNparam()),
+                    str(item.getReturnType())))
+                print('Parametros')
+                for lista in item.getParList():
+                    for par in lista:
+                        print(par.getTipo(), par.getPassagem())
+            elif isinstance(item, ProcDef):
+                print("{:7} | {:10} | {:15} | {:5} | {:13} | {:10}".format(
+                    str(index), str(item.getName()), str(item.getCategory()),
+                    str(item.getNivel()),
+                    str(item.getRotulo()), str(item.getNparam())))
+                print('Parametros')
+                for lista in item.getParList():
+                    for par in lista:
+                        print(par.getTipo(), par.getPassagem())
+            elif isinstance(item, Token):
+                print("{:7} | {:10} | {:15}".format(
+                    str(index), str(item.getName()), str(item.getCategory())
+                ))
+
+    print('\n\n\n')
 
 
 class ParamTipo(object):
@@ -76,13 +111,13 @@ class ParamTipo(object):
 
 class ForPar(object):
 
-    def __init__(self, name, tipo, level):
+    def __init__(self, name, tipo, level, passagem):
         self.name = name
         self.category = "parametro formal"
         self.nivel = level
         self.tipo = tipo
         self.desloc = None
-        self.passagem = None
+        self.passagem = passagem
 
     def getName(self):
         return self.name
@@ -117,12 +152,12 @@ class ForPar(object):
 
 class SimVar(object):
 
-    def __init__(self, name, tipo, nivel):
+    def __init__(self, name, tipo, nivel, desloc):
         self.name = name
         self.category = "variavel simples"
         self.nivel = nivel
         self.tipo = tipo
-        self.desloc = None
+        self.desloc = desloc
 
     def getName(self):
         return self.name
@@ -151,13 +186,13 @@ class SimVar(object):
 
 class ProcDef(object):
 
-    def __init__(self, name, nivel, nparam):
+    def __init__(self, name, nivel, nparam, param_list):
         self.name = name
         self.category = "procedure"
         self.nivel = nivel
         self.rotulo = None
         self.nparam = nparam
-        self.param_list = [None] * nparam
+        self.param_list = param_list
 
     def setName(self, name):
         self.name = name
@@ -184,22 +219,28 @@ class ProcDef(object):
     def getCategory(self):
         return self.category
 
+    def getNparam(self):
+        return self.nparam
+
     def getNivel(self):
         return self.nivel
 
     def getRotulo(self):
         return self.rotulo
 
+    def getParList(self):
+        return self.param_list
+
 
 class FuncDef(object):
 
-    def __init__(self, name, tipo, nivel, nparam):
+    def __init__(self, name, tipo, nivel, nparam, param_list):
         self.name = name
         self.category = "function"
         self.nivel = nivel
         self.rotulo = None
         self.nparam = nparam
-        self.param_list = [None] * nparam
+        self.param_list = param_list
         self.return_type = tipo
 
     def setName(self, name):
@@ -233,11 +274,17 @@ class FuncDef(object):
     def getNivel(self):
         return self.nivel
 
+    def getNparam(self):
+        return self.nparam
+
     def getRotulo(self):
         return self.rotulo
 
     def getReturnType(self):
         return self.return_type
+
+    def getParList(self):
+        return self.param_list
 
 
 class Token(object):    # The token class
@@ -288,19 +335,7 @@ class Parser:   # The parser class
         if token == "." and len(self.token_list) - 1 == self.index:
             print("Fim da analise, nao houveram erros")
             print("\n\nHASH\n\n")
-            for lista in self.table:
-                for item in lista:
-                    if item.getCategory() == 'program':
-                        print("Nome:", item.getName(), "Categoria:",
-                              item.getCategory())
-                    elif item.getCategory() == 'parametro formal':
-                        print("Nome:", item.getName(), "Categoria:",
-                              item.getCategory(), "Nivel:", item.getNivel(),
-                              "Tipo:", item.getTipo())
-                    else:
-                        print("Nome:", item.getName(), "Categoria:",
-                              item.getCategory(), "Nivel:", item.getNivel())
-            print("\n\nARVORE\n\n")
+            print_hash(self.table)
             for pre, fill, node in RenderTree(self.getRoot()):
                 print(pre, node.name)
             quit()
@@ -445,19 +480,20 @@ class Parser:   # The parser class
     def pt_dec_var(self):
 
         if self.current.getName().upper() == 'VAR':
+            desloc = 0
             var_node = Node("var declaration", parent=self.getCurrRoot())
             prev_root = self.getCurrRoot()
             self.setCurrRoot(var_node)
             self.eat("VAR")
-            self.var_declaration()
+            desloc += self.var_declaration(desloc)
             self.eat(";")
             while self.current.getCategory() == 'identificador':
-                self.var_declaration()
+                desloc += self.var_declaration(desloc)
                 self.eat(";")
             self.setCurrRoot(prev_root)
 
     # DECLARAÇÂO DE VARIAVEIS production (Kowaltowksi pg.72 - item 9)
-    def var_declaration(self):
+    def var_declaration(self, deslocamento):
 
         ids_list = []
         if self.current.getCategory() == 'identificador':
@@ -469,11 +505,12 @@ class Parser:   # The parser class
                 self.eat("identificador")
             self.eat(":")
             vartipo = self.tipo()
-            for item in ids_list:
+            for desloc, item in enumerate(ids_list):
                 ident = Node(item, self.getCurrRoot())
                 Node(vartipo, ident)
-                varobject = SimVar(item, vartipo, self.level)
+                varobject = SimVar(item, vartipo, self.level, desloc + deslocamento)
                 ht.hash_insert(self.table, varobject)
+            return len(ids_list)
 
     # LISTA DE IDENTIFICADORES production (Kowaltowksi pg. 72 - item 10)
     def bloco_id(self):
@@ -508,13 +545,19 @@ class Parser:   # The parser class
 
         if self.current.getName().upper() == 'PROCEDURE':
 
+            nparam = 0
             self.eat("PROCEDURE")
             proc_name = self.current.getName()
             Node(self.current.getName(), self.getCurrRoot())
             self.eat("identificador")
-            self.formal_parameters()
+            parameters = self.formal_parameters()
+            for lista in parameters:
+                for item in lista:
+                    if isinstance(item, int):
+                        nparam += item
+                        lista.pop(item)
             self.eat(";")
-            proc = ProcDef(proc_name, self.level, 2)
+            proc = ProcDef(proc_name, self.level, nparam, parameters)
             ht.hash_insert(self.table, proc)
             self.level += 1
             self.bloco()
@@ -525,15 +568,21 @@ class Parser:   # The parser class
 
         if self.current.getName().upper() == 'FUNCTION':
 
+            nparam = 0
             self.eat("FUNCTION")
             func_name = self.current.getName()
             self.eat("identificador")
-            self.formal_parameters()
+            parameters = self.formal_parameters()
+            for lista in parameters:
+                for item in lista:
+                    if isinstance(item, int):
+                        nparam += item
+                        lista.pop(item)
             self.eat(":")
             ret_type = self.current.getName()
             self.eat("identificador")
             self.eat(";")
-            func = FuncDef(func_name, ret_type, self.level, 2)
+            func = FuncDef(func_name, ret_type, self.level, nparam, parameters)
             ht.hash_insert(self.table, func)
             self.level += 1
             self.bloco()
@@ -542,18 +591,21 @@ class Parser:   # The parser class
     # PARÂMETROS FORMAIS production (Kowaltowski pg72 - item 14)
     def formal_parameters(self):
 
+        size = []
         if self.current.getName() == '(':
             self.eat("(")
-            self.formal_parameters_section()
+            size.append(self.formal_parameters_section())
             while self.current.getName() == ";":
                 self.eat(";")
-                self.formal_parameters_section()
+                size.append(self.formal_parameters_section())
             self.eat(")")
+            return size
 
     # SEÇÃO DE PARÂMETROS FORMAIS production (Kowaltowski pg72 - item 15)
     def formal_parameters_section(self):
 
         ids = []
+        forpars = []
         if self.current.getName().upper() == 'VAR':
             self.eat("VAR")
             ids.append(self.current.getName())
@@ -568,7 +620,9 @@ class Parser:   # The parser class
             for item in ids:
                 ident = Node(item, self.getCurrRoot())
                 Node(tipo, ident)
-                objpar = ForPar(item, tipo, self.level)
+                objpar = ForPar(item, tipo, self.level, 'Referencia')
+                newforpar = ParamTipo(tipo, 'Referencia')
+                forpars.append(newforpar)
                 ht.hash_insert(self.table, objpar)
 
         elif self.current.getName().upper() == 'FUNCTION':
@@ -585,7 +639,9 @@ class Parser:   # The parser class
             for item in ids:
                 ident = Node(item, self.getCurrRoot())
                 Node(tipo, ident)
-                objpar = ForPar(item, tipo, self.level)
+                objpar = ForPar(item, tipo, self.level, 'Valor')
+                newforpar = ParamTipo(tipo, 'Valor')
+                forpars.append(newforpar)
                 ht.hash_insert(self.table, objpar)
 
         elif self.current.getName().upper() == 'PROCEDURE':
@@ -598,7 +654,9 @@ class Parser:   # The parser class
                 self.eat("identificador")
             for item in ids:
                 ident = Node(item, self.getCurrRoot())
-                objpar = ForPar(item, 'procedure', self.level)
+                objpar = ForPar(item, 'procedure', self.level, 'Valor')
+                newforpar = ParamTipo(tipo, 'Valor')
+                forpars.append(newforpar)
                 ht.hash_insert(self.table, objpar)
 
         elif self.current.getCategory() == "identificador":
@@ -614,8 +672,13 @@ class Parser:   # The parser class
             for item in ids:
                 ident = Node(item, self.getCurrRoot())
                 Node(tipo, ident)
-                objpar = ForPar(item, tipo, self.level)
+                objpar = ForPar(item, tipo, self.level, 'Valor')
+                newforpar = ParamTipo(tipo, 'Valor')
+                forpars.append(newforpar)
                 ht.hash_insert(self.table, objpar)
+
+        forpars.append(len(ids))
+        return forpars
 
     # COMANDOS
     # COMANDO COMPOSTO production (Kowaltoski pg73 - item 16)
@@ -671,8 +734,7 @@ class Parser:   # The parser class
                             Node(flatlist(self.variavel()),
                                  parent=self.getCurrRoot())
                             self.eat(":=")
-                            Node(flatlist(self.expression()),
-                                 parent=self.getCurrRoot())
+                            self.expression()
                             self.setCurrRoot(prev_root)
 
     # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20)
@@ -711,8 +773,7 @@ class Parser:   # The parser class
             prev_root = self.getCurrRoot()
             self.setCurrRoot(ifnode)
             self.eat("IF")
-            Node(flatlist(self.expression()),
-                 parent=self.getCurrRoot())
+            self.expression(),
             self.eat("THEN")
             self.comando_sem_rotulo()
             if self.current.getName().upper() == "ELSE":
@@ -730,7 +791,7 @@ class Parser:   # The parser class
             self.setCurrRoot(whilenode)
             self.eat("WHILE")
 
-            Node(flatlist(self.expression()), self.getCurrRoot())
+            self.expression()
 
             self.eat("DO")
             self.comando_sem_rotulo()
@@ -741,48 +802,94 @@ class Parser:   # The parser class
     # LISTA DE EXPRESSÕES production (Kowaltowski pg 73 - item 24)
     def expressions_list(self):
 
-        Node(flatlist(self.expression()), self.getCurrRoot())
+        self.expression()
         while self.current.getName() == ",":
             self.eat(",")
-            Node(flatlist(self.expression()), self.getCurrRoot())
+            self.expression()
 
     # EXPRESSÂO production (Kowaltowski pg 73 - item 25)
     def expression(self):
-
-        exp = self.simple_expression()
+        sexpnode = self.simple_expression()
         if self.current.getName() in relacao_list:
+            node = Node(self.current.getName(), self.getCurrRoot())
+            sexpnode.parent = node
+            prev_node = self.getCurrRoot()
+            self.setCurrRoot(node)
             self.eat("relacao")
             self.simple_expression()
-        return exp
+            self.setCurrRoot(prev_node)
 
     # EXPRESSÃO SIMPLES production (Kowaltowski pg 73 - item 27)
     def simple_expression(self):
 
-        sexp = []
+        fterm = []
+        flterm = []
+        have = 0
         if "+" in self.current.getName() or "-" in self.current.getName():
             if "numero" in self.current.getCategory():
-                sexp.append(self.current.getName())
+                fterm.append(self.current.getName())
                 self.eat("numero")
             else:
-                sexp.append(self.current.getName())
+                fterm.append(self.current.getName())
                 self.eat(self.current.getName())
-                sexp.append(self.termo())
+                fterm.append(self.termo())
         else:
-            sexp.append(self.termo())
+            fterm.append(self.termo())
         while "+" in self.current.getName() or "-" in self.current.getName():
-            if "numero" in self.current.getCategory():
-                sexp.append(self.current.getName())
-                self.eat("numero")
-            else:
-                sexp.append(self.current.getName())
-                self.eat(self.current.getName())
-                sexp.append(self.termo())
-        while self.current.getName().upper() == "OR":
-            sexp.append(self.current.getName())
-            self.eat("OR")
-            sexp.append(self.termo())
-        return sexp
+            have = 1
+            if '+' in self.current.getName():
+                node = Node('+', parent=self.getCurrRoot())
+                prev_node = self.getCurrRoot()
+                self.setCurrRoot(node)
+                if "numero" in self.current.getCategory():
+                    Node(flatlist(fterm), parent=self.getCurrRoot())
+                    Node(self.current.getName().replace(
+                        '+', ''), parent=self.getCurrRoot())
+                    self.eat("numero")
+                else:
+                    Node(flatlist(fterm), parent=self.getCurrRoot())
+                    flterm.append(self.current.getName().replace('+', ''))
+                    self.eat(self.current.getName())
+                    flterm.append(self.termo())
+                    if '+' in flterm:
+                        flterm.remove('+')
+                    Node(flatlist(flterm), parent=self.getCurrRoot())
+                self.setCurrRoot(prev_node)
 
+            if '-' in self.current.getName():
+                node = Node('-', parent=self.getCurrRoot())
+                prev_node = self.getCurrRoot()
+                self.setCurrRoot(node)
+                if "numero" in self.current.getCategory():
+                    Node(flatlist(fterm), parent=self.getCurrRoot())
+                    Node(self.current.getName().replace('-', ''), parent=self.getCurrRoot())
+                    self.eat("numero")
+                else:
+                    Node(flatlist(fterm), parent=self.getCurrRoot())
+                    flterm.append(self.current.getName().replace('-', ''))
+                    self.eat(self.current.getName())
+                    flterm.append(self.termo())
+                    if '-' in flterm:
+                        flterm.remove('-')
+                    Node(flatlist(flterm), parent=self.getCurrRoot())
+                self.setCurrRoot(prev_node)
+
+            flterm = []
+        while self.current.getName().upper() == "OR":
+            have = 1
+            node = Node('OR', parent=self.getCurrRoot())
+            prev_node = self.getCurrRoot()
+            self.setCurrRoot(node)
+            self.eat("OR")
+            flterm.append(self.termo())
+            Node(flatlist(fterm), parent=self.getCurrRoot())
+            Node(flatlist(flterm), parent=self.getCurrRoot())
+            self.setCurrRoot(prev_node)
+
+        if have == 0:
+            node = Node(flatlist(fterm), parent=self.getCurrRoot())
+
+        return node
     # TERMO production (Kowaltowski pg 74 - item 28)
     def termo(self):
 
@@ -887,12 +994,10 @@ class Parser:   # The parser class
             self.setCurrRoot(writenode)
             self.eat("WRITE")
             self.eat("(")
-            Node(flatlist(self.expression()),
-                 parent=self.getCurrRoot())
+            self.expression()
             while self.current.getName() == ",":
                 self.eat(",")
-                Node(flatlist(self.expression()),
-                     parent=self.getCurrRoot())
+                self.expression()
             self.eat(")")
             self.setCurrRoot(prev_root)
 

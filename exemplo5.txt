@@ -1,12 +1,12 @@
 program exemplo5(input, output);
     var m: integer;
-    function f(n: integer; var k: integer): integer;
-        var p,q: integer;
+    function f(n: integer; var k: float): integer;
+        var p,q,r , s: integer;
     begin
         if n<2
         then begin f:=n; k:=0 
             n := 2;
-            n := n + 1;
+            n := n * 1;
         end
         else begin
             f:=f(n-1,p)+f(n-2,q);
