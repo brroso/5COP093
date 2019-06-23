@@ -2,6 +2,7 @@ import sys
 import getopt
 import hash_table as ht
 from anytree import Node, RenderTree
+from itertools import chain
 
 # TODO parametros formais em funcoes e procedures
 # TODO ast ---- separar expressão pelo sinal e função
@@ -69,18 +70,20 @@ def print_hash(hash_table):
                     str(item.getRotulo()), str(item.getNparam()),
                     str(item.getReturnType())))
                 print('Parametros')
-                for lista in item.getParList():
-                    for par in lista:
-                        print(par.getTipo(), par.getPassagem())
+                if item.getParList():
+                    for lista in item.getParList():
+                        for par in lista:
+                            print(par.getTipo(), par.getPassagem())
             elif isinstance(item, ProcDef):
                 print("{:7} | {:10} | {:15} | {:5} | {:13} | {:10}".format(
                     str(index), str(item.getName()), str(item.getCategory()),
                     str(item.getNivel()),
                     str(item.getRotulo()), str(item.getNparam())))
                 print('Parametros')
-                for lista in item.getParList():
-                    for par in lista:
-                        print(par.getTipo(), par.getPassagem())
+                if item.getParList():
+                    for lista in item.getParList():
+                        for par in lista:
+                            print(par.getTipo(), par.getPassagem())
             elif isinstance(item, Token):
                 print("{:7} | {:10} | {:15}".format(
                     str(index), str(item.getName()), str(item.getCategory())
@@ -414,11 +417,11 @@ class Parser:   # The parser class
             self.setCurrRoot(label_node)
             self.eat("LABEL")
             Node(self.current.getName(), parent=self.getCurrRoot())
-            self.eat("number")
+            self.eat("numero")
             while self.current.getName() == ",":
-                Node(self.current.getName(), parent=self.getCurrRoot())
                 self.eat(",")
-                self.eat("number")
+                Node(self.current.getName(), parent=self.getCurrRoot())
+                self.eat("numero")
             self.eat(";")
             self.setCurrRoot(prev_root)
 
@@ -550,11 +553,12 @@ class Parser:   # The parser class
             Node(self.current.getName(), self.getCurrRoot())
             self.eat("identificador")
             parameters = self.formal_parameters()
-            for lista in parameters:
-                for item in lista:
-                    if isinstance(item, int):
-                        nparam += item
-                        lista.pop(item)
+            if parameters:
+                for lista in parameters:
+                    for item in lista:
+                        if isinstance(item, int):
+                            nparam += item
+                            lista.pop(item)
             self.eat(";")
             proc = ProcDef(proc_name, self.level, nparam, parameters)
             ht.hash_insert(self.table, proc)
@@ -572,11 +576,12 @@ class Parser:   # The parser class
             func_name = self.current.getName()
             self.eat("identificador")
             parameters = self.formal_parameters()
-            for lista in parameters:
-                for item in lista:
-                    if isinstance(item, int):
-                        nparam += item
-                        lista.pop(item)
+            if parameters:
+                for lista in parameters:
+                    for item in lista:
+                        if isinstance(item, int):
+                            nparam += item
+                            lista.pop(item)
             self.eat(":")
             ret_type = self.current.getName()
             self.eat("identificador")
@@ -703,7 +708,7 @@ class Parser:   # The parser class
             self.eat(":")
         self.comando_sem_rotulo()
 
-    # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18)
+    # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18) TODO tree to composto
     def comando_sem_rotulo(self):
 
         self.atribuicao()
@@ -916,10 +921,8 @@ class Parser:   # The parser class
             fator.append(self.current.getName())
             self.eat("numero")
         elif self.current.getName() == "(":
-            fator.append(self.current.getName())
             self.eat("(")
             fator.append(self.expression())
-            fator.append(self.current.getName())
             self.eat(")")
         elif self.current.getName().upper() == "NOT":
             fator.append(self.current.getName())

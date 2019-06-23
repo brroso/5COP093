@@ -1,6 +1,7 @@
 program exemplo5(input, output);
     var m: integer;
     function f(n: integer; var k: float): integer;
+        label 22;
         var p,q,r , s: integer;
     begin
         if n<2

@@ -1,5 +1,5 @@
 {
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
-    "python.pythonPath": "/usr/bin/python3"
+    "python.pythonPath": "C:\\Users\\brroso\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe"
 }
