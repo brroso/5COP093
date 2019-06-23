@@ -2,7 +2,6 @@ import sys
 import getopt
 import hash_table as ht
 from anytree import Node, RenderTree
-from itertools import chain
 
 # TODO parametros formais em funcoes e procedures
 # TODO ast ---- separar expressão pelo sinal e função
@@ -52,7 +51,8 @@ def print_hash(hash_table):
     for index, lista in enumerate(hash_table):
         for item in lista:
             if isinstance(item, ForPar):
-                print("{:7} | {:10} | {:15} | {:5} | {:13} | {:5} | {:10}".format(
+                print("{:7} | {:10} | {:15} | {:5} | {:13} | {:5} |\
+                        {:10}".format(
                     str(index), str(item.getName()), str(item.getCategory()),
                     str(item.getNivel()), str(item.getTipo()),
                     str(item.getDesloc()), str(item.getPassagem())
@@ -64,7 +64,8 @@ def print_hash(hash_table):
                     str(item.getDesloc())
                 ))
             elif isinstance(item, FuncDef):
-                print("{:7} | {:10} | {:15} | {:5} | {:10} | {:13} | {:13}".format(
+                print("{:7} | {:10} | {:15} | {:5} | {:10} | {:13} |\
+                        {:13}".format(
                     str(index), str(item.getName()), str(item.getCategory()),
                     str(item.getNivel()),
                     str(item.getRotulo()), str(item.getNparam()),
@@ -518,7 +519,8 @@ class Parser:   # The parser class
             for desloc, item in enumerate(ids_list):
                 ident = Node(item, self.getCurrRoot())
                 Node(vartipo, ident)
-                varobject = SimVar(item, vartipo, self.level, desloc + deslocamento)
+                varobject = SimVar(item, vartipo, self.level, desloc +
+                                   deslocamento)
                 ht.hash_insert(self.table, varobject)
             return len(ids_list)
 
@@ -729,7 +731,7 @@ class Parser:   # The parser class
             self.eat(":")
         self.comando_sem_rotulo()
 
-    # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18) TODO tree to composto
+    # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18)
     def comando_sem_rotulo(self):
 
         self.atribuicao()
@@ -887,7 +889,8 @@ class Parser:   # The parser class
                 self.setCurrRoot(node)
                 if "numero" in self.current.getCategory():
                     Node(flatlist(fterm), parent=self.getCurrRoot())
-                    Node(self.current.getName().replace('-', ''), parent=self.getCurrRoot())
+                    Node(self.current.getName().replace('-', ''),
+                         parent=self.getCurrRoot())
                     self.eat("numero")
                 else:
                     Node(flatlist(fterm), parent=self.getCurrRoot())
@@ -942,6 +945,7 @@ class Parser:   # The parser class
             fator.append(self.current.getName())
             self.eat("numero")
         elif self.current.getName() == "(":
+            print('aq1ui')
             self.eat("(")
             fator.append(self.expression())
             self.eat(")")
