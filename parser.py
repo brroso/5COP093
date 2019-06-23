@@ -392,11 +392,12 @@ class Parser:   # The parser class
     # BLOCO production (Kowaltowski pg. 72 - item 2)
     def bloco(self):
 
+        label = None
         bloco_node = Node("bloco", parent=self.getCurrRoot())
         prev_root = self.getCurrRoot()
         self.setCurrRoot(bloco_node)
         if self.current.getName().upper() == "LABEL":
-            self.label()
+            label = self.label()
         if self.current.getName().upper() == "TYPE":
             self.type_keyword()
         if self.current.getName().upper() == "VAR":
@@ -406,10 +407,13 @@ class Parser:   # The parser class
             self.sub_routines()
         self.comando_composto()
         self.setCurrRoot(prev_root)
+        return label
 
     # DECLARAÇÕES
     # LABEL production (Kowaltowski pg. 72 - item 3)
     def label(self):
+
+        label = []
         if self.current.getName().upper() == 'LABEL':
 
             label_node = Node("label", parent=self.getCurrRoot())
@@ -417,13 +421,17 @@ class Parser:   # The parser class
             self.setCurrRoot(label_node)
             self.eat("LABEL")
             Node(self.current.getName(), parent=self.getCurrRoot())
+            label.append(self.current.getName())
             self.eat("numero")
             while self.current.getName() == ",":
                 self.eat(",")
+                label.append(self.current.getName())
                 Node(self.current.getName(), parent=self.getCurrRoot())
                 self.eat("numero")
             self.eat(";")
             self.setCurrRoot(prev_root)
+
+        return flatlist(label)
 
     # TYPE production (Kowaltowski pg. 72 - item 4)
     def type_keyword(self):
@@ -560,10 +568,16 @@ class Parser:   # The parser class
                             nparam += item
                             lista.pop(item)
             self.eat(";")
+            self.level += 1
             proc = ProcDef(proc_name, self.level, nparam, parameters)
             ht.hash_insert(self.table, proc)
-            self.level += 1
-            self.bloco()
+            label = self.bloco()
+            for lista in self.table:
+                for item in lista:
+                    if isinstance(item, ProcDef):
+                        if item.getName() == proc_name and \
+                                item.getNivel() == self.level:
+                            item.setRotulo(label)
             self.level -= 1
 
     # DECLARAÇÃO DE FUNÇÃO production(Kowaltoswki pg72 - item 13)
@@ -586,10 +600,17 @@ class Parser:   # The parser class
             ret_type = self.current.getName()
             self.eat("identificador")
             self.eat(";")
+            self.level += 1
             func = FuncDef(func_name, ret_type, self.level, nparam, parameters)
             ht.hash_insert(self.table, func)
-            self.level += 1
-            self.bloco()
+            label = self.bloco()
+            for lista in self.table:
+                for item in lista:
+                    if isinstance(item, FuncDef):
+                        if item.getName() == func_name and \
+                                item.getNivel() == self.level and \
+                                item.getReturnType() == ret_type:
+                            item.setRotulo(label)
             self.level -= 1
 
     # PARÂMETROS FORMAIS production (Kowaltowski pg72 - item 14)
