@@ -2,7 +2,6 @@ import sys
 import getopt
 import hash_table as ht
 from anytree import Node, RenderTree
-from itertools import chain
 
 # TODO parametros formais em funcoes e procedures
 # TODO ast ---- separar expressão pelo sinal e função
@@ -704,7 +703,7 @@ class Parser:   # The parser class
             self.eat(":")
         self.comando_sem_rotulo()
 
-    # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18) TODO tree to composto
+    # COMANDO SEM RÓTULO production (Kowaltowski pg73 - item 18)
     def comando_sem_rotulo(self):
 
         self.atribuicao()
