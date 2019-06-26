@@ -1,6 +1,6 @@
 program exemplo5(input, output);
     var m: integer;
-    function f(n: integer; var k: float): integer;
+    function f(n, k, menos6: integer; var menos5, menos4: float; menos3: float): integer;
         label 22;
         var p,q,r , s: integer;
     begin

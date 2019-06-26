@@ -1,6 +1,6 @@
 program exemplo3(input, output);
         var z,t:integer;
-        procedure g(t, m: float);
+        procedure g(t, m, o: float; var meno4, menos3: integer);
             label 22;
             var x:integer;
         begin

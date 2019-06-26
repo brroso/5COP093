@@ -55,7 +55,7 @@ def print_hash(hash_table):
                         {:10}".format(
                     str(index), str(item.getName()), str(item.getCategory()),
                     str(item.getNivel()), str(item.getTipo()),
-                    str(item.getDesloc()), str(item.getPassagem())
+                    str(item.getDesloc()), str(item.getPassagem()),
                 ))
             elif isinstance(item, SimVar):
                 print("{:7} | {:10} | {:15} | {:5} | {:13} | {:10}".format(
@@ -303,14 +303,15 @@ class Token(object):    # The token class
 
 
 class Parser:   # The parser class
-    def __init__(self, token_list, main):
+    def __init__(self, token_list):
         self.token_list = token_list
         self.index = 0
         self.current = token_list[self.index]
         self.level = 0
         self.table = ht.new_table()
-        self.root = main
-        self.curr_root = main
+        self.root = None
+        self.curr_root = None
+        self.curr_desloc = -3
 
     def next_token(self):   # Puts the next token in current
         self.index += 1
@@ -323,6 +324,9 @@ class Parser:   # The parser class
     def getIndex(self):
         return self.index
 
+    def setRoot(self, node):
+        self.root = node
+
     def setCurrRoot(self, node):
         self.curr_root = node
 
@@ -331,6 +335,12 @@ class Parser:   # The parser class
 
     def getRoot(self):
         return self.root
+
+    def getDesloc(self):
+        return self.curr_desloc
+
+    def setDesloc(self, value):
+        self.curr_desloc = value
 
     # Checks if the passed token equals the current one
     def eat(self, token):
@@ -379,6 +389,9 @@ class Parser:   # The parser class
             self.eat("PROGRAM")
             program = Token(self.current.getName(), 'program')
             ht.hash_insert(self.table, program)
+            node = Node(self.current.getName())
+            self.setCurrRoot(node)
+            self.setRoot(node)
             self.eat("identificador")
             self.eat("(")
             self.eat("identificador")
@@ -563,6 +576,7 @@ class Parser:   # The parser class
             Node(self.current.getName(), self.getCurrRoot())
             self.eat("identificador")
             parameters = self.formal_parameters()
+            self.setDesloc(-3)
             if parameters:
                 for lista in parameters:
                     for item in lista:
@@ -586,12 +600,12 @@ class Parser:   # The parser class
     def function(self):
 
         if self.current.getName().upper() == 'FUNCTION':
-
             nparam = 0
             self.eat("FUNCTION")
             func_name = self.current.getName()
             self.eat("identificador")
             parameters = self.formal_parameters()
+            self.setDesloc(-3)
             if parameters:
                 for lista in parameters:
                     for item in lista:
@@ -619,13 +633,24 @@ class Parser:   # The parser class
     def formal_parameters(self):
 
         size = []
+        objs_list = []
         if self.current.getName() == '(':
             self.eat("(")
-            size.append(self.formal_parameters_section())
+            sizex, objs = self.formal_parameters_section()
+            objs_list.append(objs)
+            size.append(sizex)
             while self.current.getName() == ";":
                 self.eat(";")
-                size.append(self.formal_parameters_section())
+                sizex, objs = self.formal_parameters_section()
+                objs_list.append(objs)
+                size.append(sizex)
             self.eat(")")
+            for lista in objs_list[::-1]:
+                for forpar in lista:
+                    print(forpar.getName())
+                    forpar.setDesloc(self.getDesloc())
+                    self.setDesloc(self.getDesloc() - 1)
+            self.setDesloc(-3)
             return size
 
     # SEÇÃO DE PARÂMETROS FORMAIS production (Kowaltowski pg72 - item 15)
@@ -633,6 +658,7 @@ class Parser:   # The parser class
 
         ids = []
         forpars = []
+        objs = []
         if self.current.getName().upper() == 'VAR':
             self.eat("VAR")
             ids.append(self.current.getName())
@@ -644,10 +670,11 @@ class Parser:   # The parser class
             self.eat(":")
             tipo = self.current.getName()
             self.eat("identificador")
-            for item in ids:
+            for item in ids[::-1]:
                 ident = Node(item, self.getCurrRoot())
                 Node(tipo, ident)
                 objpar = ForPar(item, tipo, self.level, 'Referencia')
+                objs.append(objpar)
                 newforpar = ParamTipo(tipo, 'Referencia')
                 forpars.append(newforpar)
                 ht.hash_insert(self.table, objpar)
@@ -663,10 +690,11 @@ class Parser:   # The parser class
             self.eat(":")
             tipo = self.current.getName()
             self.eat("identificador")
-            for item in ids:
+            for item in ids[::-1]:
                 ident = Node(item, self.getCurrRoot())
                 Node(tipo, ident)
                 objpar = ForPar(item, tipo, self.level, 'Valor')
+                objs.append(objpar)
                 newforpar = ParamTipo(tipo, 'Valor')
                 forpars.append(newforpar)
                 ht.hash_insert(self.table, objpar)
@@ -679,9 +707,10 @@ class Parser:   # The parser class
                 self.eat(",")
                 ids.append(self.current.getName())
                 self.eat("identificador")
-            for item in ids:
+            for item in ids[::-1]:
                 ident = Node(item, self.getCurrRoot())
-                objpar = ForPar(item, 'procedure', self.level, 'Valor')
+                objpar = ForPar(item, tipo, self.level, 'Valor')
+                objs.append(objpar)
                 newforpar = ParamTipo(tipo, 'Valor')
                 forpars.append(newforpar)
                 ht.hash_insert(self.table, objpar)
@@ -696,16 +725,17 @@ class Parser:   # The parser class
             self.eat(":")
             tipo = self.current.getName()
             self.eat("identificador")
-            for item in ids:
+            for item in ids[::-1]:
                 ident = Node(item, self.getCurrRoot())
                 Node(tipo, ident)
                 objpar = ForPar(item, tipo, self.level, 'Valor')
+                objs.append(objpar)
                 newforpar = ParamTipo(tipo, 'Valor')
                 forpars.append(newforpar)
                 ht.hash_insert(self.table, objpar)
 
         forpars.append(len(ids))
-        return forpars
+        return forpars, objs
 
     # COMANDOS
     # COMANDO COMPOSTO production (Kowaltoski pg73 - item 16)
@@ -1058,8 +1088,7 @@ def main(argv):
                 name = name.rstrip()
                 newtoken = Token(name, category)
                 token_list.append(newtoken)
-    root = Node("main")
-    parser = Parser(token_list, root)
+    parser = Parser(token_list)
     parser = parser.start_parse()
 
 
