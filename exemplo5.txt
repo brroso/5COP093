@@ -3,18 +3,34 @@ program exemplo5(input, output);
     function f(n, k, menos6: integer; var menos5, menos4: float; menos3: float): integer;
         label 22;
         var p,q,r , s: integer;
-    begin
-        if n<2
-        then begin f:=n; k:=0 
-            n := 2;
-            n := n * 1;
-        end
-        else begin
-            f:=f(n-1,p)+f(n-2,q);
-            k:=p+q+1
-            end;
-        write(n,k)
-    end(*f*);
+        procedure l(t:integer);
+            var u, y: integer;
+            procedure g(t, m, o, z: float; var meno4, menos3: integer);
+                label 22;
+                var x:integer;
+                begin
+                    t:=2*t; x:=2*t; z:=x+1
+                end (* g *);
+            begin
+                if 4>5 then
+                    u:=y
+                else
+                    u:=r;
+                u:=u;
+                write(u)
+            end (*h*);
+        begin
+            if n<2
+            then begin f:=n; k:=0 
+                n := 2;
+                n := n * 1;
+            end
+            else begin
+                f:=f(n-1,p)+f(n-2,q);
+                k:=p+q+1
+                end;
+            write(n,k)
+        end(*f*);
     begin
         write(f(3,m),m)
     end.

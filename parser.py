@@ -196,6 +196,7 @@ class ProcDef(object):
         self.rotulo = None
         self.nparam = nparam
         self.param_list = param_list
+        self.Symtab = []
 
     def setName(self, name):
         self.name = name
@@ -234,6 +235,12 @@ class ProcDef(object):
     def getParList(self):
         return self.param_list
 
+    def setSymtab(self, Symtab):
+        self.Symtab = Symtab
+
+    def getSymtab(self):
+        return self.Symtab
+
 
 class FuncDef(object):
 
@@ -245,6 +252,7 @@ class FuncDef(object):
         self.nparam = nparam
         self.param_list = param_list
         self.return_type = tipo
+        self.Symtab = None
 
     def setName(self, name):
         self.name = name
@@ -289,6 +297,12 @@ class FuncDef(object):
     def getParList(self):
         return self.param_list
 
+    def setSymtab(self, Symtab):
+        self.Symtab = Symtab
+
+    def getSymtab(self):
+        return self.Symtab
+
 
 class Token(object):    # The token class
     def __init__(self, name, category):
@@ -312,6 +326,7 @@ class Parser:   # The parser class
         self.root = None
         self.curr_root = None
         self.curr_desloc = -3
+        self.curr_Symtab = []
 
     def next_token(self):   # Puts the next token in current
         self.index += 1
@@ -342,8 +357,18 @@ class Parser:   # The parser class
     def setDesloc(self, value):
         self.curr_desloc = value
 
+    def resetSymtab(self):
+        self.curr_Symtab = []
+
+    def getSymtab(self):
+        return self.curr_Symtab
+
+    def appendSymtab(self, ident):
+        self.curr_Symtab.append(ident)
+
     # Checks if the passed token equals the current one
     def eat(self, token):
+
         print('TOKEN = ', token, "CUR = ", self.current.getName())
         if token == "." and len(self.token_list) - 1 == self.index:
             print("Fim da analise, nao houveram erros")
@@ -535,6 +560,7 @@ class Parser:   # The parser class
                 varobject = SimVar(item, vartipo, self.level, desloc +
                                    deslocamento)
                 ht.hash_insert(self.table, varobject)
+            self.appendSymtab(ids_list)
             return len(ids_list)
 
     # LISTA DE IDENTIFICADORES production (Kowaltowksi pg. 72 - item 10)
@@ -594,6 +620,8 @@ class Parser:   # The parser class
                         if item.getName() == proc_name and \
                                 item.getNivel() == self.level:
                             item.setRotulo(label)
+            proc.setSymtab(self.getSymtab().pop())
+            Node(proc.getSymtab(), parent=self.getCurrRoot())
             self.level -= 1
 
     # DECLARAÇÃO DE FUNÇÃO production(Kowaltoswki pg72 - item 13)
@@ -627,6 +655,8 @@ class Parser:   # The parser class
                                 item.getNivel() == self.level and \
                                 item.getReturnType() == ret_type:
                             item.setRotulo(label)
+            func.setSymtab(self.getSymtab().pop())
+            Node(func.getSymtab(), parent=self.getCurrRoot())
             self.level -= 1
 
     # PARÂMETROS FORMAIS production (Kowaltowski pg72 - item 14)
@@ -948,7 +978,8 @@ class Parser:   # The parser class
             node = Node(flatlist(fterm), parent=self.getCurrRoot())
 
         return node
-    # TERMO production (Kowaltowski pg 74 - item 28)
+
+    # TERMO production (Kowaltowski pg 74 - item 28)AQUI E NO DE CIMA PARA ARRUMAR OS DI
     def termo(self):
 
         term = self.fator()
