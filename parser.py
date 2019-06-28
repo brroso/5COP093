@@ -327,6 +327,8 @@ class Parser:   # The parser class
         self.curr_root = None
         self.curr_desloc = -3
         self.curr_Symtab = []
+        self.wasInPar = []
+        self.isInPar = []
 
     def next_token(self):   # Puts the next token in current
         self.index += 1
@@ -689,6 +691,7 @@ class Parser:   # The parser class
         ids = []
         forpars = []
         objs = []
+
         if self.current.getName().upper() == 'VAR':
             self.eat("VAR")
             ids.append(self.current.getName())
@@ -896,15 +899,17 @@ class Parser:   # The parser class
 
     # EXPRESSÂO production (Kowaltowski pg 73 - item 25)
     def expression(self):
-        sexpnode = self.simple_expression()
+
+        expname = self.simple_expression()
         if self.current.getName() in relacao_list:
             node = Node(self.current.getName(), self.getCurrRoot())
-            sexpnode.parent = node
+            Node(expname, node)
             prev_node = self.getCurrRoot()
             self.setCurrRoot(node)
             self.eat("relacao")
             self.simple_expression()
             self.setCurrRoot(prev_node)
+        return expname
 
     # EXPRESSÃO SIMPLES production (Kowaltowski pg 73 - item 27)
     def simple_expression(self):
@@ -975,19 +980,36 @@ class Parser:   # The parser class
             self.setCurrRoot(prev_node)
 
         if have == 0:
-            node = Node(flatlist(fterm), parent=self.getCurrRoot())
+            name = flatlist(fterm)
+        else:
+            name = flatlist(fterm) + flatlist(flterm)
 
-        return node
+        return name
 
     # TERMO production (Kowaltowski pg 74 - item 28)AQUI E NO DE CIMA PARA ARRUMAR OS DI
     def termo(self):
 
-        term = self.fator()
+        left_term = self.fator()
+        right_term = []
+        prev_root = None
+        sign_node = None
         while self.current.getName() in divand:
-            term.append(self.current.getName())
+            prev_root = self.getCurrRoot()
+            sign_node = Node(self.current.getName(),
+                             parent=self.getCurrRoot())
+            self.setCurrRoot(sign_node)
             self.eat(self.current.getName())
-            term.append(self.fator())
-        return term
+            right_term.append(self.fator())
+            self.setCurrRoot(prev_root)
+
+        if len(self.wasInPar) > 0:
+            Node(flatlist(right_term), parent=sign_node)
+
+        elif len(self.wasInPar) == 0:
+            Node(flatlist(left_term), parent=sign_node)
+            Node(flatlist(right_term), parent=sign_node)
+
+        return left_term
 
     # FATOR production (Kowaltowski pg 74 - item 29)
     def fator(self):
@@ -1006,10 +1028,11 @@ class Parser:   # The parser class
             fator.append(self.current.getName())
             self.eat("numero")
         elif self.current.getName() == "(":
-            print('aq1ui')
             self.eat("(")
+            self.isInPar.append('something')
             fator.append(self.expression())
             self.eat(")")
+            self.wasInPar.append('something')
         elif self.current.getName().upper() == "NOT":
             fator.append(self.current.getName())
             self.eat("NOT")
