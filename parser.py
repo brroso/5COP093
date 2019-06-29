@@ -3,7 +3,7 @@ import getopt
 import hash_table as ht
 from anytree import Node, RenderTree
 
-# TODO ARRUMAR CALLS NA ARVORE
+out_file = None
 
 keywords = [
             'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE', 'FLOAT',
@@ -46,6 +46,8 @@ def flatten(lista):
 
 def print_hash(hash_table):
 
+    global out_file
+
     for index, lista in enumerate(hash_table):
         for item in lista:
             if isinstance(item, ForPar):
@@ -54,41 +56,41 @@ def print_hash(hash_table):
                     str(index), str(item.getName()), str(item.getCategory()),
                     str(item.getNivel()), str(item.getTipo()),
                     str(item.getDesloc()), str(item.getPassagem()),
-                ))
+                ), file=out_file)
             elif isinstance(item, SimVar):
                 print("{:7} | {:10} | {:15} | {:5} | {:13} | {:10}".format(
                     str(index), str(item.getName()), str(item.getCategory()),
                     str(item.getNivel()), str(item.getTipo()),
                     str(item.getDesloc())
-                ))
+                ), file=out_file)
             elif isinstance(item, FuncDef):
                 print("{:7} | {:10} | {:15} | {:5} | {:10} | {:13} |\
                         {:13}".format(
                     str(index), str(item.getName()), str(item.getCategory()),
                     str(item.getNivel()),
                     str(item.getRotulo()), str(item.getNparam()),
-                    str(item.getReturnType())))
-                print('Parametros')
+                    str(item.getReturnType())), file=out_file)
+                print('Parametros', file=out_file)
                 if item.getParList():
                     for lista in item.getParList():
                         for par in lista:
-                            print(par.getTipo(), par.getPassagem())
+                            print(par.getTipo(), par.getPassagem(), file=out_file)
             elif isinstance(item, ProcDef):
                 print("{:7} | {:10} | {:15} | {:5} | {:13} | {:10}".format(
                     str(index), str(item.getName()), str(item.getCategory()),
                     str(item.getNivel()),
-                    str(item.getRotulo()), str(item.getNparam())))
-                print('Parametros')
+                    str(item.getRotulo()), str(item.getNparam())), file=out_file)
+                print('Parametros', file=out_file)
                 if item.getParList():
                     for lista in item.getParList():
                         for par in lista:
-                            print(par.getTipo(), par.getPassagem())
+                            print(par.getTipo(), par.getPassagem(), file=out_file)
             elif isinstance(item, Token):
                 print("{:7} | {:10} | {:15}".format(
                     str(index), str(item.getName()), str(item.getCategory())
-                ))
+                ), file=out_file)
 
-    print('\n\n\n')
+    print('\n\n\n', file=out_file)
 
 
 class ParamTipo(object):
@@ -371,10 +373,11 @@ class Parser:   # The parser class
 
         if token == "." and len(self.token_list) - 1 == self.index:
             print("Fim da analise, nao houveram erros")
-            print("\n\nHASH\n\n")
+            print("HASH\n\n", file=out_file)
             print_hash(self.table)
+            print("TREE\n\n", file=out_file)
             for pre, fill, node in RenderTree(self.getRoot()):
-                print(pre, node.name)
+                print(pre, node.name, file=out_file)
             quit()
         elif token == 'identificador':
             if self.current:
@@ -1161,7 +1164,8 @@ def main(argv):
             output_file = arg
     print('Input file is "', input_file, '"')
     print('Output file is "', output_file, '"')
-    # output = open(output_file, "w")
+    global out_file
+    out_file = open(output_file, 'w+')
     with open(input_file, "r") as f:   # Roda todo o arquivo char por char
         lines = f.readlines()
         for line in lines:  # Coloca os tokens e suas categorias em token_list
