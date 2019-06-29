@@ -923,7 +923,6 @@ class Parser:   # The parser class
         right_term_node = None
         sign_node = None
         main_sign = None
-        sign_node = None
         if "+" in self.current.getName() or "-" in self.current.getName():
 
             if "numero" in self.current.getCategory():
@@ -1009,18 +1008,40 @@ class Parser:   # The parser class
         left_term_node = self.fator()
         right_term_node = None
         term_node = None
+        main_node = None
         while self.current.getName() in divand:
 
-            term_node = Node(self.current.getName())
+            if term_node is None:
+                term_node = Node(self.current.getName())
+                left_term_node.parent = term_node
             self.eat(self.current.getName())
 
             right_term_node = self.fator()
-            left_term_node.parent = term_node
+
+            if '+' in left_term_node.name:
+                left_term_node.name = left_term_node.name.replace('+', '')
+
+            if '-' in left_term_node.name:
+                left_term_node.name = left_term_node.name.replace('-', '')
+
+            if '+' in right_term_node.name:
+                right_term_node.name = right_term_node.name.replace('+', '')
+
+            if '-' in right_term_node.name:
+                right_term_node.name = right_term_node.name.replace('-', '')
+
             right_term_node.parent = term_node
 
-        if term_node is None:
-            term_node = left_term_node
-        return term_node
+            if self.current.getName() in divand:
+                main_node = Node(self.current.getName())
+                term_node.parent = main_node
+                term_node = main_node
+            else:
+                main_node = term_node
+
+        if main_node is None:
+            main_node = left_term_node
+        return main_node
 
     # FATOR production (Kowaltowski pg 74 - item 29)
     def fator(self):

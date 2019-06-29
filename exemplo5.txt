@@ -27,7 +27,7 @@ program exemplo5(input, output);
             end
             else begin
                 f:=f(n-1,p)+f(n-2,q);
-                k:=p+q+1-2*3
+                k:=p+q+1-2*3*2
                 end;
             write(n,k)
         end(*f*);
