@@ -3,9 +3,7 @@ import getopt
 import hash_table as ht
 from anytree import Node, RenderTree
 
-# TODO parametros formais em funcoes e procedures
-# TODO ast ---- separar expressão pelo sinal e função
-# TODO deslocamento
+# TODO ARRUMAR CALLS NA ARVORE
 
 keywords = [
             'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE', 'FLOAT',
@@ -824,7 +822,8 @@ class Parser:   # The parser class
                             Node(flatlist(self.variavel()),
                                  parent=self.getCurrRoot())
                             self.eat(":=")
-                            self.expression()
+                            right_node = self.expression()
+                            right_node.parent = self.getCurrRoot()
                             self.setCurrRoot(prev_root)
 
     # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20)
@@ -900,148 +899,124 @@ class Parser:   # The parser class
     # EXPRESSÂO production (Kowaltowski pg 73 - item 25)
     def expression(self):
 
-        expname = self.simple_expression()
+        expnode = self.simple_expression()
         if self.current.getName() in relacao_list:
             node = Node(self.current.getName(), self.getCurrRoot())
-            Node(expname, node)
             prev_node = self.getCurrRoot()
             self.setCurrRoot(node)
             self.eat("relacao")
-            self.simple_expression()
+            exp_right_node = self.simple_expression()
+            expnode.parent = node
+            exp_right_node.parent = node
             self.setCurrRoot(prev_node)
-        return expname
+
+        return expnode
 
     # EXPRESSÃO SIMPLES production (Kowaltowski pg 73 - item 27)
     def simple_expression(self):
 
-        fterm = []
-        flterm = []
-        have = 0
+        left_term_node = None
+        right_term_node = None
+        sign_node = None
         if "+" in self.current.getName() or "-" in self.current.getName():
+
             if "numero" in self.current.getCategory():
-                fterm.append(self.current.getName())
-                self.eat("numero")
+                left_term_node = self.termo()
             else:
-                fterm.append(self.current.getName())
+                sign = self.current.getName()
                 self.eat(self.current.getName())
-                fterm.append(self.termo())
+                left_term_node = self.termo()
+                left_term_node.name = flatten(sign) + \
+                    flatten(left_term_node.name)
+
         else:
-            fterm.append(self.termo())
+
+            left_term_node = self.termo()
+
         while "+" in self.current.getName() or "-" in self.current.getName():
-            have = 1
+
             if '+' in self.current.getName():
-                node = Node('+', parent=self.getCurrRoot())
-                prev_node = self.getCurrRoot()
-                self.setCurrRoot(node)
-                if "numero" in self.current.getCategory():
-                    Node(flatlist(fterm), parent=self.getCurrRoot())
-                    Node(self.current.getName().replace(
-                        '+', ''), parent=self.getCurrRoot())
-                    self.eat("numero")
-                else:
-                    Node(flatlist(fterm), parent=self.getCurrRoot())
-                    flterm.append(self.current.getName().replace('+', ''))
-                    self.eat(self.current.getName())
-                    flterm.append(self.termo())
-                    if '+' in flterm:
-                        flterm.remove('+')
-                    Node(flatlist(flterm), parent=self.getCurrRoot())
-                self.setCurrRoot(prev_node)
+                sign = '+'
+                sign_node = Node(sign)
 
-            if '-' in self.current.getName():
-                node = Node('-', parent=self.getCurrRoot())
-                prev_node = self.getCurrRoot()
-                self.setCurrRoot(node)
                 if "numero" in self.current.getCategory():
-                    Node(flatlist(fterm), parent=self.getCurrRoot())
-                    Node(self.current.getName().replace('-', ''),
-                         parent=self.getCurrRoot())
-                    self.eat("numero")
+                    right_term_node = self.termo()
                 else:
-                    Node(flatlist(fterm), parent=self.getCurrRoot())
-                    flterm.append(self.current.getName().replace('-', ''))
                     self.eat(self.current.getName())
-                    flterm.append(self.termo())
-                    if '-' in flterm:
-                        flterm.remove('-')
-                    Node(flatlist(flterm), parent=self.getCurrRoot())
-                self.setCurrRoot(prev_node)
+                    right_term_node = self.termo()
 
-            flterm = []
+            elif '-' in self.current.getName():
+                sign = '-'
+                sign_node = Node(sign)
+
+                if "numero" in self.current.getCategory():
+                    right_term_node = self.termo()
+                else:
+                    self.eat(self.current.getName())
+                    right_term_node = self.termo()
+
         while self.current.getName().upper() == "OR":
-            have = 1
-            node = Node('OR', parent=self.getCurrRoot())
-            prev_node = self.getCurrRoot()
-            self.setCurrRoot(node)
+            sign = 'OR'
+            sign_node = Node('OR')
+
             self.eat("OR")
-            flterm.append(self.termo())
-            Node(flatlist(fterm), parent=self.getCurrRoot())
-            Node(flatlist(flterm), parent=self.getCurrRoot())
-            self.setCurrRoot(prev_node)
 
-        if have == 0:
-            name = flatlist(fterm)
+        if sign_node is not None:
+            left_term_node.parent = sign_node
+            right_term_node.parent = sign_node
         else:
-            name = flatlist(fterm) + flatlist(flterm)
+            sign_node = left_term_node
 
-        return name
+        return sign_node
 
-    # TERMO production (Kowaltowski pg 74 - item 28)AQUI E NO DE CIMA PARA ARRUMAR OS DI
+    # TERMO production (Kowaltowski pg 74 - item 28)
     def termo(self):
 
-        left_term = self.fator()
-        right_term = []
-        prev_root = None
-        sign_node = None
+        left_term_node = self.fator()
+        right_term_node = None
+        term_node = None
         while self.current.getName() in divand:
-            prev_root = self.getCurrRoot()
-            sign_node = Node(self.current.getName(),
-                             parent=self.getCurrRoot())
-            self.setCurrRoot(sign_node)
+
+            term_node = Node(self.current.getName())
             self.eat(self.current.getName())
-            right_term.append(self.fator())
-            self.setCurrRoot(prev_root)
 
-        if len(self.wasInPar) > 0:
-            Node(flatlist(right_term), parent=sign_node)
+            right_term_node = self.fator()
+            left_term_node.parent = term_node
+            right_term_node.parent = term_node
 
-        elif len(self.wasInPar) == 0:
-            Node(flatlist(left_term), parent=sign_node)
-            Node(flatlist(right_term), parent=sign_node)
-
-        return left_term
+        if term_node is None:
+            term_node = left_term_node
+        return term_node
 
     # FATOR production (Kowaltowski pg 74 - item 29)
     def fator(self):
 
-        fator = []
+        fator = None
         if self.current.getCategory() == "identificador":
             for lista in self.table:
                 for item in lista:
                     if self.current.getName() == item.getName():
                         if item.getCategory() == 'variavel simples' or \
                                 item.getCategory() == 'parametro formal':
-                            fator.append(self.variavel())
+                            fator = Node(self.variavel())
                         elif item.getCategory() == 'function':
-                            fator.append(self.function_call())
+                            fator = Node(self.function_call())
         elif "numero" in self.current.getCategory():
-            fator.append(self.current.getName())
+            fator = Node(self.current.getName())
             self.eat("numero")
         elif self.current.getName() == "(":
             self.eat("(")
-            self.isInPar.append('something')
-            fator.append(self.expression())
+            fator = self.expression()
             self.eat(")")
-            self.wasInPar.append('something')
         elif self.current.getName().upper() == "NOT":
-            fator.append(self.current.getName())
+            fator = Node(self.current.getName())
             self.eat("NOT")
-            fator.append(self.fator())
+            fator = Node(self.fator())
         elif self.current.getName().upper() == "TRUE":
-            fator.append(self.current.getName())
+            fator = Node(self.current.getName())
             self.eat("TRUE")
         elif self.current.getName().upper() == "FALSE":
-            fator.append(self.current.getName())
+            fator = Node(self.current.getName())
             self.eat("FALSE")
         return fator
 
@@ -1105,10 +1080,10 @@ class Parser:   # The parser class
             self.setCurrRoot(writenode)
             self.eat("WRITE")
             self.eat("(")
-            self.expression()
+            self.expression().parent = self.getCurrRoot()
             while self.current.getName() == ",":
                 self.eat(",")
-                self.expression()
+                self.expression().parent = self.getCurrRoot()
             self.eat(")")
             self.setCurrRoot(prev_root)
 
