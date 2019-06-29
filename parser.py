@@ -369,7 +369,6 @@ class Parser:   # The parser class
     # Checks if the passed token equals the current one
     def eat(self, token):
 
-        print('TOKEN = ', token, "CUR = ", self.current.getName())
         if token == "." and len(self.token_list) - 1 == self.index:
             print("Fim da analise, nao houveram erros")
             print("\n\nHASH\n\n")
@@ -631,6 +630,7 @@ class Parser:   # The parser class
             nparam = 0
             self.eat("FUNCTION")
             func_name = self.current.getName()
+            Node(self.current.getName(), self.getCurrRoot())
             self.eat("identificador")
             parameters = self.formal_parameters()
             self.setDesloc(-3)
@@ -677,7 +677,6 @@ class Parser:   # The parser class
             self.eat(")")
             for lista in objs_list[::-1]:
                 for forpar in lista:
-                    print(forpar.getName())
                     forpar.setDesloc(self.getDesloc())
                     self.setDesloc(self.getDesloc() - 1)
             self.setDesloc(-3)
@@ -834,9 +833,11 @@ class Parser:   # The parser class
                 for item in lista:
                     if self.current.getName() == item.getName():
                         if item.getCategory() == 'procedure':
+                            pname = self.current.getName()
                             self.eat("identificador")
                             proccall_bloco = Node(
-                                "Proc call", parent=self.getCurrRoot())
+                                "Proc call \"" + pname + "\"",
+                                parent=self.getCurrRoot())
                             prev_root = self.getCurrRoot()
                             self.setCurrRoot(proccall_bloco)
                             if self.current.getName() == "(":
@@ -891,10 +892,13 @@ class Parser:   # The parser class
     # LISTA DE EXPRESSÕES production (Kowaltowski pg 73 - item 24)
     def expressions_list(self):
 
-        self.expression()
+        exp_list_node = self.expression()
+        exp_list_node.parent = self.getCurrRoot()
         while self.current.getName() == ",":
             self.eat(",")
-            self.expression()
+            node = self.expression()
+            node.parent = self.getCurrRoot()
+        return exp_list_node
 
     # EXPRESSÂO production (Kowaltowski pg 73 - item 25)
     def expression(self):
@@ -918,6 +922,8 @@ class Parser:   # The parser class
         left_term_node = None
         right_term_node = None
         sign_node = None
+        main_sign = None
+        sign_node = None
         if "+" in self.current.getName() or "-" in self.current.getName():
 
             if "numero" in self.current.getCategory():
@@ -933,41 +939,69 @@ class Parser:   # The parser class
 
             left_term_node = self.termo()
 
-        while "+" in self.current.getName() or "-" in self.current.getName():
+        while "+" in self.current.getName() or "-" in self.current.getName() \
+                or self.current.getName().upper() == "OR":
 
             if '+' in self.current.getName():
-                sign = '+'
-                sign_node = Node(sign)
+                if sign_node is None:
+                    sign = '+'
+                    sign_node = Node(sign)
+                    left_term_node.parent = sign_node
 
                 if "numero" in self.current.getCategory():
                     right_term_node = self.termo()
+                    right_term_node.name = \
+                        right_term_node.name.replace(sign, '')
+
                 else:
                     self.eat(self.current.getName())
                     right_term_node = self.termo()
+
+                right_term_node.parent = sign_node
 
             elif '-' in self.current.getName():
-                sign = '-'
-                sign_node = Node(sign)
+                if sign_node is None:
+                    sign = '-'
+                    sign_node = Node(sign)
+                    left_term_node.parent = sign_node
 
                 if "numero" in self.current.getCategory():
                     right_term_node = self.termo()
+                    right_term_node.name = \
+                        right_term_node.name.replace(sign, '')
                 else:
                     self.eat(self.current.getName())
                     right_term_node = self.termo()
 
-        while self.current.getName().upper() == "OR":
-            sign = 'OR'
-            sign_node = Node('OR')
+                right_term_node.parent = sign_node
 
-            self.eat("OR")
+            elif self.current.getName().upper() == "OR":
+                if sign_node is None:
+                    sign = 'OR'
+                    sign_node = Node(sign)
+                self.eat("OR")
+                right_term_node = self.termo()
+                right_term_node.parent = sign_node
 
-        if sign_node is not None:
-            left_term_node.parent = sign_node
-            right_term_node.parent = sign_node
-        else:
-            sign_node = left_term_node
+            if "+" in self.current.getName() or "-" in self.current.getName() \
+                    or self.current.getName().upper() == "OR":
+                if "+" in self.current.getName():
+                    sign = "+"
+                if "-" in self.current.getName():
+                    sign = "-"
+                if "OR" in self.current.getName():
+                    sign = "OR"
 
-        return sign_node
+                main_sign = Node(sign)
+                sign_node.parent = main_sign
+                sign_node = main_sign
+            else:
+                main_sign = sign_node
+
+        if main_sign is None:
+            main_sign = left_term_node
+
+        return main_sign
 
     # TERMO production (Kowaltowski pg 74 - item 28)
     def termo(self):
@@ -1000,7 +1034,7 @@ class Parser:   # The parser class
                                 item.getCategory() == 'parametro formal':
                             fator = Node(self.variavel())
                         elif item.getCategory() == 'function':
-                            fator = Node(self.function_call())
+                            fator = self.function_call()
         elif "numero" in self.current.getCategory():
             fator = Node(self.current.getName())
             self.eat("numero")
@@ -1041,17 +1075,17 @@ class Parser:   # The parser class
                     if self.current.getName() == item.getName():
                         if item.getCategory() == 'function':
                             f = self.current.getName()
-                            self.eat("identificador")
-                            funccall_node = Node(
-                                "Func call", parent=self.getCurrRoot())
+                            node = Node("Function call \"" + f + "\"")
                             prev_root = self.getCurrRoot()
-                            self.setCurrRoot(funccall_node)
+                            self.setCurrRoot(node)
+                            self.eat("identificador")
                             if self.current.getName() == "(":
                                 self.eat("(")
-                                self.expressions_list()
+                                explist = self.expressions_list()
                                 self.eat(")")
                             self.setCurrRoot(prev_root)
-        return f
+        explist.parent = node
+        return node
     # READ E WRITE
     def read(self):
 

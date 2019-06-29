@@ -4,7 +4,7 @@ program exemplo2(input,output);
         var q: integer;
     begin
         q:=i*i;
-        if(i div 2)*2 = i
+        if(i div (2*2))*2 = i
         then s:=s+q
         else s:=s-q
     end(*soma*);
