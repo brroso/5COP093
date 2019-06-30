@@ -1,0 +1,50 @@
+HASH
+
+
+109     | m          | variavel simples | 0     | INTEGER       | 0         
+110     | n          | variavel simples | 0     | INTEGER       | 1         
+115     | s          | variavel simples | 0     | INTEGER       | 2         
+189     | exemplo1   | program        
+
+
+
+
+TREE
+
+
+ exemplo1
+└──  bloco
+    ├──  var declaration
+    │   ├──  m
+    │   │   └──  INTEGER
+    │   ├──  n
+    │   │   └──  INTEGER
+    │   └──  s
+    │       └──  INTEGER
+    └──  comando composto
+        ├──  Read
+        │   ├──  m
+        │   └──  n
+        ├──  atribuicao
+        │   ├──  s
+        │   └──  0
+        └──  While
+            ├──  <=
+            │   ├──  m
+            │   └──  n
+            └──  comando composto
+                ├──  atribuicao
+                │   ├──  s
+                │   └──  +
+                │       ├──  s
+                │       └──  *
+                │           ├──  m
+                │           └──  m
+                ├──  Write
+                │   ├──  m
+                │   └──  s
+                └──  atribuicao
+                    ├──  m
+                    └──  +
+                        ├──  m
+                        └──  1

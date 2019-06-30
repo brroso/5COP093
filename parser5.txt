@@ -1,0 +1,203 @@
+HASH
+
+
+26      | menos3     | parametro formal | 0     | float         | -3    |                        Valor     
+26      | menos3     | parametro formal | 2     | integer       | -3    |                        Referencia
+27      | menos4     | parametro formal | 0     | float         | -4    |                        Referencia
+28      | menos5     | parametro formal | 0     | float         | -5    |                        Referencia
+29      | menos6     | parametro formal | 0     | integer       | -6    |                        Valor     
+40      | meno4      | parametro formal | 2     | integer       | -4    |                        Referencia
+102     | f          | function        | 1     | 22         | 6             |                        integer      
+Parametros
+integer Valor
+integer Valor
+integer Valor
+float Referencia
+float Referencia
+float Valor
+103     | g          | procedure       | 3     | 22            | 6         
+Parametros
+float Valor
+float Valor
+float Valor
+float Valor
+integer Referencia
+integer Referencia
+107     | k          | parametro formal | 0     | integer       | -7    |                        Valor     
+108     | l          | procedure       | 2     | None          | 1         
+Parametros
+integer Valor
+109     | m          | variavel simples | 0     | INTEGER       | 0         
+109     | m          | parametro formal | 2     | float         | -7    |                        Valor     
+110     | n          | parametro formal | 0     | integer       | -8    |                        Valor     
+111     | o          | parametro formal | 2     | float         | -6    |                        Valor     
+112     | p          | variavel simples | 1     | INTEGER       | 0         
+113     | q          | variavel simples | 1     | INTEGER       | 1         
+114     | r          | variavel simples | 1     | INTEGER       | 2         
+115     | s          | variavel simples | 1     | INTEGER       | 3         
+116     | t          | parametro formal | 1     | integer       | -3    |                        Valor     
+116     | t          | parametro formal | 2     | float         | -8    |                        Valor     
+117     | u          | variavel simples | 2     | INTEGER       | 0         
+120     | x          | variavel simples | 3     | INTEGER       | 0         
+121     | y          | variavel simples | 2     | INTEGER       | 1         
+122     | z          | parametro formal | 2     | float         | -5    |                        Valor     
+193     | exemplo5   | program        
+
+
+
+
+TREE
+
+
+ exemplo5
+└──  bloco
+    ├──  var declaration
+    │   └──  m
+    │       └──  INTEGER
+    ├──  function dec
+    │   ├──  f
+    │   ├──  menos6
+    │   │   └──  integer
+    │   ├──  k
+    │   │   └──  integer
+    │   ├──  n
+    │   │   └──  integer
+    │   ├──  menos4
+    │   │   └──  float
+    │   ├──  menos5
+    │   │   └──  float
+    │   ├──  menos3
+    │   │   └──  float
+    │   ├──  bloco
+    │   │   ├──  label
+    │   │   │   └──  22
+    │   │   ├──  var declaration
+    │   │   │   ├──  p
+    │   │   │   │   └──  INTEGER
+    │   │   │   ├──  q
+    │   │   │   │   └──  INTEGER
+    │   │   │   ├──  r
+    │   │   │   │   └──  INTEGER
+    │   │   │   └──  s
+    │   │   │       └──  INTEGER
+    │   │   ├──  procedure dec
+    │   │   │   ├──  l
+    │   │   │   ├──  t
+    │   │   │   │   └──  integer
+    │   │   │   ├──  bloco
+    │   │   │   │   ├──  var declaration
+    │   │   │   │   │   ├──  u
+    │   │   │   │   │   │   └──  INTEGER
+    │   │   │   │   │   └──  y
+    │   │   │   │   │       └──  INTEGER
+    │   │   │   │   ├──  procedure dec
+    │   │   │   │   │   ├──  g
+    │   │   │   │   │   ├──  z
+    │   │   │   │   │   │   └──  float
+    │   │   │   │   │   ├──  o
+    │   │   │   │   │   │   └──  float
+    │   │   │   │   │   ├──  m
+    │   │   │   │   │   │   └──  float
+    │   │   │   │   │   ├──  t
+    │   │   │   │   │   │   └──  float
+    │   │   │   │   │   ├──  menos3
+    │   │   │   │   │   │   └──  integer
+    │   │   │   │   │   ├──  meno4
+    │   │   │   │   │   │   └──  integer
+    │   │   │   │   │   ├──  bloco
+    │   │   │   │   │   │   ├──  label
+    │   │   │   │   │   │   │   └──  22
+    │   │   │   │   │   │   ├──  var declaration
+    │   │   │   │   │   │   │   └──  x
+    │   │   │   │   │   │   │       └──  INTEGER
+    │   │   │   │   │   │   └──  comando composto
+    │   │   │   │   │   │       ├──  atribuicao
+    │   │   │   │   │   │       │   ├──  t
+    │   │   │   │   │   │       │   └──  *
+    │   │   │   │   │   │       │       ├──  2
+    │   │   │   │   │   │       │       └──  t
+    │   │   │   │   │   │       ├──  atribuicao
+    │   │   │   │   │   │       │   ├──  x
+    │   │   │   │   │   │       │   └──  *
+    │   │   │   │   │   │       │       ├──  2
+    │   │   │   │   │   │       │       └──  t
+    │   │   │   │   │   │       └──  atribuicao
+    │   │   │   │   │   │           ├──  z
+    │   │   │   │   │   │           └──  +
+    │   │   │   │   │   │               ├──  x
+    │   │   │   │   │   │               └──  1
+    │   │   │   │   │   └──  ['x']
+    │   │   │   │   └──  comando composto
+    │   │   │   │       ├──  If
+    │   │   │   │       │   ├──  >
+    │   │   │   │       │   │   ├──  4
+    │   │   │   │       │   │   └──  5
+    │   │   │   │       │   ├──  atribuicao
+    │   │   │   │       │   │   ├──  u
+    │   │   │   │       │   │   └──  y
+    │   │   │   │       │   └──  atribuicao
+    │   │   │   │       │       ├──  u
+    │   │   │   │       │       └──  r
+    │   │   │   │       ├──  atribuicao
+    │   │   │   │       │   ├──  u
+    │   │   │   │       │   └──  u
+    │   │   │   │       └──  Write
+    │   │   │   │           └──  u
+    │   │   │   └──  ['u', 'y']
+    │   │   └──  comando composto
+    │   │       ├──  If
+    │   │       │   ├──  <
+    │   │       │   │   ├──  n
+    │   │       │   │   └──  2
+    │   │       │   ├──  comando composto
+    │   │       │   │   ├──  atribuicao
+    │   │       │   │   │   ├──  f
+    │   │       │   │   │   └──  n
+    │   │       │   │   ├──  atribuicao
+    │   │       │   │   │   ├──  k
+    │   │       │   │   │   └──  0
+    │   │       │   │   ├──  atribuicao
+    │   │       │   │   │   ├──  n
+    │   │       │   │   │   └──  2
+    │   │       │   │   └──  atribuicao
+    │   │       │   │       ├──  n
+    │   │       │   │       └──  *
+    │   │       │   │           ├──  n
+    │   │       │   │           └──  1
+    │   │       │   └──  comando composto
+    │   │       │       ├──  atribuicao
+    │   │       │       │   ├──  f
+    │   │       │       │   └──  +
+    │   │       │       │       ├──  Function call "f"
+    │   │       │       │       │   ├──  -
+    │   │       │       │       │   │   ├──  n
+    │   │       │       │       │   │   └──  1
+    │   │       │       │       │   └──  p
+    │   │       │       │       └──  Function call "f"
+    │   │       │       │           ├──  -
+    │   │       │       │           │   ├──  n
+    │   │       │       │           │   └──  2
+    │   │       │       │           └──  q
+    │   │       │       └──  atribuicao
+    │   │       │           ├──  k
+    │   │       │           └──  -
+    │   │       │               ├──  +
+    │   │       │               │   ├──  +
+    │   │       │               │   │   ├──  p
+    │   │       │               │   │   └──  q
+    │   │       │               │   └──  1
+    │   │       │               └──  *
+    │   │       │                   ├──  *
+    │   │       │                   │   ├──  2
+    │   │       │                   │   └──  3
+    │   │       │                   └──  2
+    │   │       └──  Write
+    │   │           ├──  n
+    │   │           └──  k
+    │   └──  ['p', 'q', 'r', 's']
+    └──  comando composto
+        └──  Write
+            ├──  Function call "f"
+            │   ├──  3
+            │   └──  m
+            └──  m

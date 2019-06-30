@@ -1,0 +1,153 @@
+HASH
+
+
+102     | f          | procedure       | 2     | None          | 1         
+Parametros
+integer Valor
+103     | g          | procedure       | 1     | None          | 1         
+Parametros
+integer Valor
+104     | h          | procedure       | 1     | None          | 1         
+Parametros
+integer Valor
+108     | l          | procedure       | 3     | None          | 1         
+Parametros
+integer Valor
+111     | o          | procedure       | 2     | None          | 1         
+Parametros
+integer Valor
+116     | t          | parametro formal | 0     | integer       | -3    |                        Valor     
+116     | t          | parametro formal | 1     | integer       | -3    |                        Valor     
+116     | t          | parametro formal | 2     | integer       | -3    |                        Valor     
+116     | t          | variavel simples | 2     | INTEGER       | 0         
+117     | u          | variavel simples | 3     | INTEGER       | 0         
+120     | x          | variavel simples | 1     | INTEGER       | 0         
+121     | y          | variavel simples | 0     | INTEGER       | 0         
+121     | y          | variavel simples | 1     | INTEGER       | 0         
+121     | y          | variavel simples | 2     | INTEGER       | 0         
+121     | y          | parametro formal | 0     | integer       | -3    |                        Valor     
+121     | y          | parametro formal | 1     | integer       | -3    |                        Valor     
+192     | exemplo4   | program        
+
+
+
+
+TREE
+
+
+ exemplo4
+└──  bloco
+    ├──  var declaration
+    │   └──  y
+    │       └──  INTEGER
+    ├──  procedure dec
+    │   ├──  g
+    │   ├──  t
+    │   │   └──  integer
+    │   ├──  bloco
+    │   │   ├──  var declaration
+    │   │   │   └──  y
+    │   │   │       └──  INTEGER
+    │   │   ├──  procedure dec
+    │   │   │   ├──  o
+    │   │   │   ├──  t
+    │   │   │   │   └──  integer
+    │   │   │   ├──  bloco
+    │   │   │   │   ├──  var declaration
+    │   │   │   │   │   └──  y
+    │   │   │   │   │       └──  INTEGER
+    │   │   │   │   ├──  procedure dec
+    │   │   │   │   │   ├──  l
+    │   │   │   │   │   ├──  t
+    │   │   │   │   │   │   └──  integer
+    │   │   │   │   │   ├──  bloco
+    │   │   │   │   │   │   ├──  var declaration
+    │   │   │   │   │   │   │   └──  u
+    │   │   │   │   │   │   │       └──  INTEGER
+    │   │   │   │   │   │   └──  comando composto
+    │   │   │   │   │   │       ├──  If
+    │   │   │   │   │   │       │   ├──  >
+    │   │   │   │   │   │       │   │   ├──  4
+    │   │   │   │   │   │       │   │   └──  5
+    │   │   │   │   │   │       │   ├──  atribuicao
+    │   │   │   │   │   │       │   │   ├──  u
+    │   │   │   │   │   │       │   │   └──  t
+    │   │   │   │   │   │       │   └──  Proc call "o"
+    │   │   │   │   │   │       │       └──  y
+    │   │   │   │   │   │       ├──  atribuicao
+    │   │   │   │   │   │       │   ├──  u
+    │   │   │   │   │   │       │   └──  u
+    │   │   │   │   │   │       └──  Write
+    │   │   │   │   │   │           └──  u
+    │   │   │   │   │   └──  ['u']
+    │   │   │   │   └──  comando composto
+    │   │   │   │       ├──  atribuicao
+    │   │   │   │       │   ├──  y
+    │   │   │   │       │   └──  y
+    │   │   │   │       └──  Write
+    │   │   │   │           └──  y
+    │   │   │   └──  ['y']
+    │   │   └──  comando composto
+    │   │       ├──  atribuicao
+    │   │       │   ├──  y
+    │   │       │   └──  y
+    │   │       └──  Write
+    │   │           └──  y
+    │   └──  ['y']
+    ├──  procedure dec
+    │   ├──  h
+    │   ├──  y
+    │   │   └──  integer
+    │   ├──  bloco
+    │   │   ├──  var declaration
+    │   │   │   └──  x
+    │   │   │       └──  INTEGER
+    │   │   ├──  procedure dec
+    │   │   │   ├──  f
+    │   │   │   ├──  y
+    │   │   │   │   └──  integer
+    │   │   │   ├──  bloco
+    │   │   │   │   ├──  var declaration
+    │   │   │   │   │   └──  t
+    │   │   │   │   │       └──  INTEGER
+    │   │   │   │   └──  comando composto
+    │   │   │   │       ├──  atribuicao
+    │   │   │   │       │   ├──  t
+    │   │   │   │       │   └──  +
+    │   │   │   │       │       ├──  x
+    │   │   │   │       │       └──  y
+    │   │   │   │       └──  Proc call "g"
+    │   │   │   │           └──  t
+    │   │   │   └──  ['t']
+    │   │   └──  comando composto
+    │   │       ├──  atribuicao
+    │   │       │   ├──  x
+    │   │       │   └──  +
+    │   │       │       ├──  y
+    │   │       │       └──  1
+    │   │       ├──  Proc call "f"
+    │   │       │   └──  x
+    │   │       ├──  Proc call "g"
+    │   │       │   └──  +
+    │   │       │       ├──  t
+    │   │       │       └──  x
+    │   │       ├──  Read
+    │   │       │   ├──  t
+    │   │       │   ├──  x
+    │   │       │   └──  y
+    │   │       └──  Write
+    │   │           ├──  +
+    │   │           │   ├──  x
+    │   │           │   └──  y
+    │   │           └──  t
+    │   └──  ['x']
+    └──  comando composto
+        ├──  atribuicao
+        │   ├──  x
+        │   └──  3
+        ├──  Proc call "h"
+        │   └──  x
+        ├──  Proc call "g"
+        │   └──  x
+        └──  Write
+            └──  x

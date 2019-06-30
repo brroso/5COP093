@@ -1,0 +1,86 @@
+HASH
+
+
+54      | soma       | procedure       | 1     | None          | 0         
+Parametros
+105     | i          | variavel simples | 0     | INTEGER       | 2         
+110     | n          | variavel simples | 0     | INTEGER       | 0         
+113     | q          | variavel simples | 1     | INTEGER       | 0         
+115     | s          | variavel simples | 0     | INTEGER       | 1         
+190     | exemplo2   | program        
+
+
+
+
+TREE
+
+
+ exemplo2
+└──  bloco
+    ├──  var declaration
+    │   ├──  n
+    │   │   └──  INTEGER
+    │   ├──  s
+    │   │   └──  INTEGER
+    │   └──  i
+    │       └──  INTEGER
+    ├──  procedure dec
+    │   ├──  soma
+    │   ├──  bloco
+    │   │   ├──  var declaration
+    │   │   │   └──  q
+    │   │   │       └──  INTEGER
+    │   │   └──  comando composto
+    │   │       ├──  atribuicao
+    │   │       │   ├──  q
+    │   │       │   └──  *
+    │   │       │       ├──  i
+    │   │       │       └──  i
+    │   │       └──  If
+    │   │           ├──  =
+    │   │           │   ├──  *
+    │   │           │   │   ├──  div
+    │   │           │   │   │   ├──  i
+    │   │           │   │   │   └──  *
+    │   │           │   │   │       ├──  2
+    │   │           │   │   │       └──  2
+    │   │           │   │   └──  2
+    │   │           │   └──  i
+    │   │           ├──  atribuicao
+    │   │           │   ├──  s
+    │   │           │   └──  +
+    │   │           │       ├──  s
+    │   │           │       └──  q
+    │   │           └──  atribuicao
+    │   │               ├──  s
+    │   │               └──  -
+    │   │                   ├──  s
+    │   │                   └──  q
+    │   └──  ['q']
+    └──  comando composto
+        ├──  Read
+        │   └──  n
+        ├──  atribuicao
+        │   ├──  s
+        │   └──  0
+        ├──  atribuicao
+        │   ├──  i
+        │   └──  0
+        └──  While
+            ├──  <=
+            │   ├──  i
+            │   └──  n
+            └──  comando composto
+                ├──  Proc call "soma"
+                ├──  Write
+                │   ├──  s
+                │   └──  *
+                │       ├──  *
+                │       │   ├──  2
+                │       │   └──  2
+                │       └──  2
+                └──  atribuicao
+                    ├──  i
+                    └──  +
+                        ├──  i
+                        └──  1
