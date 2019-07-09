@@ -69,6 +69,12 @@ TREE
 │   │   │               ├──  x
 │   │   │               └──  1
 │   │   └──  tabela de simbolos
+│   │   └──  menos3
+│   │   └──  meno4
+│   │   └──  m
+│   │   └──  o
+│   │   └──  t
+│   │   └──  x
 │   └──  comando composto
 │       ├──  atribuicao
 │       │   ├──  z
@@ -99,3 +105,7 @@ TREE
 │           ├──  z
 │           └──  t
 └──  tabela de simbolos
+└──  g
+└──  t
+└──  z
+└──  exemplo3

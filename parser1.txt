@@ -47,3 +47,7 @@ TREE
 │                       ├──  m
 │                       └──  1
 └──  tabela de simbolos
+└──  m
+└──  n
+└──  s
+└──  exemplo1

@@ -4,16 +4,16 @@ program exemplo4(input, output);
         var y: integer;
         procedure o(t:integer);
             var y: integer;
-        procedure l(t:integer);
-            var u: integer;
-            begin
-                if 4>5 then
-                    u:=t
-                else
-                    o(y);
-                u:=u;
-                write(u)
-            end (*h*);
+            procedure l(t:integer);
+                var u: integer;
+                begin
+                    if 4>5 then
+                        u:=t
+                    else
+                        o(y);
+                    u:=u;
+                    write(u)
+                end (*h*);
         begin
             y:=y;
             write(y)
@@ -26,9 +26,9 @@ program exemplo4(input, output);
         var x: integer;
         procedure f(y: integer);
             var t: integer;
-        begin
-            t:=x+y; g(t);
-        end (*f*);
+            begin
+                t:=x+y; g(t);
+            end (*f*);
         begin
             x:=y+1;
             f(x);

@@ -368,6 +368,10 @@ class Parser:   # The parser class
     def popSymtab(self, name):
         print('HASH DE', name, file=out_file)
         print_hash(self.table_pile.pop())
+        if len(self.table_pile):
+            self.curr_Symtab = self.table_pile[-1]
+        else:
+            self.curr_Symtab = None
 
     # Checks if the passed token equals the current one
     def eat(self, token):

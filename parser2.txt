@@ -4,12 +4,20 @@ HASH DE soma
 
 
 
+HASH DE teste
+113     | q          | variavel simples | 1     | INTEGER       | 0         
+
+
+
+
 HASH DE exemplo2
 54      | soma       | procedure       | 1     | None          | 0         
 Parametros
 105     | i          | variavel simples | 0     | INTEGER       | 2         
 110     | n          | variavel simples | 0     | INTEGER       | 0         
 115     | s          | variavel simples | 0     | INTEGER       | 1         
+165     | teste      | procedure       | 1     | None          | 0         
+Parametros
 190     | exemplo2   | program        
 
 
@@ -60,6 +68,41 @@ TREE
 │   │   │                   ├──  s
 │   │   │                   └──  q
 │   │   └──  tabela de simbolos
+│   │   └──  q
+│   ├──  procedure dec
+│   │   ├──  teste
+│   │   ├──  bloco
+│   │   │   ├──  var declaration
+│   │   │   │   └──  q
+│   │   │   │       └──  INTEGER
+│   │   │   └──  comando composto
+│   │   │       ├──  atribuicao
+│   │   │       │   ├──  q
+│   │   │       │   └──  *
+│   │   │       │       ├──  i
+│   │   │       │       └──  i
+│   │   │       └──  If
+│   │   │           ├──  =
+│   │   │           │   ├──  *
+│   │   │           │   │   ├──  div
+│   │   │           │   │   │   ├──  i
+│   │   │           │   │   │   └──  *
+│   │   │           │   │   │       ├──  2
+│   │   │           │   │   │       └──  2
+│   │   │           │   │   └──  2
+│   │   │           │   └──  i
+│   │   │           ├──  atribuicao
+│   │   │           │   ├──  s
+│   │   │           │   └──  +
+│   │   │           │       ├──  s
+│   │   │           │       └──  q
+│   │   │           └──  atribuicao
+│   │   │               ├──  s
+│   │   │               └──  -
+│   │   │                   ├──  s
+│   │   │                   └──  q
+│   │   └──  tabela de simbolos
+│   │   └──  q
 │   └──  comando composto
 │       ├──  Read
 │       │   └──  n
@@ -88,3 +131,9 @@ TREE
 │                       ├──  i
 │                       └──  1
 └──  tabela de simbolos
+└──  soma
+└──  i
+└──  n
+└──  s
+└──  teste
+└──  exemplo2
