@@ -1,5 +1,5 @@
 program exemplo4(input, output);
-    var y:integer;
+    var y, x:integer;
     procedure g(t:integer);
         var y: integer;
         procedure o(t:integer);
@@ -32,12 +32,12 @@ program exemplo4(input, output);
         begin
             x:=y+1;
             f(x);
-            g(t+x)
-            read(t, x, y)
-            write(x+y, t)
+            g(y+x)
+            read(y, x, y)
+            write(x+y, y)
         end (*h*);
     begin
-        x:=3; h(x);
+        x:=3; g(x);
         g(x);
         write(x)
     end.

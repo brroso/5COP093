@@ -322,13 +322,11 @@ class Parser:   # The parser class
         self.index = 0
         self.current = token_list[self.index]
         self.level = 0
-        self.table = ht.new_table()
+        self.table_pile = []
         self.root = None
         self.curr_root = None
         self.curr_desloc = -3
-        self.curr_Symtab = []
-        self.wasInPar = []
-        self.isInPar = []
+        self.curr_Symtab = None
 
     def next_token(self):   # Puts the next token in current
         self.index += 1
@@ -359,22 +357,23 @@ class Parser:   # The parser class
     def setDesloc(self, value):
         self.curr_desloc = value
 
-    def resetSymtab(self):
-        self.curr_Symtab = []
-
     def getSymtab(self):
         return self.curr_Symtab
 
-    def appendSymtab(self, ident):
-        self.curr_Symtab.append(ident)
+    def newSymtab(self):
+        table = ht.new_table()
+        self.table_pile.append(table)
+        self.curr_Symtab = self.table_pile[-1]
+
+    def popSymtab(self, name):
+        print('HASH DE', name, file=out_file)
+        print_hash(self.table_pile.pop())
 
     # Checks if the passed token equals the current one
     def eat(self, token):
 
         if token == "." and len(self.token_list) - 1 == self.index:
             print("Fim da analise, nao houveram erros")
-            print("HASH\n\n", file=out_file)
-            print_hash(self.table)
             print("TREE\n\n", file=out_file)
             for pre, fill, node in RenderTree(self.getRoot()):
                 print(pre, node.name, file=out_file)
@@ -413,9 +412,11 @@ class Parser:   # The parser class
     def program(self):
         if self.current.getName().upper() == 'PROGRAM':
 
+            self.newSymtab()
             self.eat("PROGRAM")
             program = Token(self.current.getName(), 'program')
-            ht.hash_insert(self.table, program)
+            progname = self.current.getName()
+            ht.hash_insert(self.getSymtab(), program)
             node = Node(self.current.getName())
             self.setCurrRoot(node)
             self.setRoot(node)
@@ -428,6 +429,8 @@ class Parser:   # The parser class
             self.bloco()
             while self.current.getName() != ".":
                 self.bloco()
+            no = Node(name='tabela de simbolos', parent=node, ht=self.table_pile[-1])
+            self.popSymtab(progname)
             self.eat(".")
 
     # BLOCO production (Kowaltowski pg. 72 - item 2)
@@ -561,8 +564,8 @@ class Parser:   # The parser class
                 Node(vartipo, ident)
                 varobject = SimVar(item, vartipo, self.level, desloc +
                                    deslocamento)
-                ht.hash_insert(self.table, varobject)
-            self.appendSymtab(ids_list)
+                ht.hash_insert(self.getSymtab(), varobject)
+            # self.appendSymtab(ids_list)
             return len(ids_list)
 
     # LISTA DE IDENTIFICADORES production (Kowaltowksi pg. 72 - item 10)
@@ -598,6 +601,9 @@ class Parser:   # The parser class
 
         if self.current.getName().upper() == 'PROCEDURE':
 
+
+            oldtab = self.getSymtab()
+            self.newSymtab()
             nparam = 0
             self.eat("PROCEDURE")
             proc_name = self.current.getName()
@@ -614,22 +620,24 @@ class Parser:   # The parser class
             self.eat(";")
             self.level += 1
             proc = ProcDef(proc_name, self.level, nparam, parameters)
-            ht.hash_insert(self.table, proc)
+            ht.hash_insert(oldtab, proc)
             label = self.bloco()
-            for lista in self.table:
+            for lista in self.table_pile[-1]:
                 for item in lista:
                     if isinstance(item, ProcDef):
                         if item.getName() == proc_name and \
                                 item.getNivel() == self.level:
                             item.setRotulo(label)
-            proc.setSymtab(self.getSymtab().pop())
-            Node(proc.getSymtab(), parent=self.getCurrRoot())
+            no = Node(name='tabela de simbolos', ht=self.table_pile[-1], parent=self.getCurrRoot())
+            self.popSymtab(proc_name)
             self.level -= 1
 
     # DECLARAÇÃO DE FUNÇÃO production(Kowaltoswki pg72 - item 13)
     def function(self):
 
         if self.current.getName().upper() == 'FUNCTION':
+            oldtab = self.getSymtab()
+            self.newSymtab()
             nparam = 0
             self.eat("FUNCTION")
             func_name = self.current.getName()
@@ -649,17 +657,17 @@ class Parser:   # The parser class
             self.eat(";")
             self.level += 1
             func = FuncDef(func_name, ret_type, self.level, nparam, parameters)
-            ht.hash_insert(self.table, func)
+            ht.hash_insert(oldtab, func)
             label = self.bloco()
-            for lista in self.table:
+            for lista in self.table_pile[-1]:
                 for item in lista:
                     if isinstance(item, FuncDef):
                         if item.getName() == func_name and \
                                 item.getNivel() == self.level and \
                                 item.getReturnType() == ret_type:
                             item.setRotulo(label)
-            func.setSymtab(self.getSymtab().pop())
-            Node(func.getSymtab(), parent=self.getCurrRoot())
+            no = Node(name='tabela de simbolos', ht=self.table_pile[-1], parent=self.getCurrRoot())
+            self.popSymtab(func_name)
             self.level -= 1
 
     # PARÂMETROS FORMAIS production (Kowaltowski pg72 - item 14)
@@ -710,7 +718,7 @@ class Parser:   # The parser class
                 objs.append(objpar)
                 newforpar = ParamTipo(tipo, 'Referencia')
                 forpars.append(newforpar)
-                ht.hash_insert(self.table, objpar)
+                ht.hash_insert(self.getSymtab(), objpar)
 
         elif self.current.getName().upper() == 'FUNCTION':
             self.eat("FUNCTION")
@@ -730,7 +738,7 @@ class Parser:   # The parser class
                 objs.append(objpar)
                 newforpar = ParamTipo(tipo, 'Valor')
                 forpars.append(newforpar)
-                ht.hash_insert(self.table, objpar)
+                ht.hash_insert(self.getSymtab(), objpar)
 
         elif self.current.getName().upper() == 'PROCEDURE':
             self.eat("PROCEDURE")
@@ -746,7 +754,7 @@ class Parser:   # The parser class
                 objs.append(objpar)
                 newforpar = ParamTipo(tipo, 'Valor')
                 forpars.append(newforpar)
-                ht.hash_insert(self.table, objpar)
+                ht.hash_insert(self.getSymtab(), objpar)
 
         elif self.current.getCategory() == "identificador":
             ids.append(self.current.getName())
@@ -765,7 +773,7 @@ class Parser:   # The parser class
                 objs.append(objpar)
                 newforpar = ParamTipo(tipo, 'Valor')
                 forpars.append(newforpar)
-                ht.hash_insert(self.table, objpar)
+                ht.hash_insert(self.getSymtab(), objpar)
 
         forpars.append(len(ids))
         return forpars, objs
@@ -811,43 +819,45 @@ class Parser:   # The parser class
 
         if self.current.getCategory() == "identificador" \
                 and self.current.getName().upper() not in keywords:
-            for lista in self.table:
-                for item in lista:
-                    if self.current.getName() == item.getName():
-                        if item.getCategory() == 'variavel simples' or \
-                                item.getCategory() == 'parametro formal' or \
-                                item.getCategory() == 'function':
-                            atrib_node = Node(
-                                "atribuicao", parent=self.getCurrRoot())
-                            prev_root = self.getCurrRoot()
-                            self.setCurrRoot(atrib_node)
-                            Node(flatlist(self.variavel()),
-                                 parent=self.getCurrRoot())
-                            self.eat(":=")
-                            right_node = self.expression()
-                            right_node.parent = self.getCurrRoot()
-                            self.setCurrRoot(prev_root)
+            for table in self.table_pile:
+                for lista in table:
+                    for item in lista:
+                        if self.current.getName() == item.getName():
+                            if item.getCategory() == 'variavel simples' or \
+                                    item.getCategory() == 'parametro formal' or \
+                                    item.getCategory() == 'function':
+                                atrib_node = Node(
+                                    "atribuicao", parent=self.getCurrRoot())
+                                prev_root = self.getCurrRoot()
+                                self.setCurrRoot(atrib_node)
+                                Node(flatlist(self.variavel()),
+                                     parent=self.getCurrRoot())
+                                self.eat(":=")
+                                right_node = self.expression()
+                                right_node.parent = self.getCurrRoot()
+                                self.setCurrRoot(prev_root)
 
     # CHAMADA DE PROCEDIMENTO production (Kowaltoskwi pg73 - item 20)
     def procedure_call(self):
 
         if self.current.getCategory() == "identificador":
-            for lista in self.table:
-                for item in lista:
-                    if self.current.getName() == item.getName():
-                        if item.getCategory() == 'procedure':
-                            pname = self.current.getName()
-                            self.eat("identificador")
-                            proccall_bloco = Node(
-                                "Proc call \"" + pname + "\"",
-                                parent=self.getCurrRoot())
-                            prev_root = self.getCurrRoot()
-                            self.setCurrRoot(proccall_bloco)
-                            if self.current.getName() == "(":
-                                self.eat("(")
-                                self.expressions_list()
-                                self.eat(")")
-                            self.setCurrRoot(prev_root)
+            for table in self.table_pile:
+                for lista in table:
+                    for item in lista:
+                        if self.current.getName() == item.getName():
+                            if item.getCategory() == 'procedure':
+                                pname = self.current.getName()
+                                self.eat("identificador")
+                                proccall_bloco = Node(
+                                    "Proc call \"" + pname + "\"",
+                                    parent=self.getCurrRoot())
+                                prev_root = self.getCurrRoot()
+                                self.setCurrRoot(proccall_bloco)
+                                if self.current.getName() == "(":
+                                    self.eat("(")
+                                    self.expressions_list()
+                                    self.eat(")")
+                                self.setCurrRoot(prev_root)
 
     # DESVIO production (Kowaltowski pg73 - item 21)
     def desvio(self):
@@ -1051,14 +1061,15 @@ class Parser:   # The parser class
 
         fator = None
         if self.current.getCategory() == "identificador":
-            for lista in self.table:
-                for item in lista:
-                    if self.current.getName() == item.getName():
-                        if item.getCategory() == 'variavel simples' or \
-                                item.getCategory() == 'parametro formal':
-                            fator = Node(self.variavel())
-                        elif item.getCategory() == 'function':
-                            fator = self.function_call()
+                for table in self.table_pile:
+                    for lista in table:
+                        for item in lista:
+                            if self.current.getName() == item.getName():
+                                if item.getCategory() == 'variavel simples' or \
+                                        item.getCategory() == 'parametro formal':
+                                    fator = Node(self.variavel())
+                                elif item.getCategory() == 'function':
+                                    fator = self.function_call()
         elif "numero" in self.current.getCategory():
             fator = Node(self.current.getName())
             self.eat("numero")
@@ -1094,20 +1105,21 @@ class Parser:   # The parser class
     def function_call(self):
 
         if self.current.getCategory() == "identificador":
-            for lista in self.table:
-                for item in lista:
-                    if self.current.getName() == item.getName():
-                        if item.getCategory() == 'function':
-                            f = self.current.getName()
-                            node = Node("Function call \"" + f + "\"")
-                            prev_root = self.getCurrRoot()
-                            self.setCurrRoot(node)
-                            self.eat("identificador")
-                            if self.current.getName() == "(":
-                                self.eat("(")
-                                explist = self.expressions_list()
-                                self.eat(")")
-                            self.setCurrRoot(prev_root)
+            for table in self.table_pile:
+                for lista in table:
+                    for item in lista:
+                        if self.current.getName() == item.getName():
+                            if item.getCategory() == 'function':
+                                f = self.current.getName()
+                                node = Node("Function call \"" + f + "\"")
+                                prev_root = self.getCurrRoot()
+                                self.setCurrRoot(node)
+                                self.eat("identificador")
+                                if self.current.getName() == "(":
+                                    self.eat("(")
+                                    explist = self.expressions_list()
+                                    self.eat(")")
+                                self.setCurrRoot(prev_root)
         explist.parent = node
         return node
     # READ E WRITE
