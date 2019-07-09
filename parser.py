@@ -377,6 +377,10 @@ class Parser:   # The parser class
             print("TREE\n\n", file=out_file)
             for pre, fill, node in RenderTree(self.getRoot()):
                 print(pre, node.name, file=out_file)
+                if node.name == 'tabela de simbolos':
+                    for lista in node.ht:
+                        for item in lista:
+                            print(pre, item.getName(), file=out_file)
             quit()
         elif token == 'identificador':
             if self.current:

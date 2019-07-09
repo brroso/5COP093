@@ -140,6 +140,13 @@ TREE
 │   │   │   │   │   │   │               ├──  x
 │   │   │   │   │   │   │               └──  1
 │   │   │   │   │   │   └──  tabela de simbolos
+│   │   │   │   │   │   └──  menos3
+│   │   │   │   │   │   └──  meno4
+│   │   │   │   │   │   └──  m
+│   │   │   │   │   │   └──  o
+│   │   │   │   │   │   └──  t
+│   │   │   │   │   │   └──  x
+│   │   │   │   │   │   └──  z
 │   │   │   │   │   └──  comando composto
 │   │   │   │   │       ├──  If
 │   │   │   │   │       │   ├──  >
@@ -157,6 +164,10 @@ TREE
 │   │   │   │   │       └──  Write
 │   │   │   │   │           └──  u
 │   │   │   │   └──  tabela de simbolos
+│   │   │   │   └──  g
+│   │   │   │   └──  t
+│   │   │   │   └──  u
+│   │   │   │   └──  y
 │   │   │   └──  comando composto
 │   │   │       ├──  If
 │   │   │       │   ├──  <
@@ -208,6 +219,17 @@ TREE
 │   │   │           ├──  n
 │   │   │           └──  k
 │   │   └──  tabela de simbolos
+│   │   └──  menos3
+│   │   └──  menos4
+│   │   └──  menos5
+│   │   └──  menos6
+│   │   └──  k
+│   │   └──  l
+│   │   └──  n
+│   │   └──  p
+│   │   └──  q
+│   │   └──  r
+│   │   └──  s
 │   └──  comando composto
 │       └──  Write
 │           ├──  Function call "f"
@@ -215,3 +237,6 @@ TREE
 │           │   └──  m
 │           └──  m
 └──  tabela de simbolos
+└──  f
+└──  m
+└──  exemplo5
