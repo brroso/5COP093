@@ -391,28 +391,28 @@ class Parser:   # The parser class
                 if self.current.getCategory() == 'identificador':
                     self.next_token()
                 else:
-                    print('Erro sintático', self.current.getName())
+                    print('Erro em', self.current.getName())
                     quit()
         elif token == 'numero':
             if self.current:
                 if 'numero' in self.current.getCategory():
                     self.next_token()
                 else:
-                    print('Erro sintático', self.current.getName())
+                    print('Erro em', self.current.getName())
                     quit()
         elif token == 'relacao':
             if self.current:
                 if self.current.getName() in relacao_list:
                     self.next_token()
                 else:
-                    print('Erro sintático', self.current.getName())
+                    print('Erro em', self.current.getName())
                     quit()
         else:
             if self.current:
                 if self.current.getName().upper() == token.upper():
                     self.next_token()
                 else:
-                    print('Erro sintático', self.current.getName())
+                    print('Erro em', self.current.getName())
                     quit()
 
     # PROGRAMAS E BLOCOS
