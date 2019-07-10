@@ -437,7 +437,7 @@ class Parser:   # The parser class
             self.bloco()
             while self.current.getName() != ".":
                 self.bloco()
-            no = Node(name='tabela de simbolos', parent=node, ht=self.table_pile[-1])
+            Node(name='tabela de simbolos', parent=node, ht=self.table_pile[-1])
             self.popSymtab(progname)
             self.eat(".")
 
@@ -609,7 +609,6 @@ class Parser:   # The parser class
 
         if self.current.getName().upper() == 'PROCEDURE':
 
-
             oldtab = self.getSymtab()
             self.newSymtab()
             nparam = 0
@@ -636,7 +635,7 @@ class Parser:   # The parser class
                         if item.getName() == proc_name and \
                                 item.getNivel() == self.level:
                             item.setRotulo(label)
-            no = Node(name='tabela de simbolos', ht=self.table_pile[-1], parent=self.getCurrRoot())
+            Node(name='tabela de simbolos', ht=self.table_pile[-1], parent=self.getCurrRoot())
             self.popSymtab(proc_name)
             self.level -= 1
 
@@ -674,7 +673,7 @@ class Parser:   # The parser class
                                 item.getNivel() == self.level and \
                                 item.getReturnType() == ret_type:
                             item.setRotulo(label)
-            no = Node(name='tabela de simbolos', ht=self.table_pile[-1], parent=self.getCurrRoot())
+            Node(name='tabela de simbolos', ht=self.table_pile[-1], parent=self.getCurrRoot())
             self.popSymtab(func_name)
             self.level -= 1
 
@@ -1069,15 +1068,15 @@ class Parser:   # The parser class
 
         fator = None
         if self.current.getCategory() == "identificador":
-                for table in self.table_pile:
-                    for lista in table:
-                        for item in lista:
-                            if self.current.getName() == item.getName():
-                                if item.getCategory() == 'variavel simples' or \
-                                        item.getCategory() == 'parametro formal':
-                                    fator = Node(self.variavel())
-                                elif item.getCategory() == 'function':
-                                    fator = self.function_call()
+            for table in self.table_pile:
+                for lista in table:
+                    for item in lista:
+                        if self.current.getName() == item.getName():
+                            if item.getCategory() == 'variavel simples' or \
+                                    item.getCategory() == 'parametro formal':
+                                fator = Node(self.variavel())
+                            elif item.getCategory() == 'function':
+                                fator = self.function_call()
         elif "numero" in self.current.getCategory():
             fator = Node(self.current.getName())
             self.eat("numero")
