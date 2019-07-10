@@ -10,7 +10,7 @@ HASH DE g
 
 
 HASH DE exemplo3
-103     | g          | procedure       | 1     | None          | 5         
+103     | g          | procedure       | 1     | 22            | 5         
 Parametros
 float Valor
 float Valor

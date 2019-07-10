@@ -629,7 +629,7 @@ class Parser:   # The parser class
             proc = ProcDef(proc_name, self.level, nparam, parameters)
             ht.hash_insert(oldtab, proc)
             label = self.bloco()
-            for lista in self.table_pile[-1]:
+            for lista in oldtab:
                 for item in lista:
                     if isinstance(item, ProcDef):
                         if item.getName() == proc_name and \
@@ -666,7 +666,7 @@ class Parser:   # The parser class
             func = FuncDef(func_name, ret_type, self.level, nparam, parameters)
             ht.hash_insert(oldtab, func)
             label = self.bloco()
-            for lista in self.table_pile[-1]:
+            for lista in oldtab:
                 for item in lista:
                     if isinstance(item, FuncDef):
                         if item.getName() == func_name and \

@@ -23,8 +23,10 @@ program exemplo4(input, output);
         write(y)
     end (*g*);
     procedure h(y: integer);
+        label 01;
         var x: integer;
         procedure f(y: integer);
+            label 0002;
             var t: integer;
             begin
                 t:=x+y; g(t);

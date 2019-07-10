@@ -33,7 +33,7 @@ HASH DE f
 
 
 HASH DE h
-102     | f          | procedure       | 2     | None          | 1         
+102     | f          | procedure       | 2     | 0002          | 1         
 Parametros
 integer Valor
 120     | x          | variavel simples | 1     | INTEGER       | 0         
@@ -46,7 +46,7 @@ HASH DE exemplo4
 103     | g          | procedure       | 1     | None          | 1         
 Parametros
 integer Valor
-104     | h          | procedure       | 1     | None          | 1         
+104     | h          | procedure       | 1     | 01            | 1         
 Parametros
 integer Valor
 120     | x          | variavel simples | 0     | INTEGER       | 1         
@@ -133,6 +133,8 @@ TREE
 │   │   ├──  y
 │   │   │   └──  integer
 │   │   ├──  bloco
+│   │   │   ├──  label
+│   │   │   │   └──  01
 │   │   │   ├──  var declaration
 │   │   │   │   └──  x
 │   │   │   │       └──  INTEGER
@@ -141,6 +143,8 @@ TREE
 │   │   │   │   ├──  y
 │   │   │   │   │   └──  integer
 │   │   │   │   ├──  bloco
+│   │   │   │   │   ├──  label
+│   │   │   │   │   │   └──  0002
 │   │   │   │   │   ├──  var declaration
 │   │   │   │   │   │   └──  t
 │   │   │   │   │   │       └──  INTEGER

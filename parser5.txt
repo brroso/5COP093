@@ -11,7 +11,7 @@ HASH DE g
 
 
 HASH DE l
-103     | g          | procedure       | 3     | None          | 6         
+103     | g          | procedure       | 3     | 22            | 6         
 Parametros
 float Valor
 float Valor
@@ -32,7 +32,7 @@ HASH DE f
 28      | menos5     | parametro formal | 0     | float         | -5    |                        Referencia
 29      | menos6     | parametro formal | 0     | integer       | -6    |                        Valor     
 107     | k          | parametro formal | 0     | integer       | -7    |                        Valor     
-108     | l          | procedure       | 2     | None          | 1         
+108     | l          | procedure       | 2     | 12            | 1         
 Parametros
 integer Valor
 110     | n          | parametro formal | 0     | integer       | -8    |                        Valor     
@@ -45,7 +45,7 @@ integer Valor
 
 
 HASH DE exemplo5
-102     | f          | function        | 1     | None       | 6             |                        integer      
+102     | f          | function        | 1     | 22         | 6             |                        integer      
 Parametros
 integer Valor
 integer Valor
@@ -98,6 +98,8 @@ TREE
 │   │   │   │   ├──  t
 │   │   │   │   │   └──  integer
 │   │   │   │   ├──  bloco
+│   │   │   │   │   ├──  label
+│   │   │   │   │   │   └──  12
 │   │   │   │   │   ├──  var declaration
 │   │   │   │   │   │   ├──  u
 │   │   │   │   │   │   │   └──  INTEGER
