@@ -6,7 +6,7 @@ from anytree import Node, RenderTree
 out_file = None
 
 keywords = [
-            'AND', 'ARRAY', 'ASM', 'BEGIN', 'CASE', 'FLOAT',
+            'AND', 'ARRAY', 'ASM', 'BEGIN', 'BOOLEAN' 'CASE', 'FLOAT',
             'CONST', 'CONSTRUCTOR', 'CONTINUE', 'DESTRUCTOR',
             'DIV', 'DO', 'DOWNTO', 'ELSE', 'END', 'FALSE', 'FILE',
             'FOR', 'FUNCTION', 'GOTO', 'IF', 'IMPLEMENTATION',
@@ -42,6 +42,11 @@ def flatlist(lista):
 def flatten(lista):
     return sum(([x] if not isinstance(x, list) else flatten(x)
                 for x in lista), [])
+
+
+def print_tree(root):
+    for pre, fill, node in RenderTree(root):
+        print(pre, node.name)
 
 
 def print_hash(hash_table):
@@ -883,7 +888,8 @@ class Parser:   # The parser class
             prev_root = self.getCurrRoot()
             self.setCurrRoot(ifnode)
             self.eat("IF")
-            self.expression(),
+            expnode = self.expression()
+            expnode.parent = ifnode
             self.eat("THEN")
             self.comando_sem_rotulo()
             if self.current.getName().upper() == "ELSE":
@@ -901,7 +907,8 @@ class Parser:   # The parser class
             self.setCurrRoot(whilenode)
             self.eat("WHILE")
 
-            self.expression()
+            expnode = self.expression()
+            expnode.parent = whilenode
 
             self.eat("DO")
             self.comando_sem_rotulo()
@@ -932,6 +939,7 @@ class Parser:   # The parser class
             exp_right_node = self.simple_expression()
             expnode.parent = node
             exp_right_node.parent = node
+            expnode = node
             self.setCurrRoot(prev_node)
 
         return expnode
@@ -1085,9 +1093,11 @@ class Parser:   # The parser class
             fator = self.expression()
             self.eat(")")
         elif self.current.getName().upper() == "NOT":
-            fator = Node(self.current.getName())
+            notfator = Node(self.current.getName().upper())
             self.eat("NOT")
-            fator = Node(self.fator())
+            fator = self.fator()
+            fator.parent = notfator
+            return notfator
         elif self.current.getName().upper() == "TRUE":
             fator = Node(self.current.getName())
             self.eat("TRUE")
