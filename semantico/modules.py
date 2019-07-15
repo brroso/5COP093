@@ -219,3 +219,50 @@ class Token(object):    # The token class
 
     def getCategory(self):
         return self.category
+
+
+def print_hash(hash_table):
+
+    for index, lista in enumerate(hash_table):
+        for item in lista:
+            if isinstance(item, ForPar):
+                print("{:7} | {:10} | {:15} | {:5} | {:13} | {:5} |\
+                        {:10}".format(
+                    str(index), str(item.getName()), str(item.getCategory()),
+                    str(item.getNivel()), str(item.getTipo()),
+                    str(item.getDesloc()), str(item.getPassagem()),
+                ))
+            elif isinstance(item, SimVar):
+                print("{:7} | {:10} | {:15} | {:5} | {:13} | {:10}".format(
+                    str(index), str(item.getName()), str(item.getCategory()),
+                    str(item.getNivel()), str(item.getTipo()),
+                    str(item.getDesloc())
+                ))
+            elif isinstance(item, FuncDef):
+                print("{:7} | {:10} | {:15} | {:5} | {:10} | {:13} |\
+                        {:13}".format(
+                    str(index), str(item.getName()), str(item.getCategory()),
+                    str(item.getNivel()),
+                    str(item.getRotulo()), str(item.getNparam()),
+                    str(item.getReturnType())))
+                print('Parametros')
+                if item.getParList():
+                    for lista in item.getParList():
+                        for par in lista:
+                            print(par.getTipo(), par.getPassagem())
+            elif isinstance(item, ProcDef):
+                print("{:7} | {:10} | {:15} | {:5} | {:13} | {:10}".format(
+                    str(index), str(item.getName()), str(item.getCategory()),
+                    str(item.getNivel()),
+                    str(item.getRotulo()), str(item.getNparam())))
+                print('Parametros')
+                if item.getParList():
+                    for lista in item.getParList():
+                        for par in lista:
+                            print(par.getTipo(), par.getPassagem())
+            elif isinstance(item, Token):
+                print("{:7} | {:10} | {:15}".format(
+                    str(index), str(item.getName()), str(item.getCategory())
+                ))
+
+    print('\n\n\n')
