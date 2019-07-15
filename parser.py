@@ -386,7 +386,6 @@ class Parser:   # The parser class
             print("Fim da analise, nao houveram erros")
             print("TREE\n\n", file=out_file)
             for pre, fill, node in RenderTree(self.getRoot()):
-                
                 print(pre, node.name, file=out_file)
                 if node.name == 'tabela de simbolos':
                     for lista in node.ht:
