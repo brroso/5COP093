@@ -5,7 +5,7 @@ ast = open('../ast', 'rb')
 ast = pickle.load(ast)
 
 
-
+operations = ['+', '-', '*', '/', '>', '<', '>=', '<=', '<>']
 
 def main(argv):
     global ast
@@ -29,5 +29,3 @@ def main(argv):
             # read
         elif node.name in operations:
             # comparacao
-        
-
