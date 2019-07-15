@@ -2,6 +2,7 @@ import sys
 import getopt
 import hash_table as ht
 from anytree import Node, RenderTree
+import pickle
 
 out_file = None
 
@@ -385,11 +386,14 @@ class Parser:   # The parser class
             print("Fim da analise, nao houveram erros")
             print("TREE\n\n", file=out_file)
             for pre, fill, node in RenderTree(self.getRoot()):
+                
                 print(pre, node.name, file=out_file)
                 if node.name == 'tabela de simbolos':
                     for lista in node.ht:
                         for item in lista:
                             print(pre, item.getName(), file=out_file)
+            ast = open('ast', 'wb')
+            pickle.dump(RenderTree(self.getRoot()), ast)
             quit()
         elif token == 'identificador':
             if self.current:

@@ -33,5 +33,5 @@ program exemplo5(input, output);
             write(n,k)
         end(*f*);
     begin
-        write(f(3,m),m)
+        write(f(3*4,m),m)
     end.

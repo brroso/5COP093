@@ -235,7 +235,9 @@ TREE
 │   └──  comando composto
 │       └──  Write
 │           ├──  Function call "f"
-│           │   ├──  3
+│           │   ├──  *
+│           │   │   ├──  3
+│           │   │   └──  4
 │           │   └──  m
 │           └──  m
 └──  tabela de simbolos
