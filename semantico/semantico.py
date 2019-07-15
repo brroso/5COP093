@@ -6,7 +6,21 @@ ast = pickle.load(ast)
 
 operations = ['+', '-', '*', '/', '>', '<', '>=', '<=', '<>']
 routines_battery = []
-current_symTab = []
+current_routine = None
+
+
+def semantigo(node, first):
+    global current_routine
+    global routines_battery
+
+    for no in node.children:
+        if no.name == 'tabela de simbolos':
+            symTab = no.ht
+    main = routine(node.name, symTab)
+    routines_battery.append(main)
+    current_routine = main
+    first = False
+    return first
 
 
 class routine(object):
@@ -20,12 +34,7 @@ def main(argv):
     first = True
     for pre, fill, node in ast:
         if first:
-            for no in node.children:
-                if no.name == 'tabela de simbolos':
-                    symTab = no.ht
-            main = routine(node.name, symTab)
-            print_hash(main.symTab)
-            first = False
+            first = semantigo(node, first)
         # if node.name == 'var declaration':
         #     # vardec
         # elif node.name == 'atribuicao':
@@ -44,5 +53,6 @@ def main(argv):
         #     # read
         # elif node.name in operations:
         #     # comparacao
+
 
 main('')
