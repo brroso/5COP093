@@ -36,7 +36,7 @@ HASH DE h
 102     | f          | procedure       | 2     | 0002          | 1         
 Parametros
 integer Valor
-120     | x          | variavel simples | 1     | INTEGER       | 0         
+117     | u          | variavel simples | 1     | INTEGER       | 0         
 121     | y          | parametro formal | 0     | integer       | -3    |                        Valor     
 
 
@@ -51,6 +51,7 @@ Parametros
 integer Valor
 120     | x          | variavel simples | 0     | INTEGER       | 1         
 121     | y          | variavel simples | 0     | INTEGER       | 0         
+122     | z          | variavel simples | 0     | INTEGER       | 2         
 192     | exemplo4   | program        
 
 
@@ -64,7 +65,9 @@ TREE
 │   ├──  var declaration
 │   │   ├──  y
 │   │   │   └──  INTEGER
-│   │   └──  x
+│   │   ├──  x
+│   │   │   └──  INTEGER
+│   │   └──  z
 │   │       └──  INTEGER
 │   ├──  procedure dec
 │   │   ├──  g
@@ -136,7 +139,7 @@ TREE
 │   │   │   ├──  label
 │   │   │   │   └──  01
 │   │   │   ├──  var declaration
-│   │   │   │   └──  x
+│   │   │   │   └──  u
 │   │   │   │       └──  INTEGER
 │   │   │   ├──  procedure dec
 │   │   │   │   ├──  f
@@ -165,7 +168,7 @@ TREE
 │   │   │       │   └──  +
 │   │   │       │       ├──  y
 │   │   │       │       └──  1
-│   │   │       ├──  Proc call "f"
+│   │   │       ├──  Proc call "h"
 │   │   │       │   └──  x
 │   │   │       ├──  Proc call "g"
 │   │   │       │   └──  +
@@ -182,7 +185,7 @@ TREE
 │   │   │           └──  y
 │   │   └──  tabela de simbolos
 │   │   └──  f
-│   │   └──  x
+│   │   └──  u
 │   │   └──  y
 │   └──  comando composto
 │       ├──  atribuicao
@@ -199,4 +202,5 @@ TREE
 └──  h
 └──  x
 └──  y
+└──  z
 └──  exemplo4

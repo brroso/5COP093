@@ -617,6 +617,7 @@ class Parser:   # The parser class
 
         if self.current.getName().upper() == 'PROCEDURE':
 
+            self.level += 1
             oldtab = self.getSymtab()
             self.newSymtab()
             nparam = 0
@@ -633,7 +634,6 @@ class Parser:   # The parser class
                             nparam += item
                             lista.pop(item)
             self.eat(";")
-            self.level += 1
             proc = ProcDef(proc_name, self.level, nparam, parameters)
             ht.hash_insert(oldtab, proc)
             label = self.bloco()
@@ -651,6 +651,7 @@ class Parser:   # The parser class
     def function(self):
 
         if self.current.getName().upper() == 'FUNCTION':
+            self.level += 1
             oldtab = self.getSymtab()
             self.newSymtab()
             nparam = 0
@@ -670,7 +671,6 @@ class Parser:   # The parser class
             ret_type = self.current.getName()
             self.eat("identificador")
             self.eat(";")
-            self.level += 1
             func = FuncDef(func_name, ret_type, self.level, nparam, parameters)
             ht.hash_insert(oldtab, func)
             label = self.bloco()
