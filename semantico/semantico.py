@@ -1,7 +1,10 @@
 import pickle
 from modules import *
 
-# Checar funcionamento de parâmetros formais
+# Checar funcionamento de parâmetros formais.
+# Caso parâmetros formais precisem contar como variáveis
+# adicionar um if na função var_dec e procurar nas symtabs
+# de cada rotina
 
 ast = open('../ast', 'rb')
 ast = pickle.load(ast)
@@ -58,7 +61,7 @@ def routine_dec(node):  # lida com declarações de rotinas
             print('erro semântico: já há um identificador visivel de nome',
                   rout.name)
             quit()
-        else:  # checa se já tem uma variavel com esse nome
+        else:  # checa se já tem uma variavel com esse nome no <= nivel
             for lista in rotina.symTab:
                 for identificador in lista:
                     if identificador.getName() == rout.name and \
@@ -79,17 +82,21 @@ def var_dec(node):
     global var_battery
 
     var_list = []
-
+    # Cria um obj variavel pra cada var declarada na rotina
     for no in node.children:
         var = variavel(no.name, no.children[0].name, nivel)
         print(no.name)
+        # Ve todas as variaveis na pilha:
         for lista in var_battery:
             for variable in lista:
+                # Caso já tenha na pilha atual uma variavel com esse nome:
                 if variable.name == var.name and \
                         variable.nivel == var.nivel:
                     print('Já existe variável visível de nome', var.name)
                     quit()
+        # Ve todas as rotinas da pilha
         for rotina in routines_battery:
+            # Caso já tenha na pilha atual uma rotina com esse nome:
             if rotina.name == var.name:
                 print('erro semântico: já há uma rotina visivel',
                       'de nome', var.name)
@@ -106,31 +113,46 @@ def main(argv):
 
     first = True
     for pre, fill, node in ast:
-        if first:
+        if first:  # se for a primeira vez:
             first = semantigo(node, first)
+
+        # caso encontre uma dec de variavel na arvre:
         if node.name == 'var declaration':
             var_dec(node)
+
         # elif node.name == 'atribuicao':
         #     # atrib
+
+        # caso encontre uma dec de proc na arvre:
         elif node.name == 'procedure dec':
             routine_dec(node)
+
         # elif 'Proc call' in node.name:
         #     # proccall
+
+        # caso encontre uma dec de func na arvre:
         elif node.name == 'function dec':
             routine_dec(node)
+
         # elif 'Function call' in node.name:
         #     # funccall
+
         # elif node.name == 'Write':
         #     # write
+
         # elif node.name == 'Read':
         #     # read
+
         # elif node.name in operations:
         #     # comparacao
+
+        # o nó 'tabela de símbolos' siginficia dentro da arvre o fim de rotina
         if node.name == 'tabela de simbolos':
-            var_battery.pop()
-            routines_battery.pop()
+            var_battery.pop()  # da pop na pilha das variaveis
+            routines_battery.pop()  # da pop na pilha das rotinas
             nivel -= 1
             if len(routines_battery) > 0:
+                # coloca a rotina atual como a ultima
                 current_routine = routines_battery[-1]
 
 
