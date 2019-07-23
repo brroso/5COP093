@@ -127,7 +127,7 @@ def main(argv):
         elif node.name == 'atribuicao':
             for lista in var_battery:
                 for variable in lista:
-                    rightmo = node.children[0]
+                    rightmo = 
                     if(variable.tipo != rightmo.tipo):
                         print("Tipos incompatíveis, {} é do tipo {} atribuição de tipo {}".format(variable.name, variable.tipo, rightmo.tipo))
 
