@@ -6,6 +6,10 @@ from modules import *
 # adicionar um if na função var_dec e procurar nas symtabs
 # de cada rotina
 
+# Tratar quando não houver declaração de variáveis na pilha
+
+# Variaveis visiveis = locais
+
 ast = open('../ast', 'rb')
 ast = pickle.load(ast)
 
