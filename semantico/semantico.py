@@ -124,19 +124,17 @@ def main(argv):
         if node.name == 'var declaration':
             var_dec(node)
 
-        # elif node.name == 'atribuicao':
-        #     # atrib
+        elif node.name == 'atribuicao':
+            for lista in var_battery:
+                for variable in lista:
+                    rightmo = node.children[0]
+                    if(variable.tipo != rightmo.tipo):
+                        print("Tipos incompatíveis, {} é do tipo {} atribuição de tipo {}".format(variable.name, variable.tipo, rightmo.tipo))
 
         # caso encontre uma dec de proc na arvre:
         elif node.name == 'procedure dec':
             routine_dec(node)
-            rightmo = node.children[0]
-            for no in node.children:
-                for lista in var_battery:
-                    for variable in lista:
-                        if(variable.tipo != rightmo.tipo):
-                            print("Tipos incompatíveis, {} é do tipo {} atribuição de tipo {}".format(variable.name, variable.tipo, rightmo.tipo))
-
+            
         # elif 'Proc call' in node.name:
         #     # proccall
 
