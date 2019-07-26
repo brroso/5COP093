@@ -49,7 +49,7 @@ integer Valor
 
 HASH DE exemplo5
 109     | m          | variavel simples | 0     | INTEGER       | 0         
-115     | func       | function        | 1     | 22         | 6             |                        integer      
+115     | func       | function        | 1     | 22         | 6             |                        boolean      
 Parametros
 integer Valor
 integer Valor
@@ -144,12 +144,17 @@ TREE
 │   │   │   │   │   │   │       │   ├──  x
 │   │   │   │   │   │   │       │   └──  *
 │   │   │   │   │   │   │       │       ├──  2
-│   │   │   │   │   │   │       │       └──  t
+│   │   │   │   │   │   │       │       └──  2
+│   │   │   │   │   │   │       ├──  atribuicao
+│   │   │   │   │   │   │       │   ├──  z
+│   │   │   │   │   │   │       │   └──  +
+│   │   │   │   │   │   │       │       ├──  x
+│   │   │   │   │   │   │       │       └──  1
 │   │   │   │   │   │   │       └──  atribuicao
-│   │   │   │   │   │   │           ├──  z
-│   │   │   │   │   │   │           └──  +
-│   │   │   │   │   │   │               ├──  x
-│   │   │   │   │   │   │               └──  1
+│   │   │   │   │   │   │           ├──  u
+│   │   │   │   │   │   │           └──  *
+│   │   │   │   │   │   │               ├──  2
+│   │   │   │   │   │   │               └──  j
 │   │   │   │   │   │   └──  tabela de simbolos
 │   │   │   │   │   │   └──  menos3
 │   │   │   │   │   │   └──  meno4
@@ -203,8 +208,6 @@ TREE
 │   │   │       │   │           ├──  n
 │   │   │       │   │           └──  1
 │   │   │       │   └──  comando composto
-│   │   │       │       ├──  Proc call "l"
-│   │   │       │       │   └──  n
 │   │   │       │       ├──  atribuicao
 │   │   │       │       │   ├──  func
 │   │   │       │       │   └──  +

@@ -68,7 +68,7 @@ menos3 da categoria identificador
 float da categoria identificador
 ) da categoria simbolo especial
 : da categoria simbolo especial
-integer da categoria identificador
+boolean da categoria identificador
 ; da categoria simbolo especial
 label da categoria palavra reservada
 22 da categoria numero inteiro
@@ -152,12 +152,19 @@ x da categoria identificador
 := da categoria simbolo especial composto
 2 da categoria numero inteiro
 * da categoria simbolo especial
-t da categoria identificador
+2 da categoria numero inteiro
 ; da categoria simbolo especial
 z da categoria identificador
 := da categoria simbolo especial composto
 x da categoria identificador
 +1 da categoria numero positivo
+; da categoria simbolo especial
+u da categoria identificador
+:= da categoria simbolo especial composto
+2 da categoria numero inteiro
+* da categoria simbolo especial
+j da categoria identificador
+; da categoria simbolo especial
 end da categoria palavra reservada
 ; da categoria simbolo especial
 begin da categoria palavra reservada
@@ -211,11 +218,6 @@ n da categoria identificador
 end da categoria palavra reservada
 else da categoria palavra reservada
 begin da categoria palavra reservada
-l da categoria identificador
-( da categoria simbolo especial
-n da categoria identificador
-) da categoria simbolo especial
-; da categoria simbolo especial
 func da categoria identificador
 := da categoria simbolo especial composto
 func da categoria identificador

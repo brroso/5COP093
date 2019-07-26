@@ -1,6 +1,6 @@
 program exemplo5(input, output);
     var m: integer;
-    function func(n, k, menos6: integer; var menos5, menos4: float; menos3: float): integer;
+    function func(n, k, menos6: integer; var menos5, menos4: float; menos3: float): boolean;
         label 22;
         var p,q,r , s: integer;
         procedure l(o:integer);
@@ -10,7 +10,7 @@ program exemplo5(input, output);
                 label 22;
                 var x:integer;
                 begin
-                    t:=2*t; x:=2*t; z:=x+1
+                    t:=2*t; x:=2*2; z:=x+1; u:=2*j;
                 end (* g *);
             begin
                 if 4>5 then
@@ -27,7 +27,6 @@ program exemplo5(input, output);
                 n := n * 1;
             end
             else begin
-                l(n);
                 func:=func(n-1,p)+func(n-2,q);
                 k:=p+q+1-2*3*2
                 end;

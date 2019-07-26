@@ -163,6 +163,14 @@ def operation_routine(node):
 
     leftmo = node.children[0]
     rightmo = node.children[1]
+    leftmo_tipo = None
+    rightmo_tipo = None
+
+    if leftmo.name.isdigit():
+        leftmo_tipo = 'numero'
+
+    if rightmo.name.isdigit():
+        rightmo_tipo = 'numero'
 
     if leftmo.name in operations:
         leftmo_tipo = operation_routine(leftmo)
@@ -175,20 +183,38 @@ def operation_routine(node):
             leftmo_tipo = variable.tipo
         if variable.name == rightmo.name:
             rightmo_tipo = variable.tipo
-        
+
+    if leftmo_tipo is None:
+        if 'Function call' not in leftmo.name:
+            print('Não existe essa variavel', leftmo.name)
+            quit()
+    if rightmo_tipo is None:
+        if 'Function call' not in rightmo.name:
+            print('Não existe essa variavel', rightmo.name)
+            quit()
+
+    if leftmo_tipo.upper() == 'FLOAT' or leftmo_tipo.upper() == 'INTEGER':
+        leftmo_tipo = 'numero'
+
+    if rightmo_tipo.upper() == 'FLOAT' or rightmo_tipo.upper() == 'INTEGER':
+        rightmo_tipo = 'numero'
+
     for routine in routines_battery:
-        if routine.name == leftmo.name:
-            leftmo_tipo = routine.retType
-        if routine.name == rightmo.name:
-            rightmo_tipo = routine.retType
-    
-    if leftmo_tipo == None or rightmo_tipo == None:
+        if leftmo_tipo is None:
+            if routine.name == str(re.findall(r'"(.*?)"', leftmo.name)[0]):
+                leftmo_tipo = routine.retType
+        if rightmo_tipo is None:
+            if routine.name == str(re.findall(r'"(.*?)"', rightmo.name)[0]):
+                rightmo_tipo = routine.retType
+
+    if leftmo_tipo is None or rightmo_tipo is None:
         print("Operação inválida!")
         quit()
     else:
         if rightmo_tipo == leftmo_tipo:
             return rightmo_tipo
         else:
+            print(leftmo_tipo, rightmo_tipo)
             print("DOIS TIOS DIFERENTES")
             quit()
 
