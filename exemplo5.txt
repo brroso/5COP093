@@ -1,6 +1,6 @@
 program exemplo5(input, output);
     var m: integer;
-    function f(n, k, menos6: integer; var menos5, menos4: float; menos3: float): integer;
+    function func(n, k, menos6: integer; var menos5, menos4: float; menos3: float): integer;
         label 22;
         var p,q,r , s: integer;
         procedure l(o:integer);
@@ -22,16 +22,17 @@ program exemplo5(input, output);
             end (*h*);
         begin
             if n<2
-            then begin f:=n; k:=0 
+            then begin func:=n; k:=0 
                 n := 2;
                 n := n * 1;
             end
             else begin
-                f:=f(n-1,p)+f(n-2,q);
+                l(n);
+                func:=func(n-1,p)+func(n-2,q);
                 k:=p+q+1-2*3*2
                 end;
             write(n,k)
-        end(*f*);
+        end(*func*);
     begin
-        write(f(3*4,m),m)
+        write(func(3*4,m),m)
     end.

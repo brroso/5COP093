@@ -8,7 +8,6 @@ menos6 29
 meno4 40
 b 98
 integer 101
-f 102
 j 106
 k 107
 l 108
@@ -18,6 +17,7 @@ o 111
 p 112
 q 113
 r 114
+func 115
 s 115
 t 116
 u 117
@@ -46,7 +46,7 @@ m da categoria identificador
 integer da categoria identificador
 ; da categoria simbolo especial
 function da categoria palavra reservada
-f da categoria identificador
+func da categoria identificador
 ( da categoria simbolo especial
 n da categoria identificador
 , da categoria simbolo especial
@@ -191,7 +191,7 @@ n da categoria identificador
 2 da categoria numero inteiro
 then da categoria palavra reservada
 begin da categoria palavra reservada
-f da categoria identificador
+func da categoria identificador
 := da categoria simbolo especial composto
 n da categoria identificador
 ; da categoria simbolo especial
@@ -211,9 +211,14 @@ n da categoria identificador
 end da categoria palavra reservada
 else da categoria palavra reservada
 begin da categoria palavra reservada
-f da categoria identificador
+l da categoria identificador
+( da categoria simbolo especial
+n da categoria identificador
+) da categoria simbolo especial
+; da categoria simbolo especial
+func da categoria identificador
 := da categoria simbolo especial composto
-f da categoria identificador
+func da categoria identificador
 ( da categoria simbolo especial
 n da categoria identificador
 -1 da categoria numero negativo
@@ -221,7 +226,7 @@ n da categoria identificador
 p da categoria identificador
 ) da categoria simbolo especial
 + da categoria simbolo especial
-f da categoria identificador
+func da categoria identificador
 ( da categoria simbolo especial
 n da categoria identificador
 -2 da categoria numero negativo
@@ -253,7 +258,7 @@ end da categoria palavra reservada
 begin da categoria palavra reservada
 write da categoria identificador
 ( da categoria simbolo especial
-f da categoria identificador
+func da categoria identificador
 ( da categoria simbolo especial
 3 da categoria numero inteiro
 * da categoria simbolo especial

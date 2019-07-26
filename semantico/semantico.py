@@ -1,5 +1,6 @@
 import pickle
 from modules import *
+import re
 
 ast = open('../ast', 'rb')
 ast = pickle.load(ast)
@@ -37,10 +38,13 @@ class variavel(object):
 
 
 class routine(object):
-    def __init__(self, name, symTab, parent=None):
+    def __init__(self, name, symTab, parent=None, retType=None, parlist=None, nparam=None):
         self.name = name
         self.symTab = symTab
         self.parent = parent
+        self.retType = retType
+        self.parlist = parlist
+        self.nparam = nparam
 
 
 def routine_dec(node):  # lida com declarações de rotinas
@@ -51,9 +55,24 @@ def routine_dec(node):  # lida com declarações de rotinas
 
     var_list = []
     name = node.children[0].name  # o nome da rotina=sempre seu primeiro filho
+    retType = None
+    parlist = None
+    nparam = None
+    symTab = None
     for no in node.children:  # procura a tabela de símbolos para salvar no nó
         if no.name == 'tabela de simbolos':
             symTab = no.ht
+    for lista in current_routine.symTab:
+        for item in lista:
+            if item.getName() == name:
+                if item.getCategory() == 'function':
+                    retType = item.getReturnType()
+                    parlist = item.getParList()
+                    nparam = item.getNparam()
+                if item.getCategory == 'procedure':
+                    parlist = item.getParList()
+                    nparam = item.getNparam()
+
     for filho in node.children:  # coloca os parametros formais como variáveis
         if filho.name == name:
             continue
@@ -77,7 +96,8 @@ def routine_dec(node):  # lida com declarações de rotinas
                                        nivel, item.getPassagem(),
                                        item.getDesloc())
                         var_list.append(var)
-    rout = routine(name, symTab, current_routine)  # cria a rotina em si
+    rout = routine(name, symTab, current_routine, retType,
+                   parlist, nparam)  # cria a rotina
     for rotina in routines_battery:
         if rotina.name == rout.name:  # checa se já tem uma rotina c esse nome
             print('erro: já há um identificador visivel de nome',
@@ -122,6 +142,20 @@ def var_dec(node):
         var_battery[-1].append(var)
 
 
+def routine_call(node):
+
+    global routines_battery
+    global var_battery
+
+    rout_name = re.findall(r'"(.*?)"', node.name)
+    rout_name = str(rout_name[0])
+
+    for rotina in routines_battery:
+        if rout_name == rotina.name:
+            print("CHAMADA DA ROTINA:", rotina.name, rotina.retType,
+                  rotina.nparam, rotina.parlist)
+
+
 def main(argv):
     global current_routine
     global routines_battery
@@ -147,16 +181,14 @@ def main(argv):
         # caso encontre uma dec de proc na arvre:
         elif node.name == 'procedure dec':
             routine_dec(node)
-
-        # elif 'Proc call' in node.name:
-        #     # proccall
-
+        elif 'Proc call' in node.name:
+            routine_call(node)
         # caso encontre uma dec de func na arvre:
         elif node.name == 'function dec':
             routine_dec(node)
 
-        # elif 'Function call' in node.name:
-        #     # funccall
+        elif 'Function call' in node.name:
+            routine_call(node)
 
         # elif node.name == 'Write':
         #     # write

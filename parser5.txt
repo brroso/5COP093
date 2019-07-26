@@ -29,7 +29,7 @@ integer Referencia
 
 
 
-HASH DE f
+HASH DE func
 26      | menos3     | parametro formal | 1     | float         | -3    |                        Valor     
 27      | menos4     | parametro formal | 1     | float         | -4    |                        Referencia
 28      | menos5     | parametro formal | 1     | float         | -5    |                        Referencia
@@ -48,7 +48,8 @@ integer Valor
 
 
 HASH DE exemplo5
-102     | f          | function        | 1     | 22         | 6             |                        integer      
+109     | m          | variavel simples | 0     | INTEGER       | 0         
+115     | func       | function        | 1     | 22         | 6             |                        integer      
 Parametros
 integer Valor
 integer Valor
@@ -56,7 +57,6 @@ integer Valor
 float Referencia
 float Referencia
 float Valor
-109     | m          | variavel simples | 0     | INTEGER       | 0         
 193     | exemplo5   | program        
 
 
@@ -71,7 +71,7 @@ TREE
 │   │   └──  m
 │   │       └──  INTEGER
 │   ├──  function dec
-│   │   ├──  f
+│   │   ├──  func
 │   │   ├──  menos6
 │   │   │   └──  integer
 │   │   ├──  k
@@ -189,7 +189,7 @@ TREE
 │   │   │       │   │   └──  2
 │   │   │       │   ├──  comando composto
 │   │   │       │   │   ├──  atribuicao
-│   │   │       │   │   │   ├──  f
+│   │   │       │   │   │   ├──  func
 │   │   │       │   │   │   └──  n
 │   │   │       │   │   ├──  atribuicao
 │   │   │       │   │   │   ├──  k
@@ -203,15 +203,17 @@ TREE
 │   │   │       │   │           ├──  n
 │   │   │       │   │           └──  1
 │   │   │       │   └──  comando composto
+│   │   │       │       ├──  Proc call "l"
+│   │   │       │       │   └──  n
 │   │   │       │       ├──  atribuicao
-│   │   │       │       │   ├──  f
+│   │   │       │       │   ├──  func
 │   │   │       │       │   └──  +
-│   │   │       │       │       ├──  Function call "f"
+│   │   │       │       │       ├──  Function call "func"
 │   │   │       │       │       │   ├──  -
 │   │   │       │       │       │   │   ├──  n
 │   │   │       │       │       │   │   └──  1
 │   │   │       │       │       │   └──  p
-│   │   │       │       │       └──  Function call "f"
+│   │   │       │       │       └──  Function call "func"
 │   │   │       │       │           ├──  -
 │   │   │       │       │           │   ├──  n
 │   │   │       │       │           │   └──  2
@@ -246,13 +248,13 @@ TREE
 │   │   └──  s
 │   └──  comando composto
 │       └──  Write
-│           ├──  Function call "f"
+│           ├──  Function call "func"
 │           │   ├──  *
 │           │   │   ├──  3
 │           │   │   └──  4
 │           │   └──  m
 │           └──  m
 └──  tabela de simbolos
-└──  f
 └──  m
+└──  func
 └──  exemplo5
