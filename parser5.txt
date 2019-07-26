@@ -20,8 +20,8 @@ float Valor
 integer Referencia
 integer Referencia
 106     | j          | variavel simples | 2     | BOOLEAN       | 4         
+109     | m          | variavel simples | 2     | FLOAT         | 3         
 116     | t          | parametro formal | 2     | integer       | -3    |                        Valor     
-116     | t          | variavel simples | 2     | FLOAT         | 3         
 117     | u          | variavel simples | 2     | INTEGER       | 0         
 121     | y          | variavel simples | 2     | INTEGER       | 1         
 122     | z          | variavel simples | 2     | INTEGER       | 2         
@@ -110,7 +110,7 @@ TREE
 │   │   │   │   │   │   │   └──  INTEGER
 │   │   │   │   │   │   ├──  z
 │   │   │   │   │   │   │   └──  INTEGER
-│   │   │   │   │   │   ├──  t
+│   │   │   │   │   │   ├──  m
 │   │   │   │   │   │   │   └──  FLOAT
 │   │   │   │   │   │   └──  j
 │   │   │   │   │   │       └──  BOOLEAN
@@ -177,7 +177,7 @@ TREE
 │   │   │   │   └──  tabela de simbolos
 │   │   │   │   └──  b
 │   │   │   │   └──  j
-│   │   │   │   └──  t
+│   │   │   │   └──  m
 │   │   │   │   └──  t
 │   │   │   │   └──  u
 │   │   │   │   └──  y

@@ -5,7 +5,7 @@ program exemplo5(input, output);
         var p,q,r , s: integer;
         procedure l(t:integer);
             label 12;
-            var u, y, z: integer; t: float; j: boolean;
+            var u, y, z: integer; m: float; j: boolean;
             procedure b(t, m, o, z: float; var meno4, menos3: integer);
                 label 22;
                 var x:integer;

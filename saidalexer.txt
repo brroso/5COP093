@@ -104,7 +104,7 @@ z da categoria identificador
 : da categoria simbolo especial
 integer da categoria identificador
 ; da categoria simbolo especial
-t da categoria identificador
+m da categoria identificador
 : da categoria simbolo especial
 float da categoria identificador
 ; da categoria simbolo especial

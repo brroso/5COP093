@@ -1,15 +1,6 @@
 import pickle
 from modules import *
 
-# Checar funcionamento de parâmetros formais.
-# Caso parâmetros formais precisem contar como variáveis
-# adicionar um if na função var_dec e procurar nas symtabs
-# de cada rotina
-
-# Tratar quando não houver declaração de variáveis na pilha
-
-# Variaveis visiveis = locais
-
 ast = open('../ast', 'rb')
 ast = pickle.load(ast)
 
@@ -24,10 +15,12 @@ def semantigo(node, first):  # Inicia a análise
     global current_routine
     global routines_battery
 
+    var_list = []
     for no in node.children:
         if no.name == 'tabela de simbolos':
             symTab = no.ht
     main = routine(node.name, symTab)
+    var_battery.append(var_list)
     routines_battery.append(main)
     current_routine = main
     first = False
@@ -54,8 +47,17 @@ def routine_dec(node):  # lida com declarações de rotinas
     global routines_battery
     global nivel
 
+    var_list = []
     name = node.children[0].name  # o nome da rotina=sempre seu primeiro filho
     print('rotina', name)
+    for filho in node.children:
+        if filho.name == name:
+            continue
+        elif filho.name == 'bloco':
+            break
+        else:
+            var = variavel(filho.name, filho.children[0].name, nivel)
+            var_list.append(var)
     for no in node.children:  # procura a tabela de símbolos para salvar no nó
         if no.name == 'tabela de simbolos':
             symTab = no.ht
@@ -65,17 +67,17 @@ def routine_dec(node):  # lida com declarações de rotinas
             print('erro semântico: já há um identificador visivel de nome',
                   rout.name)
             quit()
-        else:  # checa se já tem uma variavel com esse nome no <= nivel
-            for lista in rotina.symTab:
-                for identificador in lista:
-                    if identificador.getName() == rout.name and \
-                            identificador.getNivel() <= nivel:
-                        print('erro semântico: já há um identificador visivel',
-                              'de nome', rout.name)
-                        quit()
+    else:  # checa se já tem uma variavel com esse nome no <= nivel
+        for lista in var_battery:
+            for identificador in lista:
+                if identificador.name == rout.name:
+                    print('erro semântico: já há um identificador visivel',
+                          'de nome', rout.name)
+                    quit()
     nivel += 1
     routines_battery.append(rout)
     current_routine = rout
+    var_battery.append(var_list)
 
 
 def var_dec(node):
@@ -85,19 +87,15 @@ def var_dec(node):
     global nivel
     global var_battery
 
-    var_list = []
     # Cria um obj variavel pra cada var declarada na rotina
     for no in node.children:
         var = variavel(no.name, no.children[0].name, nivel)
-        print(no.name)
         # Ve todas as variaveis na pilha:
-        for lista in var_battery:
-            for variable in lista:
-                # Caso já tenha na pilha atual uma variavel com esse nome:
-                if variable.name == var.name and \
-                        variable.nivel == var.nivel:
-                    print('Já existe variável visível de nome', var.name)
-                    quit()
+        for variable in var_battery[-1]:
+            # Caso já tenha na lista atual uma variavel com esse nome:
+            if variable.name == var.name:
+                print('Já existe variável visível de nome', var.name)
+                quit()
         # Ve todas as rotinas da pilha
         for rotina in routines_battery:
             # Caso já tenha na pilha atual uma rotina com esse nome:
@@ -105,8 +103,7 @@ def var_dec(node):
                 print('erro semântico: já há uma rotina visivel',
                       'de nome', var.name)
                 quit()
-        var_list.append(var)
-        var_battery.append(var_list)
+        var_battery[-1].append(var)
 
 
 def main(argv):
@@ -124,12 +121,12 @@ def main(argv):
         if node.name == 'var declaration':
             var_dec(node)
 
-        elif node.name == 'atribuicao':
-            for lista in var_battery:
-                for variable in lista:
-                    rightmo = 
-                    if(variable.tipo != rightmo.tipo):
-                        print("Tipos incompatíveis, {} é do tipo {} atribuição de tipo {}".format(variable.name, variable.tipo, rightmo.tipo))
+        # elif node.name == 'atribuicao':
+        #     for lista in var_battery:
+        #         for variable in lista:
+        #             rightmo = 
+        #             if(variable.tipo != rightmo.tipo):
+        #                 print("Tipos incompatíveis, {} é do tipo {} atribuição de tipo {}".format(variable.name, variable.tipo, rightmo.tipo))
 
         # caso encontre uma dec de proc na arvre:
         elif node.name == 'procedure dec':
@@ -162,6 +159,7 @@ def main(argv):
             if len(routines_battery) > 0:
                 # coloca a rotina atual como a ultima
                 current_routine = routines_battery[-1]
+    print("Análise finalizada com sucesso.")
 
 
 main('')
