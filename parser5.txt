@@ -21,7 +21,7 @@ integer Referencia
 integer Referencia
 106     | j          | variavel simples | 2     | BOOLEAN       | 4         
 109     | m          | variavel simples | 2     | FLOAT         | 3         
-116     | t          | parametro formal | 2     | integer       | -3    |                        Valor     
+111     | o          | parametro formal | 2     | integer       | -3    |                        Valor     
 117     | u          | variavel simples | 2     | INTEGER       | 0         
 121     | y          | variavel simples | 2     | INTEGER       | 1         
 122     | z          | variavel simples | 2     | INTEGER       | 2         
@@ -98,7 +98,7 @@ TREE
 │   │   │   │       └──  INTEGER
 │   │   │   ├──  procedure dec
 │   │   │   │   ├──  l
-│   │   │   │   ├──  t
+│   │   │   │   ├──  o
 │   │   │   │   │   └──  integer
 │   │   │   │   ├──  bloco
 │   │   │   │   │   ├──  label
@@ -178,7 +178,7 @@ TREE
 │   │   │   │   └──  b
 │   │   │   │   └──  j
 │   │   │   │   └──  m
-│   │   │   │   └──  t
+│   │   │   │   └──  o
 │   │   │   │   └──  u
 │   │   │   │   └──  y
 │   │   │   │   └──  z

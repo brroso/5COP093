@@ -87,7 +87,7 @@ integer da categoria identificador
 procedure da categoria palavra reservada
 l da categoria identificador
 ( da categoria simbolo especial
-t da categoria identificador
+o da categoria identificador
 : da categoria simbolo especial
 integer da categoria identificador
 ) da categoria simbolo especial

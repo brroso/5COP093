@@ -3,7 +3,7 @@ program exemplo5(input, output);
     function f(n, k, menos6: integer; var menos5, menos4: float; menos3: float): integer;
         label 22;
         var p,q,r , s: integer;
-        procedure l(t:integer);
+        procedure l(o:integer);
             label 12;
             var u, y, z: integer; m: float; j: boolean;
             procedure b(t, m, o, z: float; var meno4, menos3: integer);
