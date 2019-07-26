@@ -5,7 +5,7 @@ import re
 ast = open('../ast', 'rb')
 ast = pickle.load(ast)
 
-operations = ['+', '-', '*', '/', '>', '<', '>=', '<=', '<>']
+operations = ['+', '-', '*', '/', '>', '<', '>=', '<=', '<>', '=']
 routines_battery = []
 current_routine = None
 nivel = 0
