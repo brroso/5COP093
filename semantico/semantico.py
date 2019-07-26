@@ -156,6 +156,43 @@ def routine_call(node):
                   rotina.nparam, rotina.parlist)
 
 
+def operation_routine(node):
+
+    global routines_battery
+    global var_battery
+
+    leftmo = node.children[0]
+    rightmo = node.children[1]
+
+    if leftmo.name in operations:
+        leftmo_tipo = operation_routine(leftmo)
+
+    if rightmo.name in operations:
+        rightmo_tipo = operation_routine(rightmo)
+
+    for variable in var_battery[-1]:
+        if variable.name == leftmo.name:
+            leftmo_tipo = variable.tipo
+        if variable.name == rightmo.name:
+            rightmo_tipo = variable.tipo
+        
+    for routine in routines_battery:
+        if routine.name == leftmo.name:
+            leftmo_tipo = routine.retType
+        if routine.name == rightmo.name:
+            rightmo_tipo = routine.retType
+    
+    if leftmo_tipo == None or rightmo_tipo == None:
+        print("Operação inválida!")
+        quit()
+    else:
+        if rightmo_tipo == leftmo_tipo:
+            return rightmo_tipo
+        else:
+            print("DOIS TIOS DIFERENTES")
+            quit()
+
+
 def main(argv):
     global current_routine
     global routines_battery
@@ -196,8 +233,8 @@ def main(argv):
         # elif node.name == 'Read':
         #     # read
 
-        # elif node.name in operations:
-        #     # comparacao
+        elif node.name in operations:
+            operation_routine(node)
 
         # o nó 'tabela de símbolos' siginficia dentro da arvre o fim de rotina
         if node.name == 'tabela de simbolos':
