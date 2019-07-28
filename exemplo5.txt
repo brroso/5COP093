@@ -5,12 +5,12 @@ program exemplo5(input, output);
         var p,q,r , s: integer;
         procedure l(o:integer);
             label 12;
-            var u, y, z: integer; m: float; j: boolean;
-            procedure b(t, m, o, z: float; var meno4, menos3: integer);
+            var u, y, z: integer; m: float; j, c: boolean;
+            procedure b(t, m, o, z: float; var meno4, menos3: boolean);
                 label 22;
                 var x:integer;
                 begin
-                    t:=2*t; x:=2*2; z:=x+1; u:=2*j;
+                    t:=2*t; x:=2*2; z:=x+1; u:=2*2;
                 end (* g *);
             begin
                 if 4>5 then
@@ -24,7 +24,7 @@ program exemplo5(input, output);
             if n<2
             then begin func:=n; k:=0 
                 n := 2;
-                n := n * 1;
+                n := n * 2;
             end
             else begin
                 func:=func(n-1,p)+func(n-2,q);
