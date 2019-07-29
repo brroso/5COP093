@@ -193,7 +193,7 @@ write da categoria identificador
 ( da categoria simbolo especial
 m da categoria identificador
 , da categoria simbolo especial
-o da categoria identificador
+z da categoria identificador
 ) da categoria simbolo especial
 ; da categoria simbolo especial
 read da categoria identificador
@@ -269,7 +269,22 @@ end da categoria palavra reservada
 begin da categoria palavra reservada
 write da categoria identificador
 ( da categoria simbolo especial
+func da categoria identificador
+( da categoria simbolo especial
+3 da categoria numero inteiro
+* da categoria simbolo especial
+4 da categoria numero inteiro
+, da categoria simbolo especial
 m da categoria identificador
+, da categoria simbolo especial
+2 da categoria numero inteiro
+, da categoria simbolo especial
+2 da categoria numero inteiro
+, da categoria simbolo especial
+2 da categoria numero inteiro
+, da categoria simbolo especial
+2 da categoria numero inteiro
+) da categoria simbolo especial
 , da categoria simbolo especial
 m da categoria identificador
 ) da categoria simbolo especial

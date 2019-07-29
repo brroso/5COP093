@@ -182,7 +182,7 @@ TREE
 │   │   │   │   │       │   └──  u
 │   │   │   │   │       ├──  Write
 │   │   │   │   │       │   ├──  m
-│   │   │   │   │       │   └──  o
+│   │   │   │   │       │   └──  z
 │   │   │   │   │       └──  Read
 │   │   │   │   │           └──  m
 │   │   │   │   └──  tabela de simbolos
@@ -253,7 +253,15 @@ TREE
 │   │   └──  s
 │   └──  comando composto
 │       └──  Write
-│           ├──  m
+│           ├──  Function call "func"
+│           │   ├──  *
+│           │   │   ├──  3
+│           │   │   └──  4
+│           │   ├──  m
+│           │   ├──  2
+│           │   ├──  2
+│           │   ├──  2
+│           │   └──  2
 │           └──  m
 └──  tabela de simbolos
 └──  m

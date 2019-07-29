@@ -65,7 +65,7 @@ def routine_dec(node):  # lida com declarações de rotinas
         if no.name == 'tabela de simbolos':
             symTab = no.ht
     for lista in current_routine.symTab:
-        
+
         for item in lista:
             if item.getName() == name:
                 if item.getCategory() == 'function':
@@ -325,6 +325,11 @@ def write(node):
             if routine.name == node.children[0]. name:
                 left_write = routine
 
+        for lista in current_routine.symTab:
+            for item in lista:
+                if item.getName() == node.children[0].name:
+                    left_write = item.getName()
+
         if node.children[0].name.isdigit():
             left_write = node.children[0].name
 
@@ -335,6 +340,11 @@ def write(node):
         for routine in routines_battery:
             if routine.name == node.children[1].name:
                 right_write = routine
+
+        for lista in current_routine.symTab:
+            for item in lista:
+                if item.getName() == node.children[1].name:
+                    left_write = item.getName()
 
         if node.children[1].name.isdigit():
             right_write = node.children[1].name
@@ -367,6 +377,11 @@ def read(node):
         for routine in routines_battery:
             if routine.name == node.children[0]. name:
                 var_read = routine
+
+        for lista in current_routine.symTab:
+            for item in lista:
+                if item.getName() == node.children[0].name:
+                    var_read = item.getName()
 
         if var_read is None:
             print(node.name, end=" ")
