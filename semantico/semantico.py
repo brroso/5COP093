@@ -305,6 +305,79 @@ def atrib(node):
             quit()
 
 
+def write(node):
+
+    left_write = None
+    right_write = None
+
+    if len(node.children) != 2:
+        print(node.name, end=" ")
+        for filho in node.children:
+            print(filho.name, end=" ")
+        print("erro: write aceita apenas dois parametros.")
+        quit()
+    else:
+        for variable in var_battery[-1]:
+            if variable.name == node.children[0].name:
+                left_write = variable
+
+        for routine in routines_battery:
+            if routine.name == node.children[0]. name:
+                left_write = routine
+
+        if node.children[0].name.isdigit():
+            left_write = node.children[0].name
+
+        for variable in var_battery[-1]:
+            if variable.name == node.children[1].name:
+                right_write = variable
+
+        for routine in routines_battery:
+            if routine.name == node.children[1].name:
+                right_write = routine
+
+        if node.children[1].name.isdigit():
+            right_write = node.children[1].name
+
+        if left_write is None or right_write is None:
+            print(node.name, end=" ")
+            for filho in node.children:
+                print(filho.name, end="| ")
+            print("erro: write em var inalcançável.")
+            quit()
+        else:
+            pass
+
+
+def read(node):
+
+    var_read = None
+
+    if len(node.children) != 1:
+        print(node.name, end=" ")
+        for filho in node.children:
+            print(filho.name, end=" ")
+        print("erro: read aceita apenas um parametro.")
+        quit()
+    else:
+        for variable in var_battery[-1]:
+            if variable.name == node.children[0].name:
+                var_read = variable
+
+        for routine in routines_battery:
+            if routine.name == node.children[0]. name:
+                var_read = routine
+
+        if var_read is None:
+            print(node.name, end=" ")
+            for filho in node.children:
+                print(filho.name, end="| ")
+            print("erro: read em variavel inalcançável.")
+            quit()
+        else:
+            pass
+
+
 def main(argv):
     global current_routine
     global routines_battery
@@ -319,7 +392,7 @@ def main(argv):
         # caso encontre uma dec de variavel na arvre:
         if node.name == 'var declaration':
             var_dec(node)
-         
+
         # caso encontre uma atribuicao na arvre:
         elif node.name == 'atribuicao':
             atrib(node)
@@ -336,11 +409,11 @@ def main(argv):
         elif 'Function call' in node.name:
             routine_call(node)
 
-        # elif node.name == 'Write':
-        #     # write
+        elif node.name == 'Write':
+            write(node)
 
-        # elif node.name == 'Read':
-        #     # read
+        elif node.name == 'Read':
+            read(node)
 
         elif node.name in operations:
             operation_routine(node)

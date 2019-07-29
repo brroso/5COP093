@@ -6,6 +6,7 @@ menos4 27
 menos5 28
 menos6 29
 meno4 40
+read 47
 b 98
 c 99
 integer 101
@@ -190,8 +191,16 @@ u da categoria identificador
 ; da categoria simbolo especial
 write da categoria identificador
 ( da categoria simbolo especial
-u da categoria identificador
+m da categoria identificador
+, da categoria simbolo especial
+o da categoria identificador
 ) da categoria simbolo especial
+; da categoria simbolo especial
+read da categoria identificador
+( da categoria simbolo especial
+m da categoria identificador
+) da categoria simbolo especial
+; da categoria simbolo especial
 end da categoria palavra reservada
 ; da categoria simbolo especial
 begin da categoria palavra reservada
@@ -260,22 +269,7 @@ end da categoria palavra reservada
 begin da categoria palavra reservada
 write da categoria identificador
 ( da categoria simbolo especial
-func da categoria identificador
-( da categoria simbolo especial
-3 da categoria numero inteiro
-* da categoria simbolo especial
-4 da categoria numero inteiro
-, da categoria simbolo especial
 m da categoria identificador
-, da categoria simbolo especial
-2 da categoria numero inteiro
-, da categoria simbolo especial
-2 da categoria numero inteiro
-, da categoria simbolo especial
-2 da categoria numero inteiro
-, da categoria simbolo especial
-2 da categoria numero inteiro
-) da categoria simbolo especial
 , da categoria simbolo especial
 m da categoria identificador
 ) da categoria simbolo especial

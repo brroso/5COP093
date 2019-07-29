@@ -180,7 +180,10 @@ TREE
 │   │   │   │   │       ├──  atribuicao
 │   │   │   │   │       │   ├──  u
 │   │   │   │   │       │   └──  u
-│   │   │   │   │       └──  Write
+│   │   │   │   │       ├──  Write
+│   │   │   │   │       │   ├──  u
+│   │   │   │   │       │   └──  k
+│   │   │   │   │       └──  Read
 │   │   │   │   │           └──  u
 │   │   │   │   └──  tabela de simbolos
 │   │   │   │   └──  b

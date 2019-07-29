@@ -18,7 +18,8 @@ program exemplo5(input, output);
                 else
                     u:=z;
                 u:=u;
-                write(u)
+                write(m, o);
+                read(m);
             end (*h*);
         begin
             if n<2
@@ -33,5 +34,5 @@ program exemplo5(input, output);
             write(n,k)
         end(*func*);
     begin
-        write(func(3*4,m,2,2,2,2),m)
+        write(m,m)
     end.
