@@ -10,7 +10,7 @@ program exemplo4(input, output);
                     if 4>5 then
                         u:=t
                     else
-                        o(y);
+                        o(u);
                     u:=u;
                     write(u)
                 end (*h*);
@@ -24,22 +24,25 @@ program exemplo4(input, output);
     end (*g*);
     procedure h(y: integer);
         label 01;
-        var g: integer;
+        var d: integer;
         procedure f(y: integer);
             label 0002;
             var t: integer;
             begin
-                t:=x+y; g(t);
+                t:=t+y; h(t);
             end (*f*);
         begin
-            x:=y+1;
-            h(x);
-            g(y+x)
-            read(y, x, y)
-            write(x+y, y)
+            y:=y+1;
+            h(y);
+            h(y+d*2)
+            read(y)
+            write(y)
         end (*h*);
     begin
         x:=3; g(x);
         g(x);
         write(x)
-    end.
+    end
+begin
+    z := x + y;
+end.

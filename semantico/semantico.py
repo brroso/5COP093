@@ -12,6 +12,8 @@ nivel = 0
 var_battery = []
 
 
+# TODO ROUTINE CALL
+
 def semantigo(node, first):  # Inicia a análise
     global current_routine
     global routines_battery
@@ -63,13 +65,14 @@ def routine_dec(node):  # lida com declarações de rotinas
         if no.name == 'tabela de simbolos':
             symTab = no.ht
     for lista in current_routine.symTab:
+        
         for item in lista:
             if item.getName() == name:
                 if item.getCategory() == 'function':
                     retType = item.getReturnType()
                     parlist = item.getParList()
                     nparam = item.getNparam()
-                if item.getCategory == 'procedure':
+                if item.getCategory() == 'procedure':
                     parlist = item.getParList()
                     nparam = item.getNparam()
 
@@ -147,13 +150,48 @@ def routine_call(node):
     global routines_battery
     global var_battery
 
+    params_passados = 0
+    params_list = []
+
     rout_name = re.findall(r'"(.*?)"', node.name)
     rout_name = str(rout_name[0])
 
+    for filho in node.children:
+        params_passados += 1
+        if filho.name in operations:
+            params_list.append(operation_routine(filho))
+        elif filho.name.isdigit():
+            params_list.append(filho.name)
+        else:
+            for variable in var_battery[-1]:
+                if variable.name == filho.name:
+                    params_list.append(variable)
+            for routine in routines_battery:
+                if filho.name == routine.name:
+                    if routine.retType is None:
+                        print("Rotina", routine.name, "não pode ser",
+                              "utilizada como parâmetro.")
+                        quit()
+                    else:
+                        params_list.append(routine)
+
     for rotina in routines_battery:
         if rout_name == rotina.name:
-            print("CHAMADA DA ROTINA:", rotina.name, rotina.retType,
-                  rotina.nparam, rotina.parlist)
+            if params_passados > rotina.nparam or \
+                    params_passados < rotina.nparam:
+                print("erro: a rotina", rout_name, "exige", rotina.nparam,
+                      "parâmetros. foram passados", params_passados)
+                quit()
+            else:
+                for item in params_list:
+                    if isinstance(item, variavel):
+                        print('é variavel', item.name, item.tipo)
+                    elif isinstance(item, type(rotina)):
+                        print('é rotina', item.name, item.retType)
+                    elif item.isdigit():
+                        print('é digito', item)
+                    elif item == 'numero':
+                        print('é numero')
 
 
 def operation_routine(node):
@@ -193,7 +231,7 @@ def operation_routine(node):
                 rightmo_tipo = routine.retType
 
     if leftmo_tipo is None or rightmo_tipo is None:
-        print("Operação inválida!")
+        print("Operação inválida!", leftmo.name, "com", rightmo.name)
         quit()
 
     else:
@@ -207,7 +245,63 @@ def operation_routine(node):
             return rightmo_tipo
         else:
             print(leftmo_tipo, leftmo.name, rightmo_tipo, rightmo.name)
-            print("DOIS TIOS DIFERENTES")
+            print("DOIS TIPOS DIFERENTES")
+            quit()
+
+
+def atrib(node):
+
+    global routines_battery
+    global var_battery
+
+    leftmo = node.children[0]
+    rightmo = node.children[1]
+    leftmo_tipo = None
+    rightmo_tipo = None
+
+    if leftmo.name.isdigit():
+        print("Atribuição inválida. (numero recebe valor)")
+        quit()
+
+    if rightmo.name.isdigit():
+        rightmo_tipo = 'numero'
+
+    if leftmo.name in operations:
+        print("Atribuição inválida. (exp recebe valor)")
+
+    if rightmo.name in operations:
+        rightmo_tipo = operation_routine(rightmo)
+
+    for variable in var_battery[-1]:
+        if variable.name == leftmo.name:
+            leftmo_tipo = variable.tipo
+        if variable.name == rightmo.name:
+            rightmo_tipo = variable.tipo
+
+    for routine in routines_battery:
+        if leftmo.name == routine.name:
+            leftmo_tipo = routine.retType
+
+    for routine in routines_battery:
+        if 'Function call' in rightmo.name:
+            if routine.name == str(re.findall(r'"(.*?)"', rightmo.name)[0]):
+                rightmo_tipo = routine.retType
+
+    if leftmo_tipo is None or rightmo_tipo is None:
+        print("erro: Variável inválida em operação.")
+        quit()
+
+    else:
+        if leftmo_tipo.upper() == 'FLOAT' or leftmo_tipo.upper() == 'INTEGER':
+            leftmo_tipo = 'numero'
+
+        if rightmo_tipo.upper() == 'FLOAT' or rightmo_tipo.upper() == 'INTEGER':
+            rightmo_tipo = 'numero'
+
+        if rightmo_tipo == leftmo_tipo:
+            return rightmo_tipo
+        else:
+            print("DOIS TIPOS DIFERENTES")
             quit()
 
 
@@ -225,13 +319,10 @@ def main(argv):
         # caso encontre uma dec de variavel na arvre:
         if node.name == 'var declaration':
             var_dec(node)
-
-        # elif node.name == 'atribuicao':
-        #     for lista in var_battery:
-        #         for variable in lista:
-        #             rightmo = 
-        #             if(variable.tipo != rightmo.tipo):
-        #                 print("Tipos incompatíveis, {} é do tipo {} atribuição de tipo {}".format(variable.name, variable.tipo, rightmo.tipo))
+         
+        # caso encontre uma atribuicao na arvre:
+        elif node.name == 'atribuicao':
+            atrib(node)
 
         # caso encontre uma dec de proc na arvre:
         elif node.name == 'procedure dec':

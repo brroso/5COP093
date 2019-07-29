@@ -162,7 +162,7 @@ z da categoria identificador
 x da categoria identificador
 +1 da categoria numero positivo
 ; da categoria simbolo especial
-u da categoria identificador
+x da categoria identificador
 := da categoria simbolo especial composto
 2 da categoria numero inteiro
 * da categoria simbolo especial
@@ -182,7 +182,7 @@ y da categoria identificador
 else da categoria palavra reservada
 u da categoria identificador
 := da categoria simbolo especial composto
-r da categoria identificador
+z da categoria identificador
 ; da categoria simbolo especial
 u da categoria identificador
 := da categoria simbolo especial composto
@@ -201,13 +201,10 @@ n da categoria identificador
 2 da categoria numero inteiro
 then da categoria palavra reservada
 begin da categoria palavra reservada
-func da categoria identificador
-:= da categoria simbolo especial composto
-n da categoria identificador
-; da categoria simbolo especial
 k da categoria identificador
 := da categoria simbolo especial composto
 0 da categoria numero inteiro
+; da categoria simbolo especial
 n da categoria identificador
 := da categoria simbolo especial composto
 2 da categoria numero inteiro
@@ -215,8 +212,6 @@ n da categoria identificador
 n da categoria identificador
 := da categoria simbolo especial composto
 n da categoria identificador
-( da categoria simbolo especial
-) da categoria simbolo especial
 * da categoria simbolo especial
 2 da categoria numero inteiro
 ; da categoria simbolo especial
@@ -231,14 +226,14 @@ n da categoria identificador
 -1 da categoria numero negativo
 , da categoria simbolo especial
 p da categoria identificador
-) da categoria simbolo especial
-+ da categoria simbolo especial
-func da categoria identificador
-( da categoria simbolo especial
-n da categoria identificador
--2 da categoria numero negativo
 , da categoria simbolo especial
-q da categoria identificador
+2 da categoria numero inteiro
+, da categoria simbolo especial
+2 da categoria numero inteiro
+, da categoria simbolo especial
+2 da categoria numero inteiro
+, da categoria simbolo especial
+2 da categoria numero inteiro
 ) da categoria simbolo especial
 ; da categoria simbolo especial
 k da categoria identificador
@@ -272,6 +267,14 @@ func da categoria identificador
 4 da categoria numero inteiro
 , da categoria simbolo especial
 m da categoria identificador
+, da categoria simbolo especial
+2 da categoria numero inteiro
+, da categoria simbolo especial
+2 da categoria numero inteiro
+, da categoria simbolo especial
+2 da categoria numero inteiro
+, da categoria simbolo especial
+2 da categoria numero inteiro
 ) da categoria simbolo especial
 , da categoria simbolo especial
 m da categoria identificador

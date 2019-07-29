@@ -30,3 +30,237 @@ boolean Referencia
 
 
 
+HASH DE func
+26      | menos3     | parametro formal | 1     | float         | -3    |                        Valor     
+27      | menos4     | parametro formal | 1     | float         | -4    |                        Referencia
+28      | menos5     | parametro formal | 1     | float         | -5    |                        Referencia
+29      | menos6     | parametro formal | 1     | integer       | -6    |                        Valor     
+107     | k          | parametro formal | 1     | integer       | -7    |                        Valor     
+108     | l          | procedure       | 2     | 12            | 1         
+Parametros
+integer Valor
+110     | n          | parametro formal | 1     | integer       | -8    |                        Valor     
+112     | p          | variavel simples | 1     | INTEGER       | 0         
+113     | q          | variavel simples | 1     | INTEGER       | 1         
+114     | r          | variavel simples | 1     | INTEGER       | 2         
+115     | s          | variavel simples | 1     | INTEGER       | 3         
+
+
+
+
+HASH DE exemplo5
+109     | m          | variavel simples | 0     | INTEGER       | 0         
+115     | func       | function        | 1     | 22         | 6             |                        boolean      
+Parametros
+integer Valor
+integer Valor
+integer Valor
+float Referencia
+float Referencia
+float Valor
+193     | exemplo5   | program        
+
+
+
+
+TREE
+
+
+ exemplo5
+├──  bloco
+│   ├──  var declaration
+│   │   └──  m
+│   │       └──  INTEGER
+│   ├──  function dec
+│   │   ├──  func
+│   │   ├──  menos6
+│   │   │   └──  integer
+│   │   ├──  k
+│   │   │   └──  integer
+│   │   ├──  n
+│   │   │   └──  integer
+│   │   ├──  menos4
+│   │   │   └──  float
+│   │   ├──  menos5
+│   │   │   └──  float
+│   │   ├──  menos3
+│   │   │   └──  float
+│   │   ├──  bloco
+│   │   │   ├──  label
+│   │   │   │   └──  22
+│   │   │   ├──  var declaration
+│   │   │   │   ├──  p
+│   │   │   │   │   └──  INTEGER
+│   │   │   │   ├──  q
+│   │   │   │   │   └──  INTEGER
+│   │   │   │   ├──  r
+│   │   │   │   │   └──  INTEGER
+│   │   │   │   └──  s
+│   │   │   │       └──  INTEGER
+│   │   │   ├──  procedure dec
+│   │   │   │   ├──  l
+│   │   │   │   ├──  o
+│   │   │   │   │   └──  integer
+│   │   │   │   ├──  bloco
+│   │   │   │   │   ├──  label
+│   │   │   │   │   │   └──  12
+│   │   │   │   │   ├──  var declaration
+│   │   │   │   │   │   ├──  u
+│   │   │   │   │   │   │   └──  INTEGER
+│   │   │   │   │   │   ├──  y
+│   │   │   │   │   │   │   └──  INTEGER
+│   │   │   │   │   │   ├──  z
+│   │   │   │   │   │   │   └──  INTEGER
+│   │   │   │   │   │   ├──  m
+│   │   │   │   │   │   │   └──  FLOAT
+│   │   │   │   │   │   ├──  j
+│   │   │   │   │   │   │   └──  BOOLEAN
+│   │   │   │   │   │   └──  c
+│   │   │   │   │   │       └──  BOOLEAN
+│   │   │   │   │   ├──  procedure dec
+│   │   │   │   │   │   ├──  b
+│   │   │   │   │   │   ├──  z
+│   │   │   │   │   │   │   └──  float
+│   │   │   │   │   │   ├──  o
+│   │   │   │   │   │   │   └──  float
+│   │   │   │   │   │   ├──  m
+│   │   │   │   │   │   │   └──  float
+│   │   │   │   │   │   ├──  t
+│   │   │   │   │   │   │   └──  float
+│   │   │   │   │   │   ├──  menos3
+│   │   │   │   │   │   │   └──  boolean
+│   │   │   │   │   │   ├──  meno4
+│   │   │   │   │   │   │   └──  boolean
+│   │   │   │   │   │   ├──  bloco
+│   │   │   │   │   │   │   ├──  label
+│   │   │   │   │   │   │   │   └──  22
+│   │   │   │   │   │   │   ├──  var declaration
+│   │   │   │   │   │   │   │   └──  x
+│   │   │   │   │   │   │   │       └──  INTEGER
+│   │   │   │   │   │   │   └──  comando composto
+│   │   │   │   │   │   │       ├──  atribuicao
+│   │   │   │   │   │   │       │   ├──  t
+│   │   │   │   │   │   │       │   └──  *
+│   │   │   │   │   │   │       │       ├──  2
+│   │   │   │   │   │   │       │       └──  t
+│   │   │   │   │   │   │       ├──  atribuicao
+│   │   │   │   │   │   │       │   ├──  x
+│   │   │   │   │   │   │       │   └──  *
+│   │   │   │   │   │   │       │       ├──  2
+│   │   │   │   │   │   │       │       └──  2
+│   │   │   │   │   │   │       ├──  atribuicao
+│   │   │   │   │   │   │       │   ├──  z
+│   │   │   │   │   │   │       │   └──  +
+│   │   │   │   │   │   │       │       ├──  x
+│   │   │   │   │   │   │       │       └──  1
+│   │   │   │   │   │   │       └──  atribuicao
+│   │   │   │   │   │   │           ├──  x
+│   │   │   │   │   │   │           └──  *
+│   │   │   │   │   │   │               ├──  2
+│   │   │   │   │   │   │               └──  2
+│   │   │   │   │   │   └──  tabela de simbolos
+│   │   │   │   │   │   └──  menos3
+│   │   │   │   │   │   └──  meno4
+│   │   │   │   │   │   └──  m
+│   │   │   │   │   │   └──  o
+│   │   │   │   │   │   └──  t
+│   │   │   │   │   │   └──  x
+│   │   │   │   │   │   └──  z
+│   │   │   │   │   └──  comando composto
+│   │   │   │   │       ├──  If
+│   │   │   │   │       │   ├──  >
+│   │   │   │   │       │   │   ├──  4
+│   │   │   │   │       │   │   └──  5
+│   │   │   │   │       │   ├──  atribuicao
+│   │   │   │   │       │   │   ├──  u
+│   │   │   │   │       │   │   └──  y
+│   │   │   │   │       │   └──  atribuicao
+│   │   │   │   │       │       ├──  u
+│   │   │   │   │       │       └──  z
+│   │   │   │   │       ├──  atribuicao
+│   │   │   │   │       │   ├──  u
+│   │   │   │   │       │   └──  u
+│   │   │   │   │       └──  Write
+│   │   │   │   │           └──  u
+│   │   │   │   └──  tabela de simbolos
+│   │   │   │   └──  b
+│   │   │   │   └──  c
+│   │   │   │   └──  j
+│   │   │   │   └──  m
+│   │   │   │   └──  o
+│   │   │   │   └──  u
+│   │   │   │   └──  y
+│   │   │   │   └──  z
+│   │   │   └──  comando composto
+│   │   │       ├──  If
+│   │   │       │   ├──  <
+│   │   │       │   │   ├──  n
+│   │   │       │   │   └──  2
+│   │   │       │   ├──  comando composto
+│   │   │       │   │   ├──  atribuicao
+│   │   │       │   │   │   ├──  k
+│   │   │       │   │   │   └──  0
+│   │   │       │   │   ├──  atribuicao
+│   │   │       │   │   │   ├──  n
+│   │   │       │   │   │   └──  2
+│   │   │       │   │   └──  atribuicao
+│   │   │       │   │       ├──  n
+│   │   │       │   │       └──  *
+│   │   │       │   │           ├──  n
+│   │   │       │   │           └──  2
+│   │   │       │   └──  comando composto
+│   │   │       │       ├──  atribuicao
+│   │   │       │       │   ├──  func
+│   │   │       │       │   └──  Function call "func"
+│   │   │       │       │       ├──  -
+│   │   │       │       │       │   ├──  n
+│   │   │       │       │       │   └──  1
+│   │   │       │       │       ├──  p
+│   │   │       │       │       ├──  2
+│   │   │       │       │       ├──  2
+│   │   │       │       │       ├──  2
+│   │   │       │       │       └──  2
+│   │   │       │       └──  atribuicao
+│   │   │       │           ├──  k
+│   │   │       │           └──  -
+│   │   │       │               ├──  +
+│   │   │       │               │   ├──  +
+│   │   │       │               │   │   ├──  p
+│   │   │       │               │   │   └──  q
+│   │   │       │               │   └──  1
+│   │   │       │               └──  *
+│   │   │       │                   ├──  *
+│   │   │       │                   │   ├──  2
+│   │   │       │                   │   └──  3
+│   │   │       │                   └──  2
+│   │   │       └──  Write
+│   │   │           ├──  n
+│   │   │           └──  k
+│   │   └──  tabela de simbolos
+│   │   └──  menos3
+│   │   └──  menos4
+│   │   └──  menos5
+│   │   └──  menos6
+│   │   └──  k
+│   │   └──  l
+│   │   └──  n
+│   │   └──  p
+│   │   └──  q
+│   │   └──  r
+│   │   └──  s
+│   └──  comando composto
+│       └──  Write
+│           ├──  Function call "func"
+│           │   ├──  *
+│           │   │   ├──  3
+│           │   │   └──  4
+│           │   ├──  m
+│           │   ├──  2
+│           │   ├──  2
+│           │   ├──  2
+│           │   └──  2
+│           └──  m
+└──  tabela de simbolos
+└──  m
+└──  func
+└──  exemplo5

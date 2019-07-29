@@ -10,28 +10,28 @@ program exemplo5(input, output);
                 label 22;
                 var x:integer;
                 begin
-                    t:=2*t; x:=2*2; z:=x+1; u:=2*2;
+                    t:=2*t; x:=2*2; z:=x+1; x:=2*2;
                 end (* g *);
             begin
                 if 4>5 then
                     u:=y
                 else
-                    u:=r;
+                    u:=z;
                 u:=u;
                 write(u)
             end (*h*);
         begin
             if n<2
-            then begin func:=n; k:=0 
+            then begin k:=0;
                 n := 2;
                 n := n * 2;
             end
             else begin
-                func:=func(n-1,p)+func(n-2,q);
+                func:=func(n-1,p,2,2,2,2);
                 k:=p+q+1-2*3*2
                 end;
             write(n,k)
         end(*func*);
     begin
-        write(func(3*4,m),m)
+        write(func(3*4,m,2,2,2,2),m)
     end.

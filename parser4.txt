@@ -1,5 +1,5 @@
 HASH DE l
-116     | t          | parametro formal | 2     | integer       | -3    |                        Valor     
+116     | t          | parametro formal | 3     | integer       | -3    |                        Valor     
 117     | u          | variavel simples | 3     | INTEGER       | 0         
 
 
@@ -9,7 +9,7 @@ HASH DE o
 108     | l          | procedure       | 3     | None          | 1         
 Parametros
 integer Valor
-116     | t          | parametro formal | 1     | integer       | -3    |                        Valor     
+116     | t          | parametro formal | 2     | integer       | -3    |                        Valor     
 121     | y          | variavel simples | 2     | INTEGER       | 0         
 
 
@@ -19,7 +19,7 @@ HASH DE g
 111     | o          | procedure       | 2     | None          | 1         
 Parametros
 integer Valor
-116     | t          | parametro formal | 0     | integer       | -3    |                        Valor     
+116     | t          | parametro formal | 1     | integer       | -3    |                        Valor     
 121     | y          | variavel simples | 1     | INTEGER       | 0         
 
 
@@ -27,17 +27,17 @@ integer Valor
 
 HASH DE f
 116     | t          | variavel simples | 2     | INTEGER       | 0         
-121     | y          | parametro formal | 1     | integer       | -3    |                        Valor     
+121     | y          | parametro formal | 2     | integer       | -3    |                        Valor     
 
 
 
 
 HASH DE h
+100     | d          | variavel simples | 1     | INTEGER       | 0         
 102     | f          | procedure       | 2     | 0002          | 1         
 Parametros
 integer Valor
-117     | u          | variavel simples | 1     | INTEGER       | 0         
-121     | y          | parametro formal | 0     | integer       | -3    |                        Valor     
+121     | y          | parametro formal | 1     | integer       | -3    |                        Valor     
 
 
 
@@ -102,7 +102,7 @@ TREE
 │   │   │   │   │   │   │       │   │   ├──  u
 │   │   │   │   │   │   │       │   │   └──  t
 │   │   │   │   │   │   │       │   └──  Proc call "o"
-│   │   │   │   │   │   │       │       └──  y
+│   │   │   │   │   │   │       │       └──  u
 │   │   │   │   │   │   │       ├──  atribuicao
 │   │   │   │   │   │   │       │   ├──  u
 │   │   │   │   │   │   │       │   └──  u
@@ -139,7 +139,7 @@ TREE
 │   │   │   ├──  label
 │   │   │   │   └──  01
 │   │   │   ├──  var declaration
-│   │   │   │   └──  u
+│   │   │   │   └──  d
 │   │   │   │       └──  INTEGER
 │   │   │   ├──  procedure dec
 │   │   │   │   ├──  f
@@ -155,37 +155,34 @@ TREE
 │   │   │   │   │       ├──  atribuicao
 │   │   │   │   │       │   ├──  t
 │   │   │   │   │       │   └──  +
-│   │   │   │   │       │       ├──  x
+│   │   │   │   │       │       ├──  t
 │   │   │   │   │       │       └──  y
-│   │   │   │   │       └──  Proc call "g"
+│   │   │   │   │       └──  Proc call "h"
 │   │   │   │   │           └──  t
 │   │   │   │   └──  tabela de simbolos
 │   │   │   │   └──  t
 │   │   │   │   └──  y
 │   │   │   └──  comando composto
 │   │   │       ├──  atribuicao
-│   │   │       │   ├──  x
+│   │   │       │   ├──  y
 │   │   │       │   └──  +
 │   │   │       │       ├──  y
 │   │   │       │       └──  1
 │   │   │       ├──  Proc call "h"
-│   │   │       │   └──  x
-│   │   │       ├──  Proc call "g"
+│   │   │       │   └──  y
+│   │   │       ├──  Proc call "h"
 │   │   │       │   └──  +
 │   │   │       │       ├──  y
-│   │   │       │       └──  x
+│   │   │       │       └──  *
+│   │   │       │           ├──  d
+│   │   │       │           └──  2
 │   │   │       ├──  Read
-│   │   │       │   ├──  y
-│   │   │       │   ├──  x
 │   │   │       │   └──  y
 │   │   │       └──  Write
-│   │   │           ├──  +
-│   │   │           │   ├──  x
-│   │   │           │   └──  y
 │   │   │           └──  y
 │   │   └──  tabela de simbolos
+│   │   └──  d
 │   │   └──  f
-│   │   └──  u
 │   │   └──  y
 │   └──  comando composto
 │       ├──  atribuicao
@@ -197,6 +194,13 @@ TREE
 │       │   └──  x
 │       └──  Write
 │           └──  x
+├──  bloco
+│   └──  comando composto
+│       └──  atribuicao
+│           ├──  z
+│           └──  +
+│               ├──  x
+│               └──  y
 └──  tabela de simbolos
 └──  g
 └──  h
