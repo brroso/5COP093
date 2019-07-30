@@ -5,18 +5,26 @@ import re
 ast = open('../ast', 'rb')
 ast = pickle.load(ast)
 
-operations = ['+', '-', '*', '/', '>', '<', '>=', '<=', '<>', '=']
-routines_battery = []
+operations = ['+', '-', '*', '/', '>', '<', '>=', '<=', '<>', '=', 'div']
 current_routine = None
 nivel = 0
 var_battery = []
+output = []
 
 
-# TODO ROUTINE CALL
+def reemovNestings(l):
+
+    for i in l:
+        if type(i) == list:
+            reemovNestings(i)
+        else:
+            output.append(i)
+
+    return output
+
 
 def semantigo(node, first):  # Inicia a análise
     global current_routine
-    global routines_battery
 
     var_list = []
     for no in node.children:
@@ -24,7 +32,6 @@ def semantigo(node, first):  # Inicia a análise
             symTab = no.ht
     main = routine(node.name, symTab)
     var_battery.append(var_list)
-    routines_battery.append(main)
     current_routine = main
     first = False
     return first
@@ -47,13 +54,32 @@ class routine(object):
         self.retType = retType
         self.parlist = parlist
         self.nparam = nparam
+        self.children = []
+
+
+def get_rotinas_acessaveis(rotina):
+
+    rotinas_acessaveis = []
+
+    while 1:
+        if rotina.parent is None:
+            for filho in rotina.children:
+                rotinas_acessaveis.append(filho)
+            return rotinas_acessaveis
+        else:
+            rotinas_acessaveis.append(rotina.parent)
+            rotina = rotina.parent
+            for filho in rotina.children:
+                rotinas_acessaveis.append(filho)
 
 
 def routine_dec(node):  # lida com declarações de rotinas
 
     global current_routine
-    global routines_battery
     global nivel
+    global output
+
+    rotinas_acessaveis = get_rotinas_acessaveis(current_routine)
 
     var_list = []
     name = node.children[0].name  # o nome da rotina=sempre seu primeiro filho
@@ -70,10 +96,14 @@ def routine_dec(node):  # lida com declarações de rotinas
             if item.getName() == name:
                 if item.getCategory() == 'function':
                     retType = item.getReturnType()
-                    parlist = item.getParList()
+                    output = []
+                    if item.getParList() is not None:
+                        parlist = reemovNestings(item.getParList())
                     nparam = item.getNparam()
                 if item.getCategory() == 'procedure':
-                    parlist = item.getParList()
+                    output = []
+                    if item.getParList() is not None:
+                        parlist = reemovNestings(item.getParList())
                     nparam = item.getNparam()
 
     for filho in node.children:  # coloca os parametros formais como variáveis
@@ -85,7 +115,7 @@ def routine_dec(node):  # lida com declarações de rotinas
             for lista in symTab:
                 for item in lista:
                     # Checa se existe rotina com o nome do forpar
-                    for rotina in routines_battery:
+                    for rotina in rotinas_acessaveis:
                         if rotina.name == filho.name:
                             print("erro: Parâmetro formal", filho.name,
                                   "da rotina", name,
@@ -99,9 +129,14 @@ def routine_dec(node):  # lida com declarações de rotinas
                                        nivel, item.getPassagem(),
                                        item.getDesloc())
                         var_list.append(var)
+    if parlist is not None:
+        for index, item in enumerate(parlist):
+            if item.tipo.upper() == 'INTEGER' or \
+                    item.tipo.upper() == 'FLOAT':
+                parlist[index].tipo = 'numero'
     rout = routine(name, symTab, current_routine, retType,
                    parlist, nparam)  # cria a rotina
-    for rotina in routines_battery:
+    for rotina in rotinas_acessaveis:
         if rotina.name == rout.name:  # checa se já tem uma rotina c esse nome
             print('erro: já há um identificador visivel de nome',
                   rout.name)
@@ -114,7 +149,7 @@ def routine_dec(node):  # lida com declarações de rotinas
                           'de nome', rout.name)
                     quit()
     nivel += 1
-    routines_battery.append(rout)
+    current_routine.children.append(rout)
     current_routine = rout
     var_battery.append(var_list)
 
@@ -122,9 +157,10 @@ def routine_dec(node):  # lida com declarações de rotinas
 def var_dec(node):
 
     global current_routine
-    global routines_battery
     global nivel
     global var_battery
+
+    rotinas_acessaveis = get_rotinas_acessaveis(current_routine)
 
     # Cria um obj variavel pra cada var declarada na rotina
     for no in node.children:
@@ -136,7 +172,7 @@ def var_dec(node):
                 print('erro: Já existe variável visível de nome', var.name)
                 quit()
         # Ve todas as rotinas da pilha
-        for rotina in routines_battery:
+        for rotina in rotinas_acessaveis:
             # Caso já tenha na pilha atual uma rotina com esse nome:
             if rotina.name == var.name:
                 print('erro: já há uma rotina visivel',
@@ -147,8 +183,9 @@ def var_dec(node):
 
 def routine_call(node):
 
-    global routines_battery
     global var_battery
+
+    rotinas_acessaveis = get_rotinas_acessaveis(current_routine)
 
     params_passados = 0
     params_list = []
@@ -161,12 +198,12 @@ def routine_call(node):
         if filho.name in operations:
             params_list.append(operation_routine(filho))
         elif filho.name.isdigit():
-            params_list.append(filho.name)
+            params_list.append('numero')
         else:
             for variable in var_battery[-1]:
                 if variable.name == filho.name:
                     params_list.append(variable)
-            for routine in routines_battery:
+            for routine in rotinas_acessaveis:
                 if filho.name == routine.name:
                     if routine.retType is None:
                         print("Rotina", routine.name, "não pode ser",
@@ -175,7 +212,7 @@ def routine_call(node):
                     else:
                         params_list.append(routine)
 
-    for rotina in routines_battery:
+    for rotina in rotinas_acessaveis:
         if rout_name == rotina.name:
             if params_passados > rotina.nparam or \
                     params_passados < rotina.nparam:
@@ -183,21 +220,46 @@ def routine_call(node):
                       "parâmetros. foram passados", params_passados)
                 quit()
             else:
-                for item in params_list:
+                for index, item in enumerate(params_list):
                     if isinstance(item, variavel):
-                        print('é variavel', item.name, item.tipo)
-                    elif isinstance(item, type(rotina)):
-                        print('é rotina', item.name, item.retType)
-                    elif item.isdigit():
-                        print('é digito', item)
-                    elif item == 'numero':
-                        print('é numero')
+                        if item.tipo.upper() == 'FLOAT' or item.tipo.upper() == 'INTEGER':
+                            item.tipo = 'numero'
+                        if item.tipo.upper() != rotina.parlist[index].tipo.upper():
+                            print('parametro', item.name, 'incorreto')
+                            quit()
+                    if item == 'numero':
+                        if rotina.parlist[index].passagem == 'Referencia':
+                            print('O parametro precisa ser por referencia')
+                            quit()
+                        else:
+                            if rotina.parlist[index].tipo.upper == 'BOOLEAN':
+                                print('Parametro numerico passado para',
+                                      'booleano')
+                                quit()
+                    if isinstance(item, type(rotina)):
+                        if item.retType is None:
+                            print('Passada rotina sem retorno')
+                            quit()
+                        else:
+                            if rotina.parlist[index].passagem == 'Referencia':
+                                print('O parametro precisa ser por referencia')
+                                quit()
+                            if item.retType.upper() == 'BOOLEAN':
+                                if rotina.parlist[index].tipo.upper != 'BOOLEAN':
+                                    print('booleano passado para numerico')
+                                    quit()
+                            if item.retType.upper() == 'FLOAT' or item.retType.upper() == 'INTEGER':
+                                if rotina.parlist[index].tipo.upper != 'NUMERO':
+                                    print('passada rotina com retorno errado.')
+                                    quit()
+                            
 
 
 def operation_routine(node):
 
-    global routines_battery
     global var_battery
+
+    rotinas_acessaveis = get_rotinas_acessaveis(current_routine)
 
     leftmo = node.children[0]
     rightmo = node.children[1]
@@ -222,7 +284,7 @@ def operation_routine(node):
         if variable.name == rightmo.name:
             rightmo_tipo = variable.tipo
 
-    for routine in routines_battery:
+    for routine in rotinas_acessaveis:
         if 'Function call' in leftmo.name:
             if routine.name == str(re.findall(r'"(.*?)"', leftmo.name)[0]):
                 leftmo_tipo = routine.retType
@@ -251,8 +313,9 @@ def operation_routine(node):
 
 def atrib(node):
 
-    global routines_battery
     global var_battery
+
+    rotinas_acessaveis = get_rotinas_acessaveis(current_routine)
 
     leftmo = node.children[0]
     rightmo = node.children[1]
@@ -278,11 +341,11 @@ def atrib(node):
         if variable.name == rightmo.name:
             rightmo_tipo = variable.tipo
 
-    for routine in routines_battery:
+    for routine in rotinas_acessaveis:
         if leftmo.name == routine.name:
             leftmo_tipo = routine.retType
 
-    for routine in routines_battery:
+    for routine in rotinas_acessaveis:
         if 'Function call' in rightmo.name:
             if routine.name == str(re.findall(r'"(.*?)"', rightmo.name)[0]):
                 rightmo_tipo = routine.retType
@@ -310,6 +373,8 @@ def write(node):
     left_write = None
     right_write = None
 
+    rotinas_acessaveis = get_rotinas_acessaveis(current_routine)
+
     if len(node.children) != 2:
         print(node.name, end=" ")
         for filho in node.children:
@@ -321,14 +386,10 @@ def write(node):
             if variable.name == node.children[0].name:
                 left_write = variable
 
-        for routine in routines_battery:
-            if routine.name == node.children[0]. name:
-                left_write = routine
-
-        for lista in current_routine.symTab:
-            for item in lista:
-                if item.getName() == node.children[0].name:
-                    left_write = item.getName()
+        for routine in rotinas_acessaveis:
+            if 'Function call' in node.children[0].name:
+                if routine.name == str(re.findall(r'"(.*?)"', node.children[0].name)[0]):
+                    left_write = routine
 
         if node.children[0].name.isdigit():
             left_write = node.children[0].name
@@ -337,14 +398,10 @@ def write(node):
             if variable.name == node.children[1].name:
                 right_write = variable
 
-        for routine in routines_battery:
-            if routine.name == node.children[1].name:
-                right_write = routine
-
-        for lista in current_routine.symTab:
-            for item in lista:
-                if item.getName() == node.children[1].name:
-                    left_write = item.getName()
+        for routine in rotinas_acessaveis:
+            if 'Function call' in node.children[1].name:
+                if routine.name == str(re.findall(r'"(.*?)"', node.children[1].name)[0]):
+                    left_write = routine
 
         if node.children[1].name.isdigit():
             right_write = node.children[1].name
@@ -363,6 +420,8 @@ def read(node):
 
     var_read = None
 
+    rotinas_acessaveis = get_rotinas_acessaveis(current_routine)
+
     if len(node.children) != 1:
         print(node.name, end=" ")
         for filho in node.children:
@@ -374,9 +433,10 @@ def read(node):
             if variable.name == node.children[0].name:
                 var_read = variable
 
-        for routine in routines_battery:
-            if routine.name == node.children[0]. name:
-                var_read = routine
+        for routine in rotinas_acessaveis:
+            if 'Function call' in node.children[0].name:
+                if routine.name == str(re.findall(r'"(.*?)"', node.children[0].name)[0]):
+                    var_read = routine
 
         for lista in current_routine.symTab:
             for item in lista:
@@ -395,7 +455,6 @@ def read(node):
 
 def main(argv):
     global current_routine
-    global routines_battery
     global nivel
     global var_battery
 
@@ -436,11 +495,10 @@ def main(argv):
         # o nó 'tabela de símbolos' siginficia dentro da arvre o fim de rotina
         if node.name == 'tabela de simbolos':
             var_battery.pop()  # da pop na pilha das variaveis
-            routines_battery.pop()  # da pop na pilha das rotinas
             nivel -= 1
-            if len(routines_battery) > 0:
+            if current_routine.parent is not None:
                 # coloca a rotina atual como a ultima
-                current_routine = routines_battery[-1]
+                current_routine = current_routine.parent
     print("Análise finalizada com sucesso.")
 
 

@@ -28,11 +28,11 @@ program exemplo5(input, output);
                 n := n * 2;
             end
             else begin
-                func:=func(n-1,p,2,2,2,2);
+                func:=func(n,p,n,n,n,2);
                 k:=p+q+1-2*3*2
                 end;
             write(n,k)
         end(*func*);
     begin
-        write(func(3*4,m,2,2,2,2),m)
+        write(func(2,2,m,m,m,2),m)
     end.

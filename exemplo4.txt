@@ -12,15 +12,17 @@ program exemplo4(input, output);
                     else
                         o(u);
                     u:=u;
-                    write(u)
+                    write(u, t)
                 end (*h*);
         begin
             y:=y;
-            write(y)
+            g(y);
+            o(y);
+            write(y, t)
         end (*h*);
     begin
         y:=y;
-        write(y)
+        write(y, y)
     end (*g*);
     procedure h(y: integer);
         label 01;
@@ -35,14 +37,15 @@ program exemplo4(input, output);
             y:=y+1;
             h(y);
             h(y+d*2)
+            g(y)
             read(y)
-            write(y)
+            write(y, y)
         end (*h*);
     begin
         x:=3; g(x);
         g(x);
-        write(x)
+        write(x, y)
     end
 begin
-    z := x + y;
+    h(x);
 end.

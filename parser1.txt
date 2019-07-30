@@ -1,7 +1,7 @@
 HASH DE exemplo1
 109     | m          | variavel simples | 0     | INTEGER       | 0         
 110     | n          | variavel simples | 0     | INTEGER       | 1         
-115     | s          | variavel simples | 0     | INTEGER       | 2         
+115     | s          | variavel simples | 0     | BOOLEAN       | 2         
 189     | exemplo1   | program        
 
 
@@ -18,11 +18,10 @@ TREE
 │   │   ├──  n
 │   │   │   └──  INTEGER
 │   │   └──  s
-│   │       └──  INTEGER
+│   │       └──  BOOLEAN
 │   └──  comando composto
 │       ├──  Read
-│       │   ├──  m
-│       │   └──  n
+│       │   └──  m
 │       ├──  atribuicao
 │       │   ├──  s
 │       │   └──  0
