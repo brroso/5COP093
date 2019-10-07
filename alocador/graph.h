@@ -2,21 +2,20 @@
 #define GRAPH_H
 #include <string>
 #include <stdio.h>
-#include <list>
+#include "list.h"
+#include <string>
 
 using namespace std;
-class Aresta
+class Vertice
 {
-
-private:
-    string name;
-    list <Aresta> link_list;
-
 public:
-    Aresta(string name_);
-    string getArestaName();
-    list <Aresta> getArestaLinks();
-    void insertLink(Aresta origem, Aresta destino);
-    ~Aresta();
+    string name;
+    List *link_list;
+    Vertice(string name_);
+    string getVerticeName();
+    List *getVerticeLinks();
+    void insertLink(Vertice destino);
+    ~Vertice();
 };
+
 #endif

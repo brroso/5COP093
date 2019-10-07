@@ -1,20 +1,21 @@
 #include "graph.h"
 
-Aresta::Aresta(string name_)
+Vertice::Vertice(string name_)
 {
     name = name_;
+    link_list = new List;
 }
 
-string Aresta::getArestaName()
+string Vertice::getVerticeName()
 {
     return name;
 }
 
-list <Aresta> Aresta::getArestaLinks()
+List *Vertice::getVerticeLinks()
 {
     return link_list;
 }
 
-void insertLink(Aresta origem, Aresta destino){
-    origem.getArestaLinks().push_back(destino);
+void Vertice::insertLink(Vertice destino){
+    link_list->insert(destino.name);
 }
