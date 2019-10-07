@@ -1,37 +1,38 @@
 program exemplo5(input, output);
     var m: integer;
-    function f(n, k, menos6: integer; var menos5, menos4: float; menos3: float): integer;
+    function func(n, k, menos6: integer; var menos5, menos4: float; menos3: float): boolean;
         label 22;
         var p,q,r , s: integer;
-        procedure l(t:integer);
+        procedure l(o:integer);
             label 12;
-            var u, y, z: integer; t: float; j: boolean;
-            procedure b(t, m, o, z: float; var meno4, menos3: integer);
+            var u, y, z: integer; m: float; j, c: boolean;
+            procedure b(t, m, o, z: float; var meno4, menos3: boolean);
                 label 22;
                 var x:integer;
                 begin
-                    t:=2*t; x:=2*t; z:=x+1
+                    t:=2*t; x:=2*2; z:=x+1; x:=2*2;
                 end (* g *);
             begin
                 if 4>5 then
                     u:=y
                 else
-                    u:=r;
+                    u:=z;
                 u:=u;
-                write(u)
+                write(m, z);
+                read(m);
             end (*h*);
         begin
             if n<2
-            then begin f:=n; k:=0 
+            then begin k:=0;
                 n := 2;
-                n := n * 1;
+                n := n * 2;
             end
             else begin
-                f:=f(n-1,p)+f(n-2,q);
+                func:=func(n,p,n,n,n,2);
                 k:=p+q+1-2*3*2
                 end;
             write(n,k)
-        end(*f*);
+        end(*func*);
     begin
-        write(f(3*4,m),m)
+        write(func(2,2,m,m,m,2),m)
     end.
