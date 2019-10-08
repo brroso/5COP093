@@ -2,20 +2,16 @@
 #define GRAPH_H
 #include <string>
 #include <stdio.h>
-#include "list.h"
+#include "VerList.h"
 #include <string>
 
 using namespace std;
-class Vertice
+
+class Graph
 {
-public:
-    string name;
-    List *link_list;
-    Vertice(string name_);
-    string getVerticeName();
-    List *getVerticeLinks();
-    void insertLink(Vertice destino);
-    ~Vertice();
+    public:
+        VerList *adj_list;
+        Graph();
 };
 
 #endif

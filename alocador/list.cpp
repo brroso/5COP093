@@ -83,11 +83,11 @@ void List::printList()
 {
     Node *node = new Node;
     node = head;
-    cout << "printing" << endl;
     while (node != NULL){
         cout << node->value + " ";
         node = node->next;
     }
+    cout << endl;
         
 }
 
