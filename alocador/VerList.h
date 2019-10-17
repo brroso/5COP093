@@ -29,7 +29,7 @@ public:
                                                   next == s.next &&
                                                   previous == s.previous; }
     void newVerNode(Vertice v);
-    string get();
+    Vertice *get();
     VerNode *getNext();
     void setValue(Vertice v);
 };

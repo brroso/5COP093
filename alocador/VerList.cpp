@@ -61,7 +61,6 @@ void VerList::removeVerNode(VerNode *node)
         {
             node->next->previous = node->previous;
         }
-        delete node;
         size--;
     }
 }
@@ -98,9 +97,13 @@ VerNode::VerNode()
     previous = NULL;
 }
 
+Vertice *VerNode::get()
+{
+    return v;
+}
 // VERTICE
 
-Vertice::Vertice(string name_)
+    Vertice::Vertice(string name_)
 {
     name = name_;
     link_list = new List;

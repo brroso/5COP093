@@ -36,7 +36,7 @@ void process_k(string s)
     cout << "----------------------------------------" << endl;
 }
 
-Vertice *build_line(string s)
+void build_line(string s)
 {
     int pos;
     std::string delimiter = " -->";
@@ -57,39 +57,52 @@ Vertice *build_line(string s)
     Vertice vert(s);
     top_vert->insertLink(vert);
     grafo->adj_list->insertVertice(top_vert);
-
-    return top_vert;
 }
 
 int main(int argc, char const *argv[])
 {
+
     grafo = new Graph;
     string line;
     int count;
     count = 0;
     Vertice *lastOne;
+
     while (cin){
-        if (count == 0){
+        if (count == 0){ // PEGA O NOME DO GRAFO DA PRIMEIRA LINHA
             getline(cin, line);
             process_graph_name(line);
             count++;
-        }else if (count == 1){
+        }else if (count == 1){ // PEGA O K DA SEGUNDA LINHA
             getline(cin, line);
             process_k(line);
             count++;
-        }else{
+        }else{ // COLOCA VERTICE NO GRAFO
             getline(cin, line);
-            lastOne = build_line(line);
+            build_line(line);
             count++;
         }
     }
-    grafo->adj_list->removeLast();
-    VerNode *no = grafo->adj_list->head;
-    while (no)
+
+    grafo->adj_list->removeLast(); // CIN PEGA 2X A ULTIMA LINHA
+
+    // Rodar o grafo abaixo \/\/\/
+
+    Graph *ordenado = new Graph;
+
+    ordenado = grafo->ord_by_grau();
+
+    VerNode *no = grafo->adj_list->head; // PRINT GRAFO TESTE
+
+    VerNode *noOrdenado = ordenado->adj_list->head;
+
+    while (no) // RODA AS CABEÇAS
     {
         cout << no->v->name + " -->";
         Node *no_interno = no->v->link_list->head;
-        while(no_interno){
+        cout << "GRAU: " << to_string(no->v->link_list->lenght()) << " || ";
+        while (no_interno) // RODA OS VÉRTICES
+        {
             cout << " ";
             cout << no_interno->value;
             no_interno = no_interno->next;
@@ -97,5 +110,48 @@ int main(int argc, char const *argv[])
         no = no->next;
         cout << endl;
     }
-}
 
+    cout << "\n\n\n\n\n" << endl;
+
+    while (noOrdenado) // RODA AS CABEÇAS
+    {
+        cout << noOrdenado->v->name + " -->";
+        Node *no_interno = noOrdenado->v->link_list->head;
+        cout << "GRAU: " << to_string(noOrdenado->v->link_list->lenght()) << " || ";
+        while (no_interno) // RODA OS VÉRTICES
+        {
+            cout << " ";
+            cout << no_interno->value;
+            no_interno = no_interno->next;
+        }
+        noOrdenado = noOrdenado->next;
+        cout << endl;
+    }
+
+    cout << "\n\n\n\n\n" << endl;
+
+    Graph *semomenor = new Graph;
+
+    ordenado = ordenado->remove_and_rebuild(ordenado->get_n_min_grau());
+
+    semomenor = ordenado->remove_and_rebuild(ordenado->get_n_min_grau());
+
+    ordenado = semomenor;
+
+    noOrdenado = ordenado->adj_list->head;
+
+    while (noOrdenado) // RODA AS CABEÇAS
+    {
+        cout << noOrdenado->v->name + " -->";
+        Node *no_interno = noOrdenado->v->link_list->head;
+        cout << "GRAU: " << to_string(noOrdenado->v->link_list->lenght()) << " || ";
+        while (no_interno) // RODA OS VÉRTICES
+        {
+            cout << " ";
+            cout << no_interno->value;
+            no_interno = no_interno->next;
+        }
+        noOrdenado = noOrdenado->next;
+        cout << endl;
+    }
+}

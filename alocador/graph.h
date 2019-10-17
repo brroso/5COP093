@@ -12,6 +12,10 @@ class Graph
     public:
         VerList *adj_list;
         Graph();
+        VerNode *get_n_min_grau();
+        Graph *get_copy();
+        Graph *ord_by_grau();
+        Graph *remove_and_rebuild(VerNode *vert);
 };
 
 #endif

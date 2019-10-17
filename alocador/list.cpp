@@ -54,7 +54,6 @@ void List::removeNode(Node *node)
         {
             node->next->previous = node->previous;
         }
-        delete node;
         size--;
     }
 }
