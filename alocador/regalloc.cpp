@@ -99,6 +99,7 @@ int main(int argc, char const *argv[])
         cout << "K = " + to_string(k) + "\n" << endl;
 
         ordenado = grafo->ord_by_grau();
+
         min = ordenado->get_n_min_grau();
         noOrdenado = ordenado->adj_list->head;
 
@@ -107,6 +108,7 @@ int main(int argc, char const *argv[])
         {
             min = ordenado->get_n_min_grau();
             ordenado = ordenado->remove_and_rebuild(min);
+            
         }
     }
 }

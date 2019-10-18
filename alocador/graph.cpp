@@ -68,22 +68,20 @@ Graph *Graph::ord_by_grau()
 
 Graph *Graph::remove_and_rebuild(VerNode *vert)
 {
-    Graph *copy = new Graph;
-    copy = get_copy();
 
-    VerNode *copy_root = copy->adj_list->head;
+    VerNode *copy_root = adj_list->head;
     while(copy_root)
     {
         if (copy_root->get()->getVerticeName().compare(vert->get()->getVerticeName()) == 0)
         {
-            copy_root = copy_root->next;
-            copy->adj_list->removeVerNode(vert);
-            cout << "PUSH: " + vert->get()->getVerticeName() << endl;
+            copy_root = adj_list->head;
+            adj_list->removeVerNode(vert);
+            cout << "Push: " + vert->get()->getVerticeName() << endl;
         }
         // cout << "NO " + copy_root->get()->getVerticeName() << endl;
-        if (copy->adj_list->head == NULL)
+        if (adj_list->head == NULL)
         {
-            return copy;
+            return this;
         }
         Node *no_interno = copy_root->v->link_list->head;
         while (no_interno) // RODA OS VÉRTICES
@@ -97,7 +95,7 @@ Graph *Graph::remove_and_rebuild(VerNode *vert)
         }
         copy_root = copy_root->next;
     }
-    copy = copy->ord_by_grau();
+    ord_by_grau();
 
-    return copy;
+    return this;
 }
