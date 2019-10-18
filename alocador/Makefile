@@ -1,15 +1,5 @@
-# My first makefile
- 
+############################# Makefile ##########################
 all: regalloc
- 
-regalloc: regalloc.o graph.o
-	gcc -o regalloc regalloc.o graph.o
- 
-regalloc.o: regalloc.cpp graph.h
-	gcc -o regalloc.o regalloc.cpp -c -W -Wall -ansi -pedantic
- 
-graph.o: graph.cpp graph.h
-	gcc -o graph.o graph.cpp -c -W -Wall -ansi -pedantic
- 
-clean:
-	rm -rf *.o *~ regalloc
+regalloc: list.o graph.o VerList.o 
+	g++ -g list.cpp graph.cpp VerList.cpp regalloc.cpp -o regalloc
+	rm -rf *.o

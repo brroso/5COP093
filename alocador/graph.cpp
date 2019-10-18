@@ -11,12 +11,16 @@ VerNode *Graph::get_n_min_grau()
 {
     int minGrau = 9999;
     VerNode *no = adj_list->head; 
-    VerNode *minGrauNode = NULL;
+    VerNode *minGrauNode = no;
     while (no) // RODA AS CABEÇAS
     {
         if (no->v->link_list->lenght() < minGrau)
         {
             minGrau = no->v->link_list->lenght();
+            minGrauNode = no;
+        }
+        if (no->v->link_list->lenght() == minGrau && atoi(no->get()->getVerticeName().c_str()) < atoi(minGrauNode->get()->getVerticeName().c_str()))
+        {
             minGrauNode = no;
         }
         no = no->next;
@@ -31,7 +35,15 @@ Graph *Graph::get_copy()
     VerNode *org_root = adj_list->head;
     while (org_root)
     {
-        copy->adj_list->insertVertice(org_root->get());
+        Vertice *top_vert = new Vertice(org_root->get()->getVerticeName());
+        Node *vnode = org_root->get()->getVerticeLinks()->head;
+        while (vnode)
+        {
+            Vertice vert(vnode->get());
+            top_vert->insertLink(vert);
+            vnode = vnode->next;
+        }
+        copy->adj_list->insertVertice(top_vert);
         org_root = org_root->next;
     }
 
@@ -66,20 +78,26 @@ Graph *Graph::remove_and_rebuild(VerNode *vert)
         {
             copy_root = copy_root->next;
             copy->adj_list->removeVerNode(vert);
-        }else
-        {
-            Node *no_interno = copy_root->v->link_list->head;
-            while (no_interno) // RODA OS VÉRTICES
-            {
-                if (no_interno->value.compare(vert->get()->getVerticeName()) == 0)
-                {
-                    copy_root->v->link_list->removeNode(no_interno);
-                }
-                no_interno = no_interno->next;
-            }
-            copy_root = copy_root->next;
+            cout << "PUSH: " + vert->get()->getVerticeName() << endl;
         }
-
+        // cout << "NO " + copy_root->get()->getVerticeName() << endl;
+        if (copy->adj_list->head == NULL)
+        {
+            return copy;
+        }
+        Node *no_interno = copy_root->v->link_list->head;
+        while (no_interno) // RODA OS VÉRTICES
+        {
+            if (no_interno->value.compare(vert->get()->getVerticeName()) == 0)
+            {
+                // cout << "got" << endl;
+                copy_root->v->link_list->removeNode(no_interno);
+            }
+            no_interno = no_interno->next;
+        }
+        copy_root = copy_root->next;
     }
+    copy = copy->ord_by_grau();
+
     return copy;
 }

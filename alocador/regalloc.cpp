@@ -11,7 +11,7 @@ string nome_grafo;
 int cores;
 Graph *grafo;
 
-void process_graph_name(string s)
+void process_graph_name(string s) // PEGA O NOME DO GRAFO
 {
     int pos;
     std::string delimiter = " ";
@@ -23,7 +23,7 @@ void process_graph_name(string s)
     nome_grafo = "Graph " + token;
 }
 
-void process_k(string s)
+void process_k(string s) // PEGA A QTD DE CORES
 {
     int pos;
     std::string delimiter = "=";
@@ -36,7 +36,7 @@ void process_k(string s)
     cout << "----------------------------------------" << endl;
 }
 
-void build_line(string s)
+void build_line(string s) // CRIA O GRAFO
 {
     int pos;
     std::string delimiter = " -->";
@@ -86,15 +86,33 @@ int main(int argc, char const *argv[])
 
     grafo->adj_list->removeLast(); // CIN PEGA 2X A ULTIMA LINHA
 
-    // Rodar o grafo abaixo \/\/\/
+    // Começa o algoritmo
+    
+    int k = cores;
 
     Graph *ordenado = new Graph;
+    VerNode *noOrdenado;
+    VerNode *min;
 
-    ordenado = grafo->ord_by_grau();
+    for (k; k > 1; k--)
+    {
+        cout << "K = " + to_string(k) + "\n" << endl;
 
+        ordenado = grafo->ord_by_grau();
+        min = ordenado->get_n_min_grau();
+        noOrdenado = ordenado->adj_list->head;
+
+
+        while (min) // FAZ O PUSH
+        {
+            min = ordenado->get_n_min_grau();
+            ordenado = ordenado->remove_and_rebuild(min);
+        }
+    }
+}
+
+/*
     VerNode *no = grafo->adj_list->head; // PRINT GRAFO TESTE
-
-    VerNode *noOrdenado = ordenado->adj_list->head;
 
     while (no) // RODA AS CABEÇAS
     {
@@ -110,48 +128,4 @@ int main(int argc, char const *argv[])
         no = no->next;
         cout << endl;
     }
-
-    cout << "\n\n\n\n\n" << endl;
-
-    while (noOrdenado) // RODA AS CABEÇAS
-    {
-        cout << noOrdenado->v->name + " -->";
-        Node *no_interno = noOrdenado->v->link_list->head;
-        cout << "GRAU: " << to_string(noOrdenado->v->link_list->lenght()) << " || ";
-        while (no_interno) // RODA OS VÉRTICES
-        {
-            cout << " ";
-            cout << no_interno->value;
-            no_interno = no_interno->next;
-        }
-        noOrdenado = noOrdenado->next;
-        cout << endl;
-    }
-
-    cout << "\n\n\n\n\n" << endl;
-
-    Graph *semomenor = new Graph;
-
-    ordenado = ordenado->remove_and_rebuild(ordenado->get_n_min_grau());
-
-    semomenor = ordenado->remove_and_rebuild(ordenado->get_n_min_grau());
-
-    ordenado = semomenor;
-
-    noOrdenado = ordenado->adj_list->head;
-
-    while (noOrdenado) // RODA AS CABEÇAS
-    {
-        cout << noOrdenado->v->name + " -->";
-        Node *no_interno = noOrdenado->v->link_list->head;
-        cout << "GRAU: " << to_string(noOrdenado->v->link_list->lenght()) << " || ";
-        while (no_interno) // RODA OS VÉRTICES
-        {
-            cout << " ";
-            cout << no_interno->value;
-            no_interno = no_interno->next;
-        }
-        noOrdenado = noOrdenado->next;
-        cout << endl;
-    }
-}
+*/
