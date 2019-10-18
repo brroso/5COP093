@@ -29,6 +29,28 @@ VerNode *Graph::get_n_min_grau()
     return minGrauNode;
 }
 
+VerNode *Graph::get_n_max_grau()
+{
+    int maxGrau = 0;
+    VerNode *no = adj_list->head;
+    VerNode *maxGrauNode = no;
+    while (no) // RODA AS CABEÇAS
+    {
+        if (no->v->link_list->lenght() > maxGrau)
+        {
+            maxGrau = no->v->link_list->lenght();
+            maxGrauNode = no;
+        }
+        if (no->v->link_list->lenght() == maxGrau && atoi(no->get()->getVerticeName().c_str()) < atoi(maxGrauNode->get()->getVerticeName().c_str()))
+        {
+            maxGrauNode = no;
+        }
+        no = no->next;
+    }
+
+    return maxGrauNode;
+}
+
 Graph *Graph::get_copy()
 {
     Graph *copy = new Graph;
@@ -66,7 +88,7 @@ Graph *Graph::ord_by_grau()
     return ordenado;
 }
 
-Graph *Graph::remove_and_rebuild(VerNode *vert)
+Graph *Graph::remove_and_rebuild(VerNode *vert, int k)
 {
 
     VerNode *copy_root = adj_list->head;
@@ -74,11 +96,18 @@ Graph *Graph::remove_and_rebuild(VerNode *vert)
     {
         if (copy_root->get()->getVerticeName().compare(vert->get()->getVerticeName()) == 0)
         {
-            copy_root = adj_list->head;
-            adj_list->removeVerNode(vert);
-            cout << "Push: " + vert->get()->getVerticeName() << endl;
+            if (copy_root->get()->getVerticeLinks()->lenght() >= k)
+            {
+                vert = get_n_max_grau();
+                adj_list->removeVerNode(vert);
+                cout << "Push: " + vert->get()->getVerticeName() + " *" << endl;
+            }
+            else{
+                copy_root = adj_list->head;
+                adj_list->removeVerNode(vert);
+                cout << "Push: " + vert->get()->getVerticeName() << endl;
+            }
         }
-        // cout << "NO " + copy_root->get()->getVerticeName() << endl;
         if (adj_list->head == NULL)
         {
             return this;

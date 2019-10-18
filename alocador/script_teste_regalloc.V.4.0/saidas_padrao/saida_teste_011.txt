@@ -1,0 +1,350 @@
+Graph 11 -> Physical Registers: 21
+----------------------------------------
+----------------------------------------
+K = 21
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 20
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 19
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 18
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 17
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 16
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 15
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 14
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 13
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 12
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 11
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 10
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 9
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 8
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 7
+
+Push: 38
+Push: 33
+Push: 32
+Push: 34 *
+Push: 35
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 34 -> 1
+Pop: 32 -> 3
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 6
+
+Push: 38
+Push: 33
+Push: 34 *
+Push: 32 *
+Push: 35 *
+Push: 36
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 35 -> 4
+Pop: 32 -> 3
+Pop: 34 -> 1
+Pop: 33 -> 2
+Pop: 38 -> 0
+----------------------------------------
+K = 5
+
+Push: 38
+Push: 34 *
+Push: 32 *
+Push: 35 *
+Push: 33 *
+Push: 36 *
+Push: 37
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 33 -> 2
+Pop: 35 -> 4
+Pop: 32 -> 3
+Pop: 34 -> 1
+Pop: 38 -> 0
+----------------------------------------
+K = 4
+
+Push: 34 *
+Push: 38
+Push: 32 *
+Push: 35 *
+Push: 33 *
+Push: 36 *
+Push: 37 *
+Pop: 37 -> 2
+Pop: 36 -> 3
+Pop: 33 -> 2
+Pop: 35 -> NO COLOR AVAILABLE
+----------------------------------------
+K = 3
+
+Push: 34 *
+Push: 35 *
+Push: 38
+Push: 32 *
+Push: 33 *
+Push: 36 *
+Push: 37 *
+Pop: 37 -> 2
+Pop: 36 -> NO COLOR AVAILABLE
+----------------------------------------
+K = 2
+
+Push: 34 *
+Push: 35 *
+Push: 32 *
+Push: 36 *
+Push: 38
+Push: 33 *
+Push: 37 *
+Pop: 37 -> NO COLOR AVAILABLE
+----------------------------------------
+----------------------------------------
+Graph 11 -> K = 21: Successful Allocation
+Graph 11 -> K = 20: Successful Allocation
+Graph 11 -> K = 19: Successful Allocation
+Graph 11 -> K = 18: Successful Allocation
+Graph 11 -> K = 17: Successful Allocation
+Graph 11 -> K = 16: Successful Allocation
+Graph 11 -> K = 15: Successful Allocation
+Graph 11 -> K = 14: Successful Allocation
+Graph 11 -> K = 13: Successful Allocation
+Graph 11 -> K = 12: Successful Allocation
+Graph 11 -> K = 11: Successful Allocation
+Graph 11 -> K = 10: Successful Allocation
+Graph 11 -> K =  9: Successful Allocation
+Graph 11 -> K =  8: Successful Allocation
+Graph 11 -> K =  7: Successful Allocation
+Graph 11 -> K =  6: Successful Allocation
+Graph 11 -> K =  5: Successful Allocation
+Graph 11 -> K =  4: SPILL
+Graph 11 -> K =  3: SPILL
+Graph 11 -> K =  2: SPILL

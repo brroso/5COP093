@@ -107,8 +107,7 @@ int main(int argc, char const *argv[])
         while (min) // FAZ O PUSH
         {
             min = ordenado->get_n_min_grau();
-            ordenado = ordenado->remove_and_rebuild(min);
-            
+            ordenado = ordenado->remove_and_rebuild(min, k);
         }
     }
 }

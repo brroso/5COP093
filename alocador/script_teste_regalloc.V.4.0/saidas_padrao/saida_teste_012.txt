@@ -1,0 +1,877 @@
+Graph 12 -> Physical Registers: 21
+----------------------------------------
+----------------------------------------
+K = 21
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 20
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 19
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 18
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 17
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 16
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 15
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 14
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 13
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 12
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 11
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 10
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 9
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 8
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 7
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 33
+Push: 35
+Pop: 35 -> 1
+Pop: 33 -> 4
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 6
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 33 *
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Push: 35
+Pop: 35 -> 1
+Pop: 49 -> 0
+Pop: 34 -> 2
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 33 -> 4
+Pop: 48 -> 3
+Pop: 42 -> 3
+Pop: 40 -> 5
+Pop: 41 -> 3
+Pop: 52 -> 3
+Pop: 51 -> 3
+Pop: 50 -> 3
+Pop: 47 -> 3
+Pop: 46 -> 3
+Pop: 45 -> 3
+Pop: 43 -> 3
+Pop: 39 -> 3
+Pop: 38 -> 3
+Pop: 37 -> 3
+Pop: 32 -> 1
+----------------------------------------
+K = 5
+
+Push: 32
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 33 *
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 35 *
+Push: 36
+Push: 44
+Push: 34
+Push: 49
+Pop: 49 -> 0
+Pop: 34 -> 1
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 35 -> 4
+Pop: 48 -> 2
+Pop: 42 -> 2
+Pop: 40 -> 3
+Pop: 41 -> 2
+Pop: 33 -> NO COLOR AVAILABLE
+----------------------------------------
+K = 4
+
+Push: 33 *
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 35 *
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 34 *
+Push: 36
+Push: 44
+Push: 49
+Push: 32 *
+Pop: 32 -> 1
+Pop: 49 -> 0
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 34 -> 1
+Pop: 48 -> 2
+Pop: 42 -> 2
+Pop: 40 -> 3
+Pop: 41 -> 2
+Pop: 35 -> NO COLOR AVAILABLE
+----------------------------------------
+K = 3
+
+Push: 33 *
+Push: 35 *
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 34 *
+Push: 41
+Push: 40
+Push: 42
+Push: 48
+Push: 32 *
+Push: 36 *
+Push: 44 *
+Push: 49 *
+Pop: 49 -> 0
+Pop: 44 -> 0
+Pop: 36 -> 0
+Pop: 32 -> 1
+Pop: 48 -> 1
+Pop: 42 -> 1
+Pop: 40 -> 2
+Pop: 41 -> 1
+Pop: 34 -> NO COLOR AVAILABLE
+----------------------------------------
+K = 2
+
+Push: 33 *
+Push: 35 *
+Push: 34 *
+Push: 37
+Push: 38
+Push: 39
+Push: 43
+Push: 45
+Push: 46
+Push: 47
+Push: 50
+Push: 51
+Push: 52
+Push: 36 *
+Push: 41
+Push: 40
+Push: 42
+Push: 32 *
+Push: 44 *
+Push: 48
+Push: 49 *
+Pop: 49 -> 0
+Pop: 48 -> 1
+Pop: 44 -> 0
+Pop: 32 -> 1
+Pop: 42 -> 0
+Pop: 40 -> 1
+Pop: 41 -> 0
+Pop: 36 -> NO COLOR AVAILABLE
+----------------------------------------
+----------------------------------------
+Graph 12 -> K = 21: Successful Allocation
+Graph 12 -> K = 20: Successful Allocation
+Graph 12 -> K = 19: Successful Allocation
+Graph 12 -> K = 18: Successful Allocation
+Graph 12 -> K = 17: Successful Allocation
+Graph 12 -> K = 16: Successful Allocation
+Graph 12 -> K = 15: Successful Allocation
+Graph 12 -> K = 14: Successful Allocation
+Graph 12 -> K = 13: Successful Allocation
+Graph 12 -> K = 12: Successful Allocation
+Graph 12 -> K = 11: Successful Allocation
+Graph 12 -> K = 10: Successful Allocation
+Graph 12 -> K =  9: Successful Allocation
+Graph 12 -> K =  8: Successful Allocation
+Graph 12 -> K =  7: Successful Allocation
+Graph 12 -> K =  6: Successful Allocation
+Graph 12 -> K =  5: SPILL
+Graph 12 -> K =  4: SPILL
+Graph 12 -> K =  3: SPILL
+Graph 12 -> K =  2: SPILL

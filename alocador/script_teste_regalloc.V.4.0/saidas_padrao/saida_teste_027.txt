@@ -1,0 +1,8272 @@
+Graph 27 -> Physical Registers: 21
+----------------------------------------
+----------------------------------------
+K = 21
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 140
+Push: 46
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 134
+Push: 137
+Push: 133
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 130
+Push: 125
+Push: 129
+Push: 124
+Push: 128
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 45
+Push: 40
+Push: 41
+Push: 42
+Push: 43
+Push: 44
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 48
+Push: 67
+Push: 49
+Push: 68
+Push: 50
+Push: 79
+Push: 51
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 51 -> 5
+Pop: 79 -> 0
+Pop: 50 -> 7
+Pop: 68 -> 4
+Pop: 49 -> 6
+Pop: 67 -> 0
+Pop: 48 -> 1
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 44 -> 0
+Pop: 43 -> 3
+Pop: 42 -> 4
+Pop: 41 -> 7
+Pop: 40 -> 1
+Pop: 45 -> 8
+Pop: 141 -> 1
+Pop: 138 -> 0
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 128 -> 2
+Pop: 124 -> 5
+Pop: 129 -> 3
+Pop: 125 -> 0
+Pop: 130 -> 4
+Pop: 126 -> 6
+Pop: 127 -> 7
+Pop: 132 -> 8
+Pop: 131 -> 9
+Pop: 133 -> 6
+Pop: 137 -> 4
+Pop: 134 -> 1
+Pop: 136 -> 3
+Pop: 135 -> 2
+Pop: 187 -> 5
+Pop: 186 -> 6
+Pop: 180 -> 5
+Pop: 179 -> 6
+Pop: 163 -> 5
+Pop: 162 -> 6
+Pop: 46 -> 2
+Pop: 140 -> 5
+Pop: 53 -> 3
+Pop: 83 -> 2
+Pop: 85 -> 8
+Pop: 52 -> 0
+Pop: 76 -> 2
+Pop: 78 -> 8
+Pop: 64 -> 2
+Pop: 66 -> 8
+Pop: 205 -> 5
+Pop: 218 -> 0
+Pop: 204 -> 4
+Pop: 215 -> 1
+Pop: 211 -> 6
+Pop: 192 -> 5
+Pop: 199 -> 0
+Pop: 191 -> 4
+Pop: 198 -> 1
+Pop: 197 -> 6
+Pop: 188 -> 0
+Pop: 139 -> 7
+Pop: 185 -> 6
+Pop: 184 -> 8
+Pop: 161 -> 6
+Pop: 160 -> 8
+Pop: 156 -> 2
+Pop: 155 -> 6
+Pop: 148 -> 6
+Pop: 142 -> 8
+Pop: 147 -> 6
+Pop: 146 -> 6
+Pop: 145 -> 6
+Pop: 144 -> 6
+Pop: 61 -> 2
+Pop: 55 -> 4
+Pop: 54 -> 8
+Pop: 60 -> 2
+Pop: 59 -> 2
+Pop: 58 -> 2
+Pop: 57 -> 2
+Pop: 222 -> 2
+Pop: 223 -> 1
+Pop: 224 -> 3
+Pop: 225 -> 4
+Pop: 226 -> 5
+Pop: 227 -> 0
+Pop: 230 -> 6
+Pop: 228 -> 7
+Pop: 229 -> 6
+Pop: 221 -> 3
+Pop: 203 -> 2
+Pop: 217 -> 3
+Pop: 216 -> 7
+Pop: 190 -> 2
+Pop: 196 -> 3
+Pop: 195 -> 7
+Pop: 183 -> 6
+Pop: 182 -> 6
+Pop: 181 -> 6
+Pop: 178 -> 6
+Pop: 177 -> 6
+Pop: 173 -> 2
+Pop: 172 -> 5
+Pop: 167 -> 6
+Pop: 164 -> 7
+Pop: 171 -> 3
+Pop: 170 -> 5
+Pop: 169 -> 5
+Pop: 168 -> 5
+Pop: 166 -> 6
+Pop: 165 -> 6
+Pop: 159 -> 6
+Pop: 158 -> 6
+Pop: 157 -> 6
+Pop: 154 -> 3
+Pop: 153 -> 6
+Pop: 152 -> 6
+Pop: 151 -> 6
+Pop: 150 -> 6
+Pop: 149 -> 6
+Pop: 143 -> 6
+Pop: 105 -> 3
+Pop: 82 -> 2
+Pop: 81 -> 2
+Pop: 75 -> 2
+Pop: 74 -> 2
+Pop: 63 -> 2
+Pop: 62 -> 2
+Pop: 56 -> 2
+Pop: 32 -> 3
+Pop: 27 -> 0
+Pop: 270 -> 0
+Pop: 269 -> 4
+Pop: 268 -> 5
+Pop: 267 -> 1
+Pop: 252 -> 2
+Pop: 265 -> 6
+Pop: 266 -> 3
+Pop: 264 -> 1
+Pop: 263 -> 6
+Pop: 262 -> 0
+Pop: 251 -> 3
+Pop: 248 -> 0
+Pop: 247 -> 4
+Pop: 246 -> 5
+Pop: 245 -> 1
+Pop: 243 -> 2
+Pop: 236 -> 0
+Pop: 244 -> 3
+Pop: 242 -> 1
+Pop: 241 -> 2
+Pop: 240 -> 6
+Pop: 231 -> 2
+Pop: 101 -> 2
+Pop: 100 -> 2
+Pop: 94 -> 2
+Pop: 93 -> 2
+Pop: 89 -> 2
+Pop: 88 -> 2
+Pop: 84 -> 2
+Pop: 77 -> 2
+Pop: 70 -> 2
+Pop: 69 -> 2
+Pop: 65 -> 2
+Pop: 273 -> 2
+Pop: 280 -> 0
+Pop: 279 -> 3
+Pop: 278 -> 4
+Pop: 277 -> 1
+Pop: 274 -> 5
+Pop: 272 -> 1
+Pop: 261 -> 4
+Pop: 260 -> 3
+Pop: 250 -> 1
+Pop: 259 -> 5
+Pop: 258 -> 0
+Pop: 257 -> 4
+Pop: 256 -> 5
+Pop: 255 -> 1
+Pop: 239 -> 4
+Pop: 238 -> 3
+Pop: 175 -> 1
+Pop: 174 -> 1
+Pop: 103 -> 0
+Pop: 104 -> 2
+Pop: 96 -> 0
+Pop: 99 -> 2
+Pop: 98 -> 2
+Pop: 97 -> 0
+Pop: 91 -> 0
+Pop: 92 -> 2
+Pop: 72 -> 0
+Pop: 73 -> 2
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 237 -> 1
+Pop: 220 -> 0
+Pop: 219 -> 1
+Pop: 214 -> 0
+Pop: 213 -> 0
+Pop: 212 -> 0
+Pop: 202 -> 1
+Pop: 201 -> 0
+Pop: 200 -> 1
+Pop: 189 -> 1
+Pop: 176 -> 1
+Pop: 102 -> 0
+Pop: 95 -> 0
+Pop: 90 -> 0
+Pop: 71 -> 0
+Pop: 276 -> 0
+Pop: 275 -> 0
+Pop: 254 -> 0
+Pop: 253 -> 0
+Pop: 210 -> 0
+Pop: 209 -> 0
+Pop: 208 -> 0
+Pop: 207 -> 0
+Pop: 206 -> 0
+Pop: 194 -> 0
+Pop: 193 -> 0
+Pop: 235 -> 2
+Pop: 234 -> 0
+Pop: 233 -> 1
+Pop: 232 -> 0
+----------------------------------------
+K = 20
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 140
+Push: 46
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 134
+Push: 137
+Push: 133
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 130
+Push: 125
+Push: 129
+Push: 124
+Push: 128
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 45
+Push: 40
+Push: 41
+Push: 42
+Push: 43
+Push: 44
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 48
+Push: 67
+Push: 49
+Push: 68
+Push: 50
+Push: 79
+Push: 51
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 51 -> 5
+Pop: 79 -> 0
+Pop: 50 -> 7
+Pop: 68 -> 4
+Pop: 49 -> 6
+Pop: 67 -> 0
+Pop: 48 -> 1
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 44 -> 0
+Pop: 43 -> 3
+Pop: 42 -> 4
+Pop: 41 -> 7
+Pop: 40 -> 1
+Pop: 45 -> 8
+Pop: 141 -> 1
+Pop: 138 -> 0
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 128 -> 2
+Pop: 124 -> 5
+Pop: 129 -> 3
+Pop: 125 -> 0
+Pop: 130 -> 4
+Pop: 126 -> 6
+Pop: 127 -> 7
+Pop: 132 -> 8
+Pop: 131 -> 9
+Pop: 133 -> 6
+Pop: 137 -> 4
+Pop: 134 -> 1
+Pop: 136 -> 3
+Pop: 135 -> 2
+Pop: 187 -> 5
+Pop: 186 -> 6
+Pop: 180 -> 5
+Pop: 179 -> 6
+Pop: 163 -> 5
+Pop: 162 -> 6
+Pop: 46 -> 2
+Pop: 140 -> 5
+Pop: 53 -> 3
+Pop: 83 -> 2
+Pop: 85 -> 8
+Pop: 52 -> 0
+Pop: 76 -> 2
+Pop: 78 -> 8
+Pop: 64 -> 2
+Pop: 66 -> 8
+Pop: 205 -> 5
+Pop: 218 -> 0
+Pop: 204 -> 4
+Pop: 215 -> 1
+Pop: 211 -> 6
+Pop: 192 -> 5
+Pop: 199 -> 0
+Pop: 191 -> 4
+Pop: 198 -> 1
+Pop: 197 -> 6
+Pop: 188 -> 0
+Pop: 139 -> 7
+Pop: 185 -> 6
+Pop: 184 -> 8
+Pop: 161 -> 6
+Pop: 160 -> 8
+Pop: 156 -> 2
+Pop: 155 -> 6
+Pop: 148 -> 6
+Pop: 142 -> 8
+Pop: 147 -> 6
+Pop: 146 -> 6
+Pop: 145 -> 6
+Pop: 144 -> 6
+Pop: 61 -> 2
+Pop: 55 -> 4
+Pop: 54 -> 8
+Pop: 60 -> 2
+Pop: 59 -> 2
+Pop: 58 -> 2
+Pop: 57 -> 2
+Pop: 222 -> 2
+Pop: 223 -> 1
+Pop: 224 -> 3
+Pop: 225 -> 4
+Pop: 226 -> 5
+Pop: 227 -> 0
+Pop: 230 -> 6
+Pop: 228 -> 7
+Pop: 229 -> 6
+Pop: 221 -> 3
+Pop: 203 -> 2
+Pop: 217 -> 3
+Pop: 216 -> 7
+Pop: 190 -> 2
+Pop: 196 -> 3
+Pop: 195 -> 7
+Pop: 183 -> 6
+Pop: 182 -> 6
+Pop: 181 -> 6
+Pop: 178 -> 6
+Pop: 177 -> 6
+Pop: 173 -> 2
+Pop: 172 -> 5
+Pop: 167 -> 6
+Pop: 164 -> 7
+Pop: 171 -> 3
+Pop: 170 -> 5
+Pop: 169 -> 5
+Pop: 168 -> 5
+Pop: 166 -> 6
+Pop: 165 -> 6
+Pop: 159 -> 6
+Pop: 158 -> 6
+Pop: 157 -> 6
+Pop: 154 -> 3
+Pop: 153 -> 6
+Pop: 152 -> 6
+Pop: 151 -> 6
+Pop: 150 -> 6
+Pop: 149 -> 6
+Pop: 143 -> 6
+Pop: 105 -> 3
+Pop: 82 -> 2
+Pop: 81 -> 2
+Pop: 75 -> 2
+Pop: 74 -> 2
+Pop: 63 -> 2
+Pop: 62 -> 2
+Pop: 56 -> 2
+Pop: 32 -> 3
+Pop: 27 -> 0
+Pop: 270 -> 0
+Pop: 269 -> 4
+Pop: 268 -> 5
+Pop: 267 -> 1
+Pop: 252 -> 2
+Pop: 265 -> 6
+Pop: 266 -> 3
+Pop: 264 -> 1
+Pop: 263 -> 6
+Pop: 262 -> 0
+Pop: 251 -> 3
+Pop: 248 -> 0
+Pop: 247 -> 4
+Pop: 246 -> 5
+Pop: 245 -> 1
+Pop: 243 -> 2
+Pop: 236 -> 0
+Pop: 244 -> 3
+Pop: 242 -> 1
+Pop: 241 -> 2
+Pop: 240 -> 6
+Pop: 231 -> 2
+Pop: 101 -> 2
+Pop: 100 -> 2
+Pop: 94 -> 2
+Pop: 93 -> 2
+Pop: 89 -> 2
+Pop: 88 -> 2
+Pop: 84 -> 2
+Pop: 77 -> 2
+Pop: 70 -> 2
+Pop: 69 -> 2
+Pop: 65 -> 2
+Pop: 273 -> 2
+Pop: 280 -> 0
+Pop: 279 -> 3
+Pop: 278 -> 4
+Pop: 277 -> 1
+Pop: 274 -> 5
+Pop: 272 -> 1
+Pop: 261 -> 4
+Pop: 260 -> 3
+Pop: 250 -> 1
+Pop: 259 -> 5
+Pop: 258 -> 0
+Pop: 257 -> 4
+Pop: 256 -> 5
+Pop: 255 -> 1
+Pop: 239 -> 4
+Pop: 238 -> 3
+Pop: 175 -> 1
+Pop: 174 -> 1
+Pop: 103 -> 0
+Pop: 104 -> 2
+Pop: 96 -> 0
+Pop: 99 -> 2
+Pop: 98 -> 2
+Pop: 97 -> 0
+Pop: 91 -> 0
+Pop: 92 -> 2
+Pop: 72 -> 0
+Pop: 73 -> 2
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 237 -> 1
+Pop: 220 -> 0
+Pop: 219 -> 1
+Pop: 214 -> 0
+Pop: 213 -> 0
+Pop: 212 -> 0
+Pop: 202 -> 1
+Pop: 201 -> 0
+Pop: 200 -> 1
+Pop: 189 -> 1
+Pop: 176 -> 1
+Pop: 102 -> 0
+Pop: 95 -> 0
+Pop: 90 -> 0
+Pop: 71 -> 0
+Pop: 276 -> 0
+Pop: 275 -> 0
+Pop: 254 -> 0
+Pop: 253 -> 0
+Pop: 210 -> 0
+Pop: 209 -> 0
+Pop: 208 -> 0
+Pop: 207 -> 0
+Pop: 206 -> 0
+Pop: 194 -> 0
+Pop: 193 -> 0
+Pop: 235 -> 2
+Pop: 234 -> 0
+Pop: 233 -> 1
+Pop: 232 -> 0
+----------------------------------------
+K = 19
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 140
+Push: 46
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 134
+Push: 137
+Push: 133
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 130
+Push: 125
+Push: 129
+Push: 124
+Push: 128
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 45
+Push: 40
+Push: 41
+Push: 42
+Push: 43
+Push: 44
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 48
+Push: 67
+Push: 49
+Push: 68
+Push: 50
+Push: 79
+Push: 51
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 51 -> 5
+Pop: 79 -> 0
+Pop: 50 -> 7
+Pop: 68 -> 4
+Pop: 49 -> 6
+Pop: 67 -> 0
+Pop: 48 -> 1
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 44 -> 0
+Pop: 43 -> 3
+Pop: 42 -> 4
+Pop: 41 -> 7
+Pop: 40 -> 1
+Pop: 45 -> 8
+Pop: 141 -> 1
+Pop: 138 -> 0
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 128 -> 2
+Pop: 124 -> 5
+Pop: 129 -> 3
+Pop: 125 -> 0
+Pop: 130 -> 4
+Pop: 126 -> 6
+Pop: 127 -> 7
+Pop: 132 -> 8
+Pop: 131 -> 9
+Pop: 133 -> 6
+Pop: 137 -> 4
+Pop: 134 -> 1
+Pop: 136 -> 3
+Pop: 135 -> 2
+Pop: 187 -> 5
+Pop: 186 -> 6
+Pop: 180 -> 5
+Pop: 179 -> 6
+Pop: 163 -> 5
+Pop: 162 -> 6
+Pop: 46 -> 2
+Pop: 140 -> 5
+Pop: 53 -> 3
+Pop: 83 -> 2
+Pop: 85 -> 8
+Pop: 52 -> 0
+Pop: 76 -> 2
+Pop: 78 -> 8
+Pop: 64 -> 2
+Pop: 66 -> 8
+Pop: 205 -> 5
+Pop: 218 -> 0
+Pop: 204 -> 4
+Pop: 215 -> 1
+Pop: 211 -> 6
+Pop: 192 -> 5
+Pop: 199 -> 0
+Pop: 191 -> 4
+Pop: 198 -> 1
+Pop: 197 -> 6
+Pop: 188 -> 0
+Pop: 139 -> 7
+Pop: 185 -> 6
+Pop: 184 -> 8
+Pop: 161 -> 6
+Pop: 160 -> 8
+Pop: 156 -> 2
+Pop: 155 -> 6
+Pop: 148 -> 6
+Pop: 142 -> 8
+Pop: 147 -> 6
+Pop: 146 -> 6
+Pop: 145 -> 6
+Pop: 144 -> 6
+Pop: 61 -> 2
+Pop: 55 -> 4
+Pop: 54 -> 8
+Pop: 60 -> 2
+Pop: 59 -> 2
+Pop: 58 -> 2
+Pop: 57 -> 2
+Pop: 222 -> 2
+Pop: 223 -> 1
+Pop: 224 -> 3
+Pop: 225 -> 4
+Pop: 226 -> 5
+Pop: 227 -> 0
+Pop: 230 -> 6
+Pop: 228 -> 7
+Pop: 229 -> 6
+Pop: 221 -> 3
+Pop: 203 -> 2
+Pop: 217 -> 3
+Pop: 216 -> 7
+Pop: 190 -> 2
+Pop: 196 -> 3
+Pop: 195 -> 7
+Pop: 183 -> 6
+Pop: 182 -> 6
+Pop: 181 -> 6
+Pop: 178 -> 6
+Pop: 177 -> 6
+Pop: 173 -> 2
+Pop: 172 -> 5
+Pop: 167 -> 6
+Pop: 164 -> 7
+Pop: 171 -> 3
+Pop: 170 -> 5
+Pop: 169 -> 5
+Pop: 168 -> 5
+Pop: 166 -> 6
+Pop: 165 -> 6
+Pop: 159 -> 6
+Pop: 158 -> 6
+Pop: 157 -> 6
+Pop: 154 -> 3
+Pop: 153 -> 6
+Pop: 152 -> 6
+Pop: 151 -> 6
+Pop: 150 -> 6
+Pop: 149 -> 6
+Pop: 143 -> 6
+Pop: 105 -> 3
+Pop: 82 -> 2
+Pop: 81 -> 2
+Pop: 75 -> 2
+Pop: 74 -> 2
+Pop: 63 -> 2
+Pop: 62 -> 2
+Pop: 56 -> 2
+Pop: 32 -> 3
+Pop: 27 -> 0
+Pop: 270 -> 0
+Pop: 269 -> 4
+Pop: 268 -> 5
+Pop: 267 -> 1
+Pop: 252 -> 2
+Pop: 265 -> 6
+Pop: 266 -> 3
+Pop: 264 -> 1
+Pop: 263 -> 6
+Pop: 262 -> 0
+Pop: 251 -> 3
+Pop: 248 -> 0
+Pop: 247 -> 4
+Pop: 246 -> 5
+Pop: 245 -> 1
+Pop: 243 -> 2
+Pop: 236 -> 0
+Pop: 244 -> 3
+Pop: 242 -> 1
+Pop: 241 -> 2
+Pop: 240 -> 6
+Pop: 231 -> 2
+Pop: 101 -> 2
+Pop: 100 -> 2
+Pop: 94 -> 2
+Pop: 93 -> 2
+Pop: 89 -> 2
+Pop: 88 -> 2
+Pop: 84 -> 2
+Pop: 77 -> 2
+Pop: 70 -> 2
+Pop: 69 -> 2
+Pop: 65 -> 2
+Pop: 273 -> 2
+Pop: 280 -> 0
+Pop: 279 -> 3
+Pop: 278 -> 4
+Pop: 277 -> 1
+Pop: 274 -> 5
+Pop: 272 -> 1
+Pop: 261 -> 4
+Pop: 260 -> 3
+Pop: 250 -> 1
+Pop: 259 -> 5
+Pop: 258 -> 0
+Pop: 257 -> 4
+Pop: 256 -> 5
+Pop: 255 -> 1
+Pop: 239 -> 4
+Pop: 238 -> 3
+Pop: 175 -> 1
+Pop: 174 -> 1
+Pop: 103 -> 0
+Pop: 104 -> 2
+Pop: 96 -> 0
+Pop: 99 -> 2
+Pop: 98 -> 2
+Pop: 97 -> 0
+Pop: 91 -> 0
+Pop: 92 -> 2
+Pop: 72 -> 0
+Pop: 73 -> 2
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 237 -> 1
+Pop: 220 -> 0
+Pop: 219 -> 1
+Pop: 214 -> 0
+Pop: 213 -> 0
+Pop: 212 -> 0
+Pop: 202 -> 1
+Pop: 201 -> 0
+Pop: 200 -> 1
+Pop: 189 -> 1
+Pop: 176 -> 1
+Pop: 102 -> 0
+Pop: 95 -> 0
+Pop: 90 -> 0
+Pop: 71 -> 0
+Pop: 276 -> 0
+Pop: 275 -> 0
+Pop: 254 -> 0
+Pop: 253 -> 0
+Pop: 210 -> 0
+Pop: 209 -> 0
+Pop: 208 -> 0
+Pop: 207 -> 0
+Pop: 206 -> 0
+Pop: 194 -> 0
+Pop: 193 -> 0
+Pop: 235 -> 2
+Pop: 234 -> 0
+Pop: 233 -> 1
+Pop: 232 -> 0
+----------------------------------------
+K = 18
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 140
+Push: 46
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 134
+Push: 137
+Push: 133
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 130
+Push: 125
+Push: 129
+Push: 124
+Push: 128
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 45
+Push: 40
+Push: 41
+Push: 42
+Push: 43
+Push: 44
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 48
+Push: 67
+Push: 49
+Push: 68
+Push: 50
+Push: 79
+Push: 51
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 51 -> 5
+Pop: 79 -> 0
+Pop: 50 -> 7
+Pop: 68 -> 4
+Pop: 49 -> 6
+Pop: 67 -> 0
+Pop: 48 -> 1
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 44 -> 0
+Pop: 43 -> 3
+Pop: 42 -> 4
+Pop: 41 -> 7
+Pop: 40 -> 1
+Pop: 45 -> 8
+Pop: 141 -> 1
+Pop: 138 -> 0
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 128 -> 2
+Pop: 124 -> 5
+Pop: 129 -> 3
+Pop: 125 -> 0
+Pop: 130 -> 4
+Pop: 126 -> 6
+Pop: 127 -> 7
+Pop: 132 -> 8
+Pop: 131 -> 9
+Pop: 133 -> 6
+Pop: 137 -> 4
+Pop: 134 -> 1
+Pop: 136 -> 3
+Pop: 135 -> 2
+Pop: 187 -> 5
+Pop: 186 -> 6
+Pop: 180 -> 5
+Pop: 179 -> 6
+Pop: 163 -> 5
+Pop: 162 -> 6
+Pop: 46 -> 2
+Pop: 140 -> 5
+Pop: 53 -> 3
+Pop: 83 -> 2
+Pop: 85 -> 8
+Pop: 52 -> 0
+Pop: 76 -> 2
+Pop: 78 -> 8
+Pop: 64 -> 2
+Pop: 66 -> 8
+Pop: 205 -> 5
+Pop: 218 -> 0
+Pop: 204 -> 4
+Pop: 215 -> 1
+Pop: 211 -> 6
+Pop: 192 -> 5
+Pop: 199 -> 0
+Pop: 191 -> 4
+Pop: 198 -> 1
+Pop: 197 -> 6
+Pop: 188 -> 0
+Pop: 139 -> 7
+Pop: 185 -> 6
+Pop: 184 -> 8
+Pop: 161 -> 6
+Pop: 160 -> 8
+Pop: 156 -> 2
+Pop: 155 -> 6
+Pop: 148 -> 6
+Pop: 142 -> 8
+Pop: 147 -> 6
+Pop: 146 -> 6
+Pop: 145 -> 6
+Pop: 144 -> 6
+Pop: 61 -> 2
+Pop: 55 -> 4
+Pop: 54 -> 8
+Pop: 60 -> 2
+Pop: 59 -> 2
+Pop: 58 -> 2
+Pop: 57 -> 2
+Pop: 222 -> 2
+Pop: 223 -> 1
+Pop: 224 -> 3
+Pop: 225 -> 4
+Pop: 226 -> 5
+Pop: 227 -> 0
+Pop: 230 -> 6
+Pop: 228 -> 7
+Pop: 229 -> 6
+Pop: 221 -> 3
+Pop: 203 -> 2
+Pop: 217 -> 3
+Pop: 216 -> 7
+Pop: 190 -> 2
+Pop: 196 -> 3
+Pop: 195 -> 7
+Pop: 183 -> 6
+Pop: 182 -> 6
+Pop: 181 -> 6
+Pop: 178 -> 6
+Pop: 177 -> 6
+Pop: 173 -> 2
+Pop: 172 -> 5
+Pop: 167 -> 6
+Pop: 164 -> 7
+Pop: 171 -> 3
+Pop: 170 -> 5
+Pop: 169 -> 5
+Pop: 168 -> 5
+Pop: 166 -> 6
+Pop: 165 -> 6
+Pop: 159 -> 6
+Pop: 158 -> 6
+Pop: 157 -> 6
+Pop: 154 -> 3
+Pop: 153 -> 6
+Pop: 152 -> 6
+Pop: 151 -> 6
+Pop: 150 -> 6
+Pop: 149 -> 6
+Pop: 143 -> 6
+Pop: 105 -> 3
+Pop: 82 -> 2
+Pop: 81 -> 2
+Pop: 75 -> 2
+Pop: 74 -> 2
+Pop: 63 -> 2
+Pop: 62 -> 2
+Pop: 56 -> 2
+Pop: 32 -> 3
+Pop: 27 -> 0
+Pop: 270 -> 0
+Pop: 269 -> 4
+Pop: 268 -> 5
+Pop: 267 -> 1
+Pop: 252 -> 2
+Pop: 265 -> 6
+Pop: 266 -> 3
+Pop: 264 -> 1
+Pop: 263 -> 6
+Pop: 262 -> 0
+Pop: 251 -> 3
+Pop: 248 -> 0
+Pop: 247 -> 4
+Pop: 246 -> 5
+Pop: 245 -> 1
+Pop: 243 -> 2
+Pop: 236 -> 0
+Pop: 244 -> 3
+Pop: 242 -> 1
+Pop: 241 -> 2
+Pop: 240 -> 6
+Pop: 231 -> 2
+Pop: 101 -> 2
+Pop: 100 -> 2
+Pop: 94 -> 2
+Pop: 93 -> 2
+Pop: 89 -> 2
+Pop: 88 -> 2
+Pop: 84 -> 2
+Pop: 77 -> 2
+Pop: 70 -> 2
+Pop: 69 -> 2
+Pop: 65 -> 2
+Pop: 273 -> 2
+Pop: 280 -> 0
+Pop: 279 -> 3
+Pop: 278 -> 4
+Pop: 277 -> 1
+Pop: 274 -> 5
+Pop: 272 -> 1
+Pop: 261 -> 4
+Pop: 260 -> 3
+Pop: 250 -> 1
+Pop: 259 -> 5
+Pop: 258 -> 0
+Pop: 257 -> 4
+Pop: 256 -> 5
+Pop: 255 -> 1
+Pop: 239 -> 4
+Pop: 238 -> 3
+Pop: 175 -> 1
+Pop: 174 -> 1
+Pop: 103 -> 0
+Pop: 104 -> 2
+Pop: 96 -> 0
+Pop: 99 -> 2
+Pop: 98 -> 2
+Pop: 97 -> 0
+Pop: 91 -> 0
+Pop: 92 -> 2
+Pop: 72 -> 0
+Pop: 73 -> 2
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 237 -> 1
+Pop: 220 -> 0
+Pop: 219 -> 1
+Pop: 214 -> 0
+Pop: 213 -> 0
+Pop: 212 -> 0
+Pop: 202 -> 1
+Pop: 201 -> 0
+Pop: 200 -> 1
+Pop: 189 -> 1
+Pop: 176 -> 1
+Pop: 102 -> 0
+Pop: 95 -> 0
+Pop: 90 -> 0
+Pop: 71 -> 0
+Pop: 276 -> 0
+Pop: 275 -> 0
+Pop: 254 -> 0
+Pop: 253 -> 0
+Pop: 210 -> 0
+Pop: 209 -> 0
+Pop: 208 -> 0
+Pop: 207 -> 0
+Pop: 206 -> 0
+Pop: 194 -> 0
+Pop: 193 -> 0
+Pop: 235 -> 2
+Pop: 234 -> 0
+Pop: 233 -> 1
+Pop: 232 -> 0
+----------------------------------------
+K = 17
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 140
+Push: 46
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 134
+Push: 137
+Push: 133
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 130
+Push: 125
+Push: 129
+Push: 124
+Push: 128
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 45
+Push: 40
+Push: 41
+Push: 42
+Push: 43
+Push: 44
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 48
+Push: 67
+Push: 49
+Push: 68
+Push: 50
+Push: 79
+Push: 51
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 51 -> 5
+Pop: 79 -> 0
+Pop: 50 -> 7
+Pop: 68 -> 4
+Pop: 49 -> 6
+Pop: 67 -> 0
+Pop: 48 -> 1
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 44 -> 0
+Pop: 43 -> 3
+Pop: 42 -> 4
+Pop: 41 -> 7
+Pop: 40 -> 1
+Pop: 45 -> 8
+Pop: 141 -> 1
+Pop: 138 -> 0
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 128 -> 2
+Pop: 124 -> 5
+Pop: 129 -> 3
+Pop: 125 -> 0
+Pop: 130 -> 4
+Pop: 126 -> 6
+Pop: 127 -> 7
+Pop: 132 -> 8
+Pop: 131 -> 9
+Pop: 133 -> 6
+Pop: 137 -> 4
+Pop: 134 -> 1
+Pop: 136 -> 3
+Pop: 135 -> 2
+Pop: 187 -> 5
+Pop: 186 -> 6
+Pop: 180 -> 5
+Pop: 179 -> 6
+Pop: 163 -> 5
+Pop: 162 -> 6
+Pop: 46 -> 2
+Pop: 140 -> 5
+Pop: 53 -> 3
+Pop: 83 -> 2
+Pop: 85 -> 8
+Pop: 52 -> 0
+Pop: 76 -> 2
+Pop: 78 -> 8
+Pop: 64 -> 2
+Pop: 66 -> 8
+Pop: 205 -> 5
+Pop: 218 -> 0
+Pop: 204 -> 4
+Pop: 215 -> 1
+Pop: 211 -> 6
+Pop: 192 -> 5
+Pop: 199 -> 0
+Pop: 191 -> 4
+Pop: 198 -> 1
+Pop: 197 -> 6
+Pop: 188 -> 0
+Pop: 139 -> 7
+Pop: 185 -> 6
+Pop: 184 -> 8
+Pop: 161 -> 6
+Pop: 160 -> 8
+Pop: 156 -> 2
+Pop: 155 -> 6
+Pop: 148 -> 6
+Pop: 142 -> 8
+Pop: 147 -> 6
+Pop: 146 -> 6
+Pop: 145 -> 6
+Pop: 144 -> 6
+Pop: 61 -> 2
+Pop: 55 -> 4
+Pop: 54 -> 8
+Pop: 60 -> 2
+Pop: 59 -> 2
+Pop: 58 -> 2
+Pop: 57 -> 2
+Pop: 222 -> 2
+Pop: 223 -> 1
+Pop: 224 -> 3
+Pop: 225 -> 4
+Pop: 226 -> 5
+Pop: 227 -> 0
+Pop: 230 -> 6
+Pop: 228 -> 7
+Pop: 229 -> 6
+Pop: 221 -> 3
+Pop: 203 -> 2
+Pop: 217 -> 3
+Pop: 216 -> 7
+Pop: 190 -> 2
+Pop: 196 -> 3
+Pop: 195 -> 7
+Pop: 183 -> 6
+Pop: 182 -> 6
+Pop: 181 -> 6
+Pop: 178 -> 6
+Pop: 177 -> 6
+Pop: 173 -> 2
+Pop: 172 -> 5
+Pop: 167 -> 6
+Pop: 164 -> 7
+Pop: 171 -> 3
+Pop: 170 -> 5
+Pop: 169 -> 5
+Pop: 168 -> 5
+Pop: 166 -> 6
+Pop: 165 -> 6
+Pop: 159 -> 6
+Pop: 158 -> 6
+Pop: 157 -> 6
+Pop: 154 -> 3
+Pop: 153 -> 6
+Pop: 152 -> 6
+Pop: 151 -> 6
+Pop: 150 -> 6
+Pop: 149 -> 6
+Pop: 143 -> 6
+Pop: 105 -> 3
+Pop: 82 -> 2
+Pop: 81 -> 2
+Pop: 75 -> 2
+Pop: 74 -> 2
+Pop: 63 -> 2
+Pop: 62 -> 2
+Pop: 56 -> 2
+Pop: 32 -> 3
+Pop: 27 -> 0
+Pop: 270 -> 0
+Pop: 269 -> 4
+Pop: 268 -> 5
+Pop: 267 -> 1
+Pop: 252 -> 2
+Pop: 265 -> 6
+Pop: 266 -> 3
+Pop: 264 -> 1
+Pop: 263 -> 6
+Pop: 262 -> 0
+Pop: 251 -> 3
+Pop: 248 -> 0
+Pop: 247 -> 4
+Pop: 246 -> 5
+Pop: 245 -> 1
+Pop: 243 -> 2
+Pop: 236 -> 0
+Pop: 244 -> 3
+Pop: 242 -> 1
+Pop: 241 -> 2
+Pop: 240 -> 6
+Pop: 231 -> 2
+Pop: 101 -> 2
+Pop: 100 -> 2
+Pop: 94 -> 2
+Pop: 93 -> 2
+Pop: 89 -> 2
+Pop: 88 -> 2
+Pop: 84 -> 2
+Pop: 77 -> 2
+Pop: 70 -> 2
+Pop: 69 -> 2
+Pop: 65 -> 2
+Pop: 273 -> 2
+Pop: 280 -> 0
+Pop: 279 -> 3
+Pop: 278 -> 4
+Pop: 277 -> 1
+Pop: 274 -> 5
+Pop: 272 -> 1
+Pop: 261 -> 4
+Pop: 260 -> 3
+Pop: 250 -> 1
+Pop: 259 -> 5
+Pop: 258 -> 0
+Pop: 257 -> 4
+Pop: 256 -> 5
+Pop: 255 -> 1
+Pop: 239 -> 4
+Pop: 238 -> 3
+Pop: 175 -> 1
+Pop: 174 -> 1
+Pop: 103 -> 0
+Pop: 104 -> 2
+Pop: 96 -> 0
+Pop: 99 -> 2
+Pop: 98 -> 2
+Pop: 97 -> 0
+Pop: 91 -> 0
+Pop: 92 -> 2
+Pop: 72 -> 0
+Pop: 73 -> 2
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 237 -> 1
+Pop: 220 -> 0
+Pop: 219 -> 1
+Pop: 214 -> 0
+Pop: 213 -> 0
+Pop: 212 -> 0
+Pop: 202 -> 1
+Pop: 201 -> 0
+Pop: 200 -> 1
+Pop: 189 -> 1
+Pop: 176 -> 1
+Pop: 102 -> 0
+Pop: 95 -> 0
+Pop: 90 -> 0
+Pop: 71 -> 0
+Pop: 276 -> 0
+Pop: 275 -> 0
+Pop: 254 -> 0
+Pop: 253 -> 0
+Pop: 210 -> 0
+Pop: 209 -> 0
+Pop: 208 -> 0
+Pop: 207 -> 0
+Pop: 206 -> 0
+Pop: 194 -> 0
+Pop: 193 -> 0
+Pop: 235 -> 2
+Pop: 234 -> 0
+Pop: 233 -> 1
+Pop: 232 -> 0
+----------------------------------------
+K = 16
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 140
+Push: 46
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 134
+Push: 137
+Push: 133
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 130
+Push: 125
+Push: 129
+Push: 124
+Push: 128
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 45
+Push: 40
+Push: 41
+Push: 42
+Push: 43
+Push: 44
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 48
+Push: 67
+Push: 49
+Push: 68
+Push: 50
+Push: 79
+Push: 51
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 51 -> 5
+Pop: 79 -> 0
+Pop: 50 -> 7
+Pop: 68 -> 4
+Pop: 49 -> 6
+Pop: 67 -> 0
+Pop: 48 -> 1
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 44 -> 0
+Pop: 43 -> 3
+Pop: 42 -> 4
+Pop: 41 -> 7
+Pop: 40 -> 1
+Pop: 45 -> 8
+Pop: 141 -> 1
+Pop: 138 -> 0
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 128 -> 2
+Pop: 124 -> 5
+Pop: 129 -> 3
+Pop: 125 -> 0
+Pop: 130 -> 4
+Pop: 126 -> 6
+Pop: 127 -> 7
+Pop: 132 -> 8
+Pop: 131 -> 9
+Pop: 133 -> 6
+Pop: 137 -> 4
+Pop: 134 -> 1
+Pop: 136 -> 3
+Pop: 135 -> 2
+Pop: 187 -> 5
+Pop: 186 -> 6
+Pop: 180 -> 5
+Pop: 179 -> 6
+Pop: 163 -> 5
+Pop: 162 -> 6
+Pop: 46 -> 2
+Pop: 140 -> 5
+Pop: 53 -> 3
+Pop: 83 -> 2
+Pop: 85 -> 8
+Pop: 52 -> 0
+Pop: 76 -> 2
+Pop: 78 -> 8
+Pop: 64 -> 2
+Pop: 66 -> 8
+Pop: 205 -> 5
+Pop: 218 -> 0
+Pop: 204 -> 4
+Pop: 215 -> 1
+Pop: 211 -> 6
+Pop: 192 -> 5
+Pop: 199 -> 0
+Pop: 191 -> 4
+Pop: 198 -> 1
+Pop: 197 -> 6
+Pop: 188 -> 0
+Pop: 139 -> 7
+Pop: 185 -> 6
+Pop: 184 -> 8
+Pop: 161 -> 6
+Pop: 160 -> 8
+Pop: 156 -> 2
+Pop: 155 -> 6
+Pop: 148 -> 6
+Pop: 142 -> 8
+Pop: 147 -> 6
+Pop: 146 -> 6
+Pop: 145 -> 6
+Pop: 144 -> 6
+Pop: 61 -> 2
+Pop: 55 -> 4
+Pop: 54 -> 8
+Pop: 60 -> 2
+Pop: 59 -> 2
+Pop: 58 -> 2
+Pop: 57 -> 2
+Pop: 222 -> 2
+Pop: 223 -> 1
+Pop: 224 -> 3
+Pop: 225 -> 4
+Pop: 226 -> 5
+Pop: 227 -> 0
+Pop: 230 -> 6
+Pop: 228 -> 7
+Pop: 229 -> 6
+Pop: 221 -> 3
+Pop: 203 -> 2
+Pop: 217 -> 3
+Pop: 216 -> 7
+Pop: 190 -> 2
+Pop: 196 -> 3
+Pop: 195 -> 7
+Pop: 183 -> 6
+Pop: 182 -> 6
+Pop: 181 -> 6
+Pop: 178 -> 6
+Pop: 177 -> 6
+Pop: 173 -> 2
+Pop: 172 -> 5
+Pop: 167 -> 6
+Pop: 164 -> 7
+Pop: 171 -> 3
+Pop: 170 -> 5
+Pop: 169 -> 5
+Pop: 168 -> 5
+Pop: 166 -> 6
+Pop: 165 -> 6
+Pop: 159 -> 6
+Pop: 158 -> 6
+Pop: 157 -> 6
+Pop: 154 -> 3
+Pop: 153 -> 6
+Pop: 152 -> 6
+Pop: 151 -> 6
+Pop: 150 -> 6
+Pop: 149 -> 6
+Pop: 143 -> 6
+Pop: 105 -> 3
+Pop: 82 -> 2
+Pop: 81 -> 2
+Pop: 75 -> 2
+Pop: 74 -> 2
+Pop: 63 -> 2
+Pop: 62 -> 2
+Pop: 56 -> 2
+Pop: 32 -> 3
+Pop: 27 -> 0
+Pop: 270 -> 0
+Pop: 269 -> 4
+Pop: 268 -> 5
+Pop: 267 -> 1
+Pop: 252 -> 2
+Pop: 265 -> 6
+Pop: 266 -> 3
+Pop: 264 -> 1
+Pop: 263 -> 6
+Pop: 262 -> 0
+Pop: 251 -> 3
+Pop: 248 -> 0
+Pop: 247 -> 4
+Pop: 246 -> 5
+Pop: 245 -> 1
+Pop: 243 -> 2
+Pop: 236 -> 0
+Pop: 244 -> 3
+Pop: 242 -> 1
+Pop: 241 -> 2
+Pop: 240 -> 6
+Pop: 231 -> 2
+Pop: 101 -> 2
+Pop: 100 -> 2
+Pop: 94 -> 2
+Pop: 93 -> 2
+Pop: 89 -> 2
+Pop: 88 -> 2
+Pop: 84 -> 2
+Pop: 77 -> 2
+Pop: 70 -> 2
+Pop: 69 -> 2
+Pop: 65 -> 2
+Pop: 273 -> 2
+Pop: 280 -> 0
+Pop: 279 -> 3
+Pop: 278 -> 4
+Pop: 277 -> 1
+Pop: 274 -> 5
+Pop: 272 -> 1
+Pop: 261 -> 4
+Pop: 260 -> 3
+Pop: 250 -> 1
+Pop: 259 -> 5
+Pop: 258 -> 0
+Pop: 257 -> 4
+Pop: 256 -> 5
+Pop: 255 -> 1
+Pop: 239 -> 4
+Pop: 238 -> 3
+Pop: 175 -> 1
+Pop: 174 -> 1
+Pop: 103 -> 0
+Pop: 104 -> 2
+Pop: 96 -> 0
+Pop: 99 -> 2
+Pop: 98 -> 2
+Pop: 97 -> 0
+Pop: 91 -> 0
+Pop: 92 -> 2
+Pop: 72 -> 0
+Pop: 73 -> 2
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 237 -> 1
+Pop: 220 -> 0
+Pop: 219 -> 1
+Pop: 214 -> 0
+Pop: 213 -> 0
+Pop: 212 -> 0
+Pop: 202 -> 1
+Pop: 201 -> 0
+Pop: 200 -> 1
+Pop: 189 -> 1
+Pop: 176 -> 1
+Pop: 102 -> 0
+Pop: 95 -> 0
+Pop: 90 -> 0
+Pop: 71 -> 0
+Pop: 276 -> 0
+Pop: 275 -> 0
+Pop: 254 -> 0
+Pop: 253 -> 0
+Pop: 210 -> 0
+Pop: 209 -> 0
+Pop: 208 -> 0
+Pop: 207 -> 0
+Pop: 206 -> 0
+Pop: 194 -> 0
+Pop: 193 -> 0
+Pop: 235 -> 2
+Pop: 234 -> 0
+Pop: 233 -> 1
+Pop: 232 -> 0
+----------------------------------------
+K = 15
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 140
+Push: 46
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 134
+Push: 137
+Push: 133
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 130
+Push: 125
+Push: 129
+Push: 124
+Push: 128
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 45
+Push: 40
+Push: 41
+Push: 42
+Push: 43
+Push: 44
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 48
+Push: 67
+Push: 49
+Push: 68
+Push: 50
+Push: 79
+Push: 51
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 51 -> 5
+Pop: 79 -> 0
+Pop: 50 -> 7
+Pop: 68 -> 4
+Pop: 49 -> 6
+Pop: 67 -> 0
+Pop: 48 -> 1
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 44 -> 0
+Pop: 43 -> 3
+Pop: 42 -> 4
+Pop: 41 -> 7
+Pop: 40 -> 1
+Pop: 45 -> 8
+Pop: 141 -> 1
+Pop: 138 -> 0
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 128 -> 2
+Pop: 124 -> 5
+Pop: 129 -> 3
+Pop: 125 -> 0
+Pop: 130 -> 4
+Pop: 126 -> 6
+Pop: 127 -> 7
+Pop: 132 -> 8
+Pop: 131 -> 9
+Pop: 133 -> 6
+Pop: 137 -> 4
+Pop: 134 -> 1
+Pop: 136 -> 3
+Pop: 135 -> 2
+Pop: 187 -> 5
+Pop: 186 -> 6
+Pop: 180 -> 5
+Pop: 179 -> 6
+Pop: 163 -> 5
+Pop: 162 -> 6
+Pop: 46 -> 2
+Pop: 140 -> 5
+Pop: 53 -> 3
+Pop: 83 -> 2
+Pop: 85 -> 8
+Pop: 52 -> 0
+Pop: 76 -> 2
+Pop: 78 -> 8
+Pop: 64 -> 2
+Pop: 66 -> 8
+Pop: 205 -> 5
+Pop: 218 -> 0
+Pop: 204 -> 4
+Pop: 215 -> 1
+Pop: 211 -> 6
+Pop: 192 -> 5
+Pop: 199 -> 0
+Pop: 191 -> 4
+Pop: 198 -> 1
+Pop: 197 -> 6
+Pop: 188 -> 0
+Pop: 139 -> 7
+Pop: 185 -> 6
+Pop: 184 -> 8
+Pop: 161 -> 6
+Pop: 160 -> 8
+Pop: 156 -> 2
+Pop: 155 -> 6
+Pop: 148 -> 6
+Pop: 142 -> 8
+Pop: 147 -> 6
+Pop: 146 -> 6
+Pop: 145 -> 6
+Pop: 144 -> 6
+Pop: 61 -> 2
+Pop: 55 -> 4
+Pop: 54 -> 8
+Pop: 60 -> 2
+Pop: 59 -> 2
+Pop: 58 -> 2
+Pop: 57 -> 2
+Pop: 222 -> 2
+Pop: 223 -> 1
+Pop: 224 -> 3
+Pop: 225 -> 4
+Pop: 226 -> 5
+Pop: 227 -> 0
+Pop: 230 -> 6
+Pop: 228 -> 7
+Pop: 229 -> 6
+Pop: 221 -> 3
+Pop: 203 -> 2
+Pop: 217 -> 3
+Pop: 216 -> 7
+Pop: 190 -> 2
+Pop: 196 -> 3
+Pop: 195 -> 7
+Pop: 183 -> 6
+Pop: 182 -> 6
+Pop: 181 -> 6
+Pop: 178 -> 6
+Pop: 177 -> 6
+Pop: 173 -> 2
+Pop: 172 -> 5
+Pop: 167 -> 6
+Pop: 164 -> 7
+Pop: 171 -> 3
+Pop: 170 -> 5
+Pop: 169 -> 5
+Pop: 168 -> 5
+Pop: 166 -> 6
+Pop: 165 -> 6
+Pop: 159 -> 6
+Pop: 158 -> 6
+Pop: 157 -> 6
+Pop: 154 -> 3
+Pop: 153 -> 6
+Pop: 152 -> 6
+Pop: 151 -> 6
+Pop: 150 -> 6
+Pop: 149 -> 6
+Pop: 143 -> 6
+Pop: 105 -> 3
+Pop: 82 -> 2
+Pop: 81 -> 2
+Pop: 75 -> 2
+Pop: 74 -> 2
+Pop: 63 -> 2
+Pop: 62 -> 2
+Pop: 56 -> 2
+Pop: 32 -> 3
+Pop: 27 -> 0
+Pop: 270 -> 0
+Pop: 269 -> 4
+Pop: 268 -> 5
+Pop: 267 -> 1
+Pop: 252 -> 2
+Pop: 265 -> 6
+Pop: 266 -> 3
+Pop: 264 -> 1
+Pop: 263 -> 6
+Pop: 262 -> 0
+Pop: 251 -> 3
+Pop: 248 -> 0
+Pop: 247 -> 4
+Pop: 246 -> 5
+Pop: 245 -> 1
+Pop: 243 -> 2
+Pop: 236 -> 0
+Pop: 244 -> 3
+Pop: 242 -> 1
+Pop: 241 -> 2
+Pop: 240 -> 6
+Pop: 231 -> 2
+Pop: 101 -> 2
+Pop: 100 -> 2
+Pop: 94 -> 2
+Pop: 93 -> 2
+Pop: 89 -> 2
+Pop: 88 -> 2
+Pop: 84 -> 2
+Pop: 77 -> 2
+Pop: 70 -> 2
+Pop: 69 -> 2
+Pop: 65 -> 2
+Pop: 273 -> 2
+Pop: 280 -> 0
+Pop: 279 -> 3
+Pop: 278 -> 4
+Pop: 277 -> 1
+Pop: 274 -> 5
+Pop: 272 -> 1
+Pop: 261 -> 4
+Pop: 260 -> 3
+Pop: 250 -> 1
+Pop: 259 -> 5
+Pop: 258 -> 0
+Pop: 257 -> 4
+Pop: 256 -> 5
+Pop: 255 -> 1
+Pop: 239 -> 4
+Pop: 238 -> 3
+Pop: 175 -> 1
+Pop: 174 -> 1
+Pop: 103 -> 0
+Pop: 104 -> 2
+Pop: 96 -> 0
+Pop: 99 -> 2
+Pop: 98 -> 2
+Pop: 97 -> 0
+Pop: 91 -> 0
+Pop: 92 -> 2
+Pop: 72 -> 0
+Pop: 73 -> 2
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 237 -> 1
+Pop: 220 -> 0
+Pop: 219 -> 1
+Pop: 214 -> 0
+Pop: 213 -> 0
+Pop: 212 -> 0
+Pop: 202 -> 1
+Pop: 201 -> 0
+Pop: 200 -> 1
+Pop: 189 -> 1
+Pop: 176 -> 1
+Pop: 102 -> 0
+Pop: 95 -> 0
+Pop: 90 -> 0
+Pop: 71 -> 0
+Pop: 276 -> 0
+Pop: 275 -> 0
+Pop: 254 -> 0
+Pop: 253 -> 0
+Pop: 210 -> 0
+Pop: 209 -> 0
+Pop: 208 -> 0
+Pop: 207 -> 0
+Pop: 206 -> 0
+Pop: 194 -> 0
+Pop: 193 -> 0
+Pop: 235 -> 2
+Pop: 234 -> 0
+Pop: 233 -> 1
+Pop: 232 -> 0
+----------------------------------------
+K = 14
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 140
+Push: 46
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 134
+Push: 137
+Push: 133
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 130
+Push: 125
+Push: 129
+Push: 124
+Push: 128
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 45
+Push: 40
+Push: 41
+Push: 42
+Push: 43
+Push: 44
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 48
+Push: 67
+Push: 49
+Push: 68
+Push: 50
+Push: 79
+Push: 51
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 51 -> 5
+Pop: 79 -> 0
+Pop: 50 -> 7
+Pop: 68 -> 4
+Pop: 49 -> 6
+Pop: 67 -> 0
+Pop: 48 -> 1
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 44 -> 0
+Pop: 43 -> 3
+Pop: 42 -> 4
+Pop: 41 -> 7
+Pop: 40 -> 1
+Pop: 45 -> 8
+Pop: 141 -> 1
+Pop: 138 -> 0
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 128 -> 2
+Pop: 124 -> 5
+Pop: 129 -> 3
+Pop: 125 -> 0
+Pop: 130 -> 4
+Pop: 126 -> 6
+Pop: 127 -> 7
+Pop: 132 -> 8
+Pop: 131 -> 9
+Pop: 133 -> 6
+Pop: 137 -> 4
+Pop: 134 -> 1
+Pop: 136 -> 3
+Pop: 135 -> 2
+Pop: 187 -> 5
+Pop: 186 -> 6
+Pop: 180 -> 5
+Pop: 179 -> 6
+Pop: 163 -> 5
+Pop: 162 -> 6
+Pop: 46 -> 2
+Pop: 140 -> 5
+Pop: 53 -> 3
+Pop: 83 -> 2
+Pop: 85 -> 8
+Pop: 52 -> 0
+Pop: 76 -> 2
+Pop: 78 -> 8
+Pop: 64 -> 2
+Pop: 66 -> 8
+Pop: 205 -> 5
+Pop: 218 -> 0
+Pop: 204 -> 4
+Pop: 215 -> 1
+Pop: 211 -> 6
+Pop: 192 -> 5
+Pop: 199 -> 0
+Pop: 191 -> 4
+Pop: 198 -> 1
+Pop: 197 -> 6
+Pop: 188 -> 0
+Pop: 139 -> 7
+Pop: 185 -> 6
+Pop: 184 -> 8
+Pop: 161 -> 6
+Pop: 160 -> 8
+Pop: 156 -> 2
+Pop: 155 -> 6
+Pop: 148 -> 6
+Pop: 142 -> 8
+Pop: 147 -> 6
+Pop: 146 -> 6
+Pop: 145 -> 6
+Pop: 144 -> 6
+Pop: 61 -> 2
+Pop: 55 -> 4
+Pop: 54 -> 8
+Pop: 60 -> 2
+Pop: 59 -> 2
+Pop: 58 -> 2
+Pop: 57 -> 2
+Pop: 222 -> 2
+Pop: 223 -> 1
+Pop: 224 -> 3
+Pop: 225 -> 4
+Pop: 226 -> 5
+Pop: 227 -> 0
+Pop: 230 -> 6
+Pop: 228 -> 7
+Pop: 229 -> 6
+Pop: 221 -> 3
+Pop: 203 -> 2
+Pop: 217 -> 3
+Pop: 216 -> 7
+Pop: 190 -> 2
+Pop: 196 -> 3
+Pop: 195 -> 7
+Pop: 183 -> 6
+Pop: 182 -> 6
+Pop: 181 -> 6
+Pop: 178 -> 6
+Pop: 177 -> 6
+Pop: 173 -> 2
+Pop: 172 -> 5
+Pop: 167 -> 6
+Pop: 164 -> 7
+Pop: 171 -> 3
+Pop: 170 -> 5
+Pop: 169 -> 5
+Pop: 168 -> 5
+Pop: 166 -> 6
+Pop: 165 -> 6
+Pop: 159 -> 6
+Pop: 158 -> 6
+Pop: 157 -> 6
+Pop: 154 -> 3
+Pop: 153 -> 6
+Pop: 152 -> 6
+Pop: 151 -> 6
+Pop: 150 -> 6
+Pop: 149 -> 6
+Pop: 143 -> 6
+Pop: 105 -> 3
+Pop: 82 -> 2
+Pop: 81 -> 2
+Pop: 75 -> 2
+Pop: 74 -> 2
+Pop: 63 -> 2
+Pop: 62 -> 2
+Pop: 56 -> 2
+Pop: 32 -> 3
+Pop: 27 -> 0
+Pop: 270 -> 0
+Pop: 269 -> 4
+Pop: 268 -> 5
+Pop: 267 -> 1
+Pop: 252 -> 2
+Pop: 265 -> 6
+Pop: 266 -> 3
+Pop: 264 -> 1
+Pop: 263 -> 6
+Pop: 262 -> 0
+Pop: 251 -> 3
+Pop: 248 -> 0
+Pop: 247 -> 4
+Pop: 246 -> 5
+Pop: 245 -> 1
+Pop: 243 -> 2
+Pop: 236 -> 0
+Pop: 244 -> 3
+Pop: 242 -> 1
+Pop: 241 -> 2
+Pop: 240 -> 6
+Pop: 231 -> 2
+Pop: 101 -> 2
+Pop: 100 -> 2
+Pop: 94 -> 2
+Pop: 93 -> 2
+Pop: 89 -> 2
+Pop: 88 -> 2
+Pop: 84 -> 2
+Pop: 77 -> 2
+Pop: 70 -> 2
+Pop: 69 -> 2
+Pop: 65 -> 2
+Pop: 273 -> 2
+Pop: 280 -> 0
+Pop: 279 -> 3
+Pop: 278 -> 4
+Pop: 277 -> 1
+Pop: 274 -> 5
+Pop: 272 -> 1
+Pop: 261 -> 4
+Pop: 260 -> 3
+Pop: 250 -> 1
+Pop: 259 -> 5
+Pop: 258 -> 0
+Pop: 257 -> 4
+Pop: 256 -> 5
+Pop: 255 -> 1
+Pop: 239 -> 4
+Pop: 238 -> 3
+Pop: 175 -> 1
+Pop: 174 -> 1
+Pop: 103 -> 0
+Pop: 104 -> 2
+Pop: 96 -> 0
+Pop: 99 -> 2
+Pop: 98 -> 2
+Pop: 97 -> 0
+Pop: 91 -> 0
+Pop: 92 -> 2
+Pop: 72 -> 0
+Pop: 73 -> 2
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 237 -> 1
+Pop: 220 -> 0
+Pop: 219 -> 1
+Pop: 214 -> 0
+Pop: 213 -> 0
+Pop: 212 -> 0
+Pop: 202 -> 1
+Pop: 201 -> 0
+Pop: 200 -> 1
+Pop: 189 -> 1
+Pop: 176 -> 1
+Pop: 102 -> 0
+Pop: 95 -> 0
+Pop: 90 -> 0
+Pop: 71 -> 0
+Pop: 276 -> 0
+Pop: 275 -> 0
+Pop: 254 -> 0
+Pop: 253 -> 0
+Pop: 210 -> 0
+Pop: 209 -> 0
+Pop: 208 -> 0
+Pop: 207 -> 0
+Pop: 206 -> 0
+Pop: 194 -> 0
+Pop: 193 -> 0
+Pop: 235 -> 2
+Pop: 234 -> 0
+Pop: 233 -> 1
+Pop: 232 -> 0
+----------------------------------------
+K = 13
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 140
+Push: 46
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 134
+Push: 137
+Push: 133
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 130
+Push: 125
+Push: 129
+Push: 124
+Push: 128
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 45
+Push: 40
+Push: 41
+Push: 42
+Push: 43
+Push: 44
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 48
+Push: 67
+Push: 49
+Push: 68
+Push: 50
+Push: 79
+Push: 51
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 51 -> 5
+Pop: 79 -> 0
+Pop: 50 -> 7
+Pop: 68 -> 4
+Pop: 49 -> 6
+Pop: 67 -> 0
+Pop: 48 -> 1
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 44 -> 0
+Pop: 43 -> 3
+Pop: 42 -> 4
+Pop: 41 -> 7
+Pop: 40 -> 1
+Pop: 45 -> 8
+Pop: 141 -> 1
+Pop: 138 -> 0
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 128 -> 2
+Pop: 124 -> 5
+Pop: 129 -> 3
+Pop: 125 -> 0
+Pop: 130 -> 4
+Pop: 126 -> 6
+Pop: 127 -> 7
+Pop: 132 -> 8
+Pop: 131 -> 9
+Pop: 133 -> 6
+Pop: 137 -> 4
+Pop: 134 -> 1
+Pop: 136 -> 3
+Pop: 135 -> 2
+Pop: 187 -> 5
+Pop: 186 -> 6
+Pop: 180 -> 5
+Pop: 179 -> 6
+Pop: 163 -> 5
+Pop: 162 -> 6
+Pop: 46 -> 2
+Pop: 140 -> 5
+Pop: 53 -> 3
+Pop: 83 -> 2
+Pop: 85 -> 8
+Pop: 52 -> 0
+Pop: 76 -> 2
+Pop: 78 -> 8
+Pop: 64 -> 2
+Pop: 66 -> 8
+Pop: 205 -> 5
+Pop: 218 -> 0
+Pop: 204 -> 4
+Pop: 215 -> 1
+Pop: 211 -> 6
+Pop: 192 -> 5
+Pop: 199 -> 0
+Pop: 191 -> 4
+Pop: 198 -> 1
+Pop: 197 -> 6
+Pop: 188 -> 0
+Pop: 139 -> 7
+Pop: 185 -> 6
+Pop: 184 -> 8
+Pop: 161 -> 6
+Pop: 160 -> 8
+Pop: 156 -> 2
+Pop: 155 -> 6
+Pop: 148 -> 6
+Pop: 142 -> 8
+Pop: 147 -> 6
+Pop: 146 -> 6
+Pop: 145 -> 6
+Pop: 144 -> 6
+Pop: 61 -> 2
+Pop: 55 -> 4
+Pop: 54 -> 8
+Pop: 60 -> 2
+Pop: 59 -> 2
+Pop: 58 -> 2
+Pop: 57 -> 2
+Pop: 222 -> 2
+Pop: 223 -> 1
+Pop: 224 -> 3
+Pop: 225 -> 4
+Pop: 226 -> 5
+Pop: 227 -> 0
+Pop: 230 -> 6
+Pop: 228 -> 7
+Pop: 229 -> 6
+Pop: 221 -> 3
+Pop: 203 -> 2
+Pop: 217 -> 3
+Pop: 216 -> 7
+Pop: 190 -> 2
+Pop: 196 -> 3
+Pop: 195 -> 7
+Pop: 183 -> 6
+Pop: 182 -> 6
+Pop: 181 -> 6
+Pop: 178 -> 6
+Pop: 177 -> 6
+Pop: 173 -> 2
+Pop: 172 -> 5
+Pop: 167 -> 6
+Pop: 164 -> 7
+Pop: 171 -> 3
+Pop: 170 -> 5
+Pop: 169 -> 5
+Pop: 168 -> 5
+Pop: 166 -> 6
+Pop: 165 -> 6
+Pop: 159 -> 6
+Pop: 158 -> 6
+Pop: 157 -> 6
+Pop: 154 -> 3
+Pop: 153 -> 6
+Pop: 152 -> 6
+Pop: 151 -> 6
+Pop: 150 -> 6
+Pop: 149 -> 6
+Pop: 143 -> 6
+Pop: 105 -> 3
+Pop: 82 -> 2
+Pop: 81 -> 2
+Pop: 75 -> 2
+Pop: 74 -> 2
+Pop: 63 -> 2
+Pop: 62 -> 2
+Pop: 56 -> 2
+Pop: 32 -> 3
+Pop: 27 -> 0
+Pop: 270 -> 0
+Pop: 269 -> 4
+Pop: 268 -> 5
+Pop: 267 -> 1
+Pop: 252 -> 2
+Pop: 265 -> 6
+Pop: 266 -> 3
+Pop: 264 -> 1
+Pop: 263 -> 6
+Pop: 262 -> 0
+Pop: 251 -> 3
+Pop: 248 -> 0
+Pop: 247 -> 4
+Pop: 246 -> 5
+Pop: 245 -> 1
+Pop: 243 -> 2
+Pop: 236 -> 0
+Pop: 244 -> 3
+Pop: 242 -> 1
+Pop: 241 -> 2
+Pop: 240 -> 6
+Pop: 231 -> 2
+Pop: 101 -> 2
+Pop: 100 -> 2
+Pop: 94 -> 2
+Pop: 93 -> 2
+Pop: 89 -> 2
+Pop: 88 -> 2
+Pop: 84 -> 2
+Pop: 77 -> 2
+Pop: 70 -> 2
+Pop: 69 -> 2
+Pop: 65 -> 2
+Pop: 273 -> 2
+Pop: 280 -> 0
+Pop: 279 -> 3
+Pop: 278 -> 4
+Pop: 277 -> 1
+Pop: 274 -> 5
+Pop: 272 -> 1
+Pop: 261 -> 4
+Pop: 260 -> 3
+Pop: 250 -> 1
+Pop: 259 -> 5
+Pop: 258 -> 0
+Pop: 257 -> 4
+Pop: 256 -> 5
+Pop: 255 -> 1
+Pop: 239 -> 4
+Pop: 238 -> 3
+Pop: 175 -> 1
+Pop: 174 -> 1
+Pop: 103 -> 0
+Pop: 104 -> 2
+Pop: 96 -> 0
+Pop: 99 -> 2
+Pop: 98 -> 2
+Pop: 97 -> 0
+Pop: 91 -> 0
+Pop: 92 -> 2
+Pop: 72 -> 0
+Pop: 73 -> 2
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 237 -> 1
+Pop: 220 -> 0
+Pop: 219 -> 1
+Pop: 214 -> 0
+Pop: 213 -> 0
+Pop: 212 -> 0
+Pop: 202 -> 1
+Pop: 201 -> 0
+Pop: 200 -> 1
+Pop: 189 -> 1
+Pop: 176 -> 1
+Pop: 102 -> 0
+Pop: 95 -> 0
+Pop: 90 -> 0
+Pop: 71 -> 0
+Pop: 276 -> 0
+Pop: 275 -> 0
+Pop: 254 -> 0
+Pop: 253 -> 0
+Pop: 210 -> 0
+Pop: 209 -> 0
+Pop: 208 -> 0
+Pop: 207 -> 0
+Pop: 206 -> 0
+Pop: 194 -> 0
+Pop: 193 -> 0
+Pop: 235 -> 2
+Pop: 234 -> 0
+Pop: 233 -> 1
+Pop: 232 -> 0
+----------------------------------------
+K = 12
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 140
+Push: 46
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 134
+Push: 137
+Push: 133
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 130
+Push: 125
+Push: 129
+Push: 124
+Push: 128
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 45
+Push: 40
+Push: 41
+Push: 42
+Push: 43
+Push: 44
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 48
+Push: 67
+Push: 49
+Push: 68
+Push: 50
+Push: 79
+Push: 51
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 51 -> 5
+Pop: 79 -> 0
+Pop: 50 -> 7
+Pop: 68 -> 4
+Pop: 49 -> 6
+Pop: 67 -> 0
+Pop: 48 -> 1
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 44 -> 0
+Pop: 43 -> 3
+Pop: 42 -> 4
+Pop: 41 -> 7
+Pop: 40 -> 1
+Pop: 45 -> 8
+Pop: 141 -> 1
+Pop: 138 -> 0
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 128 -> 2
+Pop: 124 -> 5
+Pop: 129 -> 3
+Pop: 125 -> 0
+Pop: 130 -> 4
+Pop: 126 -> 6
+Pop: 127 -> 7
+Pop: 132 -> 8
+Pop: 131 -> 9
+Pop: 133 -> 6
+Pop: 137 -> 4
+Pop: 134 -> 1
+Pop: 136 -> 3
+Pop: 135 -> 2
+Pop: 187 -> 5
+Pop: 186 -> 6
+Pop: 180 -> 5
+Pop: 179 -> 6
+Pop: 163 -> 5
+Pop: 162 -> 6
+Pop: 46 -> 2
+Pop: 140 -> 5
+Pop: 53 -> 3
+Pop: 83 -> 2
+Pop: 85 -> 8
+Pop: 52 -> 0
+Pop: 76 -> 2
+Pop: 78 -> 8
+Pop: 64 -> 2
+Pop: 66 -> 8
+Pop: 205 -> 5
+Pop: 218 -> 0
+Pop: 204 -> 4
+Pop: 215 -> 1
+Pop: 211 -> 6
+Pop: 192 -> 5
+Pop: 199 -> 0
+Pop: 191 -> 4
+Pop: 198 -> 1
+Pop: 197 -> 6
+Pop: 188 -> 0
+Pop: 139 -> 7
+Pop: 185 -> 6
+Pop: 184 -> 8
+Pop: 161 -> 6
+Pop: 160 -> 8
+Pop: 156 -> 2
+Pop: 155 -> 6
+Pop: 148 -> 6
+Pop: 142 -> 8
+Pop: 147 -> 6
+Pop: 146 -> 6
+Pop: 145 -> 6
+Pop: 144 -> 6
+Pop: 61 -> 2
+Pop: 55 -> 4
+Pop: 54 -> 8
+Pop: 60 -> 2
+Pop: 59 -> 2
+Pop: 58 -> 2
+Pop: 57 -> 2
+Pop: 222 -> 2
+Pop: 223 -> 1
+Pop: 224 -> 3
+Pop: 225 -> 4
+Pop: 226 -> 5
+Pop: 227 -> 0
+Pop: 230 -> 6
+Pop: 228 -> 7
+Pop: 229 -> 6
+Pop: 221 -> 3
+Pop: 203 -> 2
+Pop: 217 -> 3
+Pop: 216 -> 7
+Pop: 190 -> 2
+Pop: 196 -> 3
+Pop: 195 -> 7
+Pop: 183 -> 6
+Pop: 182 -> 6
+Pop: 181 -> 6
+Pop: 178 -> 6
+Pop: 177 -> 6
+Pop: 173 -> 2
+Pop: 172 -> 5
+Pop: 167 -> 6
+Pop: 164 -> 7
+Pop: 171 -> 3
+Pop: 170 -> 5
+Pop: 169 -> 5
+Pop: 168 -> 5
+Pop: 166 -> 6
+Pop: 165 -> 6
+Pop: 159 -> 6
+Pop: 158 -> 6
+Pop: 157 -> 6
+Pop: 154 -> 3
+Pop: 153 -> 6
+Pop: 152 -> 6
+Pop: 151 -> 6
+Pop: 150 -> 6
+Pop: 149 -> 6
+Pop: 143 -> 6
+Pop: 105 -> 3
+Pop: 82 -> 2
+Pop: 81 -> 2
+Pop: 75 -> 2
+Pop: 74 -> 2
+Pop: 63 -> 2
+Pop: 62 -> 2
+Pop: 56 -> 2
+Pop: 32 -> 3
+Pop: 27 -> 0
+Pop: 270 -> 0
+Pop: 269 -> 4
+Pop: 268 -> 5
+Pop: 267 -> 1
+Pop: 252 -> 2
+Pop: 265 -> 6
+Pop: 266 -> 3
+Pop: 264 -> 1
+Pop: 263 -> 6
+Pop: 262 -> 0
+Pop: 251 -> 3
+Pop: 248 -> 0
+Pop: 247 -> 4
+Pop: 246 -> 5
+Pop: 245 -> 1
+Pop: 243 -> 2
+Pop: 236 -> 0
+Pop: 244 -> 3
+Pop: 242 -> 1
+Pop: 241 -> 2
+Pop: 240 -> 6
+Pop: 231 -> 2
+Pop: 101 -> 2
+Pop: 100 -> 2
+Pop: 94 -> 2
+Pop: 93 -> 2
+Pop: 89 -> 2
+Pop: 88 -> 2
+Pop: 84 -> 2
+Pop: 77 -> 2
+Pop: 70 -> 2
+Pop: 69 -> 2
+Pop: 65 -> 2
+Pop: 273 -> 2
+Pop: 280 -> 0
+Pop: 279 -> 3
+Pop: 278 -> 4
+Pop: 277 -> 1
+Pop: 274 -> 5
+Pop: 272 -> 1
+Pop: 261 -> 4
+Pop: 260 -> 3
+Pop: 250 -> 1
+Pop: 259 -> 5
+Pop: 258 -> 0
+Pop: 257 -> 4
+Pop: 256 -> 5
+Pop: 255 -> 1
+Pop: 239 -> 4
+Pop: 238 -> 3
+Pop: 175 -> 1
+Pop: 174 -> 1
+Pop: 103 -> 0
+Pop: 104 -> 2
+Pop: 96 -> 0
+Pop: 99 -> 2
+Pop: 98 -> 2
+Pop: 97 -> 0
+Pop: 91 -> 0
+Pop: 92 -> 2
+Pop: 72 -> 0
+Pop: 73 -> 2
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 237 -> 1
+Pop: 220 -> 0
+Pop: 219 -> 1
+Pop: 214 -> 0
+Pop: 213 -> 0
+Pop: 212 -> 0
+Pop: 202 -> 1
+Pop: 201 -> 0
+Pop: 200 -> 1
+Pop: 189 -> 1
+Pop: 176 -> 1
+Pop: 102 -> 0
+Pop: 95 -> 0
+Pop: 90 -> 0
+Pop: 71 -> 0
+Pop: 276 -> 0
+Pop: 275 -> 0
+Pop: 254 -> 0
+Pop: 253 -> 0
+Pop: 210 -> 0
+Pop: 209 -> 0
+Pop: 208 -> 0
+Pop: 207 -> 0
+Pop: 206 -> 0
+Pop: 194 -> 0
+Pop: 193 -> 0
+Pop: 235 -> 2
+Pop: 234 -> 0
+Pop: 233 -> 1
+Pop: 232 -> 0
+----------------------------------------
+K = 11
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 140
+Push: 46
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 134
+Push: 137
+Push: 133
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 130
+Push: 125
+Push: 129
+Push: 124
+Push: 128
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 45
+Push: 40
+Push: 41
+Push: 42
+Push: 43
+Push: 44
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 51 *
+Push: 48
+Push: 67
+Push: 49
+Push: 68
+Push: 50
+Push: 79
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 79 -> 0
+Pop: 50 -> 5
+Pop: 68 -> 4
+Pop: 49 -> 6
+Pop: 67 -> 0
+Pop: 48 -> 1
+Pop: 51 -> 8
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 44 -> 0
+Pop: 43 -> 3
+Pop: 42 -> 4
+Pop: 41 -> 7
+Pop: 40 -> 1
+Pop: 45 -> 9
+Pop: 141 -> 1
+Pop: 138 -> 0
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 128 -> 2
+Pop: 124 -> 5
+Pop: 129 -> 3
+Pop: 125 -> 0
+Pop: 130 -> 4
+Pop: 126 -> 6
+Pop: 127 -> 7
+Pop: 132 -> 8
+Pop: 131 -> 9
+Pop: 133 -> 6
+Pop: 137 -> 4
+Pop: 134 -> 1
+Pop: 136 -> 3
+Pop: 135 -> 2
+Pop: 187 -> 5
+Pop: 186 -> 6
+Pop: 180 -> 5
+Pop: 179 -> 6
+Pop: 163 -> 5
+Pop: 162 -> 6
+Pop: 46 -> 2
+Pop: 140 -> 5
+Pop: 53 -> 3
+Pop: 83 -> 2
+Pop: 85 -> 7
+Pop: 52 -> 0
+Pop: 76 -> 2
+Pop: 78 -> 7
+Pop: 64 -> 2
+Pop: 66 -> 7
+Pop: 205 -> 5
+Pop: 218 -> 0
+Pop: 204 -> 4
+Pop: 215 -> 1
+Pop: 211 -> 6
+Pop: 192 -> 5
+Pop: 199 -> 0
+Pop: 191 -> 4
+Pop: 198 -> 1
+Pop: 197 -> 6
+Pop: 188 -> 0
+Pop: 139 -> 7
+Pop: 185 -> 6
+Pop: 184 -> 8
+Pop: 161 -> 6
+Pop: 160 -> 8
+Pop: 156 -> 2
+Pop: 155 -> 6
+Pop: 148 -> 6
+Pop: 142 -> 8
+Pop: 147 -> 6
+Pop: 146 -> 6
+Pop: 145 -> 6
+Pop: 144 -> 6
+Pop: 61 -> 2
+Pop: 55 -> 4
+Pop: 54 -> 7
+Pop: 60 -> 2
+Pop: 59 -> 2
+Pop: 58 -> 2
+Pop: 57 -> 2
+Pop: 222 -> 2
+Pop: 223 -> 1
+Pop: 224 -> 3
+Pop: 225 -> 4
+Pop: 226 -> 5
+Pop: 227 -> 0
+Pop: 230 -> 6
+Pop: 228 -> 7
+Pop: 229 -> 6
+Pop: 221 -> 3
+Pop: 203 -> 2
+Pop: 217 -> 3
+Pop: 216 -> 7
+Pop: 190 -> 2
+Pop: 196 -> 3
+Pop: 195 -> 7
+Pop: 183 -> 6
+Pop: 182 -> 6
+Pop: 181 -> 6
+Pop: 178 -> 6
+Pop: 177 -> 6
+Pop: 173 -> 2
+Pop: 172 -> 5
+Pop: 167 -> 6
+Pop: 164 -> 7
+Pop: 171 -> 3
+Pop: 170 -> 5
+Pop: 169 -> 5
+Pop: 168 -> 5
+Pop: 166 -> 6
+Pop: 165 -> 6
+Pop: 159 -> 6
+Pop: 158 -> 6
+Pop: 157 -> 6
+Pop: 154 -> 3
+Pop: 153 -> 6
+Pop: 152 -> 6
+Pop: 151 -> 6
+Pop: 150 -> 6
+Pop: 149 -> 6
+Pop: 143 -> 6
+Pop: 105 -> 3
+Pop: 82 -> 2
+Pop: 81 -> 2
+Pop: 75 -> 2
+Pop: 74 -> 2
+Pop: 63 -> 2
+Pop: 62 -> 2
+Pop: 56 -> 2
+Pop: 32 -> 3
+Pop: 27 -> 0
+Pop: 270 -> 0
+Pop: 269 -> 4
+Pop: 268 -> 5
+Pop: 267 -> 1
+Pop: 252 -> 2
+Pop: 265 -> 6
+Pop: 266 -> 3
+Pop: 264 -> 1
+Pop: 263 -> 6
+Pop: 262 -> 0
+Pop: 251 -> 3
+Pop: 248 -> 0
+Pop: 247 -> 4
+Pop: 246 -> 5
+Pop: 245 -> 1
+Pop: 243 -> 2
+Pop: 236 -> 0
+Pop: 244 -> 3
+Pop: 242 -> 1
+Pop: 241 -> 2
+Pop: 240 -> 6
+Pop: 231 -> 2
+Pop: 101 -> 2
+Pop: 100 -> 2
+Pop: 94 -> 2
+Pop: 93 -> 2
+Pop: 89 -> 2
+Pop: 88 -> 2
+Pop: 84 -> 2
+Pop: 77 -> 2
+Pop: 70 -> 2
+Pop: 69 -> 2
+Pop: 65 -> 2
+Pop: 273 -> 2
+Pop: 280 -> 0
+Pop: 279 -> 3
+Pop: 278 -> 4
+Pop: 277 -> 1
+Pop: 274 -> 5
+Pop: 272 -> 1
+Pop: 261 -> 4
+Pop: 260 -> 3
+Pop: 250 -> 1
+Pop: 259 -> 5
+Pop: 258 -> 0
+Pop: 257 -> 4
+Pop: 256 -> 5
+Pop: 255 -> 1
+Pop: 239 -> 4
+Pop: 238 -> 3
+Pop: 175 -> 1
+Pop: 174 -> 1
+Pop: 103 -> 0
+Pop: 104 -> 2
+Pop: 96 -> 0
+Pop: 99 -> 2
+Pop: 98 -> 2
+Pop: 97 -> 0
+Pop: 91 -> 0
+Pop: 92 -> 2
+Pop: 72 -> 0
+Pop: 73 -> 2
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 237 -> 1
+Pop: 220 -> 0
+Pop: 219 -> 1
+Pop: 214 -> 0
+Pop: 213 -> 0
+Pop: 212 -> 0
+Pop: 202 -> 1
+Pop: 201 -> 0
+Pop: 200 -> 1
+Pop: 189 -> 1
+Pop: 176 -> 1
+Pop: 102 -> 0
+Pop: 95 -> 0
+Pop: 90 -> 0
+Pop: 71 -> 0
+Pop: 276 -> 0
+Pop: 275 -> 0
+Pop: 254 -> 0
+Pop: 253 -> 0
+Pop: 210 -> 0
+Pop: 209 -> 0
+Pop: 208 -> 0
+Pop: 207 -> 0
+Pop: 206 -> 0
+Pop: 194 -> 0
+Pop: 193 -> 0
+Pop: 235 -> 2
+Pop: 234 -> 0
+Pop: 233 -> 1
+Pop: 232 -> 0
+----------------------------------------
+K = 10
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 140
+Push: 128 *
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 48 *
+Push: 46
+Push: 129 *
+Push: 135
+Push: 134
+Push: 136
+Push: 137
+Push: 133
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 130
+Push: 125
+Push: 124
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 45
+Push: 41
+Push: 42
+Push: 43
+Push: 44
+Push: 40
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 51 *
+Push: 67
+Push: 49
+Push: 68
+Push: 50
+Push: 79
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 79 -> 0
+Pop: 50 -> 5
+Pop: 68 -> 4
+Pop: 49 -> 6
+Pop: 67 -> 0
+Pop: 51 -> 8
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 40 -> 1
+Pop: 44 -> 0
+Pop: 43 -> 3
+Pop: 42 -> 4
+Pop: 41 -> 7
+Pop: 45 -> 9
+Pop: 141 -> 1
+Pop: 138 -> 0
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 124 -> 5
+Pop: 125 -> 0
+Pop: 130 -> 2
+Pop: 126 -> 6
+Pop: 127 -> 7
+Pop: 132 -> 3
+Pop: 131 -> 4
+Pop: 133 -> 6
+Pop: 137 -> 2
+Pop: 136 -> 5
+Pop: 134 -> 1
+Pop: 135 -> 7
+Pop: 129 -> 8
+Pop: 46 -> 2
+Pop: 48 -> 1
+Pop: 187 -> 6
+Pop: 186 -> 3
+Pop: 180 -> 6
+Pop: 179 -> 3
+Pop: 163 -> 6
+Pop: 162 -> 3
+Pop: 128 -> 9
+Pop: 140 -> 4
+Pop: 53 -> 3
+Pop: 83 -> 2
+Pop: 85 -> 7
+Pop: 52 -> 0
+Pop: 76 -> 2
+Pop: 78 -> 7
+Pop: 64 -> 2
+Pop: 66 -> 7
+Pop: 205 -> 3
+Pop: 218 -> 0
+Pop: 204 -> 2
+Pop: 215 -> 1
+Pop: 211 -> 5
+Pop: 192 -> 3
+Pop: 199 -> 0
+Pop: 191 -> 2
+Pop: 198 -> 1
+Pop: 197 -> 5
+Pop: 188 -> 0
+Pop: 139 -> 3
+Pop: 185 -> 6
+Pop: 184 -> 8
+Pop: 161 -> 6
+Pop: 160 -> 8
+Pop: 156 -> 5
+Pop: 155 -> 6
+Pop: 148 -> 6
+Pop: 142 -> 8
+Pop: 147 -> 6
+Pop: 146 -> 6
+Pop: 145 -> 6
+Pop: 144 -> 6
+Pop: 61 -> 2
+Pop: 55 -> 4
+Pop: 54 -> 7
+Pop: 60 -> 2
+Pop: 59 -> 2
+Pop: 58 -> 2
+Pop: 57 -> 2
+Pop: 222 -> 2
+Pop: 223 -> 1
+Pop: 224 -> 3
+Pop: 225 -> 4
+Pop: 226 -> 5
+Pop: 227 -> 0
+Pop: 230 -> 6
+Pop: 228 -> 7
+Pop: 229 -> 6
+Pop: 221 -> 3
+Pop: 203 -> 4
+Pop: 217 -> 6
+Pop: 216 -> 7
+Pop: 190 -> 4
+Pop: 196 -> 6
+Pop: 195 -> 7
+Pop: 183 -> 6
+Pop: 182 -> 6
+Pop: 181 -> 6
+Pop: 178 -> 6
+Pop: 177 -> 6
+Pop: 173 -> 5
+Pop: 172 -> 3
+Pop: 167 -> 4
+Pop: 164 -> 3
+Pop: 171 -> 6
+Pop: 170 -> 6
+Pop: 169 -> 6
+Pop: 168 -> 6
+Pop: 166 -> 6
+Pop: 165 -> 6
+Pop: 159 -> 6
+Pop: 158 -> 6
+Pop: 157 -> 6
+Pop: 154 -> 7
+Pop: 153 -> 6
+Pop: 152 -> 6
+Pop: 151 -> 6
+Pop: 150 -> 6
+Pop: 149 -> 6
+Pop: 143 -> 6
+Pop: 105 -> 3
+Pop: 82 -> 2
+Pop: 81 -> 2
+Pop: 75 -> 2
+Pop: 74 -> 2
+Pop: 63 -> 2
+Pop: 62 -> 2
+Pop: 56 -> 2
+Pop: 32 -> 3
+Pop: 27 -> 0
+Pop: 270 -> 0
+Pop: 269 -> 4
+Pop: 268 -> 5
+Pop: 267 -> 1
+Pop: 252 -> 2
+Pop: 265 -> 6
+Pop: 266 -> 3
+Pop: 264 -> 1
+Pop: 263 -> 6
+Pop: 262 -> 0
+Pop: 251 -> 3
+Pop: 248 -> 0
+Pop: 247 -> 4
+Pop: 246 -> 5
+Pop: 245 -> 1
+Pop: 243 -> 2
+Pop: 236 -> 0
+Pop: 244 -> 3
+Pop: 242 -> 1
+Pop: 241 -> 2
+Pop: 240 -> 6
+Pop: 231 -> 2
+Pop: 101 -> 2
+Pop: 100 -> 2
+Pop: 94 -> 2
+Pop: 93 -> 2
+Pop: 89 -> 2
+Pop: 88 -> 2
+Pop: 84 -> 2
+Pop: 77 -> 2
+Pop: 70 -> 2
+Pop: 69 -> 2
+Pop: 65 -> 2
+Pop: 273 -> 2
+Pop: 280 -> 0
+Pop: 279 -> 3
+Pop: 278 -> 4
+Pop: 277 -> 1
+Pop: 274 -> 5
+Pop: 272 -> 1
+Pop: 261 -> 4
+Pop: 260 -> 3
+Pop: 250 -> 1
+Pop: 259 -> 5
+Pop: 258 -> 0
+Pop: 257 -> 4
+Pop: 256 -> 5
+Pop: 255 -> 1
+Pop: 239 -> 4
+Pop: 238 -> 3
+Pop: 175 -> 1
+Pop: 174 -> 1
+Pop: 103 -> 0
+Pop: 104 -> 2
+Pop: 96 -> 0
+Pop: 99 -> 2
+Pop: 98 -> 2
+Pop: 97 -> 0
+Pop: 91 -> 0
+Pop: 92 -> 2
+Pop: 72 -> 0
+Pop: 73 -> 2
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 237 -> 1
+Pop: 220 -> 0
+Pop: 219 -> 1
+Pop: 214 -> 0
+Pop: 213 -> 0
+Pop: 212 -> 0
+Pop: 202 -> 1
+Pop: 201 -> 0
+Pop: 200 -> 1
+Pop: 189 -> 1
+Pop: 176 -> 1
+Pop: 102 -> 0
+Pop: 95 -> 0
+Pop: 90 -> 0
+Pop: 71 -> 0
+Pop: 276 -> 0
+Pop: 275 -> 0
+Pop: 254 -> 0
+Pop: 253 -> 0
+Pop: 210 -> 0
+Pop: 209 -> 0
+Pop: 208 -> 0
+Pop: 207 -> 0
+Pop: 206 -> 0
+Pop: 194 -> 0
+Pop: 193 -> 0
+Pop: 235 -> 2
+Pop: 234 -> 0
+Pop: 233 -> 1
+Pop: 232 -> 0
+----------------------------------------
+K = 9
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 48 *
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 128 *
+Push: 129 *
+Push: 130 *
+Push: 162
+Push: 163
+Push: 140
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 134
+Push: 136
+Push: 133
+Push: 137
+Push: 131
+Push: 132
+Push: 127
+Push: 126
+Push: 125
+Push: 124
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 138
+Push: 141
+Push: 49 *
+Push: 46
+Push: 45
+Push: 42
+Push: 43
+Push: 44
+Push: 41
+Push: 40
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 51 *
+Push: 67
+Push: 68
+Push: 50
+Push: 79
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 79 -> 0
+Pop: 50 -> 5
+Pop: 68 -> 4
+Pop: 67 -> 0
+Pop: 51 -> 8
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 40 -> 1
+Pop: 41 -> 3
+Pop: 44 -> 0
+Pop: 43 -> 4
+Pop: 42 -> 7
+Pop: 45 -> 6
+Pop: 46 -> 2
+Pop: 49 -> NO COLOR AVAILABLE
+----------------------------------------
+K = 8
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 27
+Push: 32
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 105
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 195
+Push: 196
+Push: 190
+Push: 216
+Push: 217
+Push: 203
+Push: 221
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 222
+Push: 128 *
+Push: 188
+Push: 197
+Push: 198
+Push: 191
+Push: 199
+Push: 192
+Push: 211
+Push: 215
+Push: 204
+Push: 218
+Push: 205
+Push: 138 *
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 48 *
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 49 *
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 129 *
+Push: 130 *
+Push: 162
+Push: 163
+Push: 140
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 134
+Push: 136
+Push: 133
+Push: 137
+Push: 132
+Push: 131
+Push: 141
+Push: 127
+Push: 126
+Push: 125
+Push: 124
+Push: 123
+Push: 122
+Push: 121
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 113
+Push: 120
+Push: 112
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 106
+Push: 50 *
+Push: 46
+Push: 45
+Push: 43
+Push: 44
+Push: 42
+Push: 41
+Push: 40
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 51 *
+Push: 67
+Push: 68
+Push: 79
+Push: 80
+Push: 86
+Push: 87
+Pop: 87 -> 4
+Pop: 86 -> 0
+Pop: 80 -> 4
+Pop: 79 -> 0
+Pop: 68 -> 4
+Pop: 67 -> 0
+Pop: 51 -> 5
+Pop: 33 -> 2
+Pop: 34 -> 1
+Pop: 35 -> 3
+Pop: 36 -> 4
+Pop: 37 -> 5
+Pop: 38 -> 0
+Pop: 39 -> 6
+Pop: 47 -> 2
+Pop: 40 -> 1
+Pop: 41 -> 3
+Pop: 42 -> 4
+Pop: 44 -> 0
+Pop: 43 -> 5
+Pop: 45 -> 6
+Pop: 46 -> 2
+Pop: 50 -> 7
+Pop: 106 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 3
+Pop: 109 -> 4
+Pop: 110 -> 5
+Pop: 111 -> 0
+Pop: 112 -> 6
+Pop: 120 -> 2
+Pop: 113 -> 1
+Pop: 114 -> 3
+Pop: 115 -> 4
+Pop: 116 -> 5
+Pop: 117 -> 0
+Pop: 118 -> 6
+Pop: 119 -> 2
+Pop: 121 -> 1
+Pop: 122 -> 3
+Pop: 123 -> 4
+Pop: 124 -> 5
+Pop: 125 -> 0
+Pop: 126 -> 6
+Pop: 127 -> 2
+Pop: 141 -> 1
+Pop: 131 -> 3
+Pop: 132 -> 0
+Pop: 137 -> 2
+Pop: 133 -> 4
+Pop: 136 -> 5
+Pop: 134 -> 1
+Pop: 135 -> 6
+Pop: 187 -> 4
+Pop: 186 -> 0
+Pop: 180 -> 4
+Pop: 179 -> 0
+Pop: 140 -> 3
+Pop: 163 -> 4
+Pop: 162 -> 0
+Pop: 130 -> 7
+Pop: 129 -> NO COLOR AVAILABLE
+----------------------------------------
+K = 7
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 231
+Push: 240
+Push: 241
+Push: 242
+Push: 244
+Push: 236
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 251
+Push: 262
+Push: 263
+Push: 264
+Push: 266
+Push: 265
+Push: 252
+Push: 267
+Push: 268
+Push: 269
+Push: 270
+Push: 138 *
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 48 *
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 128 *
+Push: 27
+Push: 141 *
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 49 *
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 129 *
+Push: 188
+Push: 130 *
+Push: 162
+Push: 163
+Push: 140
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 134
+Push: 137
+Push: 50 *
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 51 *
+Push: 46
+Push: 45
+Push: 44
+Push: 43
+Push: 42
+Push: 41
+Push: 40
+Push: 47
+Push: 39
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 34
+Push: 33
+Push: 222 *
+Push: 229
+Push: 228
+Push: 230
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 223
+Push: 131 *
+Push: 133
+Push: 106 *
+Push: 113 *
+Push: 121 *
+Push: 127
+Push: 125
+Push: 126
+Push: 124
+Push: 123
+Push: 122
+Push: 119
+Push: 118
+Push: 117
+Push: 116
+Push: 115
+Push: 114
+Push: 112
+Push: 120
+Push: 111
+Push: 110
+Push: 109
+Push: 108
+Push: 107
+Push: 132
+Push: 199
+Push: 195
+Push: 196
+Push: 197
+Push: 198
+Push: 190
+Push: 191
+Push: 192
+Push: 218
+Push: 211
+Push: 215
+Push: 216
+Push: 217
+Push: 203
+Push: 204
+Push: 205
+Push: 68 *
+Push: 67
+Push: 80 *
+Push: 79
+Push: 87 *
+Push: 86
+Push: 32 *
+Push: 105 *
+Push: 221 *
+Pop: 221 -> 3
+Pop: 105 -> 3
+Pop: 32 -> 3
+Pop: 86 -> 0
+Pop: 87 -> 4
+Pop: 79 -> 0
+Pop: 80 -> 4
+Pop: 67 -> 0
+Pop: 68 -> 4
+Pop: 205 -> 2
+Pop: 204 -> 3
+Pop: 203 -> 1
+Pop: 217 -> 0
+Pop: 216 -> 4
+Pop: 215 -> 5
+Pop: 211 -> 6
+Pop: 218 -> 1
+Pop: 192 -> 2
+Pop: 191 -> 3
+Pop: 190 -> 1
+Pop: 198 -> 0
+Pop: 197 -> 4
+Pop: 196 -> 5
+Pop: 195 -> 6
+Pop: 199 -> 1
+Pop: 132 -> 2
+Pop: 107 -> 1
+Pop: 108 -> 2
+Pop: 109 -> 3
+Pop: 110 -> 4
+Pop: 111 -> 0
+Pop: 120 -> 5
+Pop: 112 -> 6
+Pop: 114 -> 1
+Pop: 115 -> 2
+Pop: 116 -> 3
+Pop: 117 -> 0
+Pop: 118 -> 4
+Pop: 119 -> 5
+Pop: 122 -> 1
+Pop: 123 -> 2
+Pop: 124 -> 3
+Pop: 126 -> 0
+Pop: 125 -> 6
+Pop: 127 -> 4
+Pop: 121 -> NO COLOR AVAILABLE
+----------------------------------------
+K = 6
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 174
+Push: 175
+Push: 238
+Push: 239
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 273
+Push: 138 *
+Push: 141 *
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 48 *
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 49 *
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 128 *
+Push: 129 *
+Push: 27
+Push: 50 *
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 137 *
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 155
+Push: 156
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 139
+Push: 130 *
+Push: 162
+Push: 163
+Push: 140
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 135
+Push: 136
+Push: 188
+Push: 134
+Push: 51 *
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 53
+Push: 114 *
+Push: 240
+Push: 241
+Push: 242
+Push: 262
+Push: 263
+Push: 264
+Push: 222 *
+Push: 115 *
+Push: 236
+Push: 244
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 248
+Push: 131 *
+Push: 223 *
+Push: 229
+Push: 230
+Push: 228
+Push: 231
+Push: 227
+Push: 226
+Push: 225
+Push: 224
+Push: 33 *
+Push: 40 *
+Push: 46
+Push: 45
+Push: 44
+Push: 43
+Push: 42
+Push: 41
+Push: 106 *
+Push: 34 *
+Push: 39
+Push: 47
+Push: 38
+Push: 37
+Push: 36
+Push: 35
+Push: 107 *
+Push: 191 *
+Push: 204 *
+Push: 108 *
+Push: 116 *
+Push: 192 *
+Push: 195
+Push: 196
+Push: 197
+Push: 198
+Push: 199
+Push: 190
+Push: 133
+Push: 205 *
+Push: 211
+Push: 216
+Push: 217
+Push: 218
+Push: 215
+Push: 203
+Push: 132
+Push: 269 *
+Push: 266
+Push: 252
+Push: 265
+Push: 267
+Push: 268
+Push: 251
+Push: 270
+Push: 117 *
+Push: 112
+Push: 111
+Push: 120
+Push: 110
+Push: 113
+Push: 109
+Push: 68 *
+Push: 80 *
+Push: 87 *
+Push: 121 *
+Push: 118
+Push: 119
+Push: 122
+Push: 123
+Push: 124
+Push: 125
+Push: 126
+Push: 127
+Push: 32 *
+Push: 105 *
+Push: 221 *
+Push: 67 *
+Push: 79 *
+Push: 86 *
+Pop: 86 -> 0
+Pop: 79 -> 0
+Pop: 67 -> 0
+Pop: 221 -> 3
+Pop: 105 -> 3
+Pop: 32 -> 3
+Pop: 127 -> 0
+Pop: 126 -> 1
+Pop: 125 -> 2
+Pop: 124 -> 3
+Pop: 123 -> 4
+Pop: 122 -> 5
+Pop: 119 -> 0
+Pop: 118 -> 1
+Pop: 121 -> NO COLOR AVAILABLE
+----------------------------------------
+K = 5
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 176
+Push: 189
+Push: 200
+Push: 201
+Push: 202
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 237
+Push: 249
+Push: 271
+Push: 138 *
+Push: 174
+Push: 175
+Push: 48 *
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 141 *
+Push: 137 *
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 154
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 171
+Push: 164
+Push: 167
+Push: 172
+Push: 173
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 49 *
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 50 *
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 128 *
+Push: 129 *
+Push: 51 *
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 130 *
+Push: 27
+Push: 136 *
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 160
+Push: 161
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 184
+Push: 185
+Push: 139
+Push: 140
+Push: 186
+Push: 187
+Push: 135
+Push: 155
+Push: 156
+Push: 114 *
+Push: 115 *
+Push: 252 *
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 259
+Push: 250
+Push: 260
+Push: 261
+Push: 262
+Push: 263
+Push: 264
+Push: 131 *
+Push: 188
+Push: 134
+Push: 222 *
+Push: 116 *
+Push: 223 *
+Push: 33 *
+Push: 40 *
+Push: 106 *
+Push: 34 *
+Push: 53 *
+Push: 66
+Push: 64
+Push: 78
+Push: 76
+Push: 52
+Push: 85
+Push: 83
+Push: 107 *
+Push: 117 *
+Push: 191 *
+Push: 204 *
+Push: 224 *
+Push: 229
+Push: 230
+Push: 228
+Push: 231
+Push: 227
+Push: 226
+Push: 225
+Push: 273 *
+Push: 272
+Push: 274
+Push: 277
+Push: 278
+Push: 279
+Push: 280
+Push: 41 *
+Push: 46
+Push: 45
+Push: 44
+Push: 43
+Push: 42
+Push: 108 *
+Push: 192 *
+Push: 205 *
+Push: 236 *
+Push: 238
+Push: 239
+Push: 240
+Push: 241
+Push: 242
+Push: 248 *
+Push: 244
+Push: 243
+Push: 245
+Push: 246
+Push: 247
+Push: 270 *
+Push: 266
+Push: 265
+Push: 267
+Push: 268
+Push: 269
+Push: 35 *
+Push: 39
+Push: 47
+Push: 38
+Push: 37
+Push: 36
+Push: 132 *
+Push: 68 *
+Push: 80 *
+Push: 87 *
+Push: 109 *
+Push: 112
+Push: 111
+Push: 120
+Push: 110
+Push: 113
+Push: 121 *
+Push: 32 *
+Push: 105 *
+Push: 122 *
+Push: 118
+Push: 119
+Push: 123
+Push: 124
+Push: 125
+Push: 126
+Push: 127
+Push: 133
+Push: 199
+Push: 195
+Push: 196
+Push: 197
+Push: 198
+Push: 190
+Push: 218
+Push: 211
+Push: 215
+Push: 216
+Push: 217
+Push: 203
+Push: 221 *
+Push: 67 *
+Push: 79 *
+Push: 86 *
+Push: 251 *
+Pop: 251 -> 2
+Pop: 86 -> 0
+Pop: 79 -> 0
+Pop: 67 -> 0
+Pop: 221 -> 3
+Pop: 203 -> 1
+Pop: 217 -> 0
+Pop: 216 -> 2
+Pop: 215 -> 3
+Pop: 211 -> 4
+Pop: 218 -> 1
+Pop: 190 -> 1
+Pop: 198 -> 0
+Pop: 197 -> 2
+Pop: 196 -> 3
+Pop: 195 -> 4
+Pop: 199 -> 1
+Pop: 133 -> 0
+Pop: 127 -> 1
+Pop: 126 -> 0
+Pop: 125 -> 2
+Pop: 124 -> 3
+Pop: 123 -> 4
+Pop: 119 -> 1
+Pop: 118 -> 0
+Pop: 122 -> NO COLOR AVAILABLE
+----------------------------------------
+K = 4
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 193
+Push: 194
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 253
+Push: 254
+Push: 275
+Push: 276
+Push: 48 *
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 138 *
+Push: 176
+Push: 49 *
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 137 *
+Push: 174
+Push: 175
+Push: 141 *
+Push: 50 *
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 136 *
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 51 *
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 128 *
+Push: 129 *
+Push: 130 *
+Push: 131 *
+Push: 27
+Push: 162
+Push: 163
+Push: 172
+Push: 173
+Push: 171
+Push: 167
+Push: 164
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 114 *
+Push: 115 *
+Push: 53 *
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 252 *
+Push: 116 *
+Push: 204 *
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 135 *
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 222 *
+Push: 41 *
+Push: 117 *
+Push: 191 *
+Push: 200
+Push: 201
+Push: 223 *
+Push: 33 *
+Push: 106 *
+Push: 34 *
+Push: 40 *
+Push: 107 *
+Push: 132 *
+Push: 188
+Push: 224 *
+Push: 236 *
+Push: 237
+Push: 273 *
+Push: 42 *
+Push: 68 *
+Push: 66
+Push: 64
+Push: 80 *
+Push: 78
+Push: 76
+Push: 87 *
+Push: 85
+Push: 52
+Push: 83
+Push: 46
+Push: 45
+Push: 108 *
+Push: 118 *
+Push: 192 *
+Push: 205 *
+Push: 248 *
+Push: 251 *
+Push: 255
+Push: 256
+Push: 257
+Push: 258
+Push: 270 *
+Push: 35 *
+Push: 225 *
+Push: 229
+Push: 230
+Push: 228
+Push: 231
+Push: 227
+Push: 226
+Push: 109 *
+Push: 247 *
+Push: 244
+Push: 243
+Push: 245
+Push: 246
+Push: 269 *
+Push: 266
+Push: 265
+Push: 267
+Push: 268
+Push: 32 *
+Push: 36 *
+Push: 105 *
+Push: 119 *
+Push: 127 *
+Push: 190 *
+Push: 203 *
+Push: 221 *
+Push: 43 *
+Push: 44
+Push: 156
+Push: 155
+Push: 154
+Push: 140
+Push: 139
+Push: 39
+Push: 47
+Push: 38
+Push: 37
+Push: 134
+Push: 67 *
+Push: 79 *
+Push: 86 *
+Push: 110 *
+Push: 112
+Push: 113
+Push: 120
+Push: 111
+Push: 279 *
+Push: 277
+Push: 274
+Push: 278
+Push: 272
+Push: 280
+Push: 121 *
+Push: 199 *
+Push: 133
+Push: 195
+Push: 196
+Push: 197
+Push: 198
+Push: 260 *
+Push: 259
+Push: 250
+Push: 261
+Push: 262
+Push: 263
+Push: 264
+Push: 122 *
+Push: 123
+Push: 124
+Push: 125
+Push: 126
+Push: 189 *
+Push: 202 *
+Push: 211 *
+Push: 215
+Push: 216
+Push: 217
+Push: 218
+Push: 238 *
+Push: 239
+Push: 240
+Push: 241
+Push: 242
+Push: 249 *
+Push: 271 *
+Pop: 271 -> 1
+Pop: 249 -> 1
+Pop: 242 -> 0
+Pop: 241 -> 1
+Pop: 240 -> 2
+Pop: 239 -> 3
+Pop: 238 -> NO COLOR AVAILABLE
+----------------------------------------
+K = 3
+
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 48 *
+Push: 49 *
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 138 *
+Push: 137 *
+Push: 176
+Push: 50 *
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 141 *
+Push: 136 *
+Push: 174
+Push: 175
+Push: 51 *
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 135 *
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 168
+Push: 169
+Push: 170
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 128 *
+Push: 129 *
+Push: 130 *
+Push: 53 *
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 131 *
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 114 *
+Push: 204 *
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 252 *
+Push: 253
+Push: 254
+Push: 115 *
+Push: 116 *
+Push: 52 *
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 54
+Push: 55
+Push: 61
+Push: 140 *
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 160
+Push: 161
+Push: 164
+Push: 167
+Push: 171
+Push: 172
+Push: 173
+Push: 184
+Push: 185
+Push: 191 *
+Push: 193
+Push: 194
+Push: 205 *
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 222 *
+Push: 41 *
+Push: 117 *
+Push: 223 *
+Push: 273 *
+Push: 275
+Push: 276
+Push: 33 *
+Push: 106 *
+Push: 132 *
+Push: 27
+Push: 192 *
+Push: 200
+Push: 201
+Push: 34 *
+Push: 40 *
+Push: 107 *
+Push: 224 *
+Push: 236 *
+Push: 42 *
+Push: 68 *
+Push: 66
+Push: 64
+Push: 80 *
+Push: 78
+Push: 76
+Push: 87 *
+Push: 85
+Push: 83
+Push: 108 *
+Push: 118 *
+Push: 248 *
+Push: 251 *
+Push: 270 *
+Push: 35 *
+Push: 225 *
+Push: 43 *
+Push: 46
+Push: 45
+Push: 155
+Push: 154
+Push: 156
+Push: 44
+Push: 139
+Push: 109 *
+Push: 247 *
+Push: 269 *
+Push: 32 *
+Push: 36 *
+Push: 105 *
+Push: 119 *
+Push: 127 *
+Push: 190 *
+Push: 203 *
+Push: 221 *
+Push: 226 *
+Push: 229
+Push: 230
+Push: 228
+Push: 231
+Push: 227
+Push: 67 *
+Push: 79 *
+Push: 86 *
+Push: 110 *
+Push: 133 *
+Push: 188
+Push: 134
+Push: 246 *
+Push: 244
+Push: 243
+Push: 245
+Push: 258 *
+Push: 255
+Push: 256
+Push: 257
+Push: 268 *
+Push: 266
+Push: 265
+Push: 267
+Push: 279 *
+Push: 37 *
+Push: 39
+Push: 47
+Push: 38
+Push: 121 *
+Push: 238 *
+Push: 237
+Push: 260 *
+Push: 280 *
+Push: 277
+Push: 278
+Push: 274
+Push: 111 *
+Push: 112
+Push: 113
+Push: 120
+Push: 122 *
+Push: 189 *
+Push: 195 *
+Push: 202 *
+Push: 211 *
+Push: 249 *
+Push: 250 *
+Push: 259
+Push: 271 *
+Push: 123 *
+Push: 124
+Push: 125
+Push: 126
+Push: 196 *
+Push: 197
+Push: 198
+Push: 199
+Push: 215 *
+Push: 216
+Push: 217
+Push: 218
+Push: 239 *
+Push: 240
+Push: 241
+Push: 242
+Push: 261 *
+Push: 262
+Push: 263
+Push: 264
+Push: 272 *
+Pop: 272 -> 1
+Pop: 264 -> 0
+Pop: 263 -> 1
+Pop: 262 -> 2
+Pop: 261 -> NO COLOR AVAILABLE
+----------------------------------------
+K = 2
+
+Push: 48 *
+Push: 49 *
+Push: 138 *
+Push: 50 *
+Push: 71
+Push: 90
+Push: 95
+Push: 102
+Push: 137 *
+Push: 141 *
+Push: 51 *
+Push: 73
+Push: 72
+Push: 92
+Push: 91
+Push: 97
+Push: 98
+Push: 99
+Push: 96
+Push: 104
+Push: 103
+Push: 136 *
+Push: 176
+Push: 135 *
+Push: 174
+Push: 175
+Push: 53 *
+Push: 65
+Push: 69
+Push: 70
+Push: 77
+Push: 84
+Push: 88
+Push: 89
+Push: 93
+Push: 94
+Push: 100
+Push: 101
+Push: 128 *
+Push: 140 *
+Push: 143
+Push: 149
+Push: 150
+Push: 151
+Push: 152
+Push: 153
+Push: 157
+Push: 158
+Push: 159
+Push: 165
+Push: 166
+Push: 177
+Push: 178
+Push: 181
+Push: 182
+Push: 183
+Push: 129 *
+Push: 130 *
+Push: 131 *
+Push: 162
+Push: 163
+Push: 179
+Push: 180
+Push: 186
+Push: 187
+Push: 52 *
+Push: 56
+Push: 62
+Push: 63
+Push: 74
+Push: 75
+Push: 81
+Push: 82
+Push: 114 *
+Push: 204 *
+Push: 205 *
+Push: 206
+Push: 207
+Push: 208
+Push: 209
+Push: 210
+Push: 252 *
+Push: 115 *
+Push: 116 *
+Push: 191 *
+Push: 192 *
+Push: 193
+Push: 194
+Push: 222 *
+Push: 41 *
+Push: 117 *
+Push: 132 *
+Push: 139 *
+Push: 144
+Push: 145
+Push: 146
+Push: 147
+Push: 142
+Push: 148
+Push: 160
+Push: 161
+Push: 184
+Push: 185
+Push: 223 *
+Push: 273 *
+Push: 33 *
+Push: 106 *
+Push: 236 *
+Push: 251 *
+Push: 253
+Push: 254
+Push: 34 *
+Push: 40 *
+Push: 107 *
+Push: 203 *
+Push: 212
+Push: 213
+Push: 214
+Push: 219
+Push: 220
+Push: 224 *
+Push: 42 *
+Push: 68 *
+Push: 80 *
+Push: 87 *
+Push: 108 *
+Push: 118 *
+Push: 248 *
+Push: 270 *
+Push: 35 *
+Push: 225 *
+Push: 43 *
+Push: 67 *
+Push: 66
+Push: 64
+Push: 79 *
+Push: 78
+Push: 76
+Push: 86 *
+Push: 85
+Push: 83
+Push: 109 *
+Push: 133 *
+Push: 27
+Push: 190 *
+Push: 200
+Push: 201
+Push: 247 *
+Push: 269 *
+Push: 274 *
+Push: 275
+Push: 276
+Push: 32 *
+Push: 36 *
+Push: 105 *
+Push: 119 *
+Push: 221 *
+Push: 226 *
+Push: 54 *
+Push: 57
+Push: 58
+Push: 59
+Push: 60
+Push: 55
+Push: 61
+Push: 110 *
+Push: 121 *
+Push: 167 *
+Push: 168
+Push: 169
+Push: 170
+Push: 164
+Push: 246 *
+Push: 258 *
+Push: 268 *
+Push: 280 *
+Push: 37 *
+Push: 44 *
+Push: 46
+Push: 45
+Push: 122 *
+Push: 227 *
+Push: 229
+Push: 230
+Push: 231
+Push: 228
+Push: 232
+Push: 233
+Push: 234
+Push: 235
+Push: 238 *
+Push: 260 *
+Push: 111 *
+Push: 123 *
+Push: 189 *
+Push: 195 *
+Push: 202 *
+Push: 211 *
+Push: 239 *
+Push: 237
+Push: 245 *
+Push: 244
+Push: 243
+Push: 249 *
+Push: 250 *
+Push: 257 *
+Push: 255
+Push: 256
+Push: 261 *
+Push: 259
+Push: 267 *
+Push: 266
+Push: 265
+Push: 271 *
+Push: 279 *
+Push: 277
+Push: 278
+Push: 38 *
+Push: 39
+Push: 47
+Push: 124 *
+Push: 134 *
+Push: 188
+Push: 196 *
+Push: 215 *
+Push: 272 *
+Push: 112 *
+Push: 113
+Push: 120
+Push: 125 *
+Push: 126
+Push: 127
+Push: 154 *
+Push: 155
+Push: 156
+Push: 171 *
+Push: 172
+Push: 173
+Push: 197 *
+Push: 198
+Push: 199
+Push: 216 *
+Push: 217
+Push: 218
+Push: 240 *
+Push: 241
+Push: 242
+Push: 262 *
+Push: 263
+Push: 264
+Pop: 264 -> 0
+Pop: 263 -> 1
+Pop: 262 -> NO COLOR AVAILABLE
+----------------------------------------
+----------------------------------------
+Graph 27 -> K = 21: Successful Allocation
+Graph 27 -> K = 20: Successful Allocation
+Graph 27 -> K = 19: Successful Allocation
+Graph 27 -> K = 18: Successful Allocation
+Graph 27 -> K = 17: Successful Allocation
+Graph 27 -> K = 16: Successful Allocation
+Graph 27 -> K = 15: Successful Allocation
+Graph 27 -> K = 14: Successful Allocation
+Graph 27 -> K = 13: Successful Allocation
+Graph 27 -> K = 12: Successful Allocation
+Graph 27 -> K = 11: Successful Allocation
+Graph 27 -> K = 10: Successful Allocation
+Graph 27 -> K =  9: SPILL
+Graph 27 -> K =  8: SPILL
+Graph 27 -> K =  7: SPILL
+Graph 27 -> K =  6: SPILL
+Graph 27 -> K =  5: SPILL
+Graph 27 -> K =  4: SPILL
+Graph 27 -> K =  3: SPILL
+Graph 27 -> K =  2: SPILL
