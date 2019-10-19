@@ -19,10 +19,6 @@ VerNode *Graph::get_n_min_grau()
             minGrau = no->v->link_list->lenght();
             minGrauNode = no;
         }
-        if (no->v->link_list->lenght() == minGrau && atoi(no->get()->getVerticeName().c_str()) < atoi(minGrauNode->get()->getVerticeName().c_str()))
-        {
-            minGrauNode = no;
-        }
         no = no->next;
     }
 
@@ -39,10 +35,6 @@ VerNode *Graph::get_n_max_grau()
         if (no->v->link_list->lenght() > maxGrau)
         {
             maxGrau = no->v->link_list->lenght();
-            maxGrauNode = no;
-        }
-        if (no->v->link_list->lenght() == maxGrau && atoi(no->get()->getVerticeName().c_str()) < atoi(maxGrauNode->get()->getVerticeName().c_str()))
-        {
             maxGrauNode = no;
         }
         no = no->next;
@@ -117,14 +109,12 @@ Graph *Graph::remove_and_rebuild(VerNode *vert, int k)
         {
             if (no_interno->value.compare(vert->get()->getVerticeName()) == 0)
             {
-                // cout << "got" << endl;
                 copy_root->v->link_list->removeNode(no_interno);
             }
             no_interno = no_interno->next;
         }
         copy_root = copy_root->next;
     }
-    ord_by_grau();
 
     return this;
 }

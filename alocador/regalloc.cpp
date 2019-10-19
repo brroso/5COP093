@@ -54,6 +54,7 @@ void build_line(string s) // CRIA O GRAFO
         top_vert->insertLink(vert);
         s.erase(0, pos + delimiter.length());
     }
+    s.erase(s.size() - 1);
     Vertice vert(s);
     top_vert->insertLink(vert);
     grafo->adj_list->insertVertice(top_vert);
@@ -85,29 +86,24 @@ int main(int argc, char const *argv[])
     }
 
     grafo->adj_list->removeLast(); // CIN PEGA 2X A ULTIMA LINHA
-
     // Começa o algoritmo
     
     int k = cores;
 
-    Graph *ordenado = new Graph;
-    VerNode *noOrdenado;
+    Graph *grafo_aux = new Graph;
     VerNode *min;
 
     for (k; k > 1; k--)
     {
         cout << "K = " + to_string(k) + "\n" << endl;
-
-        ordenado = grafo->ord_by_grau();
-
-        min = ordenado->get_n_min_grau();
-        noOrdenado = ordenado->adj_list->head;
+        grafo_aux = grafo->get_copy();
+        min = grafo_aux->get_n_min_grau();
 
 
         while (min) // FAZ O PUSH
         {
-            min = ordenado->get_n_min_grau();
-            ordenado = ordenado->remove_and_rebuild(min, k);
+            min = grafo_aux->get_n_min_grau();
+            grafo_aux = grafo_aux->remove_and_rebuild(min, k);
         }
     }
 }
