@@ -84,6 +84,7 @@ Graph *Graph::remove_and_rebuild(VerNode *vert, int k)
 {
 
     VerNode *copy_root = adj_list->head;
+    string to_remove;
     while(copy_root)
     {
         if (copy_root->get()->getVerticeName().compare(vert->get()->getVerticeName()) == 0)
@@ -91,13 +92,15 @@ Graph *Graph::remove_and_rebuild(VerNode *vert, int k)
             if (copy_root->get()->getVerticeLinks()->lenght() >= k)
             {
                 vert = get_n_max_grau();
+                to_remove = vert->get()->getVerticeName();
                 adj_list->removeVerNode(vert);
-                cout << "Push: " + vert->get()->getVerticeName() + " *" << endl;
+                cout << "Push: " + vert->get()->getVerticeName() + " * " + to_string(copy_root->get()->getVerticeLinks()->lenght()  ) << endl;
             }
             else{
                 copy_root = adj_list->head;
                 adj_list->removeVerNode(vert);
                 cout << "Push: " + vert->get()->getVerticeName() << endl;
+                to_remove = vert->get()->getVerticeName();
             }
         }
         if (adj_list->head == NULL)
@@ -107,13 +110,30 @@ Graph *Graph::remove_and_rebuild(VerNode *vert, int k)
         Node *no_interno = copy_root->v->link_list->head;
         while (no_interno) // RODA OS VÉRTICES
         {
-            if (no_interno->value.compare(vert->get()->getVerticeName()) == 0)
+            if (no_interno->value.compare(to_remove) == 0)
             {
                 copy_root->v->link_list->removeNode(no_interno);
             }
             no_interno = no_interno->next;
         }
         copy_root = copy_root->next;
+    }
+
+    VerNode *no = adj_list->head; // PRINT GRAFO TESTE
+
+    while (no) // RODA AS CABEÇAS
+    {
+        cout << no->v->name + " -->";
+        Node *no_interno = no->v->link_list->head;
+        cout << "GRAU: " << to_string(no->v->link_list->lenght()) << " || ";
+        while (no_interno) // RODA OS VÉRTICES
+        {
+            cout << " ";
+            cout << no_interno->value;
+            no_interno = no_interno->next;
+        }
+        no = no->next;
+        cout << endl;
     }
 
     return this;
