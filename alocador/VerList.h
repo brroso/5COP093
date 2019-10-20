@@ -32,6 +32,7 @@ public:
     Vertice *get();
     VerNode *getNext();
     void setValue(Vertice v);
+    ~VerNode();
 };
 
 class VerList

@@ -62,7 +62,6 @@ void build_line(string s) // CRIA O GRAFO
 
 int main(int argc, char const *argv[])
 {
-
     grafo = new Graph;
     string line;
     int count;
@@ -94,7 +93,7 @@ int main(int argc, char const *argv[])
     VerNode *min;
     VerList *stack = new VerList;
 
-    for (k; k > 1; k--)
+    for (k; k > 1; k--) // SIMPLIFY
     {
         cout << "K = " + to_string(k) + "\n" << endl;
         grafo_aux = grafo->get_copy();
@@ -110,16 +109,23 @@ int main(int argc, char const *argv[])
         VerNode *node;
         node = stack->tail;
 
-        while (node)
+        while (node) // FAZ O POP DA STACK
         {
-            cout << "Pop: " + node->get()->getVerticeName() << endl;
+            cout << "Pop: " + node->get()->getVerticeName();
+            Node *no_interno = node->v->link_list->head;
+            cout << " ||";
+            while (no_interno) // RODA OS VÉRTICES
+            {
+                cout << " ";
+                cout << no_interno->value;
+                no_interno = no_interno->next;
+            }
+            cout << endl;
             node = node->previous;
         }
 
         cout << "----------------------------------------" << endl;
     }
-
-    
 }
 
 /*

@@ -19,9 +19,13 @@ VerNode *Graph::get_n_min_grau()
             minGrau = no->v->link_list->lenght();
             minGrauNode = no;
         }
+        else if (no->v->link_list->lenght() == minGrau && atoi(no->v->getVerticeName().c_str()) < atoi(minGrauNode->get()->getVerticeName().c_str()))
+        {
+            minGrau = no->v->link_list->lenght();
+            minGrauNode = no;
+        }
         no = no->next;
     }
-
     return minGrauNode;
 }
 
@@ -37,9 +41,13 @@ VerNode *Graph::get_n_max_grau()
             maxGrau = no->v->link_list->lenght();
             maxGrauNode = no;
         }
+        else if (no->v->link_list->lenght() == maxGrau && atoi(no->v->getVerticeName().c_str()) < atoi(maxGrauNode->get()->getVerticeName().c_str()))
+        {
+            maxGrau = no->v->link_list->lenght();
+            maxGrauNode = no;
+        }
         no = no->next;
     }
-
     return maxGrauNode;
 }
 
@@ -60,24 +68,7 @@ Graph *Graph::get_copy()
         copy->adj_list->insertVertice(top_vert);
         org_root = org_root->next;
     }
-
     return copy;
-}
-
-Graph *Graph::ord_by_grau()
-{
-    Graph *copy = new Graph;
-    copy = get_copy();
-    Graph *ordenado = new Graph;
-    VerNode *org_root = copy->adj_list->head;
-    while(org_root)
-    {
-        ordenado->adj_list->insertVertice(copy->get_n_min_grau()->get());
-        copy->adj_list->removeVerNode(copy->get_n_min_grau());
-        org_root = copy->adj_list->head;
-    }
-
-    return ordenado;
 }
 
 Graph *Graph::remove_and_rebuild(VerNode *vert, int k, VerList *stack)
@@ -123,7 +114,7 @@ Graph *Graph::remove_and_rebuild(VerNode *vert, int k, VerList *stack)
         copy_root = copy_root->next;
     }
 
-    VerNode *no = adj_list->head; // PRINT GRAFO TESTE
+    //VerNode *no = adj_list->head; // PRINT GRAFO TESTE
 
     /*while (no) // RODA AS CABEÇAS
     {

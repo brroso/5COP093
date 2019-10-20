@@ -88,6 +88,13 @@ VerNode *VerList::popVert()
     return node;
 }
 
+VerNode::~VerNode()
+{
+    delete []v;
+    delete []next;
+    delete []previous;
+}
+
 /* FUNCOES NODE ========================================================================== */
 
 VerNode::VerNode()
