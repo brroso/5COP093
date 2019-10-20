@@ -1,5 +1,9 @@
-############################# Makefile ##########################
-all: regalloc
-regalloc: list.o graph.o VerList.o 
-	g++ -g -std=c++17 list.cpp graph.cpp VerList.cpp regalloc.cpp -o regalloc
-	rm -rf *.o
+CXX = g++
+CXXFLAGS = -std=c++0x -Wall
+
+OBJECTS = regalloc.o list.o VerList.o graph.o
+
+regalloc: $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+$(OBJECTS): regalloc.cpp list.cpp VerList.cpp graph.cpp
