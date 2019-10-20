@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++0x
+CXXFLAGS = -std=c++17
 
 OBJECTS = regalloc.o list.o VerList.o graph.o
 
