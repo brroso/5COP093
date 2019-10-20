@@ -60,6 +60,87 @@ void build_line(string s) // CRIA O GRAFO
     grafo->adj_list->insertVertice(top_vert);
 }
 
+int getMinFromAvColors(int *avColors, int k)
+{
+    int min = 9999;
+    for (int i = 0; i < k; i++)
+    {
+        if (avColors[i] >= 0 && avColors[i] < min)
+        {
+            min = avColors[i];
+        }
+    }
+    return min;
+}
+
+int isAvailable(int *avColors, string vname, int k)
+{
+    int ret = 0;
+    for (int i = 0; i < k; i++)
+    {
+        if (to_string(avColors[i]).compare(vname) == 0)
+        {
+            ret = 1;
+        }
+    }
+    return ret;
+}
+
+void removeFromAvColors(int *avColors, string vname, int k)
+{
+    for (int i = 0; i < k; i++)
+    {
+        if (to_string(avColors[i]).compare(vname) == 0)
+        {
+            avColors[i] = -1;
+        }
+    }
+}
+
+string assign(VerNode *node, VerList *stack, int k)
+{
+    int *avColors = (int *) malloc(sizeof(int) * k);
+
+    for (int i = 0; i < k; i++)
+    {
+        avColors[i] = i;
+    }
+
+    Node *auxNode = node->get()->getVerticeLinks()->head;
+
+    while(auxNode)
+    {
+        if (isAvailable(avColors, auxNode->get(), k))
+        {
+            removeFromAvColors(avColors, auxNode->get(), k);
+        }
+        auxNode = auxNode->next;
+    }
+
+    int ret = getMinFromAvColors(avColors, k);
+
+    VerNode *auxNodeStack = stack->tail;
+
+    while (auxNodeStack) // MUDA A REFERENCIA PELO VALOR
+    {
+        Node *no_interno = auxNodeStack->v->link_list->head;
+        while (no_interno) // RODA OS VÉRTICES
+        {
+            if (no_interno->get().compare(node->get()->getVerticeName()) == 0)
+            {
+                no_interno->setValue(to_string(ret));  
+            }
+            no_interno = no_interno->next;
+        }
+        auxNodeStack = auxNodeStack->previous;
+    }
+
+    free(avColors);
+
+    return to_string(ret);
+
+}
+
 int main(int argc, char const *argv[])
 {
     grafo = new Graph;
@@ -89,12 +170,15 @@ int main(int argc, char const *argv[])
     
     int k = cores;
 
+    int *result = (int *) malloc(sizeof(int *) * cores - 2);
+
     Graph *grafo_aux = new Graph;
     VerNode *min;
-    VerList *stack = new VerList;
 
     for (k; k > 1; k--) // SIMPLIFY
     {
+        result[k-2] = 1;
+        VerList *stack = new VerList;
         cout << "K = " + to_string(k) + "\n" << endl;
         grafo_aux = grafo->get_copy();
         min = grafo_aux->get_n_min_grau();
@@ -109,23 +193,48 @@ int main(int argc, char const *argv[])
         VerNode *node;
         node = stack->tail;
 
-        while (node) // FAZ O POP DA STACK
+        while (node) // ASSIGN
         {
-            cout << "Pop: " + node->get()->getVerticeName();
-            Node *no_interno = node->v->link_list->head;
-            cout << " ||";
-            while (no_interno) // RODA OS VÉRTICES
+            string color = assign(node, stack, k);
+            if (atoi(color.c_str()) == 9999)
             {
-                cout << " ";
-                cout << no_interno->value;
-                no_interno = no_interno->next;
+                cout << "Pop: " + node->get()->getVerticeName() + " -> " + "NO COLOR AVAILABLE" << endl;
+                result[k-2] = 0;
+                break;
+            }else{
+                cout << "Pop: " + node->get()->getVerticeName() + " -> " + color << endl;
             }
-            cout << endl;
             node = node->previous;
         }
 
         cout << "----------------------------------------" << endl;
     }
+
+    cout << "----------------------------------------" << endl;
+
+    for (int i = cores; i > 1; i--)
+    {
+        if ( i >= 10)
+        {
+            if (result[i-2] == 1){
+            cout << nome_grafo + " -> " + "K = " + to_string(i) + ": Successful Allocation";
+            }else{
+                cout << nome_grafo + " -> " + "K = " + to_string(i) + ": SPILL";
+            }
+        }else
+        {
+            if (result[i-2] == 1){
+            cout << nome_grafo + " -> " + "K =  " + to_string(i) + ": Successful Allocation";
+            }else{
+                cout << nome_grafo + " -> " + "K =  " + to_string(i) + ": SPILL";
+            }
+        }
+        if (i != 2)
+        {
+            cout << endl;
+        }
+    }
+
 }
 
 /*
