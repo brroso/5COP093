@@ -63,7 +63,8 @@ void build_line(string s) // CRIA O GRAFO
 int getMinFromAvColors(int *avColors, int k)
 {
     int min = 9999;
-    for (int i = 0; i < k; i++)
+    int i;
+    for (i = 0; i < k; i++)
     {
         if (avColors[i] >= 0 && avColors[i] < min)
         {
@@ -76,7 +77,8 @@ int getMinFromAvColors(int *avColors, int k)
 int isAvailable(int *avColors, string vname, int k)
 {
     int ret = 0;
-    for (int i = 0; i < k; i++)
+    int i;
+    for (i = 0; i < k; i++)
     {
         if (to_string(avColors[i]).compare(vname) == 0)
         {
@@ -88,7 +90,8 @@ int isAvailable(int *avColors, string vname, int k)
 
 void removeFromAvColors(int *avColors, string vname, int k)
 {
-    for (int i = 0; i < k; i++)
+    int i;
+    for (i = 0; i < k; i++)
     {
         if (to_string(avColors[i]).compare(vname) == 0)
         {
@@ -101,7 +104,9 @@ string assign(VerNode *node, VerList *stack, int k)
 {
     int *avColors = (int *) malloc(sizeof(int) * k);
 
-    for (int i = 0; i < k; i++)
+    int i;
+
+    for (i = 0; i < k; i++)
     {
         avColors[i] = i;
     }
@@ -212,7 +217,9 @@ int main(int argc, char const *argv[])
 
     cout << "----------------------------------------" << endl;
 
-    for (int i = cores; i > 1; i--)
+    int i;
+
+    for (i = cores; i > 1; i--)
     {
         if ( i >= 10)
         {
