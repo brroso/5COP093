@@ -80,7 +80,7 @@ Graph *Graph::ord_by_grau()
     return ordenado;
 }
 
-Graph *Graph::remove_and_rebuild(VerNode *vert, int k)
+Graph *Graph::remove_and_rebuild(VerNode *vert, int k, VerList *stack)
 {
 
     VerNode *copy_root = adj_list->head;
@@ -92,11 +92,13 @@ Graph *Graph::remove_and_rebuild(VerNode *vert, int k)
             {
                 vert = get_n_max_grau();
                 adj_list->removeVerNode(vert);
+                stack->insertVertice(vert->get());
                 cout << "Push: " + vert->get()->getVerticeName() + " *"<< endl;
             }
             else{
                 copy_root = adj_list->head;
                 adj_list->removeVerNode(vert);
+                stack->insertVertice(vert->get());
                 cout << "Push: " + vert->get()->getVerticeName() << endl;
             }
         }

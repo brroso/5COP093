@@ -16,7 +16,7 @@ class Graph
         VerNode *get_n_max_grau();
         Graph *get_copy();
         Graph *ord_by_grau();
-        Graph *remove_and_rebuild(VerNode *vert, int k);
+        Graph *remove_and_rebuild(VerNode *vert, int k, VerList *stack);
 };
 
 #endif

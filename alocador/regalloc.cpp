@@ -92,6 +92,7 @@ int main(int argc, char const *argv[])
 
     Graph *grafo_aux = new Graph;
     VerNode *min;
+    VerList *stack = new VerList;
 
     for (k; k > 1; k--)
     {
@@ -103,9 +104,22 @@ int main(int argc, char const *argv[])
         while (min) // FAZ O PUSH
         {
             min = grafo_aux->get_n_min_grau();
-            grafo_aux = grafo_aux->remove_and_rebuild(min, k);
+            grafo_aux = grafo_aux->remove_and_rebuild(min, k, stack);
         }
+
+        VerNode *node;
+        node = stack->tail;
+
+        while (node)
+        {
+            cout << "Pop: " + node->get()->getVerticeName() << endl;
+            node = node->previous;
+        }
+
+        cout << "----------------------------------------" << endl;
     }
+
+    
 }
 
 /*
