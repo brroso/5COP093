@@ -9,4 +9,4 @@ regalloc: $(OBJECTS)
 $(OBJECTS): regalloc.cpp list.cpp VerList.cpp graph.cpp
 
 clean:
-	rm *.omak
+	rm *.o
