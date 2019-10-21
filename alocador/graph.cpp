@@ -18,14 +18,14 @@ VerNode *Graph::get_n_min_grau()
         {
             minGrau = no->v->link_list->lenght();
             minGrauNode = no;
-        }
-        else if (no->v->link_list->lenght() == minGrau && atoi(no->v->getVerticeName().c_str()) < atoi(minGrauNode->get()->getVerticeName().c_str()))
+        }else if(no->v->link_list->lenght() == minGrau && atoi(no->v->getVerticeName().c_str()) < atoi(minGrauNode->get()->getVerticeName().c_str()))
         {
             minGrau = no->v->link_list->lenght();
             minGrauNode = no;
         }
         no = no->next;
     }
+
     return minGrauNode;
 }
 
@@ -132,5 +132,5 @@ Graph *Graph::remove_and_rebuild(VerNode *vert, int k, VerList *stack)
     }
     */
 
-    return this;
+                return this;
 }

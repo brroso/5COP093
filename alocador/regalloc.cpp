@@ -54,7 +54,10 @@ void build_line(string s) // CRIA O GRAFO
         top_vert->insertLink(vert);
         s.erase(0, pos + delimiter.length());
     }
-    s.erase(s.size() - 1);
+    if (s.c_str()[s.size() - 1] == '\n' or s.c_str()[s.size() - 1] == ' ')
+    {
+        s.erase(s.size() - 1);
+    }
     Vertice vert(s);
     top_vert->insertLink(vert);
     grafo->adj_list->insertVertice(top_vert);
