@@ -114,23 +114,5 @@ Graph *Graph::remove_and_rebuild(VerNode *vert, int k, VerList *stack)
         copy_root = copy_root->next;
     }
 
-    //VerNode *no = adj_list->head; // PRINT GRAFO TESTE
-
-    /*while (no) // RODA AS CABEÇAS
-    {
-        cout << no->v->name + " -->";
-        Node *no_interno = no->v->link_list->head;
-        cout << "GRAU: " << to_string(no->v->link_list->lenght()) << " || ";
-        while (no_interno) // RODA OS VÉRTICES
-        {
-            cout << " ";
-            cout << no_interno->value;
-            no_interno = no_interno->next;
-        }
-        no = no->next;
-        cout << endl;
-    }
-    */
-
-                return this;
+    return this;
 }
